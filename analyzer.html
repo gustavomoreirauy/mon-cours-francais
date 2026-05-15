@@ -7,36 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
 <style>
-  :root {
-    --bg: #FAF6EC;
-    --bg-deep: #F0E8D4;
-    --paper: #FFFFFF;
-    --ink: #0F1419;
-    --ink-soft: #3D4651;
-    --ink-faint: #8B95A1;
-    --rule: #D6CDB8;
-
-    --primary: #1E40AF;
-    --primary-soft: #3B82F6;
-    --secondary: #EA580C;
-    --secondary-soft: #FB923C;
-    --tertiary: #059669;
-    --tertiary-soft: #34D399;
-    --accent: #DB2777;
-    --accent-soft: #F472B6;
-    --gold: #CA8A04;
-    --gold-soft: #FACC15;
-    --plum: #7C3AED;
-    --plum-soft: #A78BFA;
-
-    --serif-display: 'Fraunces', serif;
-    --serif-body: 'Spectral', Georgia, serif;
-    --mono: 'JetBrains Mono', ui-monospace, monospace;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  :root { --page-accent: var(--primary); }
 
   body {
     font-family: var(--serif-body);
@@ -52,44 +25,12 @@
     min-height: 100vh;
   }
 
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.10 0 0 0 0 0.08 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.3;
-    mix-blend-mode: multiply;
-    z-index: 1;
-  }
-
-  main, header.hero, footer { position: relative; z-index: 2; }
-
   /* ===== HERO ===== */
   header.hero {
     padding: 4rem 2rem 2.5rem;
     max-width: 1280px;
     margin: 0 auto;
     border-bottom: 1px solid var(--rule);
-  }
-
-  .kicker {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--primary);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-weight: 600;
-  }
-  .kicker::before {
-    content: "";
-    width: 32px;
-    height: 2px;
-    background: var(--primary);
   }
 
   h1.title {
@@ -102,21 +43,12 @@
     margin-bottom: 1.25rem;
     font-variation-settings: "opsz" 144;
   }
-  h1.title em {
-    font-style: normal;
-    font-weight: 600;
-    color: var(--primary);
-    font-variation-settings: "opsz" 144;
-  }
-
   .lede {
     font-size: 1.12rem;
     line-height: 1.55;
     color: var(--ink-soft);
     max-width: 65ch;
   }
-  .lede strong { color: var(--primary); font-weight: 700; }
-
   /* ===== MAIN ===== */
   main {
     max-width: 1280px;
@@ -184,63 +116,6 @@
     flex-wrap: wrap;
     gap: 0.75rem;
     align-items: center;
-  }
-
-  .btn {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding: 0.7rem 1.25rem;
-    border-radius: 3px;
-    cursor: pointer;
-    border: 1.5px solid transparent;
-    transition: all 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .btn-primary {
-    background: var(--primary);
-    color: white;
-  }
-  .btn-primary:hover {
-    background: var(--primary-soft);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px -8px rgba(30, 64, 175, 0.55);
-  }
-  .btn-primary:disabled {
-    background: var(--ink-faint);
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-  }
-  .btn-secondary {
-    background: transparent;
-    color: var(--ink-soft);
-    border-color: var(--rule);
-  }
-  .btn-secondary:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-  }
-  .btn-play {
-    background: var(--secondary);
-    color: white;
-  }
-  .btn-play:hover {
-    background: var(--secondary-soft);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px -8px rgba(234, 88, 12, 0.55);
-  }
-  .btn-play.playing {
-    background: var(--tertiary);
-    animation: pulse-btn 1.2s infinite;
-  }
-  @keyframes pulse-btn {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.5); }
-    50% { box-shadow: 0 0 0 12px rgba(5, 150, 105, 0); }
   }
 
   /* ===== EXAMPLES ===== */
@@ -658,30 +533,6 @@
     text-transform: uppercase;
   }
 
-  /* ===== AUDIO STATUS ===== */
-  .audio-status {
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    background: var(--ink);
-    color: var(--paper);
-    padding: 0.85rem 1.25rem;
-    border-radius: 3px;
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s;
-    z-index: 100;
-    border-left: 4px solid var(--primary);
-    max-width: 320px;
-    font-weight: 500;
-  }
-  .audio-status.show { opacity: 1; transform: translateY(0); }
-  .audio-status.warn { border-left-color: var(--secondary); }
-
   /* ===== FOOTER ===== */
   footer {
     max-width: 1280px;
@@ -735,8 +586,6 @@
     .notes-panel { padding: 1.25rem; }
   }
 
-  /* === NO ITALIC OVERRIDE === */
-  em, i, .italic { font-style: normal !important; }
 </style>
 </head>
 <body>
@@ -836,6 +685,7 @@
 
 <div class="audio-status" id="audioStatus"></div>
 
+<script src="shared.js"></script>
 <script>
 /* ============================================================
    FRENCH G2P ENGINE — local, rule-based
@@ -1795,10 +1645,6 @@ function labelText(l) {
   }[l] || l;
 }
 
-function escapeHtml(s) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
-
 btnAnalyze.addEventListener('click', () => doAnalyze(input.value));
 input.addEventListener('keydown', (e) => {
   if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
@@ -1877,71 +1723,8 @@ historyClear.addEventListener('click', () => {
 renderHistory();
 
 /* ============================================================
-   AUDIO (hybrid Web Speech + Google TTS fallback)
+   AUDIO — handled by shared.js
    ============================================================ */
-const audioStatus = $('audioStatus');
-let frenchVoice = null;
-let firstClick = true;
-let currentAudio = null;
-
-function showStatus(msg, warn) {
-  audioStatus.textContent = msg;
-  audioStatus.className = 'audio-status show' + (warn ? ' warn' : '');
-  setTimeout(() => audioStatus.classList.remove('show'), 4000);
-}
-
-function pickFrenchVoice() {
-  if (!('speechSynthesis' in window)) return null;
-  const voices = speechSynthesis.getVoices();
-  if (!voices.length) return null;
-  let v = voices.find(v => v.lang === 'fr-FR');
-  if (!v) v = voices.find(v => v.lang === 'fr-CA');
-  if (!v) v = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('fr'));
-  return v || null;
-}
-
-if ('speechSynthesis' in window) {
-  frenchVoice = pickFrenchVoice();
-  speechSynthesis.onvoiceschanged = () => { frenchVoice = pickFrenchVoice(); };
-  setTimeout(() => { frenchVoice = pickFrenchVoice(); }, 500);
-}
-
-function speakViaGoogle(text, btn) {
-  if (currentAudio) { try { currentAudio.pause(); } catch(e){} currentAudio = null; }
-  const url = 'https://translate.google.com/translate_tts?ie=UTF-8&q=' + encodeURIComponent(text) + '&tl=fr&client=tw-ob';
-  const audio = new Audio(url);
-  currentAudio = audio;
-  if (btn) btn.classList.add('playing');
-  const cleanup = () => { if (btn) btn.classList.remove('playing'); };
-  audio.onended = cleanup; audio.onpause = cleanup;
-  audio.onerror = () => { cleanup(); showStatus('Audio no disponible. Revisá conexión.', true); };
-  const p = audio.play();
-  if (p && p.catch) p.catch(() => { cleanup(); showStatus('Audio bloqueado por el navegador', true); });
-}
-
-function speakViaWebSpeech(text, btn) {
-  speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'fr-FR'; u.rate = 0.85; u.pitch = 1.0;
-  if (frenchVoice) u.voice = frenchVoice;
-  if (btn) {
-    btn.classList.add('playing');
-    u.onend = () => btn.classList.remove('playing');
-    u.onerror = () => btn.classList.remove('playing');
-  }
-  speechSynthesis.speak(u);
-}
-
-function speak(text, btn) {
-  if (!frenchVoice && 'speechSynthesis' in window) frenchVoice = pickFrenchVoice();
-  if (frenchVoice) {
-    speakViaWebSpeech(text, btn);
-    if (firstClick) { showStatus('Audio: voz nativa · ' + (frenchVoice.name || 'fr-FR')); firstClick = false; }
-    return;
-  }
-  speakViaGoogle(text, btn);
-  if (firstClick) { showStatus('Audio: Google TTS · requiere internet'); firstClick = false; }
-}
 
 document.addEventListener('click', (e) => {
   const btn = e.target.closest('[data-text], #btn-play-input, #btn-play-result');
