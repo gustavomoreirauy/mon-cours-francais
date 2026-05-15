@@ -1,0 +1,247 @@
+/* ========================================
+   SHARED — Mon cours de français
+   ======================================== */
+
+/* === CSS VARIABLES === */
+:root {
+  --bg: #FAF6EC;
+  --bg-deep: #F0E8D4;
+  --bg-card: #FFFFFF;
+  --paper: #FFFFFF;
+  --ink: #0F1419;
+  --ink-soft: #3D4651;
+  --ink-faint: #8B95A1;
+  --rule: #D6CDB8;
+  --rule-soft: #E5DCC8;
+
+  --primary: #1E40AF;
+  --primary-soft: #3B82F6;
+  --primary-deep: #1E3A8A;
+  --secondary: #EA580C;
+  --secondary-soft: #FB923C;
+  --tertiary: #059669;
+  --tertiary-soft: #34D399;
+  --accent: #DB2777;
+  --accent-soft: #F472B6;
+  --gold: #CA8A04;
+  --gold-soft: #FACC15;
+  --plum: #7C3AED;
+  --plum-soft: #A78BFA;
+
+  /* Legacy aliases (used in cheatsheet) */
+  --wine: var(--primary);
+  --wine-soft: var(--primary-soft);
+  --ochre: var(--secondary);
+  --ochre-soft: var(--secondary-soft);
+  --sage: var(--tertiary);
+  --sage-soft: var(--tertiary-soft);
+  --teal: var(--accent);
+  --teal-soft: var(--accent-soft);
+
+  --serif-display: 'Fraunces', 'Times New Roman', serif;
+  --serif-body: 'Spectral', Georgia, serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Per-page accent color — override in each page's <style> */
+  --page-accent: var(--primary);
+}
+
+/* === RESETS === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+/* === BASE BODY === */
+body {
+  font-family: var(--serif-body);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 17px;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 15% 8%, rgba(30, 64, 175, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 85% 65%, rgba(234, 88, 12, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(5, 150, 105, 0.04) 0%, transparent 45%);
+}
+
+/* Paper grain overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.10 0 0 0 0 0.08 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.3;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+/* === Z-INDEX STACKING === */
+main,
+header.hero,
+nav.top-nav,
+nav.sticky-nav,
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* === KICKER === */
+.kicker {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--page-accent);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+.kicker::before {
+  content: "";
+  width: 32px;
+  height: 2px;
+  background: var(--page-accent);
+}
+
+/* === TITLE === */
+h1.title {
+  font-family: var(--serif-display);
+  font-weight: 500;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+  font-variation-settings: "opsz" 144;
+}
+h1.title em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--page-accent);
+  font-variation-settings: "opsz" 144;
+}
+
+/* === LEDE === */
+.lede {
+  font-size: 1.12rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 65ch;
+}
+.lede strong { color: var(--page-accent); font-weight: 700; }
+
+/* === BUTTONS === */
+.btn {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.7rem 1.25rem;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover {
+  background: var(--primary-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -8px rgba(30, 64, 175, 0.55);
+}
+.btn-primary:disabled {
+  background: var(--ink-faint);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.btn-secondary { background: transparent; color: var(--ink-soft); border-color: var(--rule); }
+.btn-secondary:hover { border-color: var(--page-accent); color: var(--page-accent); }
+.btn-play { background: var(--secondary); color: white; }
+.btn-play:hover {
+  background: var(--secondary-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -8px rgba(234, 88, 12, 0.55);
+}
+.btn-play.playing { background: var(--tertiary); animation: pulse-btn 1.2s infinite; }
+@keyframes pulse-btn {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.5); }
+  50%       { box-shadow: 0 0 0 12px rgba(5, 150, 105, 0); }
+}
+
+/* === AUDIO STATUS TOAST === */
+.audio-status {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.85rem 1.25rem;
+  border-radius: 3px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s;
+  z-index: 100;
+  border-left: 4px solid var(--page-accent);
+  max-width: 320px;
+  font-weight: 500;
+}
+.audio-status.show { opacity: 1; transform: translateY(0); }
+.audio-status.warn { border-left-color: var(--secondary); }
+
+/* === FOOTER CONTENT === */
+footer .colophon {
+  font-style: normal;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  max-width: 60ch;
+  line-height: 1.5;
+}
+footer .back-link {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: gap 0.2s;
+}
+footer .back-link::before { content: "←"; }
+footer .back-link:hover { gap: 0.85rem; }
+
+/* === ANIMATIONS === */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* === NO-ITALIC OVERRIDE === */
+em, i, .italic { font-style: normal !important; }
+
+/* === RESPONSIVE BASE === */
+@media (max-width: 768px) {
+  header.hero { padding: 3rem 1.25rem 2rem; }
+}

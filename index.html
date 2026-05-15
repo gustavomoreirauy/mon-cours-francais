@@ -4,82 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Laboratorio personal para aprender fonética francesa desde cero, optimizado para hispanohablantes rioplatenses.">
   <title>Mon cours de français · portada</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
   <style>
-    :root {
-      --bg: #FAF6EC;
-      --bg-deep: #F0E8D4;
-      --paper: #FFFFFF;
-      --ink: #0F1419;
-      --ink-soft: #3D4651;
-      --ink-faint: #8B95A1;
-      --rule: #D6CDB8;
-
-      --primary: #1E40AF;
-      --primary-soft: #3B82F6;
-      --secondary: #EA580C;
-      --secondary-soft: #FB923C;
-      --tertiary: #059669;
-      --tertiary-soft: #34D399;
-      --accent: #DB2777;
-      --accent-soft: #F472B6;
-      --gold: #CA8A04;
-      --gold-soft: #FACC15;
-      --plum: #7C3AED;
-      --plum-soft: #A78BFA;
-
-      --serif-display: 'Fraunces', serif;
-      --serif-body: 'Spectral', Georgia, serif;
-      --mono: 'JetBrains Mono', ui-monospace, monospace;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 4rem;
-    }
+    :root { --page-accent: var(--primary); }
 
     body {
-      font-family: var(--serif-body);
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
-      font-size: 17px;
-      overflow-x: hidden;
+      min-height: unset;
       background-image:
         radial-gradient(circle at 12% 8%, rgba(30, 64, 175, 0.06) 0%, transparent 50%),
         radial-gradient(circle at 88% 28%, rgba(234, 88, 12, 0.05) 0%, transparent 45%),
         radial-gradient(circle at 70% 75%, rgba(5, 150, 105, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 25% 95%, rgba(124, 58, 237, 0.04) 0%, transparent 45%);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.10 0 0 0 0 0.08 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      opacity: 0.32;
-      mix-blend-mode: multiply;
-      z-index: 1;
-    }
-
-    main,
-    header.hero,
-    nav.top-nav,
-    footer {
-      position: relative;
-      z-index: 2;
     }
 
     /* ===== TOP NAV ===== */
@@ -851,12 +794,6 @@
       }
     }
 
-    /* === NO ITALIC OVERRIDE === */
-    em,
-    i,
-    .italic {
-      font-style: normal !important;
-    }
   </style>
 </head>
 
