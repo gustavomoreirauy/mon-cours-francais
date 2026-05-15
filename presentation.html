@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ma présentation · Mon cours de français</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Spectral:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* === NO ITALIC OVERRIDE === */
+  em, i { font-style: normal !important; }
+
+  :root {
+    --bg: #FAF6EC;
+    --bg-deep: #F0E8D4;
+    --paper: #FFFFFF;
+    --ink: #0F1419;
+    --ink-soft: #3D4651;
+    --ink-faint: #8B95A1;
+    --rule: #D6CDB8;
+
+    --primary: #1E40AF;
+    --primary-soft: #3B82F6;
+    --secondary: #EA580C;
+    --secondary-soft: #FB923C;
+    --tertiary: #059669;
+    --tertiary-soft: #34D399;
+    --accent: #DB2777;
+    --accent-soft: #F472B6;
+    --gold: #CA8A04;
+    --gold-soft: #FACC15;
+    --plum: #7C3AED;
+    --plum-soft: #A78BFA;
+
+    --serif-display: 'Fraunces', serif;
+    --serif-body: 'Spectral', Georgia, serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 3rem; }
+
+  body {
+    font-family: var(--serif-body);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 17px;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(124, 58, 237, 0.05) 0%, transparent 45%),
+      radial-gradient(circle at 85% 65%, rgba(234, 88, 12, 0.05) 0%, transparent 45%),
+      radial-gradient(circle at 50% 100%, rgba(5, 150, 105, 0.04) 0%, transparent 45%);
+    min-height: 100vh;
+  }
+  body::before {
+    content: "";
+    position: fixed; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.10 0 0 0 0 0.08 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.3; mix-blend-mode: multiply; z-index: 1;
+  }
+  main, header.hero, footer { position: relative; z-index: 2; }
+
+  /* ===== HERO ===== */
+  header.hero {
+    padding: 4rem 2rem 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--rule);
+  }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--plum);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+  }
+  .kicker::before { content: ""; width: 32px; height: 2px; background: var(--plum); }
+
+  h1.title {
+    font-family: var(--serif-display);
+    font-weight: 500;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+  h1.title .accent { color: var(--plum); font-weight: 700; }
+
+  .lede {
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+  .lede strong { color: var(--plum); font-weight: 700; }
+
+  /* ===== MAIN LAYOUT ===== */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* ===== FORM PANEL ===== */
+  .form-panel {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--plum);
+    border-radius: 4px;
+    padding: 2rem 1.75rem;
+    position: sticky;
+    top: 2rem;
+  }
+
+  .form-section {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .form-section:last-of-type { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+  .form-section-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--plum);
+    font-weight: 700;
+    margin-bottom: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .form-section-label .req {
+    color: var(--secondary);
+    font-size: 0.75rem;
+    letter-spacing: 0;
+  }
+  .form-section-label .opt {
+    color: var(--ink-faint);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    font-size: 0.6rem;
+  }
+
+  .field {
+    margin-bottom: 1rem;
+  }
+  .field:last-child { margin-bottom: 0; }
+
+  .field label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .field input[type="text"],
+  .field input[type="number"],
+  .field textarea,
+  .field select {
+    width: 100%;
+    border: 1.5px solid var(--rule);
+    background: var(--bg);
+    padding: 0.65rem 0.85rem;
+    font-family: var(--serif-display);
+    font-size: 1.05rem;
+    color: var(--ink);
+    border-radius: 3px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+  }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    outline: none;
+    border-color: var(--plum);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+  }
+  .field input::placeholder,
+  .field textarea::placeholder { color: var(--ink-faint); font-weight: 400; }
+  .field textarea { resize: none; rows: 2; line-height: 1.5; }
+
+  /* Children section */
+  .children-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    margin-bottom: 0.75rem;
+  }
+  /* Age inputs (one per child) */
+  .age-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+    gap: 0.4rem;
+    min-height: 0;
+  }
+  .age-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .age-input-wrapper label {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+    text-align: center;
+  }
+  .age-input-wrapper input {
+    width: 100%;
+    border: 1.5px solid var(--rule);
+    background: var(--bg);
+    padding: 0.4rem 0.4rem;
+    font-family: var(--mono);
+    font-size: 0.95rem;
+    color: var(--ink);
+    border-radius: 3px;
+    text-align: center;
+    font-weight: 600;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .age-input-wrapper input:focus {
+    outline: none;
+    border-color: var(--plum);
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.12);
+  }
+  .age-input-wrapper input::placeholder { color: var(--ink-faint); font-weight: 400; }
+  .children-hint {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    margin-top: 0.4rem;
+    line-height: 1.35;
+  }
+
+  /* Dream options (radio list) */
+  .dream-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 0.5rem;
+  }
+  .dream-option {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.6rem 0.75rem;
+    align-items: center;
+    padding: 0.55rem 0.75rem;
+    border: 1.5px solid var(--rule);
+    background: var(--bg);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .dream-option:hover {
+    border-color: var(--plum);
+    background: rgba(124, 58, 237, 0.04);
+  }
+  .dream-option input[type="radio"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--rule);
+    border-radius: 50%;
+    background: var(--paper);
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    flex-shrink: 0;
+    transition: border-color 0.15s;
+  }
+  .dream-option input[type="radio"]:checked {
+    border-color: var(--plum);
+  }
+  .dream-option input[type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    background: var(--plum);
+    border-radius: 50%;
+  }
+  .dream-option:has(input:checked) {
+    background: rgba(124, 58, 237, 0.08);
+    border-color: var(--plum);
+  }
+  .dream-text {
+    font-family: var(--serif-display);
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+  .dream-fr {
+    grid-column: 2;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--plum);
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+  .dream-fr::before {
+    content: "FR · ";
+    color: var(--ink-faint);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .field-hint {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    line-height: 1.4;
+    margin-top: 0.5rem;
+  }
+  .field-hint code {
+    font-family: var(--mono);
+    font-size: 0.78em;
+    background: var(--bg-deep);
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+    color: var(--plum);
+  }
+
+  .translation-preview {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+    padding: 0.4rem 0.55rem;
+    background: rgba(124, 58, 237, 0.06);
+    border-left: 2.5px solid var(--plum);
+    border-radius: 0 3px 3px 0;
+    font-size: 0.85rem;
+    transition: opacity 0.2s;
+  }
+  .translation-preview.show { display: flex; }
+  .translation-preview.loading {
+    opacity: 0.65;
+  }
+  .translation-preview .tp-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    color: var(--plum);
+    background: var(--plum);
+    color: white;
+    padding: 0.12rem 0.4rem;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .translation-preview .tp-value {
+    font-family: var(--serif-display);
+    font-size: 0.98rem;
+    color: var(--ink);
+    font-weight: 500;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .translation-preview .tp-value.placeholder {
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+  .translation-preview .tp-value.editing {
+    background: var(--paper);
+    border: 1px solid var(--plum);
+    border-radius: 2px;
+    padding: 0.15rem 0.45rem;
+    outline: none;
+    width: auto;
+    font-family: var(--serif-display);
+    font-size: 0.98rem;
+  }
+  .translation-preview .tp-edit {
+    background: none;
+    border: none;
+    color: var(--plum);
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 0.15rem 0.35rem;
+    border-radius: 2px;
+    transition: background 0.15s;
+    opacity: 0.6;
+  }
+  .translation-preview .tp-edit:hover {
+    opacity: 1;
+    background: rgba(124, 58, 237, 0.12);
+  }
+  .translation-preview .tp-loader {
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--plum-soft);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .translation-preview .tp-source {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .translation-preview .tp-source.local { color: var(--tertiary); }
+  .translation-preview .tp-source.api { color: var(--primary); }
+  .translation-preview .tp-source.fallback { color: var(--gold); }
+  .translation-preview .tp-source.manual { color: var(--accent); }
+
+  /* Hobby chips */
+  .hobby-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 0.75rem;
+  }
+  .hobby-chip {
+    background: transparent;
+    border: 1.5px solid var(--rule);
+    color: var(--ink-soft);
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.35rem 0.65rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .hobby-chip:hover { border-color: var(--plum); color: var(--plum); }
+  .hobby-chip.selected {
+    background: var(--plum);
+    border-color: var(--plum);
+    color: white;
+  }
+
+  /* Submit */
+  .btn-generate {
+    width: 100%;
+    background: var(--plum);
+    color: white;
+    border: none;
+    padding: 0.95rem 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+  .btn-generate:hover {
+    background: var(--plum-soft);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px -8px rgba(124, 58, 237, 0.55);
+  }
+  .btn-generate:disabled {
+    background: var(--ink-faint);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* ===== RESULTS PANEL ===== */
+  .results-panel { min-height: 200px; }
+
+  .empty-state {
+    background: var(--paper);
+    border: 1px dashed var(--rule);
+    border-radius: 4px;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .empty-state .big-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.4;
+  }
+  .empty-state p {
+    color: var(--ink-faint);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 30ch;
+    margin: 0 auto;
+  }
+
+  /* Presentation hero block */
+  .pres-hero {
+    background: linear-gradient(135deg, var(--ink) 0%, #1A1540 60%, #2D1B3D 100%);
+    color: var(--paper);
+    border-radius: 4px;
+    padding: 2.75rem 2.5rem 2.25rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .pres-hero::before {
+    content: "«";
+    position: absolute; top: -1.5rem; left: 0.5rem;
+    font-family: var(--serif-display);
+    font-size: 11rem;
+    color: rgba(167, 139, 250, 0.1);
+    line-height: 1; pointer-events: none;
+  }
+  .pres-hero::after {
+    content: "»";
+    position: absolute; bottom: -4rem; right: 1rem;
+    font-family: var(--serif-display);
+    font-size: 11rem;
+    color: rgba(167, 139, 250, 0.1);
+    line-height: 1; pointer-events: none;
+  }
+  .pres-hero-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--plum-soft);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    position: relative; z-index: 1;
+  }
+  .pres-text {
+    font-family: var(--serif-display);
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    line-height: 1.5;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 1.5rem;
+    position: relative; z-index: 1;
+  }
+  .pres-text .greeting { color: var(--plum-soft); font-weight: 700; }
+  .pres-text .name-highlight { color: var(--secondary-soft); font-weight: 700; }
+
+  .pres-actions {
+    display: flex;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    position: relative; z-index: 1;
+  }
+
+  /* Phrase cards */
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+    margin: 1.75rem 0 1.1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .section-num {
+    font-family: var(--serif-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--plum);
+    line-height: 1;
+  }
+  .section-title {
+    font-family: var(--serif-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .phrase-list { display: flex; flex-direction: column; gap: 0.85rem; }
+
+  .phrase-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--plum);
+    border-radius: 4px;
+    padding: 1.1rem 1.35rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: start;
+    transition: all 0.2s;
+  }
+  .phrase-card:hover {
+    border-left-color: var(--plum-soft);
+    transform: translateX(2px);
+    box-shadow: 0 4px 16px -8px rgba(15, 20, 25, 0.15);
+  }
+  .phrase-fr {
+    font-family: var(--serif-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+  }
+  .phrase-ipa {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--plum);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+  .phrase-approx {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .phrase-approx::before { content: "≈ "; font-family: var(--mono); color: var(--ink-faint); font-size: 0.75em; }
+
+  .phrase-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .phrase-tag {
+    font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 700;
+    padding: 0.18rem 0.45rem; border-radius: 3px;
+  }
+  .phrase-tag.nasal   { background: rgba(234,88,12,0.12); color: var(--secondary); }
+  .phrase-tag.round   { background: rgba(30,64,175,0.12); color: var(--primary); }
+  .phrase-tag.cons    { background: rgba(219,39,119,0.12); color: var(--accent); }
+  .phrase-tag.combo   { background: rgba(124,58,237,0.12); color: var(--plum); }
+  .phrase-tag.liaison { background: rgba(5,150,105,0.12); color: var(--tertiary); }
+
+  .phrase-play-btn {
+    background: var(--bg-deep);
+    border: 1.5px solid transparent;
+    color: var(--plum);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .phrase-play-btn:hover { background: var(--plum); color: white; }
+  .phrase-play-btn.playing { background: var(--secondary); color: white; animation: pulse 1s infinite; }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(234,88,12,0.4); }
+    50%      { box-shadow: 0 0 0 10px rgba(234,88,12,0); }
+  }
+
+  /* Notes panel */
+  .notes-panel {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--primary);
+    border-radius: 4px;
+    padding: 1.35rem 1.5rem;
+    margin-top: 0.5rem;
+  }
+  .notes-panel .notes-label {
+    font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--primary); font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  .note-item {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 0.75rem; align-items: baseline;
+    font-size: 0.88rem; line-height: 1.5;
+    padding: 0.45rem 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .note-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .note-badge {
+    font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em;
+    text-transform: uppercase; font-weight: 700;
+    padding: 0.18rem 0.45rem; border-radius: 3px; white-space: nowrap;
+  }
+  .note-badge.nasal   { background: rgba(234,88,12,0.12); color: var(--secondary); }
+  .note-badge.round   { background: rgba(30,64,175,0.12); color: var(--primary); }
+  .note-badge.cons    { background: rgba(219,39,119,0.12); color: var(--accent); }
+  .note-badge.liaison { background: rgba(5,150,105,0.12); color: var(--tertiary); }
+  .note-badge.exception { background: rgba(202,138,4,0.12); color: var(--gold); }
+  .note-text b { font-family: var(--mono); font-size: 0.88em; color: var(--secondary); font-weight: 600; }
+  .note-text code { font-family: var(--mono); font-size: 0.82em; background: var(--bg-deep); padding: 0.1em 0.3em; border-radius: 2px; color: var(--primary); }
+
+  /* Copy toast */
+  .copy-toast {
+    position: fixed; bottom: 1.5rem; right: 1.5rem;
+    background: var(--ink); color: var(--paper);
+    padding: 0.85rem 1.25rem; border-radius: 3px;
+    font-family: var(--mono); font-size: 0.75rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    opacity: 0; transform: translateY(20px); transition: all 0.3s;
+    z-index: 100; border-left: 4px solid var(--plum);
+    max-width: 320px; font-weight: 500;
+  }
+  .copy-toast.show { opacity: 1; transform: translateY(0); }
+
+  /* Action buttons */
+  .btn {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.16em;
+    text-transform: uppercase; font-weight: 700;
+    padding: 0.65rem 1.1rem; border-radius: 3px;
+    cursor: pointer; border: 1.5px solid transparent;
+    transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.45rem;
+  }
+  .btn-play { background: var(--secondary); color: white; }
+  .btn-play:hover { background: var(--secondary-soft); transform: translateY(-1px); }
+  .btn-play.playing { background: var(--tertiary); animation: pulse 1.2s infinite; }
+  .btn-copy { background: transparent; color: var(--paper); border-color: rgba(253,250,243,0.3); }
+  .btn-copy:hover { border-color: var(--plum-soft); background: rgba(167,139,250,0.15); }
+  .btn-reset { background: transparent; color: var(--ink-soft); border-color: var(--rule); }
+  .btn-reset:hover { border-color: var(--plum); color: var(--plum); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    max-width: 1100px; margin: 0 auto;
+    padding: 2.5rem 2rem 2rem;
+    border-top: 1px solid var(--rule);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  footer .colophon { font-size: 0.88rem; color: var(--ink-faint); }
+  footer .back-link {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.16em;
+    text-transform: uppercase; font-weight: 700;
+    color: var(--plum); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    transition: gap 0.2s;
+  }
+  footer .back-link:hover { gap: 0.85rem; }
+  footer .back-link::before { content: "←"; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    main { grid-template-columns: 1fr; gap: 2rem; }
+    .form-panel { position: static; }
+    header.hero { padding: 3rem 1.25rem 2rem; }
+    main { padding: 2rem 1.25rem; }
+    .pres-hero { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="kicker">Ma présentation · Générateur</div>
+  <h1 class="title">
+    Créer ta<br>
+    <span class="accent">présentation</span>
+  </h1>
+  <p class="lede">
+    Completá el formulario y generamos tu <strong>presentación personal en francés</strong> — con transcripción IPA, audio y notas de pronunciación para cada frase.
+  </p>
+</header>
+
+<main>
+
+  <!-- ===== FORM ===== -->
+  <div class="form-panel">
+
+    <!-- Nombre -->
+    <div class="form-section">
+      <div class="form-section-label">Sobre vos <span class="req">✦</span></div>
+      <div class="field">
+        <label for="inp-name">Prénom · nombre</label>
+        <input type="text" id="inp-name" placeholder="Marie, Gustavo, James…" maxlength="40">
+      </div>
+      <div class="field">
+        <label for="inp-origin">Ville ou pays d'origine <span style="color:var(--ink-faint);font-family:var(--serif-body);font-size:0.85rem;text-transform:none;letter-spacing:0;">(opcional)</span></label>
+        <input type="text" id="inp-origin" placeholder="Montevideo, Buenos Aires…" maxlength="50">
+      </div>
+    </div>
+
+    <!-- Hijos -->
+    <div class="form-section">
+      <div class="form-section-label">Enfants · hijos <span class="opt">(opcional)</span></div>
+      <div class="children-row">
+        <div class="field" style="margin:0;">
+          <label for="inp-children-count">Cantidad</label>
+          <input type="number" id="inp-children-count" min="0" max="10" value="0" style="text-align:center;font-weight:700;font-size:1.2rem;">
+        </div>
+        <div>
+          <div style="font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:0.4rem;">Edades (en años, opcional)</div>
+          <div class="age-inputs" id="age-inputs"></div>
+          <div class="children-hint" id="children-hint">Ingresá una cantidad para agregar edades.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profesión -->
+    <div class="form-section">
+      <div class="form-section-label">Profession · trabajo <span class="req">✦</span></div>
+      <div class="field">
+        <label for="inp-profession">¿A qué te dedicás?</label>
+        <input type="text" id="inp-profession" placeholder="ingeniera, médico, profesor…" maxlength="60">
+        <div class="translation-preview" id="preview-profession">
+          <span class="tp-label">FR</span>
+          <span class="tp-value">—</span>
+          <button class="tp-edit" type="button" title="Corregir traducción">✎</button>
+        </div>
+      </div>
+      <div class="field-hint">
+        Escribilo como te resulte natural — en español o francés. Si lo escribís en español, lo traducimos al francés.
+      </div>
+    </div>
+
+    <!-- Hobbies -->
+    <div class="form-section">
+      <div class="form-section-label">Passions · hobbies <span class="req">✦</span></div>
+      <div class="hobby-chips" id="hobby-chips">
+        <button class="hobby-chip" data-fr="le football">football</button>
+        <button class="hobby-chip" data-fr="le surf">surf</button>
+        <button class="hobby-chip" data-fr="la musique">musique</button>
+        <button class="hobby-chip" data-fr="la cuisine">cuisine</button>
+        <button class="hobby-chip" data-fr="la lecture">lectura</button>
+        <button class="hobby-chip" data-fr="le cinéma">cinéma</button>
+        <button class="hobby-chip" data-fr="la photographie">foto</button>
+        <button class="hobby-chip" data-fr="les voyages">viajes</button>
+        <button class="hobby-chip" data-fr="le yoga">yoga</button>
+        <button class="hobby-chip" data-fr="la randonnée">senderismo</button>
+        <button class="hobby-chip" data-fr="les jeux vidéo">gaming</button>
+        <button class="hobby-chip" data-fr="le dessin">dibujo</button>
+        <button class="hobby-chip" data-fr="la danse">danza</button>
+        <button class="hobby-chip" data-fr="la natation">natación</button>
+        <button class="hobby-chip" data-fr="le cyclisme">ciclismo</button>
+        <button class="hobby-chip" data-fr="le théâtre">teatro</button>
+        <button class="hobby-chip" data-fr="la peinture">pintura</button>
+        <button class="hobby-chip" data-fr="le jardinage">jardinería</button>
+      </div>
+      <div class="field" style="margin-top:0.5rem;">
+        <label for="inp-hobby-extra">Otro hobby · en español o francés</label>
+        <input type="text" id="inp-hobby-extra" placeholder="tenis, ajedrez, escalada…" maxlength="50">
+        <div class="translation-preview" id="preview-hobby">
+          <span class="tp-label">FR</span>
+          <span class="tp-value">—</span>
+          <button class="tp-edit" type="button" title="Corregir traducción">✎</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Un rêve (opciones fijas relacionadas al francés) -->
+    <div class="form-section">
+      <div class="form-section-label">Un rêve <span class="opt">(opcional)</span></div>
+      <div style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:0.6rem;">¿Qué esperás un día?</div>
+      <div class="dream-options" id="dream-options">
+        <label class="dream-option">
+          <input type="radio" name="dream" value="" checked>
+          <span class="dream-text">— ninguno —</span>
+        </label>
+        <label class="dream-option">
+          <input type="radio" name="dream" value="parler français couramment">
+          <span class="dream-text">Hablar francés con fluidez</span>
+          <span class="dream-fr">parler français couramment</span>
+        </label>
+        <label class="dream-option">
+          <input type="radio" name="dream" value="visiter Paris">
+          <span class="dream-text">Conocer París</span>
+          <span class="dream-fr">visiter Paris</span>
+        </label>
+        <label class="dream-option">
+          <input type="radio" name="dream" value="voyager en France">
+          <span class="dream-text">Viajar por Francia</span>
+          <span class="dream-fr">voyager en France</span>
+        </label>
+        <label class="dream-option">
+          <input type="radio" name="dream" value="vivre en France">
+          <span class="dream-text">Vivir en Francia</span>
+          <span class="dream-fr">vivre en France</span>
+        </label>
+        <label class="dream-option">
+          <input type="radio" name="dream" value="lire un livre en français">
+          <span class="dream-text">Leer un libro en francés</span>
+          <span class="dream-fr">lire un livre en français</span>
+        </label>
+      </div>
+      <div class="field-hint">
+        Genera la frase: <code>J'espère un jour [opción].</code>
+      </div>
+    </div>
+
+    <button class="btn-generate" id="btn-generate">
+      ✦ Generar mi presentación
+    </button>
+
+    <div style="text-align:center;margin-top:0.75rem;">
+      <button class="btn btn-reset" id="btn-reset">Limpiar todo</button>
+    </div>
+
+  </div>
+
+  <!-- ===== RESULTS ===== -->
+  <div class="results-panel" id="results-panel">
+    <div class="empty-state" id="empty-state">
+      <div class="big-icon">💬</div>
+      <p>Completá el formulario y generamos tu presentación en francés con análisis fonético.</p>
+    </div>
+    <div id="result-content" style="display:none;"></div>
+  </div>
+
+</main>
+
+<footer>
+  <p class="colophon">Mon cours de français · Générateur de présentation · 2026</p>
+  <a href="index.html" class="back-link">Portada del curso</a>
+</footer>
+
+<div class="copy-toast" id="copy-toast"></div>
+
+<script>
+/* ===================================================
+   EMBEDDED G2P ENGINE (same as analyzer.html)
+   =================================================== */
+
+const EXCEPTIONS = {
+  'bonjour': 'bɔ̃ʒuʁ','bonsoir': 'bɔ̃swaʁ','salut': 'saly','merci': 'mɛʁsi',
+  'pardon': 'paʁdɔ̃','oui': 'wi','non': 'nɔ̃','monsieur': 'məsjø','madame': 'madam',
+  's\'il': 'sil','vous': 'vu','plaît': 'plɛ',
+  'je': 'ʒə','tu': 'ty','il': 'il','elle': 'ɛl','nous': 'nu','ils': 'il','elles': 'ɛl',
+  'le': 'lə','la': 'la','les': 'le','un': 'œ̃','une': 'yn','des': 'de','du': 'dy','de': 'də',
+  'au': 'o','aux': 'o','ce': 'sə','cette': 'sɛt','ces': 'se',
+  'mon': 'mɔ̃','ma': 'ma','mes': 'me','ton': 'tɔ̃','ta': 'ta','tes': 'te',
+  'son': 'sɔ̃','sa': 'sa','ses': 'se','notre': 'nɔtʁ','votre': 'vɔtʁ','leur': 'lœʁ','leurs': 'lœʁ',
+  'qui': 'ki','que': 'kə','quoi': 'kwa','quel': 'kɛl','quelle': 'kɛl',
+  'où': 'u','comment': 'kɔmɑ̃','pourquoi': 'puʁkwa','quand': 'kɑ̃','combien': 'kɔ̃bjɛ̃',
+  'est': 'ɛ','es': 'ɛ','suis': 'sɥi','sont': 'sɔ̃','êtes': 'ɛt','sommes': 'sɔm',
+  'a': 'a','as': 'a','ai': 'e','ont': 'ɔ̃','avons': 'avɔ̃','avez': 'ave',
+  'fait': 'fɛ','font': 'fɔ̃','va': 'va','vais': 'vɛ','vont': 'vɔ̃','aller': 'ale','allez': 'ale',
+  'venir': 'vəniʁ','viens': 'vjɛ̃','vient': 'vjɛ̃','voir': 'vwaʁ',
+  'voudrais': 'vudʁɛ','pouvoir': 'puvwaʁ','peut': 'pø','peux': 'pø',
+  'savoir': 'savwaʁ','sait': 'sɛ','sais': 'sɛ',
+  'aime': 'ɛm','aimer': 'eme','aimerais': 'ɛməʁɛ','aimé': 'eme',
+  'parle': 'paʁl','parler': 'paʁle','parlez': 'paʁle',
+  'et': 'e','ou': 'u','mais': 'mɛ','donc': 'dɔ̃k','car': 'kaʁ',
+  'pour': 'puʁ','avec': 'avɛk','sans': 'sɑ̃','sous': 'su','sur': 'syʁ',
+  'dans': 'dɑ̃','chez': 'ʃe','vers': 'vɛʁ','entre': 'ɑ̃tʁ','depuis': 'dəpɥi',
+  'avant': 'avɑ̃','après': 'apʁɛ','très': 'tʁɛ','trop': 'tʁo','plus': 'ply',
+  'aussi': 'osi','bien': 'bjɛ̃','mal': 'mal','pas': 'pa','ne': 'nə','tout': 'tu','tous': 'tu',
+  'zéro': 'zeʁo','deux': 'dø','trois': 'tʁwa','quatre': 'katʁ','cinq': 'sɛ̃k',
+  'six': 'sis','sept': 'sɛt','huit': 'ɥit','neuf': 'nœf','dix': 'dis',
+  'onze': 'ɔ̃z','douze': 'duz','treize': 'tʁɛz','quatorze': 'katɔʁz','quinze': 'kɛ̃z',
+  'seize': 'sɛz','vingt': 'vɛ̃','trente': 'tʁɑ̃t','quarante': 'kaʁɑ̃t','cent': 'sɑ̃','mille': 'mil',
+  'femme': 'fam','femmes': 'fam','fils': 'fis','oignon': 'ɔɲɔ̃','août': 'ut',
+  'café': 'kafe','thé': 'te','eau': 'o','vin': 'vɛ̃','pain': 'pɛ̃','lait': 'lɛ',
+  'jour': 'ʒuʁ','soir': 'swaʁ','matin': 'matɛ̃','nuit': 'nɥi',
+  'an': 'ɑ̃','ans': 'ɑ̃','année': 'ane','mois': 'mwa','heure': 'œʁ','heures': 'œʁ',
+  'maison': 'mɛzɔ̃','ville': 'vil','pays': 'pei','monde': 'mɔ̃d','gens': 'ʒɑ̃',
+  'ami': 'ami','amis': 'ami','enfant': 'ɑ̃fɑ̃','enfants': 'ɑ̃fɑ̃','famille': 'famij',
+  'frère': 'fʁɛʁ','sœur': 'sœʁ','mère': 'mɛʁ','père': 'pɛʁ','fille': 'fij','filles': 'fij',
+  'beaucoup': 'boku','peu': 'pø','petit': 'pəti','grand': 'ɡʁɑ̃','beau': 'bo','belle': 'bɛl',
+  'bon': 'bɔ̃','bonne': 'bɔn','nouveau': 'nuvo','vieux': 'vjø','jeune': 'ʒœn',
+  'rouge': 'ʁuʒ','bleu': 'blø','blanc': 'blɑ̃','noir': 'nwaʁ','vert': 'vɛʁ','jaune': 'ʒon',
+  'français': 'fʁɑ̃sɛ','anglais': 'ɑ̃ɡlɛ','espagnol': 'ɛspaɲɔl',
+  'enchanté': 'ɑ̃ʃɑ̃te','enchantée': 'ɑ̃ʃɑ̃te',
+  'content': 'kɔ̃tɑ̃','contente': 'kɔ̃tɑ̃t','heureux': 'œʁø','heureuse': 'œʁøz',
+  'rencontrer': 'ʁɑ̃kɔ̃tʁe',
+  'viens': 'vjɛ̃','viens': 'vjɛ̃',
+  'travaille': 'tʁavaj','travailler': 'tʁavaje','travailleur': 'tʁavajœʁ',
+  'travaux': 'tʁavo','comme': 'kɔm',
+  'adore': 'adɔʁ','adorer': 'adɔʁe',
+  'espère': 'ɛspɛʁ','espérer': 'ɛspeʁe',
+  'j\'adore': 'ʒadɔʁ','j\'espère': 'ʒɛspɛʁ',
+  'connaissance': 'kɔnɛsɑ̃s',
+  'faire': 'fɛʁ','votre': 'vɔtʁ',
+  'présente': 'pʁezɑ̃t','présentation': 'pʁezɑ̃tasjɔ̃',
+  'bonjour': 'bɔ̃ʒuʁ',
+  'football': 'futbol','surf': 'sœʁf','musique': 'myzik','cuisine': 'kɥizin',
+  'lecture': 'lɛktyʁ','cinéma': 'sinema','photographie': 'fɔtɔɡʁafi',
+  'voyages': 'vwajaʒ','voyage': 'vwajaʒ','yoga': 'jɔɡa','randonnée': 'ʁɑ̃dɔne',
+  'natation': 'natasjɔ̃','cyclisme': 'siklism','théâtre': 'teatʁ',
+  'peinture': 'pɛ̃tyʁ','jardinage': 'ʒaʁdinaʒ','dessin': 'dɛsɛ̃','danse': 'dɑ̃s',
+  'jeux': 'ʒø','vidéo': 'video',
+  'parent': 'paʁɑ̃','parents': 'paʁɑ̃','moment': 'mɔmɑ̃','document': 'dɔkymɑ̃',
+  'client': 'kljɑ̃','agent': 'aʒɑ̃','argent': 'aʁʒɑ̃','urgent': 'yʁʒɑ̃',
+  // Professions communes
+  'ingénieur': 'ɛ̃ʒenjœʁ','médecin': 'medsɛ̃','professeur': 'pʁɔfɛsœʁ',
+  'avocat': 'avɔka','architecte': 'aʁʃitɛkt','comptable': 'kɔ̃tabl',
+  'infirmier': 'ɛ̃fiʁmje','infirmière': 'ɛ̃fiʁmjɛʁ','pharmacien': 'faʁmasjɛ̃',
+  'dentiste': 'dɑ̃tist','vétérinaire': 'veteʁinɛʁ','psychologue': 'psikolɔɡ',
+  'journaliste': 'ʒuʁnalist','artiste': 'aʁtist','musicien': 'myzisjɛ̃',
+  'chef': 'ʃɛf','cuisinier': 'kɥizinje','serveur': 'sɛʁvœʁ',
+  'pilote': 'pilɔt','policier': 'pɔlisje','pompier': 'pɔ̃pje',
+  'électricien': 'elɛktʁisjɛ̃','plombier': 'plɔ̃bje','mécanicien': 'mekasisjɛ̃',
+  'commercant': 'kɔmɛʁsɑ̃','vendeur': 'vɑ̃dœʁ','directeur': 'diʁɛktœʁ',
+  'manager': 'manaʒœʁ','consultant': 'kɔ̃syltɑ̃','analyste': 'analist',
+  'développeur': 'devlɔpœʁ','informaticien': 'ɛ̃fɔʁmatisjɛ̃',
+  'étudiant': 'etydjɑ̃','étudiante': 'etydjɑ̃t','retraité': 'ʁətʁɛte',
+};
+
+const RULES = [
+  [/^aient\b/, 'ɛ'],
+  [/^aille/, 'aj'],[/^euille/, 'œj'],[/^ouille/, 'uj'],[/^eille/, 'ɛj'],
+  [/^eaux?/, 'o'],[/^oeu/, 'ø'],[/^œu/, 'œ'],
+  [/^ein(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^ain(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^aim(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^ien(?![aeiouyâàéèêëîïôöûüœhnm])/, 'jɛ̃'],
+  [/^ion(?![aeiouyâàéèêëîïôöûüœhnm])/, 'jɔ̃'],
+  [/^oin(?![aeiouyâàéèêëîïôöûüœhnm])/, 'wɛ̃'],
+  [/^ill/, 'ij'],[/^gne/, 'ɲ'],[/^gni/, 'ɲi'],[/^qu[ei]/, m => 'k' + (m[0][2] === 'e' ? 'ə' : 'i')],
+  [/^qua/, 'ka'],[/^quo/, 'ko'],
+  [/^au/, 'o'],[/^eu/, 'ø'],[/^ou/, 'u'],[/^oi/, 'wa'],
+  [/^ai/, 'ɛ'],[/^ei/, 'ɛ'],[/^ui/, 'ɥi'],
+  [/^ya/, 'ja'],[/^ye/, 'jɛ'],[/^yo/, 'jɔ'],[/^yi/, 'ji'],
+  [/^an(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɑ̃'],
+  [/^en(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɑ̃'],
+  [/^am(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɑ̃'],
+  [/^em(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɑ̃'],
+  [/^in(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^im(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^yn(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^ym(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^on(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɔ̃'],
+  [/^om(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɔ̃'],
+  [/^un(?![aeiouyâàéèêëîïôöûüœhnm])/, 'œ̃'],
+  [/^um(?![aeiouyâàéèêëîïôöûüœhnm])/, 'œ̃'],
+  [/^ch/, 'ʃ'],[/^ph/, 'f'],[/^th/, 't'],[/^gn/, 'ɲ'],[/^qu/, 'k'],
+  [/^c(?=[eiyéèê])/, 's'],[/^c/, 'k'],[/^g(?=[eiyéèê])/, 'ʒ'],[/^g/, 'ɡ'],
+  [/^j/, 'ʒ'],[/^h/, ''],[/^ç/, 's'],
+  [/^[éɛ̂ē]/, 'e'],[/^[èêë]/, 'ɛ'],[/^[àáâä]/, 'a'],
+  [/^[ôö]/, 'o'],[/^[îï]/, 'i'],[/^[ûü]/, 'y'],[/^[ùú]/, 'y'],[/^œ/, 'œ'],
+  [/^a/, 'a'],[/^e/, 'ə'],[/^i/, 'i'],[/^o/, 'ɔ'],[/^u/, 'y'],[/^y/, 'i'],
+  [/^b/, 'b'],[/^d/, 'd'],[/^f/, 'f'],[/^k/, 'k'],[/^l/, 'l'],[/^m/, 'm'],
+  [/^n/, 'n'],[/^p/, 'p'],[/^r/, 'ʁ'],[/^s/, 's'],[/^t/, 't'],[/^v/, 'v'],
+  [/^w/, 'w'],[/^x/, 'ks'],[/^z/, 'z'],[/^['']/, ''],
+];
+
+function applyRules(word) {
+  let remaining = word.toLowerCase(), ipa = '', safety = 200;
+  while (remaining.length > 0 && safety-- > 0) {
+    let matched = false;
+    for (const [pat, out] of RULES) {
+      const m = remaining.match(pat);
+      if (m) {
+        ipa += typeof out === 'function' ? out(m) : out;
+        remaining = remaining.slice(m[0].length);
+        matched = true; break;
+      }
+    }
+    if (!matched) remaining = remaining.slice(1);
+  }
+  return ipa;
+}
+
+function postProcess(ipa, originalWord) {
+  ipa = ipa.replace(/(.)\1+/g, '$1');
+  const original = originalWord.toLowerCase();
+  if (original.endsWith('ent') && original.length > 4 && /ɑ̃t$/.test(ipa)) {
+    const beforeEnt = original.charAt(original.length - 4);
+    if (/[bcdfghjklmnpqrstvwxz]/.test(beforeEnt)) ipa = ipa.replace(/ɑ̃t$/, '');
+  }
+  if (/[a-z]es$/.test(original) && ipa.endsWith('əs')) ipa = ipa.slice(0, -2);
+  else if (/[a-z]e$/.test(original) && ipa.endsWith('ə') && original.length > 2) ipa = ipa.slice(0, -1);
+  if (original.endsWith('s') && ipa.endsWith('s') && original.length > 1) ipa = ipa.slice(0, -1);
+  if (original.endsWith('t') && ipa.endsWith('t') && original.length > 1) ipa = ipa.slice(0, -1);
+  if (original.endsWith('d') && ipa.endsWith('d') && original.length > 1) ipa = ipa.slice(0, -1);
+  if (original.endsWith('p') && ipa.endsWith('p') && original.length > 1) ipa = ipa.slice(0, -1);
+  if (original.endsWith('x') && /ks$/.test(ipa) && original.length > 1) ipa = ipa.slice(0, -2);
+  if (original.endsWith('z') && ipa.endsWith('z') && original.length > 1) ipa = ipa.slice(0, -1);
+  if (/anc$/.test(original) && ipa.endsWith('ɑ̃k')) ipa = ipa.slice(0, -1);
+  if (ipa.endsWith('ə') && ipa.length > 2 && original.length > 2) ipa = ipa.slice(0, -1);
+  return ipa;
+}
+
+function wordToIpa(word) {
+  const lower = word.toLowerCase().replace(/['']/g, "'");
+  if (EXCEPTIONS[lower]) return EXCEPTIONS[lower];
+  const contractionMatch = lower.match(/^([jlmnstd]|qu)'(.+)$/);
+  if (contractionMatch) {
+    const prefix = contractionMatch[1];
+    const rest = contractionMatch[2];
+    const prefixIpa = { 'j': 'ʒ', 'l': 'l', 'm': 'm', 'n': 'n', 's': 's', 't': 't', 'd': 'd', 'qu': 'k' }[prefix];
+    if (EXCEPTIONS[rest]) return prefixIpa + EXCEPTIONS[rest];
+    return prefixIpa + postProcess(applyRules(rest), rest);
+  }
+  return postProcess(applyRules(lower), lower);
+}
+
+// IPA → approx Spanish
+const IPA_TO_ES = [
+  ['ɑ̃','an'],['ɛ̃','en'],['ɔ̃','on'],['œ̃','un'],
+  ['wɛ̃','uan'],['jɛ̃','ien'],['jɔ̃','ion'],
+  ['ʁ','rr'],['ʃ','sh'],['ʒ','zh'],['ɲ','ñ'],['ɥ','u'],
+  ['ø','eu'],['œ','eu'],['ə','e'],['y','ü'],
+  ['ɛ','e'],['ɔ','o'],['ɡ','g'],['j','i'],['w','u'],
+];
+function ipaToApprox(ipa) {
+  let out = ipa;
+  for (const [k, v] of IPA_TO_ES) out = out.split(k).join(v);
+  return out;
+}
+
+// Categorize IPA
+function categorizeIpa(ipa) {
+  const tags = [];
+  if (/[ɑɛɔœaeiouy]\u0303/.test(ipa)) tags.push('nasal');
+  const oralIpa = ipa.replace(/[ɑɛɔœaeiouy]\u0303/g, '');
+  if (/[yøœ]/.test(oralIpa)) tags.push('round');
+  if (/[ʁʃʒɲɥ]/.test(ipa)) tags.push('cons');
+  if (/wa|ɥi|j[ɛ]\u0303|w[ɛ]\u0303/.test(ipa)) tags.push('combo');
+  return tags;
+}
+
+function tokenize(text) {
+  const tokens = [];
+  const re = /([a-zàáâäãéèêëíìîïóòôöõúùûüýÿñçœæ][a-zàáâäãéèêëíìîïóòôöõúùûüýÿñçœæ']*)|([.,;:!?])/giu;
+  let m;
+  while ((m = re.exec(text)) !== null) {
+    if (m[1]) tokens.push({ type: 'word', text: m[1] });
+    else if (m[2]) tokens.push({ type: 'punct', text: m[2] });
+  }
+  return tokens;
+}
+
+function analyzePhrase(phrase) {
+  const tokens = tokenize(phrase);
+  const analyzed = [];
+  for (let i = 0; i < tokens.length; i++) {
+    const tok = tokens[i];
+    if (tok.type === 'punct') { analyzed.push({ ...tok, category: null }); continue; }
+    const ipa = wordToIpa(tok.text);
+    const tags = categorizeIpa(ipa);
+    analyzed.push({ type: 'word', text: tok.text, ipa, approx: ipaToApprox(ipa), tags });
+  }
+  return analyzed;
+}
+
+function phraseIpa(analyzed) {
+  return '/' + analyzed.filter(a => a.type === 'word').map(a => a.ipa).join(' ') + '/';
+}
+
+/* ===================================================
+   FRENCH NUMBER WORDS
+   =================================================== */
+const NUM_FR = {
+  0:'zéro',1:'un',2:'deux',3:'trois',4:'quatre',5:'cinq',6:'six',7:'sept',
+  8:'huit',9:'neuf',10:'dix',11:'onze',12:'douze',13:'treize',14:'quatorze',
+  15:'quinze',16:'seize',17:'dix-sept',18:'dix-huit',19:'dix-neuf',20:'vingt',
+  21:'vingt et un',22:'vingt-deux',23:'vingt-trois',24:'vingt-quatre',
+  25:'vingt-cinq',26:'vingt-six',27:'vingt-sept',28:'vingt-huit',29:'vingt-neuf',
+  30:'trente',31:'trente et un',32:'trente-deux',40:'quarante',50:'cinquante'
+};
+function numFr(n) { return NUM_FR[n] || String(n); }
+
+/* ===================================================
+   PRESENTATION BUILDER
+   =================================================== */
+function buildPresentation(data) {
+  const phrases = [];
+
+  // 1. Greeting + name
+  phrases.push({ fr: `Bonjour, je m'appelle ${data.name}.`, key: 'name' });
+
+  // 2. Origin
+  if (data.origin) {
+    phrases.push({ fr: `Je viens de ${data.origin}.`, key: 'origin' });
+  }
+
+  // 3. Children
+  const nKids = data.childrenCount;
+  if (nKids === 1) {
+    if (data.ages.length === 1) {
+      phrases.push({ fr: `J'ai un enfant de ${numFr(data.ages[0])} ans.`, key: 'children' });
+    } else {
+      phrases.push({ fr: `J'ai un enfant.`, key: 'children' });
+    }
+  } else if (nKids > 1) {
+    if (data.ages.length > 0) {
+      // Format ages: "3, 7 et 11 ans"
+      const sortedAges = [...data.ages].sort((a, b) => a - b);
+      let ageStr;
+      if (sortedAges.length === 1) {
+        ageStr = `${numFr(sortedAges[0])} ans`;
+      } else if (sortedAges.length === 2) {
+        ageStr = `${numFr(sortedAges[0])} et ${numFr(sortedAges[1])} ans`;
+      } else {
+        const last = sortedAges.pop();
+        ageStr = sortedAges.map(a => numFr(a)).join(', ') + ` et ${numFr(last)} ans`;
+      }
+      phrases.push({ fr: `J'ai ${numFr(nKids)} enfants de ${ageStr}.`, key: 'children' });
+    } else {
+      phrases.push({ fr: `J'ai ${numFr(nKids)} enfants.`, key: 'children' });
+    }
+  }
+
+  // 4. Profession
+  if (data.profession) {
+    phrases.push({ fr: `Je travaille comme ${data.profession}.`, key: 'profession' });
+  }
+
+  // 5. Hobbies
+  if (data.hobbies.length > 0) {
+    let hobbyStr;
+    const h = data.hobbies;
+    if (h.length === 1) {
+      hobbyStr = h[0];
+    } else if (h.length === 2) {
+      hobbyStr = `${h[0]} et ${h[1]}`;
+    } else {
+      const last = h[h.length - 1];
+      hobbyStr = h.slice(0, -1).join(', ') + ` et ${last}`;
+    }
+    phrases.push({ fr: `J'adore ${hobbyStr}.`, key: 'hobbies' });
+  }
+
+  // 6. Dream (optional)
+  if (data.dream) {
+    const dreamText = data.dream.endsWith('.') ? data.dream.slice(0, -1) : data.dream;
+    phrases.push({ fr: `J'espère un jour ${dreamText}.`, key: 'dream' });
+  }
+
+  // 7. Closing
+  phrases.push({ fr: `Enchanté de faire votre connaissance.`, key: 'closing' });
+
+  return phrases;
+}
+
+/* ===================================================
+   UI: form state
+   =================================================== */
+let selectedHobbies = [];
+let childrenCount = 0;
+
+// Children count → renders N age inputs directly
+const inpChildrenCount = document.getElementById('inp-children-count');
+const ageInputsEl      = document.getElementById('age-inputs');
+const childrenHint     = document.getElementById('children-hint');
+
+function renderAgeInputs() {
+  // Save existing values before re-render
+  const existing = [...ageInputsEl.querySelectorAll('input')].map(i => i.value);
+  ageInputsEl.innerHTML = '';
+  for (let i = 0; i < childrenCount; i++) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'age-input-wrapper';
+    const label = document.createElement('label');
+    label.textContent = `Hijo ${i + 1}`;
+    label.setAttribute('for', `age-${i}`);
+    const input = document.createElement('input');
+    input.type = 'number';
+    input.id = `age-${i}`;
+    input.min = '0';
+    input.max = '50';
+    input.placeholder = 'edad';
+    input.value = existing[i] || '';
+    input.className = 'age-input';
+    wrapper.appendChild(label);
+    wrapper.appendChild(input);
+    ageInputsEl.appendChild(wrapper);
+  }
+}
+
+inpChildrenCount.addEventListener('input', () => {
+  childrenCount = parseInt(inpChildrenCount.value) || 0;
+  if (childrenCount < 0) childrenCount = 0;
+  if (childrenCount > 10) { childrenCount = 10; inpChildrenCount.value = '10'; }
+
+  if (childrenCount === 0) {
+    ageInputsEl.innerHTML = '';
+    childrenHint.textContent = 'Ingresá una cantidad para agregar edades.';
+  } else {
+    renderAgeInputs();
+    childrenHint.textContent = `Las edades son opcionales — podés dejarlas vacías.`;
+  }
+});
+
+// Helper to read current ages from inputs
+function readAges() {
+  return [...ageInputsEl.querySelectorAll('input')]
+    .map(i => parseInt(i.value))
+    .filter(v => !isNaN(v) && v >= 0 && v <= 50);
+}
+
+// Hobby chips
+document.querySelectorAll('.hobby-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    chip.classList.toggle('selected');
+  });
+});
+
+/* ===================================================
+   TRANSLATION: hybrid local dict + MyMemory API
+   =================================================== */
+
+// Local dictionary: Spanish lemma → French equivalent
+// Covers common professions, hobbies, and dream-related verbs/phrases.
+// Always prefixed with article/preposition appropriate for each context.
+const ES_TO_FR = {
+  // ===== PROFESIONES (forma masculina; si user escribe femenino mapeamos también) =====
+  // Tecnología
+  'ingeniero': 'ingénieur', 'ingeniera': 'ingénieure',
+  'programador': 'développeur', 'programadora': 'développeuse',
+  'desarrollador': 'développeur', 'desarrolladora': 'développeuse',
+  'desarrollador de software': 'développeur de logiciels',
+  'analista': 'analyste',
+  'analista de datos': 'analyste de données',
+  'consultor': 'consultant', 'consultora': 'consultante',
+  'arquitecto de software': 'architecte logiciel',
+  'devops': 'ingénieur devops',
+  'data scientist': 'data scientist',
+  'cientifico de datos': 'data scientist', 'científico de datos': 'data scientist',
+  'tecnico': 'technicien', 'técnico': 'technicien',
+  'soporte tecnico': 'technicien support', 'soporte técnico': 'technicien support',
+  'informatico': 'informaticien', 'informático': 'informaticien',
+
+  // Salud
+  'medico': 'médecin', 'médico': 'médecin', 'medica': 'médecin', 'médica': 'médecin',
+  'doctor': 'médecin', 'doctora': 'médecin',
+  'enfermero': 'infirmier', 'enfermera': 'infirmière',
+  'odontologo': 'dentiste', 'odontólogo': 'dentiste', 'dentista': 'dentiste',
+  'psicologo': 'psychologue', 'psicóloga': 'psychologue', 'psicólogo': 'psychologue',
+  'psiquiatra': 'psychiatre',
+  'farmaceutico': 'pharmacien', 'farmacéutico': 'pharmacien', 'farmaceutica': 'pharmacienne',
+  'veterinario': 'vétérinaire', 'veterinaria': 'vétérinaire',
+  'kinesiologo': 'kinésithérapeute', 'kinesiólogo': 'kinésithérapeute',
+  'fisioterapeuta': 'kinésithérapeute',
+  'nutricionista': 'nutritionniste',
+
+  // Educación
+  'profesor': 'professeur', 'profesora': 'professeure',
+  'maestro': 'instituteur', 'maestra': 'institutrice',
+  'docente': 'enseignant', 'enseñante': 'enseignant',
+  'investigador': 'chercheur', 'investigadora': 'chercheuse',
+  'cientifico': 'scientifique', 'científico': 'scientifique',
+
+  // Derecho / Negocios
+  'abogado': 'avocat', 'abogada': 'avocate',
+  'contador': 'comptable', 'contadora': 'comptable',
+  'economista': 'économiste',
+  'administrador': 'administrateur', 'administradora': 'administratrice',
+  'gerente': 'directeur', 'gerenta': 'directrice',
+  'director': 'directeur', 'directora': 'directrice',
+  'empresario': 'entrepreneur', 'empresaria': 'entrepreneuse',
+  'comerciante': 'commerçant', 'comerciante': 'commerçante',
+  'vendedor': 'vendeur', 'vendedora': 'vendeuse',
+  'agente inmobiliario': 'agent immobilier',
+  'agente de seguros': 'agent d\'assurance',
+  'banquero': 'banquier', 'banquera': 'banquière',
+
+  // Arte / Comunicación
+  'periodista': 'journaliste',
+  'escritor': 'écrivain', 'escritora': 'écrivaine',
+  'artista': 'artiste',
+  'pintor': 'peintre', 'pintora': 'peintre',
+  'musico': 'musicien', 'músico': 'musicien', 'musica': 'musicienne', 'música': 'musicienne',
+  'cantante': 'chanteur',
+  'actor': 'acteur', 'actriz': 'actrice',
+  'fotografo': 'photographe', 'fotógrafo': 'photographe', 'fotógrafa': 'photographe',
+  'disenador': 'designer', 'diseñador': 'designer', 'diseñadora': 'designer',
+  'disenador grafico': 'graphiste', 'diseñador gráfico': 'graphiste',
+  'arquitecto': 'architecte', 'arquitecta': 'architecte',
+  'publicista': 'publicitaire',
+
+  // Servicios / Oficios
+  'cocinero': 'cuisinier', 'cocinera': 'cuisinière',
+  'chef': 'chef',
+  'panadero': 'boulanger', 'panadera': 'boulangère',
+  'pastelero': 'pâtissier', 'pastelera': 'pâtissière',
+  'mesero': 'serveur', 'mesera': 'serveuse',
+  'mozo': 'serveur', 'moza': 'serveuse',
+  'barista': 'barista',
+  'piloto': 'pilote',
+  'policia': 'policier', 'policía': 'policier',
+  'bombero': 'pompier', 'bombera': 'pompière',
+  'mecanico': 'mécanicien', 'mecánico': 'mécanicien',
+  'electricista': 'électricien',
+  'plomero': 'plombier',
+  'carpintero': 'menuisier', 'carpintera': 'menuisière',
+  'albanil': 'maçon', 'albañil': 'maçon',
+  'jardinero': 'jardinier', 'jardinera': 'jardinière',
+  'taxista': 'chauffeur de taxi',
+  'chofer': 'chauffeur', 'chófer': 'chauffeur',
+
+  // Estudio / otros
+  'estudiante': 'étudiant',
+  'jubilado': 'retraité', 'jubilada': 'retraitée',
+  'pensionado': 'retraité',
+  'ama de casa': 'femme au foyer',
+  'amo de casa': 'homme au foyer',
+  'autonomo': 'indépendant', 'autónomo': 'indépendant',
+  'freelance': 'indépendant',
+  'emprendedor': 'entrepreneur', 'emprendedora': 'entrepreneuse',
+
+  // ===== HOBBIES (sin artículo — el código añade "le/la/les" según género) =====
+  // Notación: si arranca con vocal/h, usamos "l'"
+  'tenis': 'le tennis',
+  'padel': 'le padel', 'pádel': 'le padel',
+  'golf': 'le golf',
+  'basquet': 'le basket', 'básquet': 'le basket', 'basquetbol': 'le basket',
+  'volleyball': 'le volley', 'voleibol': 'le volley', 'voley': 'le volley',
+  'rugby': 'le rugby',
+  'handball': 'le handball',
+  'beisbol': 'le baseball', 'béisbol': 'le baseball',
+  'esqui': 'le ski', 'esquí': 'le ski',
+  'snowboard': 'le snowboard',
+  'skateboard': 'le skateboard',
+  'patinaje': 'le patinage',
+  'escalada': 'l\'escalade',
+  'boxeo': 'la boxe',
+  'artes marciales': 'les arts martiaux',
+  'karate': 'le karaté', 'karaté': 'le karaté',
+  'judo': 'le judo',
+  'taekwondo': 'le taekwondo',
+  'jiu jitsu': 'le jiu-jitsu',
+  'crossfit': 'le crossfit',
+  'gimnasio': 'la musculation',
+  'pesas': 'la musculation',
+  'pilates': 'le pilates',
+  'meditacion': 'la méditation', 'meditación': 'la méditation',
+  'correr': 'la course à pied',
+  'running': 'la course à pied',
+  'caminar': 'la marche',
+  'trekking': 'la randonnée',
+  'pesca': 'la pêche',
+  'caza': 'la chasse',
+  'buceo': 'la plongée',
+  'kayak': 'le kayak',
+  'remo': 'l\'aviron',
+  'vela': 'la voile',
+  'kitesurf': 'le kitesurf',
+  'windsurf': 'la planche à voile',
+  'ajedrez': 'les échecs',
+  'damas': 'les dames',
+  'poker': 'le poker', 'póker': 'le poker',
+  'videojuegos': 'les jeux vidéo',
+  'gaming': 'les jeux vidéo',
+  'ciencia ficcion': 'la science-fiction', 'ciencia ficción': 'la science-fiction',
+  'historia': 'l\'histoire',
+  'filosofia': 'la philosophie', 'filosofía': 'la philosophie',
+  'astronomia': 'l\'astronomie', 'astronomía': 'l\'astronomie',
+  'astrologia': 'l\'astrologie', 'astrología': 'l\'astrologie',
+  'tecnologia': 'la technologie', 'tecnología': 'la technologie',
+  'programar': 'la programmation', 'programacion': 'la programmation', 'programación': 'la programmation',
+  'tejer': 'le tricot',
+  'crochet': 'le crochet',
+  'costura': 'la couture',
+  'manualidades': 'le bricolage',
+  'cerveza artesanal': 'la bière artisanale',
+  'vino': 'le vin',
+  'enologia': 'l\'œnologie', 'enología': 'l\'œnologie',
+  'cafe': 'le café', 'café': 'le café',
+  'te': 'le thé', 'té': 'le thé',
+  'jardin': 'le jardinage', 'jardín': 'le jardinage',
+  'plantas': 'les plantes',
+  'mascotas': 'les animaux de compagnie',
+  'perros': 'les chiens',
+  'gatos': 'les chats',
+  'cocina italiana': 'la cuisine italienne',
+  'cocina francesa': 'la cuisine française',
+  'cocina asiatica': 'la cuisine asiatique', 'cocina asiática': 'la cuisine asiatique',
+  'salir a comer': 'la gastronomie',
+  'restaurantes': 'la gastronomie',
+  'series': 'les séries',
+  'netflix': 'les séries',
+  'documentales': 'les documentaires',
+  'leer': 'la lecture',
+  'libros': 'la lecture',
+  'novelas': 'la lecture',
+  'pintar': 'la peinture',
+  'dibujar': 'le dessin',
+  'escribir': 'l\'écriture',
+  'cantar': 'le chant',
+  'tocar guitarra': 'la guitare',
+  'guitarra': 'la guitare',
+  'piano': 'le piano',
+  'tocar el piano': 'le piano',
+  'bateria': 'la batterie', 'batería': 'la batterie',
+  'violin': 'le violon', 'violín': 'le violon',
+
+  // ===== SUEÑOS (verbos en infinitivo ya en francés natural) =====
+  // El generador antepone "J'espère un jour" → estos textos van como infinitivo o frase
+  'viajar': 'voyager',
+  'viajar a francia': 'voyager en France',
+  'viajar a paris': 'voyager à Paris', 'viajar a parís': 'voyager à Paris',
+  'viajar a europa': 'voyager en Europe',
+  'viajar a asia': 'voyager en Asie',
+  'viajar a africa': 'voyager en Afrique', 'viajar a áfrica': 'voyager en Afrique',
+  'viajar a japon': 'voyager au Japon', 'viajar a japón': 'voyager au Japon',
+  'viajar a italia': 'voyager en Italie',
+  'viajar a espana': 'voyager en Espagne', 'viajar a españa': 'voyager en Espagne',
+  'conocer paris': 'visiter Paris', 'conocer parís': 'visiter Paris',
+  'conocer francia': 'visiter la France',
+  'visitar paris': 'visiter Paris', 'visitar parís': 'visiter Paris',
+  'vivir en francia': 'vivre en France',
+  'mudarme a francia': 'déménager en France',
+  'estudiar en francia': 'étudier en France',
+  'trabajar en francia': 'travailler en France',
+  'hablar frances': 'parler français', 'hablar francés': 'parler français',
+  'hablar frances fluido': 'parler français couramment', 'hablar francés fluido': 'parler français couramment',
+  'hablar frances con fluidez': 'parler français couramment', 'hablar francés con fluidez': 'parler français couramment',
+  'aprender frances': 'apprendre le français', 'aprender francés': 'apprendre le français',
+  'dominar el frances': 'maîtriser le français', 'dominar el francés': 'maîtriser le français',
+  'ser fluido en frances': 'être fluide en français', 'ser fluido en francés': 'être fluide en français',
+  'comprar una casa': 'acheter une maison',
+  'comprar casa en francia': 'acheter une maison en France',
+  'tener hijos': 'avoir des enfants',
+  'casarme': 'me marier',
+  'jubilarme': 'prendre ma retraite',
+  'jubilarme temprano': 'prendre ma retraite tôt',
+  'tener mi propio negocio': 'avoir ma propre entreprise',
+  'emprender': 'créer mon entreprise',
+  'cambiar de trabajo': 'changer de travail',
+  'cambiar de carrera': 'changer de carrière',
+  'escribir un libro': 'écrire un livre',
+  'publicar un libro': 'publier un livre',
+  'ser feliz': 'être heureux',
+  'tener salud': 'rester en bonne santé',
+  'estar tranquilo': 'vivre tranquillement',
+  'vivir cerca del mar': 'vivre près de la mer',
+  'tener un perro': 'avoir un chien',
+  'tener una casa con jardin': 'avoir une maison avec jardin', 'tener una casa con jardín': 'avoir une maison avec jardin',
+  'volver a francia': 'retourner en France',
+  'ver la torre eiffel': 'voir la tour Eiffel',
+};
+
+// MyMemory API: free translation service, no key needed, ~5000 chars/day per IP
+const TRANSLATION_API = 'https://api.mymemory.translated.net/get';
+
+// Looks up local dict; returns { fr, source } or null
+function translateLocal(esText) {
+  if (!esText) return null;
+  const normalized = esText.toLowerCase().trim();
+
+  // Direct match
+  if (ES_TO_FR[normalized]) {
+    return { fr: ES_TO_FR[normalized], source: 'local' };
+  }
+
+  // Try stripping leading articles
+  const stripped = normalized.replace(/^(el |la |los |las |un |una |unos |unas )/, '');
+  if (stripped !== normalized && ES_TO_FR[stripped]) {
+    return { fr: ES_TO_FR[stripped], source: 'local' };
+  }
+
+  return null;
+}
+
+// Calls MyMemory API. Returns { fr, source } or null on error.
+async function translateAPI(esText) {
+  if (!esText || !esText.trim()) return null;
+  try {
+    const url = `${TRANSLATION_API}?q=${encodeURIComponent(esText)}&langpair=es|fr`;
+    const response = await fetch(url);
+    if (!response.ok) return null;
+    const data = await response.json();
+    if (data && data.responseData && data.responseData.translatedText) {
+      // MyMemory sometimes returns the source on errors with "MYMEMORY WARNING" text — filter that
+      const fr = data.responseData.translatedText.trim();
+      if (fr.toUpperCase().includes('MYMEMORY WARNING')) return null;
+      return { fr, source: 'api' };
+    }
+  } catch (e) {
+    return null;
+  }
+  return null;
+}
+
+// Detect if input is already in French — heuristic
+function looksFrench(text) {
+  if (!text) return false;
+  const lower = text.toLowerCase();
+  // French-specific signals: accented chars typical of French, common starters/words
+  if (/[âêîôûäëïöüÿœæç]/.test(lower)) return true;
+  // Common French articles + nouns starters
+  if (/^(le |la |les |un |une |des |du |de |l')/.test(lower)) return true;
+  // Common French infinitives
+  if (/(er|ir|re|oir)$/.test(lower) && lower.length > 4) {
+    // crude check: avoid Spanish "ir" verbs ending the same way
+    const frenchEndings = /(ger|cher|ger|aître|enir|voir|enir|tre|cre|dre|fre|gre|tre|vre)$/;
+    if (frenchEndings.test(lower)) return true;
+  }
+  // Words that are obviously French
+  if (/\b(je|jʼ|nous|vous|avec|sans|pour|chez|très|trop|aussi)\b/.test(lower)) return true;
+  return false;
+}
+
+// Main translation function. Returns Promise<{ fr, source }>
+//   source: 'local' | 'api' | 'fallback' | 'native' | 'manual'
+async function translateText(esText) {
+  if (!esText || !esText.trim()) return { fr: '', source: 'empty' };
+
+  // If it already looks French, use as is
+  if (looksFrench(esText)) {
+    return { fr: esText.trim(), source: 'native' };
+  }
+
+  // Try local dictionary first
+  const local = translateLocal(esText);
+  if (local) return local;
+
+  // Fall back to API
+  const api = await translateAPI(esText);
+  if (api) return api;
+
+  // No translation possible — return original with a warning
+  return { fr: esText.trim(), source: 'fallback' };
+}
+
+// Smart cache: avoid re-translating identical inputs
+const translationCache = new Map();
+async function translateCached(esText) {
+  const key = (esText || '').toLowerCase().trim();
+  if (translationCache.has(key)) return translationCache.get(key);
+  const result = await translateText(esText);
+  translationCache.set(key, result);
+  return result;
+}
+
+/* ===================================================
+   TRANSLATION PREVIEW UI
+   =================================================== */
+
+// Bind an input to a preview element with debounced translation
+function bindTranslationPreview(inputId, previewId) {
+  const input   = document.getElementById(inputId);
+  const preview = document.getElementById(previewId);
+  if (!input || !preview) return;
+
+  const valueEl = preview.querySelector('.tp-value');
+  const editBtn = preview.querySelector('.tp-edit');
+
+  let debounceTimer = null;
+  let manualOverride = null;  // user-set text via edit button
+
+  // Store the current translation on the input element for later retrieval
+  input.__translation = { fr: '', source: 'empty' };
+
+  function showResult(result) {
+    valueEl.classList.remove('placeholder', 'editing');
+    preview.classList.remove('loading');
+
+    // Remove any source badge first
+    preview.querySelectorAll('.tp-source, .tp-loader').forEach(el => el.remove());
+
+    if (!result.fr) {
+      preview.classList.remove('show');
+      input.__translation = { fr: '', source: 'empty' };
+      return;
+    }
+
+    valueEl.textContent = result.fr;
+    preview.classList.add('show');
+
+    // Add source badge before the edit button
+    const sourceBadge = document.createElement('span');
+    sourceBadge.className = `tp-source ${result.source}`;
+    sourceBadge.textContent = {
+      'local':    'local',
+      'api':      'api',
+      'native':   'fr',
+      'fallback': 'sin trad.',
+      'manual':   'editado',
+    }[result.source] || result.source;
+    preview.insertBefore(sourceBadge, editBtn);
+
+    input.__translation = result;
+  }
+
+  function showLoading() {
+    valueEl.classList.remove('placeholder');
+    preview.classList.add('show', 'loading');
+    preview.querySelectorAll('.tp-source, .tp-loader').forEach(el => el.remove());
+    const loader = document.createElement('span');
+    loader.className = 'tp-loader';
+    preview.insertBefore(loader, editBtn);
+    valueEl.textContent = 'Traduciendo…';
+  }
+
+  input.addEventListener('input', () => {
+    manualOverride = null;
+    const text = input.value.trim();
+
+    clearTimeout(debounceTimer);
+
+    if (!text) {
+      preview.classList.remove('show');
+      input.__translation = { fr: '', source: 'empty' };
+      return;
+    }
+
+    // Try local instantly (no debounce, no loading flash)
+    const local = translateLocal(text);
+    if (local) {
+      showResult(local);
+      return;
+    }
+
+    // Check if it looks French — also instant
+    if (looksFrench(text)) {
+      showResult({ fr: text, source: 'native' });
+      return;
+    }
+
+    // Otherwise debounce + call API
+    showLoading();
+    debounceTimer = setTimeout(async () => {
+      // Re-check that input value is still the same (avoid race)
+      if (input.value.trim() !== text) return;
+      const result = await translateCached(text);
+      if (input.value.trim() !== text) return; // race guard
+      showResult(result);
+    }, 600);
+  });
+
+  // Edit button: turns value into editable input
+  editBtn.addEventListener('click', () => {
+    const currentFr = valueEl.textContent;
+    const editInput = document.createElement('input');
+    editInput.type = 'text';
+    editInput.className = 'tp-value editing';
+    editInput.value = currentFr;
+    editInput.style.flex = '1';
+    valueEl.replaceWith(editInput);
+    editInput.focus();
+    editInput.select();
+
+    const commit = () => {
+      const newFr = editInput.value.trim() || currentFr;
+      const newValueEl = document.createElement('span');
+      newValueEl.className = 'tp-value';
+      newValueEl.textContent = newFr;
+      editInput.replaceWith(newValueEl);
+      // Update source to 'manual'
+      preview.querySelectorAll('.tp-source').forEach(el => el.remove());
+      const sourceBadge = document.createElement('span');
+      sourceBadge.className = 'tp-source manual';
+      sourceBadge.textContent = 'editado';
+      preview.insertBefore(sourceBadge, editBtn);
+      input.__translation = { fr: newFr, source: 'manual' };
+    };
+
+    editInput.addEventListener('blur', commit);
+    editInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); editInput.blur(); }
+      if (e.key === 'Escape') {
+        editInput.value = currentFr;
+        editInput.blur();
+      }
+    });
+  });
+}
+
+// Wire up the three translatable inputs
+bindTranslationPreview('inp-profession', 'preview-profession');
+bindTranslationPreview('inp-hobby-extra', 'preview-hobby');
+
+/* ===================================================
+   GENERATE
+   =================================================== */
+document.getElementById('btn-generate').addEventListener('click', generate);
+
+function getFormData() {
+  const inpName       = document.getElementById('inp-name');
+  const inpOrigin     = document.getElementById('inp-origin');
+  const inpProfession = document.getElementById('inp-profession');
+  const inpHobbyExtra = document.getElementById('inp-hobby-extra');
+
+  const name       = inpName.value.trim();
+  const origin     = inpOrigin.value.trim();
+
+  // Use translated values for fields that have translation preview
+  const profession = (inpProfession.__translation && inpProfession.__translation.fr) || inpProfession.value.trim();
+  const extraHobby = (inpHobbyExtra.__translation && inpHobbyExtra.__translation.fr) || inpHobbyExtra.value.trim();
+
+  // Dream: read from selected radio button
+  const selectedDream = document.querySelector('input[name="dream"]:checked');
+  const dream = selectedDream ? selectedDream.value.trim() : '';
+
+  // Selected hobby chips (these are already in French via data-fr attribute)
+  const hobbyFrs = [...document.querySelectorAll('.hobby-chip.selected')].map(c => c.dataset.fr);
+  if (extraHobby) {
+    // Extra hobby needs an article if it doesn't have one
+    let hobby = extraHobby;
+    if (!/^(le |la |les |l'|un |une |des )/i.test(hobby)) {
+      // Crude heuristic: vowel start → l', else le
+      if (/^[aeiouhâàéèêëîïôöûüœ]/i.test(hobby)) hobby = `l'${hobby}`;
+      else hobby = `le ${hobby}`;
+    }
+    hobbyFrs.push(hobby);
+  }
+
+  return { name, origin, childrenCount, ages: readAges(), profession, hobbies: hobbyFrs, dream };
+}
+
+function validate(data) {
+  if (!data.name) return 'Ingresá tu nombre para empezar.';
+  if (!data.profession) return 'Ingresá tu profesión.';
+  if (data.hobbies.length === 0) return 'Seleccioná al menos un hobby o pasión.';
+  return null;
+}
+
+function generate() {
+  const data = getFormData();
+  const error = validate(data);
+  if (error) { showToast(error, true); return; }
+
+  const phrases = buildPresentation(data);
+
+  // Analyze each phrase
+  const analyzed = phrases.map(p => ({
+    ...p,
+    analyzed: analyzePhrase(p.fr),
+  }));
+
+  renderResults(data, analyzed);
+}
+
+function renderResults(data, analyzedPhrases) {
+  document.getElementById('empty-state').style.display = 'none';
+  const container = document.getElementById('result-content');
+  container.style.display = 'block';
+
+  // Full presentation text
+  const fullFr = analyzedPhrases.map(p => p.fr).join(' ');
+
+  // Build HTML
+  let html = '';
+
+  // Hero block
+  html += `
+    <div class="pres-hero">
+      <div class="pres-hero-label">Ta présentation en français</div>
+      <div class="pres-text">
+        <span class="greeting">Bonjour,</span> ${analyzedPhrases.map((p, i) => i === 0 ? escHtml(p.fr).replace('Bonjour, ', '') : escHtml(p.fr)).join('<br>')}
+      </div>
+      <div class="pres-actions">
+        <button class="btn btn-play" data-text="${escAttr(fullFr)}" id="btn-play-full">▸ Escuchar todo</button>
+        <button class="btn btn-copy" id="btn-copy-text">⊡ Copiar texto</button>
+      </div>
+    </div>
+  `;
+
+  // Phrase by phrase
+  html += `
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <span class="section-title">Frase por frase</span>
+    </div>
+    <div class="phrase-list">
+  `;
+
+  for (const p of analyzedPhrases) {
+    const ipa = phraseIpa(p.analyzed);
+    const words = p.analyzed.filter(a => a.type === 'word');
+    const allTags = [...new Set(words.flatMap(w => w.tags))];
+    const tagsHtml = allTags.map(t => `<span class="phrase-tag ${t}">${tagLabel(t)}</span>`).join('');
+
+    // Approx: join word approxes
+    const approx = words.map(w => w.approx).join(' ');
+
+    html += `
+      <div class="phrase-card">
+        <div>
+          <div class="phrase-fr">${escHtml(p.fr)}</div>
+          <div class="phrase-ipa">${escHtml(ipa)}</div>
+          <div class="phrase-approx">${escHtml(approx)}</div>
+          ${allTags.length ? `<div class="phrase-tags">${tagsHtml}</div>` : ''}
+        </div>
+        <button class="phrase-play-btn" data-text="${escAttr(p.fr)}">▸</button>
+      </div>
+    `;
+  }
+
+  html += `</div>`;
+
+  // Notes
+  const notes = gatherNotes(analyzedPhrases);
+  if (notes.length > 0) {
+    html += `
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <span class="section-title">Sonidos a tener en cuenta</span>
+      </div>
+      <div class="notes-panel">
+        <div class="notes-label">Presentes en tu presentación</div>
+        ${notes.map(n => `
+          <div class="note-item">
+            <span class="note-badge ${n.label}">${noteBadgeLabel(n.label)}</span>
+            <span class="note-text">${n.text}</span>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  container.innerHTML = html;
+
+  // Wire audio
+  container.querySelectorAll('[data-text]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const b = e.currentTarget;
+      speak(b.dataset.text, b);
+    });
+  });
+
+  // Copy button
+  container.querySelector('#btn-copy-text').addEventListener('click', () => {
+    navigator.clipboard.writeText(fullFr).then(() => {
+      showToast('Texto copiado al portapapeles');
+    }).catch(() => {
+      showToast('No se pudo copiar. Copialo manualmente.', true);
+    });
+  });
+
+  // Scroll into view
+  container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function gatherNotes(analyzedPhrases) {
+  const notes = [];
+  const allWords = analyzedPhrases.flatMap(p => p.analyzed.filter(a => a.type === 'word'));
+
+  const nasalWords = allWords.filter(w => w.tags.includes('nasal'));
+  if (nasalWords.length) {
+    const ex = [...new Set(nasalWords.map(w => w.text))].slice(0, 4)
+      .map(w => `<b>${escHtml(w)}</b>`).join(', ');
+    notes.push({ label: 'nasal', text: `Vocales nasales en: ${ex}. La <b>n</b>/<b>m</b> escrita NO se pronuncia — solo nasaliza la vocal. Dejá salir el aire por la nariz.` });
+  }
+
+  const roundWords = allWords.filter(w => w.tags.includes('round'));
+  if (roundWords.length) {
+    const ex = [...new Set(roundWords.map(w => w.text))].slice(0, 4)
+      .map(w => `<b>${escHtml(w)}</b>`).join(', ');
+    notes.push({ label: 'round', text: `Vocales redondeadas en: ${ex}. La <b>/y/</b> (u francesa): decí "i" con los labios en posición de "u". Las <b>/ø/</b> y <b>/œ/</b>: "e" con labios redondos.` });
+  }
+
+  const consWords = allWords.filter(w => w.tags.includes('cons'));
+  if (consWords.length) {
+    const sounds = [];
+    if (consWords.some(w => /ʁ/.test(w.ipa))) sounds.push('<b>/ʁ/</b> uvular — en la garganta, no con la punta de la lengua');
+    if (consWords.some(w => /ʃ/.test(w.ipa))) sounds.push('<b>/ʃ/</b> "ch" francesa = "sh" inglesa, NUNCA "ch" española');
+    if (consWords.some(w => /ʒ/.test(w.ipa))) sounds.push('<b>/ʒ/</b> ≈ la "ll/y" rioplatense de "yo me llamo"');
+    if (sounds.length) notes.push({ label: 'cons', text: `Consonantes francesas: ${sounds.join('; ')}.` });
+  }
+
+  // CaReFuL
+  const carefulWords = allWords.filter(w => /[kʁfl]$/.test(w.ipa));
+  if (carefulWords.length) {
+    const ex = [...new Set(carefulWords.map(w => w.text))].slice(0, 3)
+      .map(w => `<b>${escHtml(w)}</b>`).join(', ');
+    notes.push({ label: 'exception', text: `CaReFuL — consonantes <b>c, r, f, l</b> finales suenan. Aplica en: ${ex}.` });
+  }
+
+  return notes;
+}
+
+function tagLabel(t) {
+  return { nasal:'Nasal', round:'Redondeada', cons:'Consonante', combo:'Combo', liaison:'Liaison' }[t] || t;
+}
+function noteBadgeLabel(l) {
+  return { nasal:'Nasal', round:'Redondeada', cons:'Consonante', liaison:'Liaison', exception:'Regla' }[l] || l;
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function escAttr(s) {
+  return String(s).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+/* ===================================================
+   RESET
+   =================================================== */
+document.getElementById('btn-reset').addEventListener('click', () => {
+  document.getElementById('inp-name').value = '';
+  document.getElementById('inp-origin').value = '';
+  document.getElementById('inp-profession').value = '';
+  document.getElementById('inp-dream-fallback') && (document.getElementById('inp-dream-fallback').value = '');
+  // Reset dream radio to "ninguno"
+  const noneRadio = document.querySelector('input[name="dream"][value=""]');
+  if (noneRadio) noneRadio.checked = true;
+  document.getElementById('inp-hobby-extra').value = '';
+  document.getElementById('inp-children-count').value = '0';
+  childrenCount = 0;
+  ageInputsEl.innerHTML = '';
+  childrenHint.textContent = 'Ingresá una cantidad para agregar edades.';
+  document.querySelectorAll('.hobby-chip.selected').forEach(c => c.classList.remove('selected'));
+  document.getElementById('empty-state').style.display = 'block';
+  document.getElementById('result-content').style.display = 'none';
+  document.getElementById('result-content').innerHTML = '';
+});
+
+/* ===================================================
+   AUDIO (same hybrid approach)
+   =================================================== */
+let frenchVoice = null;
+let firstAudio = true;
+let currentAudio = null;
+
+function pickFrenchVoice() {
+  if (!('speechSynthesis' in window)) return null;
+  const voices = speechSynthesis.getVoices();
+  if (!voices.length) return null;
+  let v = voices.find(v => v.lang === 'fr-FR');
+  if (!v) v = voices.find(v => v.lang === 'fr-CA');
+  if (!v) v = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('fr'));
+  return v || null;
+}
+if ('speechSynthesis' in window) {
+  frenchVoice = pickFrenchVoice();
+  speechSynthesis.onvoiceschanged = () => { frenchVoice = pickFrenchVoice(); };
+  setTimeout(() => { frenchVoice = pickFrenchVoice(); }, 500);
+}
+
+function speakViaGoogle(text, btn) {
+  if (currentAudio) { try { currentAudio.pause(); } catch(e){} currentAudio = null; }
+  const url = 'https://translate.google.com/translate_tts?ie=UTF-8&q=' + encodeURIComponent(text) + '&tl=fr&client=tw-ob';
+  const audio = new Audio(url);
+  currentAudio = audio;
+  if (btn) btn.classList.add('playing');
+  const cleanup = () => { if (btn) btn.classList.remove('playing'); };
+  audio.onended = cleanup; audio.onpause = cleanup;
+  audio.onerror = () => { cleanup(); showToast('Audio no disponible.', true); };
+  const p = audio.play();
+  if (p && p.catch) p.catch(() => { cleanup(); showToast('Audio bloqueado por el navegador', true); });
+}
+function speakViaWebSpeech(text, btn) {
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR'; u.rate = 0.85;
+  if (frenchVoice) u.voice = frenchVoice;
+  if (btn) {
+    btn.classList.add('playing');
+    u.onend = () => btn.classList.remove('playing');
+    u.onerror = () => btn.classList.remove('playing');
+  }
+  speechSynthesis.speak(u);
+}
+function speak(text, btn) {
+  if (!text) return;
+  if (!frenchVoice) frenchVoice = pickFrenchVoice();
+  if (frenchVoice) {
+    speakViaWebSpeech(text, btn);
+    if (firstAudio) { firstAudio = false; }
+    return;
+  }
+  speakViaGoogle(text, btn);
+  firstAudio = false;
+}
+
+/* ===================================================
+   TOAST
+   =================================================== */
+const toastEl = document.getElementById('copy-toast');
+let toastTimer = null;
+function showToast(msg, warn) {
+  toastEl.textContent = msg;
+  toastEl.style.borderLeftColor = warn ? 'var(--secondary)' : 'var(--plum)';
+  toastEl.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toastEl.classList.remove('show'), 3500);
+}
+</script>
+</body>
+</html>

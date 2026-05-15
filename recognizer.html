@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reconocedor · Practicá hablando francés</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF6EC;
+    --bg-deep: #F0E8D4;
+    --paper: #FFFFFF;
+    --ink: #0F1419;
+    --ink-soft: #3D4651;
+    --ink-faint: #8B95A1;
+    --rule: #D6CDB8;
+
+    --primary: #1E40AF;
+    --primary-soft: #3B82F6;
+    --secondary: #EA580C;
+    --secondary-soft: #FB923C;
+    --tertiary: #059669;
+    --tertiary-soft: #34D399;
+    --accent: #DB2777;
+    --accent-soft: #F472B6;
+    --gold: #CA8A04;
+    --gold-soft: #FACC15;
+    --plum: #7C3AED;
+    --plum-soft: #A78BFA;
+
+    --serif-display: 'Fraunces', serif;
+    --serif-body: 'Spectral', Georgia, serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--serif-body);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 17px;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(30, 64, 175, 0.06) 0%, transparent 45%),
+      radial-gradient(circle at 85% 65%, rgba(234, 88, 12, 0.05) 0%, transparent 45%),
+      radial-gradient(circle at 50% 100%, rgba(5, 150, 105, 0.04) 0%, transparent 45%);
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.10 0 0 0 0 0.08 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.3;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+
+  main, header.hero, footer { position: relative; z-index: 2; }
+
+  /* ===== HERO ===== */
+  header.hero {
+    padding: 4rem 2rem 2.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .kicker {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--tertiary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+  }
+  .kicker::before {
+    content: "";
+    width: 32px;
+    height: 2px;
+    background: var(--tertiary);
+  }
+
+  h1.title {
+    font-family: var(--serif-display);
+    font-weight: 500;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+    font-variation-settings: "opsz" 144;
+  }
+  h1.title em {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--tertiary);
+    font-variation-settings: "opsz" 144;
+  }
+
+  .lede {
+    font-size: 1.12rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 65ch;
+  }
+  .lede strong { color: var(--tertiary); font-weight: 700; }
+
+  /* ===== MAIN ===== */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
+  }
+
+  /* ===== UNSUPPORTED BROWSER WARNING ===== */
+  .unsupported {
+    display: none;
+    background: linear-gradient(135deg, #2D1B3D 0%, #1A2942 100%);
+    color: var(--paper);
+    padding: 2.5rem 2.25rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    border-left: 5px solid var(--secondary);
+  }
+  .unsupported.show { display: block; }
+  .unsupported-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--secondary-soft);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .unsupported-title {
+    font-family: var(--serif-display);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin-bottom: 0.85rem;
+    line-height: 1.25;
+    font-variation-settings: "opsz" 144;
+  }
+  .unsupported-body {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: rgba(253, 250, 243, 0.85);
+  }
+  .unsupported-body code {
+    font-family: var(--mono);
+    background: rgba(253, 250, 243, 0.1);
+    padding: 0.12em 0.4em;
+    border-radius: 3px;
+    color: var(--gold-soft);
+  }
+
+  /* ===== TABS ===== */
+  .tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .tab {
+    background: none;
+    border: none;
+    padding: 0.85rem 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.2s;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px;
+  }
+  .tab:hover { color: var(--tertiary); }
+  .tab.active {
+    color: var(--tertiary);
+    border-bottom-color: var(--tertiary);
+  }
+  .tab .badge {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.1rem 0.45rem;
+    font-size: 0.6rem;
+    background: var(--bg-deep);
+    color: var(--ink-soft);
+    border-radius: 100px;
+    font-weight: 700;
+  }
+  .tab.active .badge {
+    background: var(--tertiary);
+    color: white;
+  }
+
+  /* ===== TAB PANELS ===== */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; animation: fadeIn 0.3s ease-out; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* ===== MIC BUTTON ===== */
+  .mic-block {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--tertiary);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .mic-button {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: none;
+    background: var(--tertiary);
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+    box-shadow: 0 8px 24px -10px rgba(5, 150, 105, 0.5);
+  }
+  .mic-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px -10px rgba(5, 150, 105, 0.65);
+  }
+  .mic-button.listening {
+    background: var(--secondary);
+    box-shadow: 0 8px 24px -10px rgba(234, 88, 12, 0.6);
+    animation: micPulse 1.4s infinite;
+  }
+  .mic-button:disabled {
+    background: var(--ink-faint);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+  @keyframes micPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.4), 0 8px 24px -10px rgba(234, 88, 12, 0.6); }
+    50%      { box-shadow: 0 0 0 18px rgba(234, 88, 12, 0), 0 8px 24px -10px rgba(234, 88, 12, 0.6); }
+  }
+
+  .mic-status {
+    margin-top: 1.25rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+    min-height: 1.4em;
+  }
+  .mic-status.listening { color: var(--secondary); }
+  .mic-status.error     { color: var(--accent); }
+
+  .mic-hint {
+    margin-top: 0.6rem;
+    font-style: normal;
+    color: var(--ink-faint);
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  /* ===== TRANSCRIPT DISPLAY ===== */
+  .transcript-block {
+    background: linear-gradient(135deg, var(--ink) 0%, #1A2942 60%, #0F1F2E 100%);
+    color: var(--paper);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    margin-bottom: 1.5rem;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .transcript-block::before {
+    content: "«";
+    position: absolute;
+    top: -1.5rem;
+    left: 0.5rem;
+    font-family: var(--serif-display);
+    font-size: 10rem;
+    color: rgba(52, 211, 153, 0.1);
+    line-height: 1;
+    font-style: normal;
+    pointer-events: none;
+  }
+  .transcript-block::after {
+    content: "»";
+    position: absolute;
+    bottom: -3.5rem;
+    right: 1rem;
+    font-family: var(--serif-display);
+    font-size: 10rem;
+    color: rgba(52, 211, 153, 0.1);
+    line-height: 1;
+    font-style: normal;
+    pointer-events: none;
+  }
+
+  .transcript-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tertiary-soft);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .transcript-text {
+    font-family: var(--serif-display);
+    font-style: normal;
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    line-height: 1.35;
+    font-weight: 500;
+    color: white;
+    font-variation-settings: "opsz" 144;
+    max-width: 24ch;
+    position: relative;
+    z-index: 1;
+    word-wrap: break-word;
+  }
+  .transcript-text .interim {
+    color: rgba(253, 250, 243, 0.5);
+    font-weight: 400;
+  }
+  .transcript-text.empty {
+    color: rgba(253, 250, 243, 0.25);
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
+    font-style: normal;
+  }
+  .transcript-confidence {
+    margin-top: 1.25rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tertiary-soft);
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+  .transcript-confidence b {
+    color: white;
+    font-weight: 700;
+  }
+
+  /* ===== ACTIONS BAR ===== */
+  .actions-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.7rem 1.2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+  .btn-primary  { background: var(--primary); color: white; }
+  .btn-primary:hover { background: var(--primary-soft); transform: translateY(-1px); }
+  .btn-secondary { background: transparent; color: var(--ink-soft); border-color: var(--rule); }
+  .btn-secondary:hover { border-color: var(--tertiary); color: var(--tertiary); }
+  .btn-play { background: var(--secondary); color: white; }
+  .btn-play:hover { background: var(--secondary-soft); transform: translateY(-1px); }
+  .btn-play.playing { background: var(--tertiary); animation: playingPulse 1.2s infinite; }
+  @keyframes playingPulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.5); }
+    50%     { box-shadow: 0 0 0 12px rgba(5, 150, 105, 0); }
+  }
+
+  /* ===== TARGET (CHALLENGE MODE) ===== */
+  .target-block {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .target-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .target-text {
+    font-family: var(--serif-display);
+    font-style: normal;
+    font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+    line-height: 1.25;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-variation-settings: "opsz" 144;
+  }
+  .target-actions {
+    display: flex;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+  }
+  .target-actions .btn {
+    font-size: 0.66rem;
+  }
+
+  /* ===== TARGET PICKER ===== */
+  .target-picker {
+    margin-bottom: 1.5rem;
+  }
+  .target-picker-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin-bottom: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .target-picker-label::before {
+    content: "";
+    width: 16px;
+    height: 1px;
+    background: var(--ink-soft);
+  }
+  .target-categories {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.85rem;
+  }
+  .cat-btn {
+    background: transparent;
+    border: 1px solid var(--rule);
+    padding: 0.4rem 0.85rem;
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 600;
+  }
+  .cat-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .cat-btn.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .phrase-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.6rem;
+  }
+  .phrase-pill {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 0.7rem 1rem;
+    border-radius: 4px;
+    font-family: var(--serif-display);
+    font-style: normal;
+    font-size: 0.95rem;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    font-weight: 500;
+    line-height: 1.3;
+    font-variation-settings: "opsz" 144;
+  }
+  .phrase-pill:hover {
+    border-color: var(--accent);
+    background: rgba(219, 39, 119, 0.04);
+    transform: translateY(-1px);
+  }
+  .phrase-pill.selected {
+    background: rgba(219, 39, 119, 0.08);
+    border-color: var(--accent);
+  }
+
+  /* ===== RESULTS ===== */
+  .result-block {
+    display: none;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px dashed var(--rule);
+  }
+  .result-block.visible { display: block; animation: fadeIn 0.4s ease-out; }
+
+  .result-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .result-num {
+    font-family: var(--serif-display);
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--tertiary);
+    line-height: 1;
+    font-variation-settings: "opsz" 144;
+  }
+  .result-title {
+    font-family: var(--serif-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.1;
+    font-variation-settings: "opsz" 144;
+  }
+
+  /* ===== SCORE PANEL ===== */
+  .score-panel {
+    background: linear-gradient(135deg, var(--ink) 0%, #1A2942 60%, #2D1B3D 100%);
+    color: var(--paper);
+    padding: 2rem 2.25rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .score-circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: rgba(253, 250, 243, 0.05);
+    border: 3px solid var(--tertiary-soft);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s;
+  }
+  .score-circle.fair { border-color: var(--gold-soft); }
+  .score-circle.poor { border-color: var(--secondary-soft); }
+  .score-value {
+    font-family: var(--serif-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+    font-variation-settings: "opsz" 144;
+  }
+  .score-label {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(253, 250, 243, 0.6);
+    margin-top: 0.25rem;
+    font-weight: 600;
+  }
+  .score-explain {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: rgba(253, 250, 243, 0.88);
+  }
+  .score-explain b { color: var(--tertiary-soft); font-weight: 600; }
+  .score-verdict {
+    font-family: var(--serif-display);
+    font-style: normal;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-variation-settings: "opsz" 144;
+  }
+  .score-verdict.fair { color: var(--gold-soft); }
+  .score-verdict.poor { color: var(--secondary-soft); }
+
+  /* ===== DIFF VIEW ===== */
+  .diff-block {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1rem;
+  }
+  .diff-rows {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .diff-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+  .diff-row-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 700;
+    padding-top: 0.45rem;
+    width: 8ch;
+  }
+  .diff-row-content {
+    font-family: var(--serif-display);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-weight: 500;
+    word-spacing: 0.3em;
+    font-variation-settings: "opsz" 144;
+  }
+  .diff-token {
+    display: inline-block;
+    padding: 0.18rem 0.55rem;
+    border-radius: 3px;
+    margin: 0.12rem 0;
+    transition: transform 0.15s;
+  }
+  .diff-token.match    { background: rgba(5, 150, 105, 0.13); color: var(--tertiary); font-weight: 600; }
+  .diff-token.miss     { background: rgba(234, 88, 12, 0.15); color: var(--secondary); font-weight: 600; text-decoration: line-through; text-decoration-color: rgba(234, 88, 12, 0.5); }
+  .diff-token.extra    { background: rgba(202, 138, 4, 0.15); color: var(--gold); font-weight: 600; font-style: normal; }
+  .diff-token.replaced { background: rgba(219, 39, 119, 0.13); color: var(--accent); font-weight: 600; }
+  .diff-token.replaced::before {
+    content: "↶";
+    margin-right: 0.25rem;
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  .diff-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--rule);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+  }
+  .diff-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .diff-legend i {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .diff-legend .match    i { background: rgba(5, 150, 105, 0.5); }
+  .diff-legend .miss     i { background: rgba(234, 88, 12, 0.5); }
+  .diff-legend .extra    i { background: rgba(202, 138, 4, 0.5); }
+  .diff-legend .replaced i { background: rgba(219, 39, 119, 0.5); }
+
+  /* ===== HISTORY ===== */
+  .history-block {
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .history-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
+  .history-title {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+  .history-clear {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    transition: color 0.2s;
+    font-weight: 500;
+  }
+  .history-clear:hover { color: var(--secondary); }
+
+  .history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .history-item {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 0.85rem 1.1rem;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .history-item:hover {
+    border-color: var(--tertiary);
+    transform: translateX(2px);
+  }
+  .history-score {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    background: var(--bg-deep);
+    color: var(--ink-soft);
+    min-width: 3.5rem;
+    text-align: center;
+  }
+  .history-score.good { background: rgba(5, 150, 105, 0.13); color: var(--tertiary); }
+  .history-score.fair { background: rgba(202, 138, 4, 0.13); color: var(--gold); }
+  .history-score.poor { background: rgba(234, 88, 12, 0.15); color: var(--secondary); }
+  .history-text {
+    font-family: var(--serif-body);
+    font-style: normal;
+    color: var(--ink);
+    font-size: 0.92rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.3;
+  }
+  .history-time {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+  .history-empty {
+    color: var(--ink-faint);
+    font-style: normal;
+    font-size: 0.92rem;
+    padding: 1rem 0;
+  }
+
+  /* ===== TIPS PANEL ===== */
+  .tips-panel {
+    background: rgba(202, 138, 4, 0.06);
+    border: 1px solid rgba(202, 138, 4, 0.18);
+    border-left: 3px solid var(--gold);
+    padding: 1.1rem 1.4rem;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .tips-panel::before {
+    content: "✦ TIPS PARA QUE TE RECONOZCA MEJOR";
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    margin-bottom: 0.45rem;
+    font-weight: 700;
+  }
+  .tips-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .tips-panel li {
+    padding: 0.18rem 0 0.18rem 1.2rem;
+    position: relative;
+  }
+  .tips-panel li::before {
+    content: "·";
+    position: absolute;
+    left: 0.25rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ===== AUDIO STATUS ===== */
+  .audio-status {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.85rem 1.25rem;
+    border-radius: 3px;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    z-index: 100;
+    border-left: 4px solid var(--tertiary);
+    max-width: 320px;
+    font-weight: 500;
+  }
+  .audio-status.show { opacity: 1; transform: translateY(0); }
+  .audio-status.warn { border-left-color: var(--secondary); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem 2.5rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  footer .colophon {
+    font-style: normal;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    max-width: 60ch;
+    line-height: 1.5;
+  }
+  footer .sig {
+    font-family: var(--serif-display);
+    font-style: normal;
+    color: var(--tertiary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: right;
+    font-variation-settings: "opsz" 9;
+  }
+  footer .back-link {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--tertiary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    transition: gap 0.2s;
+  }
+  footer .back-link::before { content: "←"; }
+  footer .back-link:hover { gap: 0.85rem; }
+
+  @media (max-width: 768px) {
+    main { padding: 2rem 1.25rem 3rem; }
+    header.hero { padding: 3rem 1.25rem 2rem; }
+    .mic-block { padding: 2rem 1.25rem; }
+    .transcript-block { padding: 2rem 1.25rem; min-height: 140px; }
+    .score-panel { grid-template-columns: 1fr; gap: 1rem; text-align: center; }
+    .score-circle { margin: 0 auto; }
+    .diff-row { grid-template-columns: 1fr; gap: 0.4rem; }
+    .diff-row-label { padding-top: 0; }
+    .phrase-list { grid-template-columns: 1fr; }
+  }
+
+  /* === NO ITALIC OVERRIDE === */
+  em, i, .italic { font-style: normal !important; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="kicker">Reconocedor · Speech to Text</div>
+  <h1 class="title">Hablá<br><em>en francés</em></h1>
+  <p class="lede">
+    Activá el micrófono y hablá. El navegador convierte tu voz a texto francés. Compará lo que dijiste con lo que el reconocedor entendió — esa <strong>diferencia es la señal pedagógica</strong>: te dice exactamente dónde tu pronunciación necesita atención.
+  </p>
+</header>
+
+<main>
+
+  <!-- Unsupported browser warning -->
+  <div class="unsupported" id="unsupported">
+    <div class="unsupported-label">⚠ Navegador no compatible</div>
+    <h3 class="unsupported-title">Tu navegador no soporta reconocimiento de voz</h3>
+    <p class="unsupported-body">
+      Esta página usa la <code>Web Speech API</code> de tu navegador, que en este momento solo está bien soportada en <b>Chrome</b>, <b>Edge</b> y <b>Safari</b>. Firefox no la soporta. Si querés usar esta herramienta, te recomendamos abrirla en uno de los navegadores soportados.
+    </p>
+  </div>
+
+  <div id="content">
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab active" data-tab="free">🎤 Modo libre <span class="badge">A</span></button>
+      <button class="tab" data-tab="challenge">🎯 Desafío · Shadowing <span class="badge">B</span></button>
+    </div>
+
+    <!-- =========== TAB A: FREE MODE =========== -->
+    <div class="tab-panel active" id="tab-free">
+
+      <div class="tips-panel">
+        <ul>
+          <li>Hablá <b>cerca del micrófono</b> y en un ambiente silencioso para mejores resultados</li>
+          <li>El reconocedor está configurado en francés. Si decís algo en español, intentará interpretarlo como francés</li>
+          <li>La <b>confianza</b> baja indica pronunciación poco clara — usalo como pista</li>
+          <li>Tocá una vez para empezar y otra vez para terminar (o esperá a la pausa automática)</li>
+        </ul>
+      </div>
+
+      <div class="mic-block">
+        <button class="mic-button" id="mic-free" aria-label="Empezar a grabar">🎤</button>
+        <div class="mic-status" id="status-free">Tocá el micrófono para empezar</div>
+        <div class="mic-hint" id="hint-free">Permití el acceso al micrófono cuando el navegador te pregunte</div>
+      </div>
+
+      <div class="transcript-block">
+        <div class="transcript-label">Lo que el reconocedor entendió</div>
+        <div class="transcript-text empty" id="transcript-free">— Hablá y aparecerá acá —</div>
+        <div class="transcript-confidence" id="confidence-free" style="display:none;">
+          Confianza: <b id="conf-value-free">—</b>
+        </div>
+      </div>
+
+      <div class="actions-bar">
+        <button class="btn btn-play" id="btn-play-free">▸ Reproducir lo entendido</button>
+        <button class="btn btn-primary" id="btn-analyze-free">⚙ Analizar fonéticamente</button>
+        <button class="btn btn-secondary" id="btn-clear-free">✕ Limpiar</button>
+      </div>
+
+    </div>
+
+    <!-- =========== TAB B: CHALLENGE MODE =========== -->
+    <div class="tab-panel" id="tab-challenge">
+
+      <div class="target-picker">
+        <div class="target-picker-label">Elegí una frase para practicar</div>
+        <div class="target-categories" id="target-categories">
+          <button class="cat-btn active" data-cat="basics">Básicas</button>
+          <button class="cat-btn" data-cat="cafe">En el café</button>
+          <button class="cat-btn" data-cat="travel">Viaje</button>
+          <button class="cat-btn" data-cat="intro">Presentación</button>
+          <button class="cat-btn" data-cat="hard">Difíciles</button>
+        </div>
+        <div class="phrase-list" id="phrase-list"></div>
+      </div>
+
+      <div class="target-block" id="target-block" style="display:none;">
+        <div class="target-label">Tu objetivo · decí esta frase</div>
+        <div class="target-text" id="target-text"></div>
+        <div class="target-actions">
+          <button class="btn btn-play" id="btn-play-target">▸ Escuchar</button>
+        </div>
+      </div>
+
+      <div class="mic-block">
+        <button class="mic-button" id="mic-challenge" aria-label="Empezar a grabar">🎤</button>
+        <div class="mic-status" id="status-challenge">Elegí una frase y tocá el micrófono</div>
+        <div class="mic-hint" id="hint-challenge">Tocá una vez para empezar y otra vez para terminar</div>
+      </div>
+
+      <div class="transcript-block">
+        <div class="transcript-label">Lo que dijiste</div>
+        <div class="transcript-text empty" id="transcript-challenge">— Hablá y aparecerá acá —</div>
+        <div class="transcript-confidence" id="confidence-challenge" style="display:none;">
+          Confianza: <b id="conf-value-challenge">—</b>
+        </div>
+      </div>
+
+      <!-- Results: shown after recognition -->
+      <div class="result-block" id="result-block">
+
+        <!-- Score panel -->
+        <div class="result-header">
+          <span class="result-num">01</span>
+          <h2 class="result-title">Resultado</h2>
+        </div>
+        <div class="score-panel">
+          <div class="score-circle" id="score-circle">
+            <div class="score-value" id="score-value">—</div>
+            <div class="score-label">Score</div>
+          </div>
+          <div>
+            <div class="score-verdict" id="score-verdict">—</div>
+            <div class="score-explain" id="score-explain">—</div>
+          </div>
+        </div>
+
+        <!-- Diff -->
+        <div class="result-header">
+          <span class="result-num">02</span>
+          <h2 class="result-title">Comparación palabra por palabra</h2>
+        </div>
+        <div class="diff-block">
+          <div class="diff-rows">
+            <div class="diff-row">
+              <div class="diff-row-label">Objetivo</div>
+              <div class="diff-row-content" id="diff-target"></div>
+            </div>
+            <div class="diff-row">
+              <div class="diff-row-label">Tu intento</div>
+              <div class="diff-row-content" id="diff-attempt"></div>
+            </div>
+          </div>
+          <div class="diff-legend">
+            <span class="match"><i></i>Acertaste</span>
+            <span class="replaced"><i></i>Cambiada</span>
+            <span class="miss"><i></i>Faltó</span>
+            <span class="extra"><i></i>Extra</span>
+          </div>
+        </div>
+
+        <div class="actions-bar">
+          <button class="btn btn-play" id="btn-replay-target">▸ Escuchar el objetivo</button>
+          <button class="btn btn-secondary" id="btn-retry">↻ Intentar de nuevo</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- HISTORY -->
+    <div class="history-block">
+      <div class="history-header">
+        <span class="history-title">Historial · últimas prácticas</span>
+        <button class="history-clear" id="history-clear">Limpiar</button>
+      </div>
+      <div class="history-list" id="history-list">
+        <span class="history-empty">Aún no practicaste. Tus últimas 10 sesiones quedarán acá.</span>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <p class="colophon">
+    Reconocedor de voz en francés &middot; usa la Web Speech API del navegador (Chrome, Edge, Safari) &middot; los datos de audio se procesan en servidores de Google/Apple según el navegador.
+  </p>
+  <a href="index.html" class="back-link">Portada del curso</a>
+</footer>
+
+<div class="audio-status" id="audioStatus"></div>
+
+<script>
+/* ============================================================
+   FEATURE DETECTION
+   ============================================================ */
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+if (!SpeechRecognition) {
+  document.getElementById('unsupported').classList.add('show');
+  document.getElementById('content').style.display = 'none';
+}
+
+/* ============================================================
+   PHRASE BANK
+   ============================================================ */
+const PHRASE_BANK = {
+  basics: [
+    "Bonjour, comment allez-vous?",
+    "Merci beaucoup, et vous?",
+    "Je m'appelle Pierre.",
+    "Au revoir, à bientôt.",
+    "S'il vous plaît, parlez plus lentement.",
+    "Excusez-moi, je ne comprends pas.",
+    "Oui, c'est ça.",
+    "Non, ce n'est pas grave.",
+  ],
+  cafe: [
+    "Je voudrais un café, s'il vous plaît.",
+    "L'addition, s'il vous plaît.",
+    "Avez-vous une carte en anglais?",
+    "Je prendrai le menu du jour.",
+    "C'est délicieux, merci.",
+    "Un verre de vin rouge, s'il vous plaît.",
+    "Une bouteille d'eau plate.",
+  ],
+  travel: [
+    "Où est la gare la plus proche?",
+    "À quelle heure part le train?",
+    "Combien coûte le billet?",
+    "Je cherche l'hôtel Lutèce.",
+    "Pouvez-vous m'aider, s'il vous plaît?",
+    "Je suis perdu, où est le métro?",
+    "À gauche ou à droite?",
+  ],
+  intro: [
+    "Je viens de Montevideo, en Uruguay.",
+    "J'ai deux filles et j'adore la mer.",
+    "Je travaille dans les télécommunications.",
+    "J'apprends le français depuis peu.",
+    "Enchanté de faire votre connaissance.",
+    "J'espère parler français couramment un jour.",
+  ],
+  hard: [
+    "Les chaussettes de l'archiduchesse sont sèches.",
+    "Un chasseur sachant chasser sait chasser sans son chien.",
+    "Je veux et j'exige un nuage de lait frais.",
+    "Trois tortues trottaient sur trois toits très étroits.",
+    "Six souris sous six chaises grises.",
+    "L'eau de l'évier de la cuisine.",
+  ],
+};
+
+/* ============================================================
+   TEXT NORMALIZATION (for comparison)
+   ============================================================ */
+function normalize(text) {
+  return text
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')  // strip accents
+    .replace(/['']/g, "'")
+    .replace(/[^a-z0-9' ]/g, ' ')   // remove punctuation
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function tokenize(text) {
+  return normalize(text).split(' ').filter(Boolean);
+}
+
+/* ============================================================
+   DIFF (Levenshtein-style word-level alignment)
+   ============================================================ */
+function diffWords(targetWords, attemptWords) {
+  const m = targetWords.length;
+  const n = attemptWords.length;
+  // dp[i][j] = min edit distance from target[0..i) to attempt[0..j)
+  const dp = Array.from({length: m+1}, () => new Array(n+1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (targetWords[i-1] === attemptWords[j-1]) dp[i][j] = dp[i-1][j-1];
+      else dp[i][j] = 1 + Math.min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]);
+    }
+  }
+  // Backtrack to produce ops
+  const targetOps = [];
+  const attemptOps = [];
+  let i = m, j = n;
+  while (i > 0 || j > 0) {
+    if (i > 0 && j > 0 && targetWords[i-1] === attemptWords[j-1]) {
+      targetOps.unshift({ word: targetWords[i-1], type: 'match' });
+      attemptOps.unshift({ word: attemptWords[j-1], type: 'match' });
+      i--; j--;
+    } else if (i > 0 && j > 0 && dp[i][j] === dp[i-1][j-1] + 1) {
+      // substitution
+      targetOps.unshift({ word: targetWords[i-1], type: 'replaced', replacement: attemptWords[j-1] });
+      attemptOps.unshift({ word: attemptWords[j-1], type: 'replaced', original: targetWords[i-1] });
+      i--; j--;
+    } else if (i > 0 && (j === 0 || dp[i][j] === dp[i-1][j] + 1)) {
+      // deletion (target word not in attempt)
+      targetOps.unshift({ word: targetWords[i-1], type: 'miss' });
+      i--;
+    } else {
+      // insertion (attempt word not in target)
+      attemptOps.unshift({ word: attemptWords[j-1], type: 'extra' });
+      j--;
+    }
+  }
+  return { targetOps, attemptOps, distance: dp[m][n] };
+}
+
+function similarityScore(target, attempt) {
+  const t = tokenize(target);
+  const a = tokenize(attempt);
+  if (t.length === 0) return 0;
+  const { distance } = diffWords(t, a);
+  // Normalize: percentage of words correct
+  const maxLen = Math.max(t.length, a.length);
+  const score = Math.max(0, Math.round((1 - distance / maxLen) * 100));
+  return score;
+}
+
+function renderDiff(targetEl, attemptEl, target, attempt) {
+  const t = tokenize(target);
+  const a = tokenize(attempt);
+  const { targetOps, attemptOps } = diffWords(t, a);
+
+  targetEl.innerHTML = '';
+  for (const op of targetOps) {
+    const span = document.createElement('span');
+    span.className = `diff-token ${op.type}`;
+    span.textContent = op.word;
+    if (op.type === 'replaced' && op.replacement) {
+      span.title = `Dijiste: "${op.replacement}"`;
+    } else if (op.type === 'miss') {
+      span.title = 'Esta palabra faltó en tu intento';
+    }
+    targetEl.appendChild(span);
+    targetEl.appendChild(document.createTextNode(' '));
+  }
+
+  attemptEl.innerHTML = '';
+  if (attemptOps.length === 0) {
+    attemptEl.innerHTML = '<span style="color:var(--ink-faint);font-style: normal;">No se reconoció ninguna palabra</span>';
+  } else {
+    for (const op of attemptOps) {
+      const span = document.createElement('span');
+      span.className = `diff-token ${op.type}`;
+      span.textContent = op.word;
+      if (op.type === 'replaced' && op.original) {
+        span.title = `Esperado: "${op.original}"`;
+      } else if (op.type === 'extra') {
+        span.title = 'Esta palabra no estaba en el objetivo';
+      }
+      attemptEl.appendChild(span);
+      attemptEl.appendChild(document.createTextNode(' '));
+    }
+  }
+}
+
+function getVerdict(score) {
+  if (score >= 85) return { class: 'good',  verdict: '¡Excelente!',  text: 'Tu pronunciación fue clara y el reconocedor entendió casi todo. Seguí así.' };
+  if (score >= 70) return { class: 'good',  verdict: 'Muy bien.',    text: 'Buena aproximación. Hubo algunas palabras que se perdieron — revisá las marcadas en color.' };
+  if (score >= 50) return { class: 'fair',  verdict: 'Cerca.',        text: 'Se entendió la idea general pero faltan ajustes. Concentrate en las palabras que aparecen en color.' };
+  if (score >= 25) return { class: 'fair',  verdict: 'Hay trabajo.',  text: 'El reconocedor captó parte. Revisá los sonidos clave de las palabras en color y volvé a intentar.' };
+  return                 { class: 'poor',  verdict: 'A practicar.',   text: 'El reconocedor no captó tu pronunciación. Probá hablar más lento, más cerca del micrófono, o revisá el cheatsheet de fonética.' };
+}
+
+/* ============================================================
+   SPEECH RECOGNITION WRAPPER
+   ============================================================ */
+class Recognizer {
+  constructor(onResult, onError, onStateChange) {
+    this.onResult = onResult;
+    this.onError = onError;
+    this.onStateChange = onStateChange;
+    this.recognition = null;
+    this.listening = false;
+    this.finalTranscript = '';
+    this.finalConfidence = 0;
+  }
+
+  start() {
+    if (!SpeechRecognition) return;
+    if (this.listening) { this.stop(); return; }
+
+    const r = new SpeechRecognition();
+    r.lang = 'fr-FR';
+    r.continuous = true;
+    r.interimResults = true;
+    r.maxAlternatives = 1;
+
+    this.finalTranscript = '';
+    this.finalConfidence = 0;
+
+    r.onstart = () => {
+      this.listening = true;
+      this.onStateChange('listening');
+    };
+
+    r.onresult = (event) => {
+      let interim = '';
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const result = event.results[i];
+        const transcript = result[0].transcript;
+        if (result.isFinal) {
+          this.finalTranscript += transcript;
+          if (result[0].confidence > 0) this.finalConfidence = result[0].confidence;
+        } else {
+          interim += transcript;
+        }
+      }
+      this.onResult({
+        final: this.finalTranscript.trim(),
+        interim: interim.trim(),
+        confidence: this.finalConfidence,
+      });
+    };
+
+    r.onerror = (event) => {
+      this.listening = false;
+      this.onError(event.error);
+    };
+
+    r.onend = () => {
+      this.listening = false;
+      this.onStateChange('idle');
+      this.onResult({
+        final: this.finalTranscript.trim(),
+        interim: '',
+        confidence: this.finalConfidence,
+        ended: true,
+      });
+    };
+
+    this.recognition = r;
+    try { r.start(); }
+    catch (e) { this.onError('start_failed'); }
+  }
+
+  stop() {
+    if (this.recognition && this.listening) {
+      try { this.recognition.stop(); } catch (e) {}
+    }
+  }
+}
+
+/* ============================================================
+   AUDIO TTS (same hybrid approach as before)
+   ============================================================ */
+let frenchVoice = null;
+let firstAudioClick = true;
+let currentAudio = null;
+const audioStatus = document.getElementById('audioStatus');
+
+function showStatus(msg, warn) {
+  audioStatus.textContent = msg;
+  audioStatus.className = 'audio-status show' + (warn ? ' warn' : '');
+  setTimeout(() => audioStatus.classList.remove('show'), 4000);
+}
+
+function pickFrenchVoice() {
+  if (!('speechSynthesis' in window)) return null;
+  const voices = speechSynthesis.getVoices();
+  if (!voices.length) return null;
+  let v = voices.find(v => v.lang === 'fr-FR');
+  if (!v) v = voices.find(v => v.lang === 'fr-CA');
+  if (!v) v = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('fr'));
+  return v || null;
+}
+
+if ('speechSynthesis' in window) {
+  frenchVoice = pickFrenchVoice();
+  speechSynthesis.onvoiceschanged = () => { frenchVoice = pickFrenchVoice(); };
+  setTimeout(() => { frenchVoice = pickFrenchVoice(); }, 500);
+}
+
+function speakViaGoogle(text, btn) {
+  if (currentAudio) { try { currentAudio.pause(); } catch(e){} currentAudio = null; }
+  const url = 'https://translate.google.com/translate_tts?ie=UTF-8&q=' + encodeURIComponent(text) + '&tl=fr&client=tw-ob';
+  const audio = new Audio(url);
+  currentAudio = audio;
+  if (btn) btn.classList.add('playing');
+  const cleanup = () => { if (btn) btn.classList.remove('playing'); };
+  audio.onended = cleanup; audio.onpause = cleanup;
+  audio.onerror = () => { cleanup(); showStatus('Audio no disponible', true); };
+  const p = audio.play();
+  if (p && p.catch) p.catch(() => { cleanup(); showStatus('Audio bloqueado por el navegador', true); });
+}
+
+function speakViaWebSpeech(text, btn) {
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR'; u.rate = 0.85; u.pitch = 1.0;
+  if (frenchVoice) u.voice = frenchVoice;
+  if (btn) {
+    btn.classList.add('playing');
+    u.onend = () => btn.classList.remove('playing');
+    u.onerror = () => btn.classList.remove('playing');
+  }
+  speechSynthesis.speak(u);
+}
+
+function speak(text, btn) {
+  if (!text) return;
+  if (!frenchVoice && 'speechSynthesis' in window) frenchVoice = pickFrenchVoice();
+  if (frenchVoice) {
+    speakViaWebSpeech(text, btn);
+    if (firstAudioClick) { showStatus('Audio: voz nativa · ' + (frenchVoice.name || 'fr-FR')); firstAudioClick = false; }
+    return;
+  }
+  speakViaGoogle(text, btn);
+  if (firstAudioClick) { showStatus('Audio: Google TTS'); firstAudioClick = false; }
+}
+
+/* ============================================================
+   UI: TABS
+   ============================================================ */
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+/* ============================================================
+   UI: FREE MODE
+   ============================================================ */
+const freeMicBtn = document.getElementById('mic-free');
+const freeStatus = document.getElementById('status-free');
+const freeHint = document.getElementById('hint-free');
+const freeTranscript = document.getElementById('transcript-free');
+const freeConfidence = document.getElementById('confidence-free');
+const freeConfValue = document.getElementById('conf-value-free');
+
+const freeRecognizer = new Recognizer(
+  (result) => {
+    let html = '';
+    if (result.final) {
+      html += escapeHtml(result.final);
+    }
+    if (result.interim) {
+      html += (html ? ' ' : '') + '<span class="interim">' + escapeHtml(result.interim) + '</span>';
+    }
+    if (html) {
+      freeTranscript.classList.remove('empty');
+      freeTranscript.innerHTML = html;
+    }
+    if (result.confidence > 0) {
+      freeConfidence.style.display = 'block';
+      freeConfValue.textContent = Math.round(result.confidence * 100) + '%';
+    }
+  },
+  (error) => {
+    freeStatus.textContent = errorMessage(error);
+    freeStatus.className = 'mic-status error';
+    freeMicBtn.classList.remove('listening');
+  },
+  (state) => {
+    if (state === 'listening') {
+      freeMicBtn.classList.add('listening');
+      freeStatus.textContent = '● Escuchando · hablá ahora';
+      freeStatus.className = 'mic-status listening';
+      freeHint.textContent = 'Tocá el micrófono otra vez para terminar';
+    } else {
+      freeMicBtn.classList.remove('listening');
+      freeStatus.textContent = freeTranscript.classList.contains('empty') ? 'Tocá el micrófono para empezar' : '✓ Reconocimiento completado';
+      freeStatus.className = 'mic-status';
+      freeHint.textContent = 'Tocá el micrófono para grabar otra frase';
+    }
+  }
+);
+
+freeMicBtn.addEventListener('click', () => {
+  if (freeRecognizer.listening) {
+    freeRecognizer.stop();
+  } else {
+    freeTranscript.classList.add('empty');
+    freeTranscript.textContent = '— Escuchando... —';
+    freeConfidence.style.display = 'none';
+    freeRecognizer.start();
+  }
+});
+
+document.getElementById('btn-play-free').addEventListener('click', (e) => {
+  const text = freeRecognizer.finalTranscript.trim();
+  if (text) speak(text, e.currentTarget);
+  else showStatus('Primero hablá para tener algo que reproducir', true);
+});
+
+document.getElementById('btn-analyze-free').addEventListener('click', () => {
+  const text = freeRecognizer.finalTranscript.trim();
+  if (!text) { showStatus('Primero hablá para tener algo que analizar', true); return; }
+  // Try to navigate to analyzer page (if exists in same folder)
+  const url = 'analyzer.html?phrase=' + encodeURIComponent(text);
+  // Open in new tab so the recognized text doesn't get lost
+  window.open(url, '_blank');
+});
+
+document.getElementById('btn-clear-free').addEventListener('click', () => {
+  freeRecognizer.finalTranscript = '';
+  freeRecognizer.finalConfidence = 0;
+  freeTranscript.classList.add('empty');
+  freeTranscript.textContent = '— Hablá y aparecerá acá —';
+  freeConfidence.style.display = 'none';
+  freeStatus.textContent = 'Tocá el micrófono para empezar';
+  freeStatus.className = 'mic-status';
+});
+
+/* ============================================================
+   UI: CHALLENGE MODE
+   ============================================================ */
+const phraseList = document.getElementById('phrase-list');
+const targetCategories = document.getElementById('target-categories');
+const targetBlock = document.getElementById('target-block');
+const targetText = document.getElementById('target-text');
+const challengeMicBtn = document.getElementById('mic-challenge');
+const challengeStatus = document.getElementById('status-challenge');
+const challengeHint = document.getElementById('hint-challenge');
+const challengeTranscript = document.getElementById('transcript-challenge');
+const challengeConfidence = document.getElementById('confidence-challenge');
+const challengeConfValue = document.getElementById('conf-value-challenge');
+const resultBlock = document.getElementById('result-block');
+const scoreCircle = document.getElementById('score-circle');
+const scoreValue = document.getElementById('score-value');
+const scoreVerdictEl = document.getElementById('score-verdict');
+const scoreExplain = document.getElementById('score-explain');
+const diffTarget = document.getElementById('diff-target');
+const diffAttempt = document.getElementById('diff-attempt');
+
+let currentTarget = null;
+let currentCategory = 'basics';
+
+function renderPhraseList() {
+  phraseList.innerHTML = '';
+  const phrases = PHRASE_BANK[currentCategory] || [];
+  for (const p of phrases) {
+    const btn = document.createElement('button');
+    btn.className = 'phrase-pill';
+    if (p === currentTarget) btn.classList.add('selected');
+    btn.textContent = p;
+    btn.addEventListener('click', () => {
+      currentTarget = p;
+      targetText.textContent = p;
+      targetBlock.style.display = 'block';
+      challengeStatus.textContent = 'Tocá el micrófono y decí la frase';
+      challengeHint.textContent = 'Tocá una vez para empezar y otra vez para terminar';
+      resultBlock.classList.remove('visible');
+      challengeTranscript.classList.add('empty');
+      challengeTranscript.textContent = '— Hablá y aparecerá acá —';
+      challengeConfidence.style.display = 'none';
+      renderPhraseList();  // refresh selection state
+      targetBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    phraseList.appendChild(btn);
+  }
+}
+
+targetCategories.querySelectorAll('.cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    targetCategories.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCategory = btn.dataset.cat;
+    renderPhraseList();
+  });
+});
+
+renderPhraseList();
+
+const challengeRecognizer = new Recognizer(
+  (result) => {
+    let html = '';
+    if (result.final) html += escapeHtml(result.final);
+    if (result.interim) html += (html ? ' ' : '') + '<span class="interim">' + escapeHtml(result.interim) + '</span>';
+    if (html) {
+      challengeTranscript.classList.remove('empty');
+      challengeTranscript.innerHTML = html;
+    }
+    if (result.confidence > 0) {
+      challengeConfidence.style.display = 'block';
+      challengeConfValue.textContent = Math.round(result.confidence * 100) + '%';
+    }
+    // When ended and we have a target, compute the score
+    if (result.ended && currentTarget && result.final) {
+      computeChallengeResult(currentTarget, result.final);
+    }
+  },
+  (error) => {
+    challengeStatus.textContent = errorMessage(error);
+    challengeStatus.className = 'mic-status error';
+    challengeMicBtn.classList.remove('listening');
+  },
+  (state) => {
+    if (state === 'listening') {
+      challengeMicBtn.classList.add('listening');
+      challengeStatus.textContent = '● Escuchando · decí la frase';
+      challengeStatus.className = 'mic-status listening';
+      challengeHint.textContent = 'Tocá otra vez para terminar';
+    } else {
+      challengeMicBtn.classList.remove('listening');
+      challengeStatus.textContent = challengeTranscript.classList.contains('empty') ? 'Tocá el micrófono y decí la frase' : '✓ Resultado abajo';
+      challengeStatus.className = 'mic-status';
+      challengeHint.textContent = '';
+    }
+  }
+);
+
+challengeMicBtn.addEventListener('click', () => {
+  if (!currentTarget) {
+    showStatus('Elegí una frase primero', true);
+    return;
+  }
+  if (challengeRecognizer.listening) {
+    challengeRecognizer.stop();
+  } else {
+    challengeTranscript.classList.add('empty');
+    challengeTranscript.textContent = '— Escuchando... —';
+    challengeConfidence.style.display = 'none';
+    resultBlock.classList.remove('visible');
+    challengeRecognizer.start();
+  }
+});
+
+function computeChallengeResult(target, attempt) {
+  const score = similarityScore(target, attempt);
+  const verdict = getVerdict(score);
+
+  scoreValue.textContent = score;
+  scoreCircle.className = 'score-circle ' + verdict.class;
+  scoreVerdictEl.textContent = verdict.verdict;
+  scoreVerdictEl.className = 'score-verdict ' + verdict.class;
+  scoreExplain.textContent = verdict.text;
+
+  renderDiff(diffTarget, diffAttempt, target, attempt);
+
+  resultBlock.classList.add('visible');
+  resultBlock.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  // Save to history
+  saveToHistory({ target, attempt, score, ts: Date.now() });
+}
+
+document.getElementById('btn-play-target').addEventListener('click', (e) => {
+  if (currentTarget) speak(currentTarget, e.currentTarget);
+});
+document.getElementById('btn-replay-target').addEventListener('click', (e) => {
+  if (currentTarget) speak(currentTarget, e.currentTarget);
+});
+document.getElementById('btn-retry').addEventListener('click', () => {
+  challengeTranscript.classList.add('empty');
+  challengeTranscript.textContent = '— Hablá y aparecerá acá —';
+  challengeConfidence.style.display = 'none';
+  resultBlock.classList.remove('visible');
+  challengeRecognizer.start();
+});
+
+/* ============================================================
+   HISTORY (localStorage)
+   ============================================================ */
+const HISTORY_KEY = 'recognizer-history';
+const historyList = document.getElementById('history-list');
+
+function loadHistory() {
+  try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]'); }
+  catch { return []; }
+}
+
+function saveToHistory(entry) {
+  let h = loadHistory();
+  h.unshift(entry);
+  h = h.slice(0, 10);
+  localStorage.setItem(HISTORY_KEY, JSON.stringify(h));
+  renderHistory();
+}
+
+function renderHistory() {
+  const h = loadHistory();
+  if (!h.length) {
+    historyList.innerHTML = '<span class="history-empty">Aún no practicaste. Tus últimas 10 sesiones quedarán acá.</span>';
+    return;
+  }
+  historyList.innerHTML = '';
+  for (const entry of h) {
+    const item = document.createElement('div');
+    item.className = 'history-item';
+    const scoreClass = entry.score >= 70 ? 'good' : entry.score >= 40 ? 'fair' : 'poor';
+    const time = new Date(entry.ts);
+    const timeStr = time.toLocaleString('es', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+    item.innerHTML = `
+      <span class="history-score ${scoreClass}">${entry.score}</span>
+      <span class="history-text" title="${escapeHtml(entry.attempt)}">${escapeHtml(entry.target)}</span>
+      <span class="history-time">${timeStr}</span>
+    `;
+    item.addEventListener('click', () => {
+      currentTarget = entry.target;
+      targetText.textContent = entry.target;
+      targetBlock.style.display = 'block';
+      // Show the past attempt result
+      computeChallengeResult(entry.target, entry.attempt);
+      // Scroll to challenge mode top
+      document.querySelector('.tab[data-tab="challenge"]').click();
+      targetBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    historyList.appendChild(item);
+  }
+}
+
+document.getElementById('history-clear').addEventListener('click', () => {
+  if (confirm('¿Limpiar el historial de prácticas?')) {
+    localStorage.removeItem(HISTORY_KEY);
+    renderHistory();
+  }
+});
+
+renderHistory();
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+function escapeHtml(s) {
+  if (!s) return '';
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function errorMessage(error) {
+  const messages = {
+    'no-speech': '✕ No se detectó audio. Volvé a intentar.',
+    'audio-capture': '✕ No se detectó micrófono. Verificá la configuración.',
+    'not-allowed': '✕ Permiso de micrófono denegado. Habilitalo en la configuración del navegador.',
+    'network': '✕ Error de red. El reconocedor necesita internet.',
+    'aborted': '✕ Reconocimiento interrumpido.',
+    'language-not-supported': '✕ Idioma no soportado por tu navegador.',
+    'service-not-allowed': '✕ Servicio de reconocimiento no permitido.',
+    'start_failed': '✕ No se pudo iniciar. Volvé a intentar.',
+  };
+  return messages[error] || ('✕ Error: ' + error);
+}
+
+setTimeout(() => {
+  if (SpeechRecognition) showStatus('Tocá 🎤 para empezar a practicar');
+}, 800);
+</script>
+
+</body>
+</html>

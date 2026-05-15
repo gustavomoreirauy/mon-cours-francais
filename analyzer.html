@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyseur · Descomponé cualquier frase en francés</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF6EC;
+    --bg-deep: #F0E8D4;
+    --paper: #FFFFFF;
+    --ink: #0F1419;
+    --ink-soft: #3D4651;
+    --ink-faint: #8B95A1;
+    --rule: #D6CDB8;
+
+    --primary: #1E40AF;
+    --primary-soft: #3B82F6;
+    --secondary: #EA580C;
+    --secondary-soft: #FB923C;
+    --tertiary: #059669;
+    --tertiary-soft: #34D399;
+    --accent: #DB2777;
+    --accent-soft: #F472B6;
+    --gold: #CA8A04;
+    --gold-soft: #FACC15;
+    --plum: #7C3AED;
+    --plum-soft: #A78BFA;
+
+    --serif-display: 'Fraunces', serif;
+    --serif-body: 'Spectral', Georgia, serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--serif-body);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 17px;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(30, 64, 175, 0.06) 0%, transparent 45%),
+      radial-gradient(circle at 85% 65%, rgba(234, 88, 12, 0.05) 0%, transparent 45%),
+      radial-gradient(circle at 50% 100%, rgba(5, 150, 105, 0.04) 0%, transparent 45%);
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.10 0 0 0 0 0.08 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.3;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+
+  main, header.hero, footer { position: relative; z-index: 2; }
+
+  /* ===== HERO ===== */
+  header.hero {
+    padding: 4rem 2rem 2.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .kicker {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+  }
+  .kicker::before {
+    content: "";
+    width: 32px;
+    height: 2px;
+    background: var(--primary);
+  }
+
+  h1.title {
+    font-family: var(--serif-display);
+    font-weight: 500;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+    font-variation-settings: "opsz" 144;
+  }
+  h1.title em {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--primary);
+    font-variation-settings: "opsz" 144;
+  }
+
+  .lede {
+    font-size: 1.12rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 65ch;
+  }
+  .lede strong { color: var(--primary); font-weight: 700; }
+
+  /* ===== MAIN ===== */
+  main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
+  }
+
+  /* ===== INPUT BLOCK ===== */
+  .input-block {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--primary);
+    border-radius: 4px;
+    padding: 2rem 2.25rem 1.75rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 16px -8px rgba(15, 20, 25, 0.1);
+  }
+
+  .input-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 0.85rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .input-label .counter {
+    font-size: 0.65rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.12em;
+    font-weight: 500;
+  }
+  .input-label .counter.warn { color: var(--secondary); }
+
+  #phrase-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: var(--serif-display);
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--ink);
+    background: transparent;
+    resize: none;
+    padding: 0.5rem 0;
+    font-variation-settings: "opsz" 144;
+    letter-spacing: -0.005em;
+  }
+  #phrase-input::placeholder {
+    color: var(--ink-faint);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .input-actions {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--rule);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.7rem 1.25rem;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: white;
+  }
+  .btn-primary:hover {
+    background: var(--primary-soft);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px -8px rgba(30, 64, 175, 0.55);
+  }
+  .btn-primary:disabled {
+    background: var(--ink-faint);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink-soft);
+    border-color: var(--rule);
+  }
+  .btn-secondary:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+  .btn-play {
+    background: var(--secondary);
+    color: white;
+  }
+  .btn-play:hover {
+    background: var(--secondary-soft);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px -8px rgba(234, 88, 12, 0.55);
+  }
+  .btn-play.playing {
+    background: var(--tertiary);
+    animation: pulse-btn 1.2s infinite;
+  }
+  @keyframes pulse-btn {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.5); }
+    50% { box-shadow: 0 0 0 12px rgba(5, 150, 105, 0); }
+  }
+
+  /* ===== EXAMPLES ===== */
+  .examples {
+    margin-bottom: 2.5rem;
+  }
+  .examples-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin-bottom: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .examples-label::before {
+    content: "";
+    width: 16px;
+    height: 1px;
+    background: var(--ink-soft);
+  }
+  .examples-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .example-pill {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 0.55rem 1rem;
+    border-radius: 100px;
+    font-family: var(--serif-display);
+    font-style: normal;
+    font-size: 0.95rem;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+    font-variation-settings: "opsz" 144;
+  }
+  .example-pill:hover {
+    border-color: var(--primary);
+    background: rgba(30, 64, 175, 0.04);
+    transform: translateY(-1px);
+  }
+
+  /* ===== RESULTS ===== */
+  .results {
+    display: none;
+  }
+  .results.visible {
+    display: block;
+    animation: fadeUp 0.5s ease-out;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .result-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .result-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .result-num {
+    font-family: var(--serif-display);
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--secondary);
+    line-height: 1;
+    font-variation-settings: "opsz" 144;
+  }
+  .result-title {
+    font-family: var(--serif-display);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.1;
+    font-variation-settings: "opsz" 144;
+  }
+
+  /* ===== HERO RESULT (the phrase displayed big) ===== */
+  .hero-result {
+    background: linear-gradient(135deg, var(--ink) 0%, #1A2942 60%, #2D1B3D 100%);
+    color: var(--paper);
+    padding: 3rem 2.5rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-result::before, .hero-result::after {
+    font-family: var(--serif-display);
+    font-style: normal;
+    font-size: 12rem;
+    color: rgba(251, 146, 60, 0.12);
+    line-height: 1;
+    pointer-events: none;
+    position: absolute;
+  }
+  .hero-result::before { content: "«"; top: -1.5rem; left: 0.5rem; }
+  .hero-result::after { content: "»"; bottom: -4rem; right: 1rem; }
+
+  .hero-phrase {
+    font-family: var(--serif-display);
+    font-style: normal;
+    font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: center;
+    color: white;
+    font-variation-settings: "opsz" 144;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-ipa {
+    font-family: var(--mono);
+    font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+    color: var(--secondary-soft);
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    line-height: 1.5;
+  }
+  .hero-controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== WORD CARDS ===== */
+  .word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .word-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--ink-faint);
+    border-radius: 4px;
+    padding: 1rem 1.15rem 0.9rem;
+    position: relative;
+    transition: all 0.2s;
+  }
+  .word-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -10px rgba(15, 20, 25, 0.2);
+  }
+  .word-card[data-cat="nasal"] { border-top-color: var(--secondary); }
+  .word-card[data-cat="round"] { border-top-color: var(--primary); }
+  .word-card[data-cat="combo"] { border-top-color: var(--plum); }
+  .word-card[data-cat="cons"]  { border-top-color: var(--accent); }
+  .word-card[data-cat="liaison"] { border-top-color: var(--tertiary); }
+  .word-card[data-cat="punct"]  { display: none; }
+
+  .word-fr {
+    font-family: var(--serif-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 144;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .word-ipa {
+    font-family: var(--mono);
+    font-size: 0.92rem;
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+  .word-approx {
+    font-family: var(--serif-body);
+    font-style: normal;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+  .word-approx::before {
+    content: "≈ ";
+    color: var(--ink-faint);
+    font-style: normal;
+    font-family: var(--mono);
+  }
+  .word-play {
+    background: var(--bg-deep);
+    border: 1px solid transparent;
+    color: var(--primary);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.7rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    margin-left: auto;
+  }
+  .word-play:hover {
+    background: var(--primary);
+    color: white;
+  }
+  .word-play.playing {
+    background: var(--secondary);
+    color: white;
+  }
+
+  .word-tags {
+    margin-top: 0.6rem;
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+  .word-tag {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.45rem;
+    border-radius: 3px;
+    font-weight: 600;
+    background: var(--bg-deep);
+    color: var(--ink-soft);
+  }
+  .word-tag.nasal   { background: rgba(234, 88, 12, 0.13); color: var(--secondary); }
+  .word-tag.round   { background: rgba(30, 64, 175, 0.13); color: var(--primary); }
+  .word-tag.cons    { background: rgba(219, 39, 119, 0.13); color: var(--accent); }
+  .word-tag.combo   { background: rgba(124, 58, 237, 0.13); color: var(--plum); }
+  .word-tag.liaison { background: rgba(5, 150, 105, 0.13); color: var(--tertiary); }
+  .word-tag.exception { background: rgba(202, 138, 4, 0.13); color: var(--gold); }
+
+  /* ===== NOTES PANEL ===== */
+  .notes-panel {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--primary);
+    border-radius: 4px;
+    padding: 1.5rem 1.75rem;
+  }
+  .notes-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .notes-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.85rem;
+    align-items: baseline;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .notes-list .note-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.25rem 0.55rem;
+    border-radius: 3px;
+    white-space: nowrap;
+    align-self: start;
+  }
+  .note-label.nasal   { background: rgba(234, 88, 12, 0.13); color: var(--secondary); }
+  .note-label.round   { background: rgba(30, 64, 175, 0.13); color: var(--primary); }
+  .note-label.cons    { background: rgba(219, 39, 119, 0.13); color: var(--accent); }
+  .note-label.combo   { background: rgba(124, 58, 237, 0.13); color: var(--plum); }
+  .note-label.liaison { background: rgba(5, 150, 105, 0.13); color: var(--tertiary); }
+  .note-label.exception { background: rgba(202, 138, 4, 0.13); color: var(--gold); }
+  .notes-list .note-text b {
+    font-family: var(--mono);
+    font-size: 0.9em;
+    color: var(--secondary);
+    font-weight: 600;
+  }
+  .notes-list .note-text i {
+    font-family: var(--serif-display);
+    font-style: normal;
+    font-weight: 600;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
+  }
+  .notes-list .note-text code {
+    font-family: var(--mono);
+    font-size: 0.86em;
+    background: var(--bg-deep);
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+    color: var(--primary);
+  }
+
+  .notes-empty {
+    color: var(--ink-soft);
+    font-style: normal;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  /* ===== HISTORY ===== */
+  .history-block {
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .history-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
+  .history-title {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+  .history-clear {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    transition: color 0.2s;
+    font-weight: 500;
+  }
+  .history-clear:hover { color: var(--secondary); }
+
+  .history-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .history-pill {
+    background: transparent;
+    border: 1px solid var(--rule);
+    padding: 0.5rem 0.95rem;
+    border-radius: 100px;
+    font-family: var(--serif-body);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-style: normal;
+    max-width: 320px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .history-pill:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(30, 64, 175, 0.04);
+  }
+  .history-empty {
+    color: var(--ink-faint);
+    font-style: normal;
+    font-size: 0.92rem;
+  }
+
+  /* ===== ERROR / DISCLAIMER ===== */
+  .disclaimer {
+    background: rgba(202, 138, 4, 0.08);
+    border: 1px solid rgba(202, 138, 4, 0.25);
+    border-left: 3px solid var(--gold);
+    padding: 0.85rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .disclaimer::before {
+    content: "ⓘ Modo offline";
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* ===== AUDIO STATUS ===== */
+  .audio-status {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.85rem 1.25rem;
+    border-radius: 3px;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    z-index: 100;
+    border-left: 4px solid var(--primary);
+    max-width: 320px;
+    font-weight: 500;
+  }
+  .audio-status.show { opacity: 1; transform: translateY(0); }
+  .audio-status.warn { border-left-color: var(--secondary); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3rem 2rem 2.5rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  footer .colophon {
+    font-style: normal;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    max-width: 60ch;
+    line-height: 1.5;
+  }
+  footer .sig {
+    font-family: var(--serif-display);
+    font-style: normal;
+    color: var(--primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: right;
+    font-variation-settings: "opsz" 9;
+  }
+  footer .back-link {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--secondary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    transition: gap 0.2s;
+  }
+  footer .back-link::before { content: "←"; }
+  footer .back-link:hover { gap: 0.85rem; }
+
+  @media (max-width: 768px) {
+    main { padding: 2rem 1.25rem 3rem; }
+    header.hero { padding: 3rem 1.25rem 2rem; }
+    .input-block { padding: 1.5rem 1.25rem; }
+    .hero-result { padding: 2rem 1.25rem; }
+    .word-grid { grid-template-columns: 1fr 1fr; }
+    .notes-panel { padding: 1.25rem; }
+  }
+
+  /* === NO ITALIC OVERRIDE === */
+  em, i, .italic { font-style: normal !important; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="kicker">Analyseur · Phrase libre</div>
+  <h1 class="title">¿Cómo se<br>pronuncia<br><em>esta frase?</em></h1>
+  <p class="lede">
+    Escribí cualquier frase en francés (hasta 200 caracteres) y obtené su <strong>descomposición fonética</strong>: transcripción IPA por palabra, aproximación en grafía rioplatense, audio reproducible y notas sobre los sonidos clave que aparecen en tu frase.
+  </p>
+</header>
+
+<main>
+
+  <!-- ============ INPUT ============ -->
+  <div class="input-block">
+    <div class="input-label">
+      <span>Tu frase en francés</span>
+      <span class="counter" id="counter">0 / 200</span>
+    </div>
+    <textarea id="phrase-input" rows="2" maxlength="200" placeholder="Bonjour, je voudrais un café s'il vous plaît..."></textarea>
+    <div class="input-actions">
+      <button class="btn btn-primary" id="btn-analyze">▸ Analizar</button>
+      <button class="btn btn-play" id="btn-play-input">♪ Escuchar</button>
+      <button class="btn btn-secondary" id="btn-clear">✕ Limpiar</button>
+    </div>
+  </div>
+
+  <!-- ============ EXAMPLES ============ -->
+  <div class="examples">
+    <div class="examples-label">O probá con uno de estos</div>
+    <div class="examples-list" id="examples-list">
+      <button class="example-pill" data-text="Bonjour, comment allez-vous?">Bonjour, comment allez-vous?</button>
+      <button class="example-pill" data-text="Je voudrais un café, s'il vous plaît.">Je voudrais un café, s'il vous plaît.</button>
+      <button class="example-pill" data-text="Où est la gare la plus proche?">Où est la gare la plus proche?</button>
+      <button class="example-pill" data-text="J'aimerais réserver une table pour deux personnes.">J'aimerais réserver une table pour deux</button>
+      <button class="example-pill" data-text="Combien ça coûte?">Combien ça coûte?</button>
+      <button class="example-pill" data-text="Excusez-moi, je ne parle pas très bien français.">Je ne parle pas très bien français.</button>
+      <button class="example-pill" data-text="Je suis content de vous rencontrer.">Je suis content de vous rencontrer.</button>
+    </div>
+  </div>
+
+  <!-- ============ RESULTS ============ -->
+  <div class="results" id="results">
+
+    <div class="hero-result">
+      <p class="hero-phrase" id="hero-phrase"></p>
+      <p class="hero-ipa" id="hero-ipa"></p>
+      <div class="hero-controls">
+        <button class="btn btn-play" id="btn-play-result">▸ Escuchar la frase</button>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      Análisis generado con reglas locales (sin internet). Cubre la mayoría de casos pero puede fallar en palabras irregulares o nombres propios poco frecuentes. Para precisión total, contrastá con un diccionario.
+    </div>
+
+    <div class="result-section">
+      <div class="result-header">
+        <span class="result-num">01</span>
+        <h2 class="result-title">Palabra por palabra</h2>
+      </div>
+      <div class="word-grid" id="word-grid"></div>
+    </div>
+
+    <div class="result-section">
+      <div class="result-header">
+        <span class="result-num">02</span>
+        <h2 class="result-title">Notas sobre los sonidos</h2>
+      </div>
+      <div class="notes-panel">
+        <ul class="notes-list" id="notes-list"></ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ HISTORY ============ -->
+  <div class="history-block">
+    <div class="history-header">
+      <span class="history-title">Historial · últimas frases analizadas</span>
+      <button class="history-clear" id="history-clear">Limpiar</button>
+    </div>
+    <div class="history-list" id="history-list">
+      <span class="history-empty">Aún no analizaste ninguna frase. Tus últimas 10 quedarán acá.</span>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p class="colophon">
+    Analizador fonético de frases en francés &middot; reglas G2P locales con diccionario de excepciones &middot; transcripción IPA y aproximación rioplatense.
+  </p>
+  <a href="index.html" class="back-link">Portada del curso</a>
+</footer>
+
+<div class="audio-status" id="audioStatus"></div>
+
+<script>
+/* ============================================================
+   FRENCH G2P ENGINE — local, rule-based
+   ============================================================ */
+
+// Common irregular pronunciations that don't follow rules
+const EXCEPTIONS = {
+  // Greetings & high-frequency
+  'bonjour': 'bɔ̃ʒuʁ',
+  'bonsoir': 'bɔ̃swaʁ',
+  'salut': 'saly',
+  'merci': 'mɛʁsi',
+  'pardon': 'paʁdɔ̃',
+  'oui': 'wi',
+  'non': 'nɔ̃',
+  'monsieur': 'məsjø',
+  'messieurs': 'mesjø',
+  'madame': 'madam',
+  'mademoiselle': 'madmwazɛl',
+  's\'il': 'sil',
+  'vous': 'vu',
+  'plaît': 'plɛ',
+  // Pronouns & articles
+  'je': 'ʒə',
+  'tu': 'ty',
+  'il': 'il',
+  'elle': 'ɛl',
+  'nous': 'nu',
+  'ils': 'il',
+  'elles': 'ɛl',
+  'le': 'lə',
+  'la': 'la',
+  'les': 'le',
+  'un': 'œ̃',
+  'une': 'yn',
+  'des': 'de',
+  'du': 'dy',
+  'de': 'də',
+  'au': 'o',
+  'aux': 'o',
+  'ce': 'sə',
+  'cette': 'sɛt',
+  'ces': 'se',
+  'mon': 'mɔ̃',
+  'ma': 'ma',
+  'mes': 'me',
+  'ton': 'tɔ̃',
+  'ta': 'ta',
+  'tes': 'te',
+  'son': 'sɔ̃',
+  'sa': 'sa',
+  'ses': 'se',
+  'notre': 'nɔtʁ',
+  'votre': 'vɔtʁ',
+  'leur': 'lœʁ',
+  'leurs': 'lœʁ',
+  'qui': 'ki',
+  'que': 'kə',
+  'quoi': 'kwa',
+  'quel': 'kɛl',
+  'quelle': 'kɛl',
+  'quels': 'kɛl',
+  'quelles': 'kɛl',
+  'où': 'u',
+  'comment': 'kɔmɑ̃',
+  'pourquoi': 'puʁkwa',
+  'quand': 'kɑ̃',
+  'combien': 'kɔ̃bjɛ̃',
+  // Common verbs (tricky forms)
+  'est': 'ɛ',
+  'es': 'ɛ',
+  'suis': 'sɥi',
+  'sont': 'sɔ̃',
+  'êtes': 'ɛt',
+  'sommes': 'sɔm',
+  'a': 'a',
+  'as': 'a',
+  'ai': 'e',
+  'ont': 'ɔ̃',
+  'avons': 'avɔ̃',
+  'avez': 'ave',
+  'fait': 'fɛ',
+  'faite': 'fɛt',
+  'font': 'fɔ̃',
+  'va': 'va',
+  'vais': 'vɛ',
+  'vas': 'va',
+  'vont': 'vɔ̃',
+  'allons': 'alɔ̃',
+  'allez': 'ale',
+  'aller': 'ale',
+  'venir': 'vəniʁ',
+  'viens': 'vjɛ̃',
+  'vient': 'vjɛ̃',
+  'voir': 'vwaʁ',
+  'vois': 'vwa',
+  'voit': 'vwa',
+  'vu': 'vy',
+  'voulez': 'vule',
+  'voudrais': 'vudʁɛ',
+  'voudriez': 'vudʁije',
+  'voulu': 'vuly',
+  'pouvez': 'puve',
+  'puis': 'pɥi',
+  'peut': 'pø',
+  'peux': 'pø',
+  'savez': 'save',
+  'savoir': 'savwaʁ',
+  'sait': 'sɛ',
+  'sais': 'sɛ',
+  'aime': 'ɛm',
+  'aimes': 'ɛm',
+  'aimer': 'eme',
+  'aimerais': 'ɛməʁɛ',
+  'aimerait': 'ɛməʁɛ',
+  'aimeriez': 'ɛməʁije',
+  'aimeraient': 'ɛməʁɛ',
+  'aimait': 'ɛmɛ',
+  'aimaient': 'ɛmɛ',
+  'aimé': 'eme',
+  'aimée': 'eme',
+  'aimés': 'eme',
+  'aimées': 'eme',
+  'parle': 'paʁl',
+  'parler': 'paʁle',
+  'parlez': 'paʁle',
+  'mange': 'mɑ̃ʒ',
+  'manger': 'mɑ̃ʒe',
+  // Connectors
+  'et': 'e',
+  'ou': 'u',
+  'mais': 'mɛ',
+  'donc': 'dɔ̃k',
+  'ni': 'ni',
+  'car': 'kaʁ',
+  'pour': 'puʁ',
+  'avec': 'avɛk',
+  'sans': 'sɑ̃',
+  'sous': 'su',
+  'sur': 'syʁ',
+  'dans': 'dɑ̃',
+  'chez': 'ʃe',
+  'vers': 'vɛʁ',
+  'entre': 'ɑ̃tʁ',
+  'parmi': 'paʁmi',
+  'depuis': 'dəpɥi',
+  'pendant': 'pɑ̃dɑ̃',
+  'avant': 'avɑ̃',
+  'après': 'apʁɛ',
+  'très': 'tʁɛ',
+  'trop': 'tʁo',
+  'plus': 'ply',
+  'moins': 'mwɛ̃',
+  'aussi': 'osi',
+  'bien': 'bjɛ̃',
+  'mal': 'mal',
+  'oui': 'wi',
+  'pas': 'pa',
+  'ne': 'nə',
+  'rien': 'ʁjɛ̃',
+  'tout': 'tu',
+  'tous': 'tu',
+  'toute': 'tut',
+  'toutes': 'tut',
+  'rien': 'ʁjɛ̃',
+  // Numbers
+  'zéro': 'zeʁo',
+  'un': 'œ̃',
+  'deux': 'dø',
+  'trois': 'tʁwa',
+  'quatre': 'katʁ',
+  'cinq': 'sɛ̃k',
+  'six': 'sis',
+  'sept': 'sɛt',
+  'huit': 'ɥit',
+  'neuf': 'nœf',
+  'dix': 'dis',
+  'onze': 'ɔ̃z',
+  'douze': 'duz',
+  'treize': 'tʁɛz',
+  'quatorze': 'katɔʁz',
+  'quinze': 'kɛ̃z',
+  'seize': 'sɛz',
+  'vingt': 'vɛ̃',
+  'trente': 'tʁɑ̃t',
+  'quarante': 'kaʁɑ̃t',
+  'cinquante': 'sɛ̃kɑ̃t',
+  'soixante': 'swasɑ̃t',
+  'cent': 'sɑ̃',
+  'mille': 'mil',
+  // Nouns ending in -ent / -ment (override verbal heuristic)
+  'parent': 'paʁɑ̃',
+  'parents': 'paʁɑ̃',
+  'document': 'dɔkymɑ̃',
+  'documents': 'dɔkymɑ̃',
+  'mouvement': 'muvmɑ̃',
+  'mouvements': 'muvmɑ̃',
+  'moment': 'mɔmɑ̃',
+  'moments': 'mɔmɑ̃',
+  'gouvernement': 'ɡuvɛʁnəmɑ̃',
+  'changement': 'ʃɑ̃ʒmɑ̃',
+  'événement': 'evɛnmɑ̃',
+  'événements': 'evɛnmɑ̃',
+  'appartement': 'apaʁtəmɑ̃',
+  'environnement': 'ɑ̃viʁɔnəmɑ̃',
+  'enseignement': 'ɑ̃sɛɲəmɑ̃',
+  'établissement': 'etablismɑ̃',
+  'développement': 'devlɔpmɑ̃',
+  'commencement': 'kɔmɑ̃smɑ̃',
+  'rapidement': 'ʁapidmɑ̃',
+  'vraiment': 'vʁɛmɑ̃',
+  'absolument': 'absɔlymɑ̃',
+  'évidemment': 'evidamɑ̃',
+  'fréquemment': 'fʁekamɑ̃',
+  'récemment': 'ʁesamɑ̃',
+  'patient': 'pasjɑ̃',
+  'patients': 'pasjɑ̃',
+  'client': 'kljɑ̃',
+  'clients': 'kljɑ̃',
+  'orient': 'ɔʁjɑ̃',
+  'occident': 'ɔksidɑ̃',
+  'évident': 'evidɑ̃',
+  'différent': 'difeʁɑ̃',
+  'présent': 'pʁezɑ̃',
+  'récent': 'ʁesɑ̃',
+  'urgent': 'yʁʒɑ̃',
+  'argent': 'aʁʒɑ̃',
+  'agent': 'aʒɑ̃',
+  'serpent': 'sɛʁpɑ̃',
+  'accident': 'aksidɑ̃',
+  'incident': 'ɛ̃sidɑ̃',
+  'étudiant': 'etydjɑ̃',
+  'étudiants': 'etydjɑ̃',
+  'femme': 'fam',
+  'femmes': 'fam',
+  'fils': 'fis',
+  'œil': 'œj',
+  'yeux': 'jø',
+  'œuf': 'œf',
+  'œufs': 'ø',
+  'bœuf': 'bœf',
+  'bœufs': 'bø',
+  'août': 'ut',
+  'oignon': 'ɔɲɔ̃',
+  'second': 'səɡɔ̃',
+  'seconde': 'səɡɔ̃d',
+  // Useful nouns/adjectives
+  'café': 'kafe',
+  'thé': 'te',
+  'eau': 'o',
+  'vin': 'vɛ̃',
+  'pain': 'pɛ̃',
+  'lait': 'lɛ',
+  'jour': 'ʒuʁ',
+  'nuit': 'nɥi',
+  'soir': 'swaʁ',
+  'matin': 'matɛ̃',
+  'année': 'ane',
+  'an': 'ɑ̃',
+  'ans': 'ɑ̃',
+  'mois': 'mwa',
+  'semaine': 'səmɛn',
+  'temps': 'tɑ̃',
+  'heure': 'œʁ',
+  'heures': 'œʁ',
+  'maison': 'mɛzɔ̃',
+  'voiture': 'vwatyʁ',
+  'gare': 'ɡaʁ',
+  'rue': 'ʁy',
+  'ville': 'vil',
+  'pays': 'pei',
+  'monde': 'mɔ̃d',
+  'gens': 'ʒɑ̃',
+  'ami': 'ami',
+  'amis': 'ami',
+  'enfant': 'ɑ̃fɑ̃',
+  'enfants': 'ɑ̃fɑ̃',
+  'famille': 'famij',
+  'frère': 'fʁɛʁ',
+  'sœur': 'sœʁ',
+  'mère': 'mɛʁ',
+  'père': 'pɛʁ',
+  'fille': 'fij',
+  'filles': 'fij',
+  'garçon': 'ɡaʁsɔ̃',
+  'table': 'tabl',
+  'chaise': 'ʃɛz',
+  'porte': 'pɔʁt',
+  'livre': 'livʁ',
+  'chose': 'ʃoz',
+  'merci': 'mɛʁsi',
+  'beaucoup': 'boku',
+  'peu': 'pø',
+  'petit': 'pəti',
+  'petite': 'pətit',
+  'grand': 'ɡʁɑ̃',
+  'grande': 'ɡʁɑ̃d',
+  'beau': 'bo',
+  'belle': 'bɛl',
+  'bon': 'bɔ̃',
+  'bonne': 'bɔn',
+  'mauvais': 'movɛ',
+  'mauvaise': 'movɛz',
+  'nouveau': 'nuvo',
+  'nouvelle': 'nuvɛl',
+  'vieux': 'vjø',
+  'vieille': 'vjɛj',
+  'jeune': 'ʒœn',
+  'long': 'lɔ̃',
+  'longue': 'lɔ̃ɡ',
+  'court': 'kuʁ',
+  'courte': 'kuʁt',
+  'haut': 'o',
+  'haute': 'ot',
+  'bas': 'ba',
+  'basse': 'bas',
+  'rouge': 'ʁuʒ',
+  'bleu': 'blø',
+  'blanc': 'blɑ̃',
+  'blanche': 'blɑ̃ʃ',
+  'noir': 'nwaʁ',
+  'noire': 'nwaʁ',
+  'vert': 'vɛʁ',
+  'verte': 'vɛʁt',
+  'jaune': 'ʒon',
+  'français': 'fʁɑ̃sɛ',
+  'française': 'fʁɑ̃sɛz',
+  'anglais': 'ɑ̃ɡlɛ',
+  'espagnol': 'ɛspaɲɔl',
+  'enchanté': 'ɑ̃ʃɑ̃te',
+  'enchantée': 'ɑ̃ʃɑ̃te',
+  'content': 'kɔ̃tɑ̃',
+  'contente': 'kɔ̃tɑ̃t',
+  'heureux': 'œʁø',
+  'heureuse': 'œʁøz',
+  'rencontrer': 'ʁɑ̃kɔ̃tʁe',
+  'rencontre': 'ʁɑ̃kɔ̃tʁ',
+  'réserver': 'ʁezɛʁve',
+  'personnes': 'pɛʁsɔn',
+  'personne': 'pɛʁsɔn',
+  'proche': 'pʁoʃ',
+  'coûte': 'kut',
+  'coûter': 'kute',
+  'excusez': 'ɛkskyze',
+  'excuse': 'ɛkskyz',
+};
+
+// G2P RULES — applied left to right, longest match wins
+// Each rule: [pattern_regex, ipa_output]
+// Order matters: longer patterns first
+const RULES = [
+  // 4-letter combos
+  [/^aient\b/, 'ɛ'],
+  [/^aille/, 'aj'],
+  [/^euille/, 'œj'],
+  [/^ouille/, 'uj'],
+  [/^eille/, 'ɛj'],
+
+  // -ent at end of conjugated verbs (3rd person plural) is often silent
+  // We can't easily detect verb conjugation, but most "-ent" at word end is silent
+  // unless it's a noun like "vent". Approximate: if "-ent" follows a vowel pattern that suggests verb, silent.
+  // Conservative approach: pronounce it as nasal in standalone case (handled by nasal rule)
+
+  // 3-letter combos
+  [/^eaux?/, 'o'],
+  [/^oeu/, 'ø'],
+  [/^œu/, 'œ'],
+  // 3-letter nasal combos: also need vowel/duplicate check after the n/m
+  [/^ein(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^ain(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^aim(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^ien(?![aeiouyâàéèêëîïôöûüœhnm])/, 'jɛ̃'],
+  [/^ion(?![aeiouyâàéèêëîïôöûüœhnm])/, 'jɔ̃'],
+  [/^oin(?![aeiouyâàéèêëîïôöûüœhnm])/, 'wɛ̃'],
+  [/^ill/, 'ij'],
+  [/^gne/, 'ɲ'],
+  [/^gni/, 'ɲi'],
+  [/^gn[aou]/, m => 'ɲ' + (m[2] || '')],
+  [/^qu[ei]/, m => 'k' + (m[2] === 'e' ? 'ə' : 'i')],
+  [/^qua/, 'ka'],
+  [/^quo/, 'ko'],
+
+  // 2-letter combos: vowels
+  [/^au/, 'o'],
+  [/^eu/, 'ø'],
+  [/^ou/, 'u'],
+  [/^oi/, 'wa'],
+  [/^ai/, 'ɛ'],
+  [/^ei/, 'ɛ'],
+  [/^ui/, 'ɥi'],
+  [/^ya/, 'ja'],
+  [/^ye/, 'jɛ'],
+  [/^yo/, 'jɔ'],
+  [/^yi/, 'ji'],
+
+  // Nasals (vowel + n/m followed by consonant or end-of-word, NOT another vowel or doubled n/m)
+  // The lookahead checks the character AFTER the n/m — if it's a vowel or another n/m, do NOT nasalize
+  [/^an(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɑ̃'],
+  [/^en(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɑ̃'],
+  [/^am(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɑ̃'],
+  [/^em(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɑ̃'],
+  [/^in(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^im(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^yn(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^ym(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɛ̃'],
+  [/^on(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɔ̃'],
+  [/^om(?![aeiouyâàéèêëîïôöûüœhnm])/, 'ɔ̃'],
+  [/^un(?![aeiouyâàéèêëîïôöûüœhnm])/, 'œ̃'],
+  [/^um(?![aeiouyâàéèêëîïôöûüœhnm])/, 'œ̃'],
+
+  // Consonant combinations
+  [/^ch/, 'ʃ'],
+  [/^ph/, 'f'],
+  [/^th/, 't'],
+  [/^gn/, 'ɲ'],
+  [/^qu/, 'k'],
+
+  // Single consonants
+  [/^c(?=[eiyéèê])/, 's'],
+  [/^c/, 'k'],
+  [/^g(?=[eiyéèê])/, 'ʒ'],
+  [/^g/, 'ɡ'],
+  [/^j/, 'ʒ'],
+  [/^h/, ''],
+  [/^ç/, 's'],
+  [/^ñ/, 'ɲ'],
+
+  // Single vowels with diacritics
+  [/^[éɛ̂ē]/, 'e'],
+  [/^[èêë]/, 'ɛ'],
+  [/^[àáâä]/, 'a'],
+  [/^[ôö]/, 'o'],
+  [/^[îï]/, 'i'],
+  [/^[ûü]/, 'y'],
+  [/^[ùú]/, 'y'],
+  [/^œ/, 'œ'],
+  [/^æ/, 'e'],
+
+  // Single vowels (basic)
+  [/^a/, 'a'],
+  [/^e/, 'ə'],
+  [/^i/, 'i'],
+  [/^o/, 'ɔ'],
+  [/^u/, 'y'],
+  [/^y/, 'i'],
+
+  // Single consonants (default)
+  [/^b/, 'b'],
+  [/^d/, 'd'],
+  [/^f/, 'f'],
+  [/^k/, 'k'],
+  [/^l/, 'l'],
+  [/^m/, 'm'],
+  [/^n/, 'n'],
+  [/^p/, 'p'],
+  [/^r/, 'ʁ'],
+  [/^s/, 's'],
+  [/^t/, 't'],
+  [/^v/, 'v'],
+  [/^w/, 'w'],
+  [/^x/, 'ks'],
+  [/^z/, 'z'],
+
+  // Apostrophes/whitespace just removed
+  [/^['']/, ''],
+];
+
+// Convert a word to IPA using rules
+function applyRules(word) {
+  let remaining = word.toLowerCase();
+  let ipa = '';
+  let safety = 100;
+  while (remaining.length > 0 && safety-- > 0) {
+    let matched = false;
+    for (const [pat, out] of RULES) {
+      const m = remaining.match(pat);
+      if (m) {
+        const replacement = typeof out === 'function' ? out(m) : out;
+        ipa += replacement;
+        remaining = remaining.slice(m[0].length);
+        matched = true;
+        break;
+      }
+    }
+    if (!matched) {
+      // Skip unknown character
+      remaining = remaining.slice(1);
+    }
+  }
+  return ipa;
+}
+
+// Post-processing: handle silent final consonants and doubled letters
+function postProcess(ipa, originalWord) {
+  // Doubled consonants: collapse most of them (sauf "ll" which has special handling)
+  ipa = ipa.replace(/(.)\1+/g, '$1');
+
+  // Silent final consonants: -s, -t, -d, -p, -x, -z, -n, -m at end (most cases)
+  // The CaReFuL exceptions (c, r, f, l) generally stay
+  // But there are too many exceptions to handle perfectly; we use heuristics.
+
+  const original = originalWord.toLowerCase();
+
+  // Special: -ent at end of word, when preceded by a consonant (verbal pattern), often silent.
+  // This must run BEFORE the generic final-t removal below.
+  // The IPA at this point still has the trailing 't' (because rules add it for the literal 't' letter).
+  // So we strip 'ɑ̃t' from the end if the original word ends in "ent" and the letter before is a consonant.
+  if (original.endsWith('ent') && original.length > 4 && /ɑ̃t$/.test(ipa)) {
+    const beforeEnt = original.charAt(original.length - 4);
+    const isConsonant = /[bcdfghjklmnpqrstvwxz]/.test(beforeEnt);
+    if (isConsonant) {
+      ipa = ipa.replace(/ɑ̃t$/, '');
+    }
+  }
+
+  // -es at end usually silent (plurals, feminines)
+  if (/[a-z]es$/.test(original) && ipa.endsWith('əs')) {
+    ipa = ipa.slice(0, -2);
+  } else if (/[a-z]e$/.test(original) && ipa.endsWith('ə') && original.length > 2) {
+    ipa = ipa.slice(0, -1);
+  }
+
+  // -s at end usually silent
+  if (original.endsWith('s') && ipa.endsWith('s') && original.length > 1) {
+    ipa = ipa.slice(0, -1);
+  }
+  // -t at end usually silent (with exceptions like "sept", "huit", but those are in EXCEPTIONS)
+  if (original.endsWith('t') && ipa.endsWith('t') && original.length > 1) {
+    ipa = ipa.slice(0, -1);
+  }
+  // -d at end usually silent
+  if (original.endsWith('d') && ipa.endsWith('d') && original.length > 1) {
+    ipa = ipa.slice(0, -1);
+  }
+  // -p at end usually silent
+  if (original.endsWith('p') && ipa.endsWith('p') && original.length > 1) {
+    ipa = ipa.slice(0, -1);
+  }
+  // -x at end usually silent
+  if (original.endsWith('x') && /ks$/.test(ipa) && original.length > 1) {
+    ipa = ipa.slice(0, -2);
+  }
+  // -z at end usually silent
+  if (original.endsWith('z') && ipa.endsWith('z') && original.length > 1) {
+    ipa = ipa.slice(0, -1);
+  }
+
+  // CaReFuL: c at end sometimes silent (blanc, banc, franc, estomac, tabac)
+  // Words ending in "anc" or "onc" with nasal preceding tend to have silent c
+  if (/anc$/.test(original) && ipa.endsWith('ɑ̃k')) {
+    ipa = ipa.slice(0, -1); // drop k
+  }
+  if (/onc$/.test(original) && ipa.endsWith('ɔ̃k') && original !== 'donc') {
+    ipa = ipa.slice(0, -1);
+  }
+
+  // Final ə after consonant cluster of length 1 — drop
+  if (ipa.endsWith('ə') && ipa.length > 2) {
+    if (original.length > 2) ipa = ipa.slice(0, -1);
+  }
+
+  return ipa;
+}
+
+// Main function: word → IPA
+function wordToIpa(word) {
+  const lower = word.toLowerCase().replace(/['']/g, "'");
+  // Check exceptions first
+  if (EXCEPTIONS[lower]) return EXCEPTIONS[lower];
+  // Strip apostrophe contractions like "j'", "l'", "qu'", "n'", "d'"
+  const contractionMatch = lower.match(/^([jlmnstd]|qu)'(.+)$/);
+  if (contractionMatch) {
+    const prefix = contractionMatch[1];
+    const rest = contractionMatch[2];
+    const prefixIpa = {
+      'j': 'ʒ', 'l': 'l', 'm': 'm', 'n': 'n', 's': 's', 't': 't', 'd': 'd', 'qu': 'k'
+    }[prefix];
+    if (EXCEPTIONS[rest]) return prefixIpa + EXCEPTIONS[rest];
+    return prefixIpa + postProcess(applyRules(rest), rest);
+  }
+  return postProcess(applyRules(lower), lower);
+}
+
+/* ============================================================
+   IPA → APPROXIMATE SPANISH SPELLING
+   ============================================================ */
+const IPA_TO_ES = [
+  ['ɑ̃', 'an'], ['ɛ̃', 'en'], ['ɔ̃', 'on'], ['œ̃', 'un'],
+  ['wɛ̃', 'uan'], ['jɛ̃', 'ien'], ['jɔ̃', 'ion'],
+  ['ʁ', 'rr'],
+  ['ʃ', 'sh'],
+  ['ʒ', 'zh'],
+  ['ɲ', 'ñ'],
+  ['ɥ', 'u'],
+  ['ø', 'eu'], ['œ', 'eu'], ['ə', 'e'],
+  ['y', 'ü'],
+  ['ɛ', 'e'], ['ɔ', 'o'],
+  ['ɡ', 'g'],
+  ['j', 'i'],
+  ['w', 'u'],
+];
+function ipaToApprox(ipa) {
+  let out = ipa;
+  for (const [k, v] of IPA_TO_ES) {
+    out = out.split(k).join(v);
+  }
+  return out;
+}
+
+/* ============================================================
+   LIAISON DETECTION
+   ============================================================ */
+const LIAISON_TRIGGERS = new Set([
+  'les', 'des', 'mes', 'tes', 'ses', 'ces', 'nos', 'vos', 'leurs',
+  'aux', 'deux', 'trois', 'six', 'dix',
+  'nous', 'vous', 'ils', 'elles', 'on',
+  'un', 'mon', 'ton', 'son', 'en',
+  'est', 'sont', 'ont', 'allons', 'allez', 'avons', 'avez',
+  'très', 'plus', 'moins', 'tout', 'tous',
+  'petit', 'grand', 'gros', 'bon', 'mauvais',
+  'quand', 'comment', 'dans', 'sans', 'sous',
+  'chez',
+]);
+
+const H_ASPIREE = new Set([
+  'haricot', 'haricots', 'héros', 'honte', 'hibou', 'haut', 'haute',
+  'hêtre', 'hangar', 'hache', 'haine', 'halle', 'hangar', 'hampe',
+  'handicap', 'harcèlement', 'hasard', 'hâte', 'hauteur', 'hennir',
+  'hérisson', 'hibou', 'hiérarchie', 'hold-up', 'hollande', 'homard',
+  'honte', 'hoquet', 'horde', 'houle', 'huit', 'hurler',
+]);
+
+function startsWithVowelOrMuteH(word) {
+  const lower = word.toLowerCase();
+  if (/^[aeiouyâàéèêëîïôöûüœ]/.test(lower)) return true;
+  if (lower.startsWith('h') && !H_ASPIREE.has(lower)) return true;
+  return false;
+}
+
+function getLiaisonConsonant(word) {
+  // Returns the IPA sound that the liaison would add
+  const lower = word.toLowerCase();
+  if (/[sxz]$/.test(lower)) return 'z';
+  if (/d$/.test(lower)) return 't';
+  if (/[fv]$/.test(lower)) return 'v';
+  if (/[nm]$/.test(lower)) return 'n';
+  if (/t$/.test(lower)) return 't';
+  if (/p$/.test(lower)) return 'p';
+  return null;
+}
+
+function isLiaisonCandidate(word) {
+  const lower = word.toLowerCase().replace(/['']/g, "'");
+  return LIAISON_TRIGGERS.has(lower) && /[sxzdtpnmfv]$/.test(lower);
+}
+
+/* ============================================================
+   PHRASE TOKENIZER & ANALYZER
+   ============================================================ */
+function tokenize(phrase) {
+  // Split keeping punctuation as separate tokens.
+  // Hyphens act as word separators (allez-vous → allez, -, vous)
+  // Apostrophes are kept inside words (j'ai → j'ai)
+  const tokens = [];
+  const re = /([a-zàáâäãéèêëíìîïóòôöõúùûüýÿñçœæ][a-zàáâäãéèêëíìîïóòôöõúùûüýÿñçœæ']*)|([.,;:!?'"«»\-—…])/giu;
+  let m;
+  while ((m = re.exec(phrase)) !== null) {
+    if (m[1]) tokens.push({ type: 'word', text: m[1] });
+    else if (m[2]) tokens.push({ type: 'punct', text: m[2] });
+  }
+  return tokens;
+}
+
+// Categorize sounds present in IPA for visual tagging.
+// IMPORTANT: nasal vowels in IPA are vowel + combining tilde U+0303.
+// In a JS character class, these are seen as separate chars, so we match the full sequence.
+function categorizeIpa(ipa) {
+  const tags = [];
+  // Nasal: any vowel followed by combining tilde \u0303
+  if (/[ɑɛɔœaeiouy]\u0303/.test(ipa)) tags.push('nasal');
+  // Rounded front vowels: y, ø, œ — but exclude œ̃ (already counted as nasal)
+  // Strip nasal sequences first, then check
+  const oralIpa = ipa.replace(/[ɑɛɔœaeiouy]\u0303/g, '');
+  if (/[yøœ]/.test(oralIpa)) tags.push('round');
+  // Specific French consonants
+  if (/[ʁʃʒɲɥ]/.test(ipa)) tags.push('cons');
+  // Combos: oi (wa), ui (ɥi), nasal combos jɛ̃, wɛ̃
+  if (/wa|ɥi|j[ɛ]\u0303|w[ɛ]\u0303/.test(ipa)) tags.push('combo');
+  return tags;
+}
+
+// Get the dominant category (for the colored top stripe)
+function dominantCategory(tags) {
+  // Priority order: liaison > nasal > round > cons > combo
+  if (tags.includes('liaison')) return 'liaison';
+  if (tags.includes('nasal')) return 'nasal';
+  if (tags.includes('round')) return 'round';
+  if (tags.includes('cons')) return 'cons';
+  if (tags.includes('combo')) return 'combo';
+  return null;
+}
+
+function analyzePhrase(phrase) {
+  const tokens = tokenize(phrase);
+  const analyzed = [];
+
+  for (let i = 0; i < tokens.length; i++) {
+    const tok = tokens[i];
+    if (tok.type === 'punct') {
+      analyzed.push({ ...tok, category: 'punct' });
+      continue;
+    }
+    const ipa = wordToIpa(tok.text);
+    const tags = categorizeIpa(ipa);
+
+    // Detect liaison with next word
+    let liaisonWith = null;
+    let nextWordTok = null;
+    for (let j = i + 1; j < tokens.length; j++) {
+      if (tokens[j].type === 'word') { nextWordTok = tokens[j]; break; }
+      if (tokens[j].type === 'punct' && /[.,;:!?]/.test(tokens[j].text)) break; // strong punct breaks liaison
+    }
+    if (nextWordTok && isLiaisonCandidate(tok.text) && startsWithVowelOrMuteH(nextWordTok.text)) {
+      // 'et' never triggers liaison
+      if (tok.text.toLowerCase() !== 'et') {
+        liaisonWith = getLiaisonConsonant(tok.text);
+        if (liaisonWith) tags.push('liaison');
+      }
+    }
+
+    // Mark exception (was found in dictionary)
+    const isException = !!EXCEPTIONS[tok.text.toLowerCase()];
+
+    analyzed.push({
+      type: 'word',
+      text: tok.text,
+      ipa,
+      approx: ipaToApprox(ipa),
+      tags,
+      category: dominantCategory(tags),
+      liaisonWith,
+      isException,
+    });
+  }
+
+  return analyzed;
+}
+
+// Build full phrase IPA with liaisons applied
+function fullIpa(analyzed) {
+  const parts = [];
+  for (const a of analyzed) {
+    if (a.type === 'punct') {
+      // Skip punct in IPA except commas as breath
+      continue;
+    }
+    let s = a.ipa;
+    if (a.liaisonWith) s += '‿' + a.liaisonWith;
+    parts.push(s);
+  }
+  return '/' + parts.join(' ') + '/';
+}
+
+/* ============================================================
+   NOTES GENERATION
+   ============================================================ */
+function generateNotes(analyzed) {
+  const notes = [];
+  const seen = new Set();
+
+  // Collect liaisons
+  for (let i = 0; i < analyzed.length; i++) {
+    const a = analyzed[i];
+    if (a.type !== 'word') continue;
+    if (a.liaisonWith) {
+      // Find next word for context
+      let next = null;
+      for (let j = i + 1; j < analyzed.length; j++) {
+        if (analyzed[j].type === 'word') { next = analyzed[j]; break; }
+      }
+      if (next) {
+        const liaisonName = a.liaisonWith === 'z' ? '/z/' : a.liaisonWith === 't' ? '/t/' : a.liaisonWith === 'v' ? '/v/' : a.liaisonWith === 'n' ? '/n/' : '/' + a.liaisonWith + '/';
+        notes.push({
+          label: 'liaison',
+          text: `Liaison entre <i>${a.text}</i> y <i>${next.text}</i> → la consonante final se vuelve <b>${liaisonName}</b>. Sonarán como una sola palabra.`,
+        });
+      }
+    }
+  }
+
+  // Collect nasals
+  const nasalWords = analyzed.filter(a => a.type === 'word' && a.tags.includes('nasal'));
+  if (nasalWords.length) {
+    const examples = nasalWords.slice(0, 4).map(w => `<i>${w.text}</i>`).join(', ');
+    notes.push({
+      label: 'nasal',
+      text: `Vocales nasales en ${nasalWords.length === 1 ? 'la palabra' : 'las palabras'}: ${examples}. Recordá: la <b>n</b>/<b>m</b> escrita NO se pronuncia, solo nasaliza la vocal anterior.`,
+    });
+  }
+
+  // Collect /y/ /ø/ /œ/
+  const roundWords = analyzed.filter(a => a.type === 'word' && a.tags.includes('round'));
+  if (roundWords.length) {
+    const examples = roundWords.slice(0, 4).map(w => `<i>${w.text}</i>`).join(', ');
+    notes.push({
+      label: 'round',
+      text: `Vocales redondeadas en: ${examples}. La más difícil es la <b>/y/</b> (decí "i" con labios redondos). Las <b>/ø/</b> y <b>/œ/</b> son "e" con labios redondos.`,
+    });
+  }
+
+  // Collect /ʁ/, /ʃ/, /ʒ/, /ɲ/
+  const consWords = analyzed.filter(a => a.type === 'word' && a.tags.includes('cons'));
+  if (consWords.length) {
+    // Check which specific sounds appear
+    const hasR = consWords.some(w => /ʁ/.test(w.ipa));
+    const hasSh = consWords.some(w => /ʃ/.test(w.ipa));
+    const hasZh = consWords.some(w => /ʒ/.test(w.ipa));
+    const hasN = consWords.some(w => /ɲ/.test(w.ipa));
+    const sounds = [];
+    if (hasR) sounds.push('<b>/ʁ/</b> uvular (en la garganta, no con la lengua)');
+    if (hasSh) sounds.push('<b>/ʃ/</b> "ch" francesa = "sh" inglesa, NO "ch" castellana');
+    if (hasZh) sounds.push('<b>/ʒ/</b> ≈ "ll/y" rioplatense de "yo"');
+    if (hasN) sounds.push('<b>/ɲ/</b> ≈ "ñ" española');
+    if (sounds.length) {
+      notes.push({
+        label: 'cons',
+        text: `Consonantes francesas distintas al español aparecen en tu frase: ${sounds.join('; ')}.`,
+      });
+    }
+  }
+
+  // Combos
+  const comboWords = analyzed.filter(a => a.type === 'word' && a.tags.includes('combo'));
+  if (comboWords.length) {
+    const examples = comboWords.slice(0, 3).map(w => `<i>${w.text}</i>`).join(', ');
+    notes.push({
+      label: 'combo',
+      text: `Combinaciones vocálicas en: ${examples}. Suena un solo sonido aunque veas varias letras (ej. <code>oi</code>=/wa/, <code>ui</code>=/ɥi/).`,
+    });
+  }
+
+  // "et" warning
+  const hasEt = analyzed.some(a => a.type === 'word' && a.text.toLowerCase() === 'et');
+  if (hasEt) {
+    notes.push({
+      label: 'liaison',
+      text: `La palabra <i>et</i> NUNCA hace liaison con la palabra siguiente. Hacé una mini-pausa imaginaria.`,
+    });
+  }
+
+  // CaReFuL — final consonants that DO sound
+  const carefulSounds = analyzed.filter(a => {
+    if (a.type !== 'word') return false;
+    const lastIpa = a.ipa.slice(-1);
+    return /[kʁfl]/.test(lastIpa);
+  });
+  if (carefulSounds.length) {
+    const examples = carefulSounds.slice(0, 3).map(w => `<i>${w.text}</i>`).join(', ');
+    notes.push({
+      label: 'exception',
+      text: `Recordá CaReFuL: <b>c, r, f, l</b> finales suelen sonar. Aplica en: ${examples}.`,
+    });
+  }
+
+  return notes;
+}
+
+/* ============================================================
+   UI WIRING
+   ============================================================ */
+const $ = (id) => document.getElementById(id);
+const input = $('phrase-input');
+const counter = $('counter');
+const btnAnalyze = $('btn-analyze');
+const btnPlayInput = $('btn-play-input');
+const btnClear = $('btn-clear');
+const btnPlayResult = $('btn-play-result');
+const results = $('results');
+const heroPhrase = $('hero-phrase');
+const heroIpa = $('hero-ipa');
+const wordGrid = $('word-grid');
+const notesList = $('notes-list');
+const historyList = $('history-list');
+const historyClear = $('history-clear');
+
+// Counter
+input.addEventListener('input', () => {
+  const len = input.value.length;
+  counter.textContent = `${len} / 200`;
+  counter.classList.toggle('warn', len > 180);
+});
+
+// Analyze
+function doAnalyze(phrase) {
+  phrase = phrase.trim();
+  if (!phrase) return;
+
+  const analyzed = analyzePhrase(phrase);
+  const ipa = fullIpa(analyzed);
+  const notes = generateNotes(analyzed);
+
+  // Hero
+  heroPhrase.textContent = phrase;
+  heroIpa.textContent = ipa;
+
+  // Word grid
+  wordGrid.innerHTML = '';
+  for (const a of analyzed) {
+    if (a.type === 'punct') continue;
+    const card = document.createElement('article');
+    card.className = 'word-card';
+    if (a.category) card.dataset.cat = a.category;
+
+    const tagsHtml = a.tags.map(t => `<span class="word-tag ${t}">${t}</span>`).join('');
+    const liaisonNote = a.liaisonWith ? `<span class="word-tag liaison">+/${a.liaisonWith}/ ↗</span>` : '';
+
+    card.innerHTML = `
+      <div class="word-fr">
+        <span>${escapeHtml(a.text)}</span>
+        <button class="word-play" data-text="${escapeHtml(a.text)}">▸</button>
+      </div>
+      <div class="word-ipa">/${a.ipa}/</div>
+      <div class="word-approx">${escapeHtml(a.approx)}</div>
+      <div class="word-tags">${tagsHtml}${liaisonNote}</div>
+    `;
+    wordGrid.appendChild(card);
+  }
+
+  // Notes
+  notesList.innerHTML = '';
+  if (notes.length === 0) {
+    notesList.innerHTML = '<li class="notes-empty">No hay notas particulares para esta frase. Las palabras siguen reglas estándar.</li>';
+  } else {
+    for (const n of notes) {
+      const li = document.createElement('li');
+      li.innerHTML = `<span class="note-label ${n.label}">${labelText(n.label)}</span><span class="note-text">${n.text}</span>`;
+      notesList.appendChild(li);
+    }
+  }
+
+  // Reveal
+  results.classList.add('visible');
+  results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Save to history
+  saveToHistory(phrase);
+}
+
+function labelText(l) {
+  return {
+    nasal: 'Nasal',
+    round: 'Redondeada',
+    cons: 'Consonante',
+    combo: 'Combo',
+    liaison: 'Liaison',
+    exception: 'Regla',
+  }[l] || l;
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+btnAnalyze.addEventListener('click', () => doAnalyze(input.value));
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+    e.preventDefault();
+    doAnalyze(input.value);
+  }
+});
+
+btnClear.addEventListener('click', () => {
+  input.value = '';
+  counter.textContent = '0 / 200';
+  counter.classList.remove('warn');
+  results.classList.remove('visible');
+  input.focus();
+});
+
+// Examples
+document.querySelectorAll('.example-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    const text = pill.dataset.text;
+    input.value = text;
+    counter.textContent = `${text.length} / 200`;
+    counter.classList.toggle('warn', text.length > 180);
+    doAnalyze(text);
+  });
+});
+
+/* ============================================================
+   HISTORY (localStorage)
+   ============================================================ */
+const HISTORY_KEY = 'phrase-analyzer-history';
+
+function loadHistory() {
+  try {
+    return JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+  } catch { return []; }
+}
+
+function saveToHistory(phrase) {
+  let h = loadHistory();
+  h = h.filter(x => x !== phrase); // dedupe
+  h.unshift(phrase);
+  h = h.slice(0, 10);
+  localStorage.setItem(HISTORY_KEY, JSON.stringify(h));
+  renderHistory();
+}
+
+function renderHistory() {
+  const h = loadHistory();
+  if (!h.length) {
+    historyList.innerHTML = '<span class="history-empty">Aún no analizaste ninguna frase. Tus últimas 10 quedarán acá.</span>';
+    return;
+  }
+  historyList.innerHTML = '';
+  for (const phrase of h) {
+    const btn = document.createElement('button');
+    btn.className = 'history-pill';
+    btn.textContent = phrase;
+    btn.title = phrase;
+    btn.addEventListener('click', () => {
+      input.value = phrase;
+      counter.textContent = `${phrase.length} / 200`;
+      doAnalyze(phrase);
+    });
+    historyList.appendChild(btn);
+  }
+}
+
+historyClear.addEventListener('click', () => {
+  if (confirm('¿Limpiar el historial?')) {
+    localStorage.removeItem(HISTORY_KEY);
+    renderHistory();
+  }
+});
+
+renderHistory();
+
+/* ============================================================
+   AUDIO (hybrid Web Speech + Google TTS fallback)
+   ============================================================ */
+const audioStatus = $('audioStatus');
+let frenchVoice = null;
+let firstClick = true;
+let currentAudio = null;
+
+function showStatus(msg, warn) {
+  audioStatus.textContent = msg;
+  audioStatus.className = 'audio-status show' + (warn ? ' warn' : '');
+  setTimeout(() => audioStatus.classList.remove('show'), 4000);
+}
+
+function pickFrenchVoice() {
+  if (!('speechSynthesis' in window)) return null;
+  const voices = speechSynthesis.getVoices();
+  if (!voices.length) return null;
+  let v = voices.find(v => v.lang === 'fr-FR');
+  if (!v) v = voices.find(v => v.lang === 'fr-CA');
+  if (!v) v = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('fr'));
+  return v || null;
+}
+
+if ('speechSynthesis' in window) {
+  frenchVoice = pickFrenchVoice();
+  speechSynthesis.onvoiceschanged = () => { frenchVoice = pickFrenchVoice(); };
+  setTimeout(() => { frenchVoice = pickFrenchVoice(); }, 500);
+}
+
+function speakViaGoogle(text, btn) {
+  if (currentAudio) { try { currentAudio.pause(); } catch(e){} currentAudio = null; }
+  const url = 'https://translate.google.com/translate_tts?ie=UTF-8&q=' + encodeURIComponent(text) + '&tl=fr&client=tw-ob';
+  const audio = new Audio(url);
+  currentAudio = audio;
+  if (btn) btn.classList.add('playing');
+  const cleanup = () => { if (btn) btn.classList.remove('playing'); };
+  audio.onended = cleanup; audio.onpause = cleanup;
+  audio.onerror = () => { cleanup(); showStatus('Audio no disponible. Revisá conexión.', true); };
+  const p = audio.play();
+  if (p && p.catch) p.catch(() => { cleanup(); showStatus('Audio bloqueado por el navegador', true); });
+}
+
+function speakViaWebSpeech(text, btn) {
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR'; u.rate = 0.85; u.pitch = 1.0;
+  if (frenchVoice) u.voice = frenchVoice;
+  if (btn) {
+    btn.classList.add('playing');
+    u.onend = () => btn.classList.remove('playing');
+    u.onerror = () => btn.classList.remove('playing');
+  }
+  speechSynthesis.speak(u);
+}
+
+function speak(text, btn) {
+  if (!frenchVoice && 'speechSynthesis' in window) frenchVoice = pickFrenchVoice();
+  if (frenchVoice) {
+    speakViaWebSpeech(text, btn);
+    if (firstClick) { showStatus('Audio: voz nativa · ' + (frenchVoice.name || 'fr-FR')); firstClick = false; }
+    return;
+  }
+  speakViaGoogle(text, btn);
+  if (firstClick) { showStatus('Audio: Google TTS · requiere internet'); firstClick = false; }
+}
+
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('[data-text], #btn-play-input, #btn-play-result');
+  if (!btn) return;
+  if (btn.id === 'btn-play-input') { speak(input.value, btn); return; }
+  if (btn.id === 'btn-play-result') { speak(heroPhrase.textContent, btn); return; }
+  const text = btn.dataset.text;
+  if (text) { e.preventDefault(); speak(text, btn); }
+});
+
+setTimeout(() => { showStatus('Tap ▸ para escuchar · Ctrl+Enter para analizar'); }, 800);
+</script>
+
+</body>
+</html>
