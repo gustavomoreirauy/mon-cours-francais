@@ -12,7 +12,6 @@
     href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="shared.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
   <style>
     :root { --page-accent: var(--primary); }
 
@@ -86,10 +85,10 @@
       min-height: 1.1em;
     }
 
-    /* ===== TOP NAV ===== */
+    /* ===== NAV ===== */
     nav.top-nav {
       padding: 1.25rem 2rem;
-      max-width: 1200px;
+      max-width: 900px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -113,11 +112,6 @@
       height: 2px;
       background: var(--primary);
     }
-    .top-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
     .top-link {
       font-family: var(--mono);
       font-size: 0.65rem;
@@ -126,88 +120,15 @@
       color: var(--ink-faint);
       text-decoration: none;
       font-weight: 600;
-      cursor: pointer;
-      background: none;
-      border: none;
       transition: color 0.2s;
     }
     .top-link:hover { color: var(--primary); }
 
-    /* ===== DASHBOARD LAYOUT ===== */
+    /* ===== DASHBOARD ===== */
     .dash-wrap {
-      max-width: 1200px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 3rem 2rem 6rem;
-    }
-
-    /* ===== SETUP CARD ===== */
-    .setup-card {
-      background: rgba(30, 64, 175, 0.05);
-      border: 1.5px solid rgba(30, 64, 175, 0.18);
-      border-radius: 6px;
-      padding: 1.75rem 2rem;
-      margin-bottom: 3rem;
-    }
-    .setup-title {
-      font-family: var(--serif-display);
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 0.35rem;
-      font-variation-settings: "opsz" 144;
-    }
-    .setup-desc {
-      font-size: 0.88rem;
-      color: var(--ink-soft);
-      line-height: 1.55;
-      margin-bottom: 1.5rem;
-      max-width: 65ch;
-    }
-    .setup-desc a { color: var(--primary); }
-    .setup-desc code {
-      font-family: var(--mono);
-      font-size: 0.82em;
-      background: var(--bg-deep);
-      padding: 0.1em 0.35em;
-      border-radius: 3px;
-    }
-    .setup-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr auto;
-      gap: 0.75rem;
-      align-items: end;
-    }
-    .setup-field label {
-      font-family: var(--mono);
-      font-size: 0.61rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      font-weight: 700;
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    .setup-field input {
-      width: 100%;
-      background: var(--paper);
-      border: 1.5px solid var(--rule);
-      border-radius: 4px;
-      padding: 0.7rem 0.9rem;
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--ink);
-      transition: border-color 0.2s;
-    }
-    .setup-field input:focus { outline: none; border-color: var(--primary); }
-
-    /* ===== DASHBOARD HEADER ===== */
-    .dash-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 1.5rem;
-      margin-bottom: 2.5rem;
+      padding: 4rem 2rem 6rem;
     }
     .dash-heading {
       font-family: var(--serif-display);
@@ -217,193 +138,103 @@
       line-height: 1.05;
       letter-spacing: -0.025em;
       font-variation-settings: "opsz" 144;
+      margin-bottom: 0.5rem;
     }
     .dash-heading em {
       font-style: normal;
       font-weight: 600;
       color: var(--primary);
     }
-    .dash-meta {
-      font-family: var(--mono);
-      font-size: 0.64rem;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      font-weight: 500;
-      text-align: right;
-      line-height: 1.6;
+    .dash-sub {
+      font-family: var(--serif-body);
+      font-size: 1rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      max-width: 52ch;
+      margin-bottom: 3rem;
     }
 
-    /* ===== KPI CARDS ===== */
-    .kpi-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-bottom: 2.5rem;
-    }
-    .kpi-card {
+    /* ===== ACTION CARD ===== */
+    .action-card {
       background: var(--paper);
       border: 1px solid var(--rule);
-      border-radius: 4px;
-      padding: 1.5rem 1.75rem 1.35rem;
-      position: relative;
-      overflow: hidden;
+      border-radius: 6px;
+      padding: 2rem 2.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      transition: box-shadow 0.2s, border-color 0.2s;
     }
-    .kpi-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--kpi-color, var(--primary));
+    .action-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 8px 24px -12px rgba(30, 64, 175, 0.2);
     }
-    .kpi-card:nth-child(2) { --kpi-color: var(--ink-faint); }
-    .kpi-card:nth-child(3) { --kpi-color: var(--tertiary); }
-    .kpi-label {
+    .action-card-info {}
+    .action-card-label {
       font-family: var(--mono);
-      font-size: 0.63rem;
+      font-size: 0.64rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--ink-faint);
       font-weight: 700;
-      margin-bottom: 0.55rem;
+      margin-bottom: 0.4rem;
     }
-    .kpi-value {
+    .action-card-title {
       font-family: var(--serif-display);
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: 1.35rem;
       font-weight: 600;
-      color: var(--kpi-color, var(--primary));
-      line-height: 1;
-      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
       font-variation-settings: "opsz" 144;
     }
-    .kpi-delta {
-      font-family: var(--mono);
-      font-size: 0.66rem;
-      letter-spacing: 0.08em;
-      font-weight: 600;
-      margin-top: 0.4rem;
-      min-height: 1em;
+    .action-card-desc {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+      max-width: 48ch;
     }
-    .kpi-delta.up { color: var(--tertiary); }
-    .kpi-delta.down { color: var(--secondary); }
-    .kpi-delta.flat { color: var(--ink-faint); }
+    .action-card .btn {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
 
-    /* ===== CHART ===== */
-    .chart-section {
-      background: var(--paper);
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      padding: 1.75rem 2rem 1.5rem;
-      margin-bottom: 1.5rem;
+    /* ===== HINT BOX ===== */
+    .hint-box {
+      background: rgba(30, 64, 175, 0.05);
+      border: 1.5px solid rgba(30, 64, 175, 0.15);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 2.5rem;
     }
-    .section-label {
+    .hint-box-title {
       font-family: var(--mono);
       font-size: 0.64rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .section-label::before {
-      content: "";
-      width: 20px;
-      height: 1px;
-      background: var(--ink-faint);
-    }
-    .chart-wrap {
-      position: relative;
-      height: 220px;
-    }
-
-    /* ===== TOP PAGES ===== */
-    .pages-section {
-      background: var(--paper);
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      padding: 1.75rem 2rem;
-    }
-    .pages-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    .pages-table th {
-      font-family: var(--mono);
-      font-size: 0.61rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      font-weight: 700;
-      padding: 0 0 0.75rem;
-      text-align: left;
-      border-bottom: 1px solid var(--rule);
-    }
-    .pages-table th:last-child { text-align: right; }
-    .pages-table td {
-      padding: 0.7rem 0;
-      border-bottom: 1px solid var(--rule-soft);
-      vertical-align: middle;
-    }
-    .pages-table td:last-child {
-      text-align: right;
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-    .pages-table tr:last-child td { border-bottom: none; }
-    .page-path {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--primary);
-      font-weight: 600;
-      display: block;
-    }
-    .page-title {
-      font-size: 0.82rem;
-      color: var(--ink-soft);
-      margin-top: 0.1rem;
-      display: block;
-    }
-
-    /* ===== STATES ===== */
-    .state-msg {
-      text-align: center;
-      padding: 4rem 1rem;
-      font-family: var(--mono);
-      font-size: 0.7rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--ink-faint);
-      font-weight: 600;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
     }
-    .error-banner {
-      background: rgba(234, 88, 12, 0.07);
-      border: 1.5px solid rgba(234, 88, 12, 0.22);
-      border-radius: 4px;
-      padding: 1rem 1.25rem;
+    .hint-box p {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      margin-bottom: 0.5rem;
+    }
+    .hint-box p:last-child { margin-bottom: 0; }
+    .hint-box code {
       font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--secondary);
-      letter-spacing: 0.06em;
-      margin-bottom: 1.5rem;
+      font-size: 0.82em;
+      background: rgba(30, 64, 175, 0.1);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+      color: var(--primary);
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .kpi-row { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-      .kpi-card:nth-child(3) { grid-column: span 2; }
-      .setup-grid { grid-template-columns: 1fr; }
-      .dash-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
-      .top-actions { gap: 1rem; }
-    }
-    @media (max-width: 480px) {
-      .kpi-row { grid-template-columns: 1fr; }
-      .kpi-card:nth-child(3) { grid-column: span 1; }
+    @media (max-width: 600px) {
+      .action-card { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     }
   </style>
 </head>
@@ -426,102 +257,66 @@
 
     <nav class="top-nav">
       <span class="top-brand">Admin · Mon cours</span>
-      <div class="top-actions">
-        <button class="top-link" onclick="reconfigure()">⚙ Reconfigurar</button>
-        <button class="top-link" onclick="loadStats()">↻ Actualizar</button>
-        <a href="index.html" class="top-link">← Portada</a>
-      </div>
+      <a href="index.html" class="top-link">← Portada</a>
     </nav>
 
     <div class="dash-wrap">
 
-      <!-- Setup section (shown when GoatCounter not configured) -->
-      <div id="setupSection" style="display:none">
-        <div class="setup-card">
-          <div class="setup-title">Configurar GoatCounter</div>
-          <div class="setup-desc">
-            Para ver estadísticas necesitás una cuenta gratuita en
-            <a href="https://www.goatcounter.com" target="_blank" rel="noopener">goatcounter.com</a>.
-            Una vez creada e instalado el script en las páginas, ingresá tu
-            <strong>Site Code</strong> (lo que va antes de <code>.goatcounter.com</code>)
-            y un <strong>API Token</strong> (Settings → API tokens → Create new token → marcar "Read statistics").
-            Se guarda en tu navegador, no se transmite a ningún servidor.
-          </div>
-          <div class="setup-grid">
-            <div class="setup-field">
-              <label>Site Code</label>
-              <input type="text" id="setupCode" placeholder="mon-cours-francais" autocomplete="off" spellcheck="false">
-            </div>
-            <div class="setup-field">
-              <label>API Token</label>
-              <input type="password" id="setupToken" placeholder="••••••••••••••••" autocomplete="off">
-            </div>
-            <button class="btn btn-primary" onclick="saveSetup()">Guardar →</button>
-          </div>
+      <div class="dash-heading">Panel de <em>control</em></div>
+      <p class="dash-sub">
+        Accesos directos a las herramientas de administración del sitio.
+      </p>
+
+      <!-- Analytics -->
+      <div class="action-card">
+        <div class="action-card-info">
+          <div class="action-card-label">Analytics · GoatCounter</div>
+          <div class="action-card-title">Estadísticas de visitas</div>
+          <p class="action-card-desc">
+            Visitas por página, países, navegadores, fuentes de tráfico y evolución en el tiempo.
+            Requiere estar logueado en GoatCounter.
+          </p>
         </div>
+        <a href="https://gustavomoreirauy.goatcounter.com" target="_blank" rel="noopener" class="btn btn-primary">
+          Ver dashboard →
+        </a>
       </div>
 
-      <!-- Error banner -->
-      <div class="error-banner" id="errorBanner" style="display:none"></div>
-
-      <!-- Loading -->
-      <div class="state-msg" id="loadingMsg" style="display:none">Cargando estadísticas…</div>
-
-      <!-- Dashboard header -->
-      <div class="dash-header" id="dashHeader" style="display:none">
-        <div class="dash-heading">Visitas al<br><em>sitio</em></div>
-        <div class="dash-meta" id="dashMeta"></div>
+      <!-- Feedback (email inbox) -->
+      <div class="action-card">
+        <div class="action-card-info">
+          <div class="action-card-label">Feedback · Email</div>
+          <div class="action-card-title">Mensajes de usuarios</div>
+          <p class="action-card-desc">
+            Los mensajes del widget de feedback llegan a tu correo. Revisá los que tengan
+            asunto <code>[Mon cours]</code>.
+          </p>
+        </div>
+        <a href="https://mail.google.com/mail/u/0/#search/%5BMon+cours%5D" target="_blank" rel="noopener" class="btn btn-secondary">
+          Abrir Gmail →
+        </a>
       </div>
 
-      <!-- KPI cards -->
-      <div class="kpi-row" id="kpiRow" style="display:none">
-        <div class="kpi-card">
-          <div class="kpi-label">Este mes</div>
-          <div class="kpi-value" id="kpiThisMonth">—</div>
-          <div class="kpi-delta" id="kpiDelta"></div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Mes anterior</div>
-          <div class="kpi-value" id="kpiLastMonth">—</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Total (6 meses)</div>
-          <div class="kpi-value" id="kpiTotal">—</div>
-        </div>
-      </div>
-
-      <!-- Monthly chart -->
-      <div class="chart-section" id="chartSection" style="display:none">
-        <div class="section-label">Visitas mensuales · últimos 6 meses</div>
-        <div class="chart-wrap">
-          <canvas id="monthlyChart"></canvas>
-        </div>
-      </div>
-
-      <!-- Top pages this month -->
-      <div class="pages-section" id="pagesSection" style="display:none">
-        <div class="section-label">Páginas más visitadas · este mes</div>
-        <table class="pages-table">
-          <thead>
-            <tr>
-              <th>Ruta</th>
-              <th style="text-align:right">Visitas</th>
-            </tr>
-          </thead>
-          <tbody id="pagesBody"></tbody>
-        </table>
+      <!-- Hint box -->
+      <div class="hint-box">
+        <div class="hint-box-title">Primer uso · GoatCounter</div>
+        <p>
+          Entrá a <code>gustavomoreirauy.goatcounter.com</code> con tu cuenta de Google
+          (el mismo email que usaste para registrarte). Una vez adentro vas a ver el gráfico
+          de visitas, las páginas más visitadas, países y más.
+        </p>
+        <p>
+          Los datos empiezan a aparecer después de la primera visita real al sitio
+          con el script activo. Si acabás de publicar los cambios, revisá en unos minutos.
+        </p>
       </div>
 
     </div>
   </div>
 
   <script>
-    // =====================================================================
-    // CONTRASEÑA — guardada como hash SHA-256, nunca en texto plano.
-    // Para cambiarla: generá el hash con node -e
-    //   "const c=require('crypto');console.log(c.createHash('sha256').update('TU_NUEVA_CLAVE').digest('hex'))"
-    // y reemplazá el valor de ADMIN_HASH abajo.
-    // =====================================================================
+    // Hash SHA-256 de la contraseña — no hay texto plano en el código.
+    // Para cambiarla: node -e "const c=require('crypto');console.log(c.createHash('sha256').update('TU_NUEVA_CLAVE').digest('hex'))"
     const ADMIN_HASH = 'f606db9ea48976ed3b0d7c5c08077e53ce862a8a3d5458162173f652cdc51823';
 
     async function hashInput(s) {
@@ -529,7 +324,6 @@
       return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    // ----- Gate -----
     document.getElementById('gateInput').addEventListener('keydown', e => {
       if (e.key === 'Enter') unlock();
     });
@@ -546,231 +340,11 @@
       }
     }
 
-    // Auto-unlock if already authenticated this session
     if (sessionStorage.getItem('admin-ok') === '1') showDash();
 
     function showDash() {
       document.getElementById('gate').style.display = 'none';
       document.getElementById('dash').style.display = 'block';
-      initDash();
-    }
-
-    // ----- Config (stored in localStorage) -----
-    function getConfig() {
-      return {
-        code: localStorage.getItem('gc-code') || '',
-        token: localStorage.getItem('gc-token') || ''
-      };
-    }
-
-    function saveSetup() {
-      const code = document.getElementById('setupCode').value.trim();
-      const token = document.getElementById('setupToken').value.trim();
-      if (!code || !token) return;
-      localStorage.setItem('gc-code', code);
-      localStorage.setItem('gc-token', token);
-      document.getElementById('setupSection').style.display = 'none';
-      loadStats();
-    }
-
-    function reconfigure() {
-      hideDashContent();
-      document.getElementById('setupSection').style.display = 'block';
-      const { code } = getConfig();
-      if (code) document.getElementById('setupCode').value = code;
-    }
-
-    function hideDashContent() {
-      ['dashHeader', 'kpiRow', 'chartSection', 'pagesSection', 'loadingMsg', 'errorBanner']
-        .forEach(id => document.getElementById(id).style.display = 'none');
-    }
-
-    // ----- Init -----
-    function initDash() {
-      const { code, token } = getConfig();
-      if (!code || !token) {
-        document.getElementById('setupSection').style.display = 'block';
-      } else {
-        loadStats();
-      }
-    }
-
-    // ----- GoatCounter API -----
-    async function fetchMonth(code, token, year, month) {
-      const m = String(month).padStart(2, '0');
-      const lastDay = new Date(year, month, 0).getDate();
-      const start = `${year}-${m}-01`;
-      const end = `${year}-${m}-${String(lastDay).padStart(2, '0')}`;
-
-      const resp = await fetch(
-        `https://${code}.goatcounter.com/api/v0/stats/hits?start=${start}&end=${end}`,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      if (!resp.ok) {
-        const text = await resp.text().catch(() => '');
-        throw new Error(`GoatCounter respondió con ${resp.status}. Revisá el site code y el API token. Detalle: ${text.slice(0, 200)}`);
-      }
-      const data = await resp.json();
-
-      let total = 0;
-      const paths = [];
-      for (const hit of (data.hits || [])) {
-        let hitTotal = 0;
-        for (const s of (hit.stats || [])) hitTotal += (s.daily || 0);
-        total += hitTotal;
-        if (hitTotal > 0) paths.push({ path: hit.path, title: hit.title || hit.path, total: hitTotal });
-      }
-      paths.sort((a, b) => b.total - a.total);
-      return { total, paths };
-    }
-
-    let chartInstance = null;
-
-    async function loadStats() {
-      const { code, token } = getConfig();
-      if (!code || !token) return;
-
-      hideDashContent();
-      document.getElementById('loadingMsg').style.display = 'block';
-
-      const now = new Date();
-      const months = [];
-      const labels = [];
-
-      for (let i = 5; i >= 0; i--) {
-        const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
-        months.push({ year: d.getFullYear(), month: d.getMonth() + 1 });
-        const label = d.toLocaleDateString('es-AR', { month: 'short', year: '2-digit' });
-        labels.push(label.charAt(0).toUpperCase() + label.slice(1));
-      }
-
-      try {
-        const results = await Promise.all(
-          months.map(m => fetchMonth(code, token, m.year, m.month))
-        );
-
-        const totals = results.map(r => r.total);
-        const thisMonth = totals[totals.length - 1];
-        const lastMonth = totals[totals.length - 2];
-        const total6 = totals.reduce((a, b) => a + b, 0);
-
-        // KPIs
-        document.getElementById('kpiThisMonth').textContent = thisMonth.toLocaleString('es-AR');
-        document.getElementById('kpiLastMonth').textContent = lastMonth.toLocaleString('es-AR');
-        document.getElementById('kpiTotal').textContent = total6.toLocaleString('es-AR');
-
-        const delta = document.getElementById('kpiDelta');
-        if (lastMonth === 0) {
-          delta.textContent = '';
-          delta.className = 'kpi-delta flat';
-        } else {
-          const pct = Math.round((thisMonth - lastMonth) / lastMonth * 100);
-          if (pct > 0) {
-            delta.textContent = `↑ ${pct}% vs mes anterior`;
-            delta.className = 'kpi-delta up';
-          } else if (pct < 0) {
-            delta.textContent = `↓ ${Math.abs(pct)}% vs mes anterior`;
-            delta.className = 'kpi-delta down';
-          } else {
-            delta.textContent = '= Sin cambio vs mes anterior';
-            delta.className = 'kpi-delta flat';
-          }
-        }
-
-        // Meta
-        const dateStr = now.toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' });
-        document.getElementById('dashMeta').innerHTML =
-          `Actualizado · ${dateStr}<br>Fuente: GoatCounter · ${code}`;
-
-        // Chart
-        if (chartInstance) { chartInstance.destroy(); chartInstance = null; }
-        const ctx = document.getElementById('monthlyChart').getContext('2d');
-        chartInstance = new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels,
-            datasets: [{
-              data: totals,
-              backgroundColor: totals.map((_, i) =>
-                i === totals.length - 1 ? 'rgba(30,64,175,0.8)' : 'rgba(30,64,175,0.28)'
-              ),
-              borderColor: totals.map((_, i) =>
-                i === totals.length - 1 ? 'rgba(30,64,175,1)' : 'rgba(30,64,175,0.5)'
-              ),
-              borderWidth: 1.5,
-              borderRadius: 4,
-              borderSkipped: false,
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                backgroundColor: '#0F1419',
-                titleFont: { family: "'JetBrains Mono', monospace", size: 11 },
-                bodyFont: { family: "'JetBrains Mono', monospace", size: 12 },
-                padding: 12,
-                cornerRadius: 4,
-                callbacks: {
-                  label: ctx => ` ${ctx.parsed.y.toLocaleString('es-AR')} visitas`
-                }
-              }
-            },
-            scales: {
-              x: {
-                grid: { display: false },
-                ticks: { font: { family: "'JetBrains Mono', monospace", size: 11 }, color: '#8B95A1' }
-              },
-              y: {
-                beginAtZero: true,
-                grid: { color: 'rgba(214,205,184,0.5)', drawBorder: false },
-                ticks: {
-                  precision: 0,
-                  font: { family: "'JetBrains Mono', monospace", size: 11 },
-                  color: '#8B95A1'
-                }
-              }
-            }
-          }
-        });
-
-        // Top pages
-        const currentMonthPaths = results[results.length - 1].paths.slice(0, 12);
-        const tbody = document.getElementById('pagesBody');
-        if (currentMonthPaths.length === 0) {
-          tbody.innerHTML = `<tr><td colspan="2" style="text-align:center;padding:2rem 0;font-family:var(--mono);font-size:0.72rem;color:var(--ink-faint)">Sin datos para este mes</td></tr>`;
-        } else {
-          tbody.innerHTML = currentMonthPaths.map(p => `
-            <tr>
-              <td>
-                <span class="page-path">${escapeHtml(p.path)}</span>
-                <span class="page-title">${escapeHtml(p.title !== p.path ? p.title : '')}</span>
-              </td>
-              <td>${p.total.toLocaleString('es-AR')}</td>
-            </tr>
-          `).join('');
-        }
-
-        // Reveal dashboard
-        document.getElementById('loadingMsg').style.display = 'none';
-        document.getElementById('dashHeader').style.display = 'flex';
-        document.getElementById('kpiRow').style.display = 'grid';
-        document.getElementById('chartSection').style.display = 'block';
-        document.getElementById('pagesSection').style.display = 'block';
-
-      } catch (err) {
-        document.getElementById('loadingMsg').style.display = 'none';
-        const errEl = document.getElementById('errorBanner');
-        errEl.style.display = 'block';
-        errEl.textContent = `Error: ${err.message}`;
-      }
-    }
-
-    function escapeHtml(s) {
-      if (!s) return '';
-      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
   </script>
 
