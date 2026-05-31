@@ -13,3 +13,7 @@ desktop.ini
 *.local.*
 .gstack/
 .claude/
+
+# Sensitive / large assets
+credentials.txt
+lessons/

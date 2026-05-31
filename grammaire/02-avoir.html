@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Le verbe avoir au présent : conjugaison complète, usages (famille, âge, possession) et 10 exercices interactifs. Niveau A1-A2.">
+  <title>Avoir · Grammaire A1-A2 | Français</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared.css">
+  <style>
+    :root { --page-accent: var(--gold); }
+
+    body {
+      background-image:
+        radial-gradient(circle at 15% 8%,  rgba(202,138,4,.06) 0%, transparent 45%),
+        radial-gradient(circle at 85% 65%, rgba(234,88,12,.05) 0%, transparent 45%),
+        radial-gradient(circle at 50% 100%,rgba(5,150,105,.04) 0%, transparent 45%);
+    }
+
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── Hero ────────────────────────────────── */
+    header.hero {
+      padding: 4.5rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .breadcrumb span { color: var(--page-accent); font-weight: 700; }
+    .lesson-num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem; height: 2rem;
+      background: var(--page-accent);
+      color: #fff;
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    h1.title {
+      font-family: var(--serif-display);
+      font-weight: 800;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.1rem;
+      font-variation-settings: "opsz" 144;
+    }
+    h1.title em { font-style: normal; color: var(--page-accent); }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
+    .pill {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.55rem;
+      border-radius: 2px;
+      border: 1.5px solid;
+    }
+    .pill-level { border-color: var(--gold);      color: var(--gold); }
+    .pill-natl  { border-color: var(--primary);   color: var(--primary); }
+    .pill-prof  { border-color: var(--secondary); color: var(--secondary); }
+    .pill-desc  { border-color: var(--tertiary);  color: var(--tertiary); }
+
+    /* ── Sticky Nav ──────────────────────────── */
+    nav.sticky-nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(250,246,236,.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 860px; margin: 0 auto;
+      padding: 0.8rem 2rem;
+      display: flex; align-items: center; gap: 1.25rem;
+    }
+    .nav-back {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em;
+      text-transform: uppercase; font-weight: 700; color: var(--ink-faint);
+      text-decoration: none; white-space: nowrap; transition: color .2s;
+    }
+    .nav-back:hover { color: var(--page-accent); }
+    .nav-brand {
+      font-family: var(--serif-display); font-size: 1.05rem; font-weight: 600;
+      color: var(--ink); font-variation-settings: "opsz" 36; white-space: nowrap;
+    }
+    .nav-links {
+      display: flex; gap: 0; overflow-x: auto; scrollbar-width: none;
+      list-style: none; flex: 1;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links li a {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-weight: 600; color: var(--ink-faint);
+      text-decoration: none; padding: 0.3rem 0.7rem; border-radius: 2px;
+      white-space: nowrap; transition: all .15s;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active { color: var(--page-accent); background: rgba(202,138,4,.1); }
+
+    /* ── Section headings ────────────────────── */
+    .section-kicker {
+      font-family: var(--mono); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--page-accent);
+      display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.5rem;
+    }
+    .section-kicker::before { content: ""; width: 28px; height: 2px; background: var(--page-accent); }
+    h2.section-title {
+      font-family: var(--serif-display); font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700; font-variation-settings: "opsz" 36; color: var(--ink);
+      margin-bottom: 0.3rem; letter-spacing: -0.02em;
+    }
+    .section-sub { font-family: var(--serif-body); font-size: 0.9rem; color: var(--ink-faint); margin-bottom: 1.25rem; }
+    .lesson-section { padding: 3rem 0 1rem; border-top: 1px solid var(--rule-soft); }
+    .lesson-section:first-child { border-top: none; }
+
+    /* ── Conjugation table ───────────────────── */
+    .conj-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.5rem; margin: 0.75rem 0 1.5rem;
+    }
+    @media (max-width: 500px) { .conj-grid { grid-template-columns: 1fr; } }
+    .conj-col-header {
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-faint); padding: 0.2rem 0.9rem 0.5rem;
+    }
+    .conj-row {
+      display: flex; align-items: center; gap: 0.6rem;
+      background: var(--paper); border: 1px solid var(--rule);
+      border-left: 4px solid var(--page-accent);
+      border-radius: 3px; padding: 0.6rem 0.9rem; transition: box-shadow .2s;
+    }
+    .conj-row:hover { box-shadow: 0 4px 14px -8px rgba(0,0,0,.14); }
+    .conj-pro { font-family: var(--mono); font-size: 0.76rem; color: var(--ink-faint); min-width: 4.5rem; font-weight: 500; }
+    .conj-form { font-family: var(--serif-body); font-size: 1.1rem; font-weight: 700; color: var(--page-accent); flex: 1; }
+    .conj-audio {
+      width: 26px; height: 26px; border-radius: 50%; border: none;
+      background: var(--page-accent); color: #fff; font-size: 0.65rem;
+      cursor: pointer; flex-shrink: 0; transition: all .2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .conj-audio:hover { filter: brightness(.88); transform: scale(1.08); }
+    .conj-audio.playing { animation: pulse-conj 1s ease-in-out infinite; }
+    @keyframes pulse-conj {
+      0%,100% { box-shadow: 0 0 0 0 rgba(202,138,4,.5); }
+      50%      { box-shadow: 0 0 0 8px rgba(202,138,4,0); }
+    }
+
+    /* ── Usages ──────────────────────────────── */
+    .uses-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.9rem; margin: 0.75rem 0 1.5rem; }
+    @media (max-width: 640px) { .uses-grid { grid-template-columns: 1fr; } }
+    .use-card {
+      background: var(--paper); border: 1px solid var(--rule);
+      border-top: 4px solid; border-radius: 3px; padding: 1rem;
+    }
+    .use-card.natl { border-top-color: var(--primary); }
+    .use-card.prof { border-top-color: var(--secondary); }
+    .use-card.desc { border-top-color: var(--tertiary); }
+    .use-card h3 { font-family: var(--mono); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.65rem; }
+    .use-card.natl h3 { color: var(--primary); }
+    .use-card.prof h3 { color: var(--secondary); }
+    .use-card.desc h3 { color: var(--tertiary); }
+    .use-ex { font-family: var(--serif-body); font-size: 0.93rem; color: var(--ink-soft); margin: 0.35rem 0; line-height: 1.45; }
+    .use-ex strong { font-weight: 700; color: var(--ink); }
+    .use-note {
+      margin-top: 0.65rem; padding: 0.5rem 0.65rem;
+      background: rgba(202,138,4,.08); border-radius: 3px;
+      font-family: var(--serif-body); font-size: 0.82rem; color: var(--ink-soft);
+      font-style: italic; line-height: 1.4;
+    }
+
+    /* ── Exercise cards ──────────────────────── */
+    .ex-card { background: var(--paper); border: 1px solid var(--rule); border-radius: 5px; margin: 1.25rem 0; overflow: hidden; }
+    .ex-head {
+      display: flex; align-items: center; gap: 0.9rem;
+      padding: 0.85rem 1.1rem; background: var(--bg-deep); border-bottom: 1px solid var(--rule);
+    }
+    .ex-num { font-family: var(--serif-display); font-size: 1.8rem; font-weight: 800; line-height: 1; color: var(--page-accent); font-variation-settings: "opsz" 9; min-width: 2rem; }
+    .ex-meta { display: flex; flex-direction: column; gap: 0.1rem; }
+    .ex-stars { font-size: 0.72rem; color: var(--gold); letter-spacing: .05em; }
+    .ex-title { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--ink); }
+    .ex-instr { font-family: var(--serif-body); font-size: 0.88rem; color: var(--ink-faint); font-style: italic; margin-left: auto; }
+    @media (max-width: 500px) { .ex-instr { display: none; } }
+    .ex-body { padding: 1.1rem 1.25rem; }
+    .ex-foot {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.65rem 1.25rem; border-top: 1px solid var(--rule-soft); background: var(--bg);
+    }
+
+    /* ── Buttons ─────────────────────────────── */
+    .btn-check {
+      font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 0.42rem 0.95rem; border: none; border-radius: 3px;
+      background: var(--page-accent); color: #fff; cursor: pointer; transition: all .2s;
+    }
+    .btn-check:hover { filter: brightness(.88); }
+    .btn-reset {
+      font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 0.42rem 0.8rem; border: 1.5px solid var(--rule); border-radius: 3px;
+      background: transparent; color: var(--ink-faint); cursor: pointer; transition: all .2s;
+    }
+    .btn-reset:hover { border-color: var(--ink-soft); color: var(--ink-soft); }
+    .score-chip {
+      font-family: var(--mono); font-size: 0.74rem; font-weight: 700;
+      padding: 0.18rem 0.55rem; border-radius: 2px; background: var(--bg-deep);
+      color: var(--ink-faint); margin-left: auto; min-width: 2.5rem; text-align: center; transition: all .3s;
+    }
+    .score-chip.good { background: rgba(5,150,105,.14); color: var(--tertiary); }
+    .score-chip.bad  { background: rgba(234,88,12,.13);  color: var(--secondary); }
+
+    /* ── Fill-in-blank ───────────────────────── */
+    .fi-item { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0; font-family: var(--serif-body); font-size: 0.97rem; color: var(--ink); line-height: 1.6; }
+    .fi-letter { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; color: var(--ink-faint); min-width: 1.1rem; }
+    .fi-input {
+      border: none; border-bottom: 2px solid var(--rule);
+      background: transparent; font-family: var(--serif-body); font-size: 0.97rem;
+      color: var(--ink); padding: 0.05rem 0.25rem; min-width: 6rem; outline: none; transition: border-color .2s;
+    }
+    .fi-input:focus { border-bottom-color: var(--page-accent); }
+    .fi-input.ok  { border-bottom-color: var(--tertiary); color: var(--tertiary); }
+    .fi-input.err { border-bottom-color: var(--secondary); color: var(--secondary); }
+
+    /* ── Multiple choice ─────────────────────── */
+    .mc-item { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin: 0.7rem 0; font-family: var(--serif-body); font-size: 0.97rem; }
+    .mc-prefix { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; color: var(--ink-faint); min-width: 1.1rem; }
+    .mc-text { color: var(--ink-soft); }
+    .mc-opts { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .mc-btn {
+      font-family: var(--serif-body); font-size: 0.93rem; font-weight: 600;
+      font-style: italic; padding: 0.25rem 0.7rem;
+      border: 2px solid var(--rule); border-radius: 3px;
+      background: var(--bg-deep); color: var(--ink); cursor: pointer; transition: all .15s;
+    }
+    .mc-btn.no-ital { font-style: normal; }
+    .mc-btn:hover { border-color: var(--page-accent); background: var(--paper); }
+    .mc-btn.selected { border-color: var(--page-accent); background: rgba(202,138,4,.1); }
+    .mc-btn.ok  { border-color: var(--tertiary); background: rgba(5,150,105,.1); color: var(--tertiary); cursor: default; }
+    .mc-btn.err { border-color: var(--secondary); background: rgba(234,88,12,.1); color: var(--secondary); text-decoration: line-through; cursor: default; }
+    .mc-btn:disabled { cursor: default; }
+
+    /* ── Matching ────────────────────────────── */
+    .match-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: start; }
+    @media (max-width: 540px) { .match-wrap { grid-template-columns: 1fr; } }
+    .match-col { display: flex; flex-direction: column; gap: 0.45rem; }
+    .match-item {
+      font-family: var(--serif-body); font-size: 0.93rem;
+      padding: 0.5rem 0.85rem; border: 2px solid var(--rule);
+      border-radius: 3px; background: var(--paper); cursor: pointer;
+      transition: all .15s; color: var(--ink); line-height: 1.4; user-select: none;
+    }
+    .match-item:hover:not([data-locked]) { border-color: var(--page-accent); }
+    .match-item.sel { border-color: var(--page-accent); background: rgba(202,138,4,.1); }
+    .match-item.ok  { border-color: var(--tertiary); background: rgba(5,150,105,.1); color: var(--tertiary-soft); cursor: default; }
+    .match-item.err { border-color: var(--secondary); background: rgba(234,88,12,.1); }
+
+    /* ── Intrus (Ex 5) ───────────────────────── */
+    .seg-hint { font-family: var(--serif-body); font-size: 0.82rem; color: var(--ink-faint); margin-bottom: 0.5rem; font-style: italic; }
+    .intrus-example {
+      display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+      margin: 0.5rem 0 1.1rem; padding: 0.7rem 1rem;
+      background: var(--bg-deep); border-radius: 4px; border-left: 3px solid var(--page-accent);
+      font-family: var(--serif-body); font-size: 0.93rem;
+    }
+    .intrus-example strong { color: var(--ink); }
+    .intrus-word-demo {
+      padding: 0.2rem 0.6rem; border: 1.5px solid var(--rule);
+      border-radius: 3px; background: var(--paper); color: var(--ink);
+    }
+    .intrus-word-demo.intrus-ok {
+      border-color: var(--secondary); background: rgba(234,88,12,.1);
+      text-decoration: line-through; color: var(--secondary);
+    }
+    .intrus-item { margin: 0.85rem 0; }
+    .intrus-row { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    .intrus-verb { font-family: var(--serif-body); font-size: 0.97rem; color: var(--ink-soft); min-width: 9rem; }
+    .intrus-words { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .intrus-btn {
+      font-family: var(--serif-body); font-size: 0.93rem;
+      padding: 0.25rem 0.7rem; border: 2px solid var(--rule);
+      border-radius: 3px; background: var(--bg-deep); color: var(--ink);
+      cursor: pointer; transition: all .15s;
+    }
+    .intrus-btn:hover:not(:disabled) { border-color: var(--secondary); background: var(--paper); }
+    .intrus-btn.intrus-sel { border-color: var(--secondary); background: rgba(234,88,12,.1); }
+    .intrus-btn.intrus-reveal { border-color: var(--secondary); background: rgba(234,88,12,.12); text-decoration: line-through; color: var(--secondary); cursor: default; }
+    .intrus-btn.intrus-wrong  { border-color: var(--secondary); background: rgba(234,88,12,.08); cursor: default; }
+    .intrus-btn.intrus-ok     { border-color: var(--tertiary); background: rgba(5,150,105,.1); cursor: default; }
+
+    /* ── Multi-blank fill (Ex 6, 8) ──────────── */
+    .fi-item-multi { margin: 0.85rem 0; font-family: var(--serif-body); font-size: 0.97rem; color: var(--ink); line-height: 1.8; }
+    .fi-item-multi .fi-letter { vertical-align: middle; }
+
+    /* ── Listen grid (Ex 4, 10) ──────────────── */
+    .listen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; }
+    @media (max-width: 500px) { .listen-grid { grid-template-columns: 1fr; } }
+    .listen-item { display: flex; align-items: center; gap: 0.7rem; background: var(--bg); border: 1px solid var(--rule); border-radius: 3px; padding: 0.6rem 0.8rem; }
+    .listen-label { font-family: var(--mono); font-size: 0.62rem; font-weight: 700; color: var(--ink-faint); min-width: 0.85rem; }
+    .listen-text { font-family: var(--serif-body); font-size: 0.93rem; color: var(--ink); flex: 1; }
+    .listen-text strong { color: var(--page-accent); font-weight: 700; }
+    .listen-btn {
+      width: 28px; height: 28px; border-radius: 50%; border: none;
+      background: var(--page-accent); color: #fff; font-size: 0.6rem;
+      cursor: pointer; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; transition: all .2s;
+    }
+    .listen-btn:hover { filter: brightness(.88); transform: scale(1.06); }
+    .listen-btn.playing { animation: pulse-conj 1s ease-in-out infinite; }
+
+    /* ── Phonetics pairs (Ex 10) ─────────────── */
+    .phon-pair-row {
+      display: grid; grid-template-columns: 1.4rem 1fr 1fr;
+      gap: 0.55rem; align-items: center; margin: 0.4rem 0;
+    }
+    .phon-cell { display: flex; align-items: center; gap: 0.6rem; background: var(--bg); border: 1px solid var(--rule); border-radius: 3px; padding: 0.5rem 0.75rem; }
+    .phon-text { font-family: var(--serif-body); font-size: 0.93rem; color: var(--ink); flex: 1; }
+    .phon-text strong { color: var(--page-accent); }
+    .phon-note {
+      margin: 0.75rem 0 0.5rem; padding: 0.6rem 0.85rem;
+      background: rgba(202,138,4,.08); border-radius: 3px;
+      font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em;
+      color: var(--ink-soft);
+    }
+
+    /* ── Sophie/Sasha group label (Ex 9) ─────── */
+    .ex9-group-label {
+      font-family: var(--mono); font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--page-accent); margin: 1rem 0 0.3rem;
+      padding-bottom: 0.3rem; border-bottom: 1px solid var(--rule-soft);
+    }
+
+    /* ── Vocabulary ───────────────────────────── */
+    .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 0.75rem 0 1.5rem; }
+    @media (max-width: 560px) { .vocab-grid { grid-template-columns: 1fr; } }
+    .vocab-sec h3 {
+      font-family: var(--mono); font-size: 0.66rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint);
+      padding-bottom: 0.4rem; border-bottom: 1px solid var(--rule); margin-bottom: 0.65rem;
+    }
+    .vocab-item { display: flex; align-items: center; gap: 0.6rem; padding: 0.38rem 0; border-bottom: 1px solid var(--rule-soft); font-family: var(--serif-body); font-size: 0.92rem; }
+    .vocab-item:last-child { border-bottom: none; }
+    .vocab-flag { font-size: 1rem; min-width: 1.4rem; text-align: center; }
+    .vocab-m { color: var(--primary); font-weight: 600; }
+    .vocab-f { color: var(--accent); font-weight: 600; }
+    .vocab-sep { color: var(--ink-faint); font-size: 0.8rem; margin: 0 0.1rem; }
+    .vocab-audio {
+      width: 22px; height: 22px; border-radius: 50%;
+      border: 1.5px solid var(--rule); background: transparent;
+      color: var(--ink-faint); font-size: 0.55rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      margin-left: auto; transition: all .15s;
+    }
+    .vocab-audio:hover { border-color: var(--page-accent); color: var(--page-accent); }
+    .vocab-audio.playing { animation: pulse-conj 1s ease-in-out infinite; border-color: var(--page-accent); color: var(--page-accent); }
+
+    /* ── Nombres grid ────────────────────────── */
+    .nombres-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.25rem 2rem; margin: 0.6rem 0 1rem; }
+    @media (max-width: 480px) { .nombres-grid { grid-template-columns: repeat(2,1fr); } }
+    .nombre-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; border-bottom: 1px solid var(--rule-soft); font-family: var(--serif-body); font-size: 0.9rem; }
+    .nombre-item:last-child { border-bottom: none; }
+    .nombre-num { font-family: var(--mono); font-size: 0.74rem; font-weight: 700; color: var(--page-accent); min-width: 1.5rem; text-align: right; }
+    .nombre-word { flex: 1; color: var(--ink); }
+
+    /* ── Footer ──────────────────────────────── */
+    footer {
+      margin-top: 5rem; border-top: 1px solid var(--rule);
+      padding: 2.5rem 2rem;
+      max-width: 860px; margin-left: auto; margin-right: auto;
+    }
+    footer .colophon { font-family: var(--serif-body); font-size: 0.88rem; color: var(--ink-faint); line-height: 1.6; font-style: italic; }
+  </style>
+</head>
+<body>
+
+  <!-- ════ HERO ════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="breadcrumb">
+      <span class="lesson-num-badge">2</span>
+      Grammaire A1–A2 · <span>Leçon 2</span>
+    </div>
+    <h1 class="title"><em>Avoir</em></h1>
+    <p class="lede">Le verbe <strong>avoir</strong> sert à exprimer la possession, l'âge et les relations familiales. Apprenez sa conjugaison et ses usages essentiels.</p>
+    <div class="hero-pills">
+      <span class="pill pill-level">A1</span>
+      <span class="pill pill-natl">Famille</span>
+      <span class="pill pill-prof">L'âge</span>
+      <span class="pill pill-desc">La possession</span>
+    </div>
+  </header>
+
+  <!-- ════ STICKY NAV ═══════════════════════════════════ -->
+  <nav class="sticky-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-back">← Accueil</a>
+      <span class="nav-brand">Avoir</span>
+      <ul class="nav-links">
+        <li><a href="#conjugaison">Conjugaison</a></li>
+        <li><a href="#usages">Usages</a></li>
+        <li><a href="#exercices">Exercices</a></li>
+        <li><a href="#vocabulaire">Vocabulaire</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════ MAIN ═════════════════════════════════════════ -->
+  <main>
+
+    <!-- ── Conjugaison ─────────────────────── -->
+    <section id="conjugaison" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Conjugaison</div>
+        <h2 class="section-title">Avoir au présent</h2>
+        <p class="section-sub">Cliquez sur ▶ pour écouter chaque forme.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 1.5rem;">
+          <div class="conj-col-header">Singulier</div>
+          <div class="conj-col-header">Pluriel</div>
+        </div>
+        <div class="conj-grid">
+          <div class="conj-row">
+            <span class="conj-pro">j'</span>
+            <span class="conj-form">ai</span>
+            <button class="conj-audio" data-phrase="j'ai" onclick="speak(this.dataset.phrase,this)" title="Écouter">▶</button>
+          </div>
+          <div class="conj-row">
+            <span class="conj-pro">nous</span>
+            <span class="conj-form">avons</span>
+            <button class="conj-audio" data-phrase="nous avons" onclick="speak(this.dataset.phrase,this)" title="Écouter">▶</button>
+          </div>
+          <div class="conj-row">
+            <span class="conj-pro">tu</span>
+            <span class="conj-form">as</span>
+            <button class="conj-audio" data-phrase="tu as" onclick="speak(this.dataset.phrase,this)" title="Écouter">▶</button>
+          </div>
+          <div class="conj-row">
+            <span class="conj-pro">vous</span>
+            <span class="conj-form">avez</span>
+            <button class="conj-audio" data-phrase="vous avez" onclick="speak(this.dataset.phrase,this)" title="Écouter">▶</button>
+          </div>
+          <div class="conj-row">
+            <span class="conj-pro">il / elle</span>
+            <span class="conj-form">a</span>
+            <button class="conj-audio" data-phrase="il a" onclick="speak(this.dataset.phrase,this)" title="Écouter">▶</button>
+          </div>
+          <div class="conj-row">
+            <span class="conj-pro">ils / elles</span>
+            <span class="conj-form">ont</span>
+            <button class="conj-audio" data-phrase="ils ont" onclick="speak(this.dataset.phrase,this)" title="Écouter">▶</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Usages ──────────────────────────── -->
+    <section id="usages" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Usages</div>
+        <h2 class="section-title">J'utilise <em>avoir</em> pour…</h2>
+
+        <div class="uses-grid">
+          <div class="use-card natl">
+            <h3>La famille</h3>
+            <p class="use-ex">Elle <strong>a</strong> un frère et une sœur.</p>
+            <p class="use-ex">Il <strong>a</strong> deux chats.</p>
+            <p class="use-ex">Nous <strong>avons</strong> une voiture.</p>
+          </div>
+          <div class="use-card prof">
+            <h3>L'âge</h3>
+            <p class="use-ex">J'<strong>ai</strong> 10 ans.</p>
+            <p class="use-ex">Tu <strong>as</strong> 14 ans.</p>
+            <p class="use-ex">Ils <strong>ont</strong> 16 ans.</p>
+            <div class="use-note">En français, on utilise <em>avoir</em> pour dire son âge.</div>
+          </div>
+          <div class="use-card desc">
+            <h3>La possession</h3>
+            <p class="use-ex">J'<strong>ai</strong> un ordinateur.</p>
+            <p class="use-ex">Vous <strong>avez</strong> un poisson.</p>
+            <p class="use-ex">Ils <strong>ont</strong> deux livres.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Exercices ───────────────────────── -->
+    <section id="exercices" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Exercices</div>
+        <h2 class="section-title">Pratique</h2>
+
+        <!-- Ex 1 — Relie -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">1</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★</span>
+              <span class="ex-title">Relie</span>
+            </div>
+            <span class="ex-instr">Associe le pronom à la forme verbale</span>
+          </div>
+          <div class="ex-body">
+            <p class="seg-hint">Clique sur un pronom, puis sur la forme verbale correspondante.</p>
+            <div class="match-wrap" id="ex1-grid"></div>
+          </div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkMatch('ex1')">Vérifier</button>
+            <button class="btn-reset" onclick="resetMatch('ex1')">Réinitialiser</button>
+            <span class="score-chip" id="ex1-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 2 — Entoure le bon pronom -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">2</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★</span>
+              <span class="ex-title">Entoure le bon pronom</span>
+            </div>
+            <span class="ex-instr">Choisis le pronom qui correspond au verbe</span>
+          </div>
+          <div class="ex-body" id="ex2-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkEx2()">Vérifier</button>
+            <button class="btn-reset" onclick="resetEx2()">Réinitialiser</button>
+            <span class="score-chip" id="ex2-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 3 — Écris le verbe -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">3</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★★</span>
+              <span class="ex-title">Écris le verbe</span>
+            </div>
+            <span class="ex-instr">Conjugue le verbe <em>avoir</em></span>
+          </div>
+          <div class="ex-body" id="ex3-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkFill('ex3', ex3Data)">Vérifier</button>
+            <button class="btn-reset" onclick="resetFill('ex3')">Réinitialiser</button>
+            <span class="score-chip" id="ex3-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 4 — Écoute les expressions -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">4</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★</span>
+              <span class="ex-title">Écoute et répète</span>
+            </div>
+            <span class="ex-instr">Expressions avec <em>avoir</em></span>
+          </div>
+          <div class="ex-body">
+            <div class="listen-grid" id="ex4-grid"></div>
+          </div>
+        </div>
+
+        <!-- Ex 5 — Barre l'intrus -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">5</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★★</span>
+              <span class="ex-title">Barre l'intrus</span>
+            </div>
+            <span class="ex-instr">Clique sur le mot qui ne va pas</span>
+          </div>
+          <div class="ex-body">
+            <p class="seg-hint">Clique sur l'intrus — le mot qui n'appartient pas au verbe donné.</p>
+            <div class="intrus-example">
+              <span class="fi-letter">ex.</span>
+              <strong>J'ai</strong> —
+              <span class="intrus-word-demo intrus-ok">grand</span>
+              <span class="intrus-word-demo">15 ans</span>
+              <span class="intrus-word-demo">soif</span>
+            </div>
+            <div id="ex5-body"></div>
+          </div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkIntrus()">Vérifier</button>
+            <button class="btn-reset" onclick="resetIntrus()">Réinitialiser</button>
+            <span class="score-chip" id="ex5-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 6 — Transforme la phrase -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">6</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★★</span>
+              <span class="ex-title">Transforme la phrase</span>
+            </div>
+            <span class="ex-instr">Change le pronom et conjugue</span>
+          </div>
+          <div class="ex-body" id="ex6-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkFillMulti(ex6Data)">Vérifier</button>
+            <button class="btn-reset" onclick="resetFillMulti('ex6')">Réinitialiser</button>
+            <span class="score-chip" id="ex6-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 7 — Être ou avoir ? (MC) -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">7</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★</span>
+              <span class="ex-title">Être ou avoir ?</span>
+            </div>
+            <span class="ex-instr">Entoure la bonne réponse</span>
+          </div>
+          <div class="ex-body" id="ex7-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkEx7()">Vérifier</button>
+            <button class="btn-reset" onclick="resetEx7()">Réinitialiser</button>
+            <span class="score-chip" id="ex7-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 8 — Être ou avoir ? (complète) -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">8</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★★</span>
+              <span class="ex-title">Être ou avoir ? Complète.</span>
+            </div>
+            <span class="ex-instr">Écris la forme correcte</span>
+          </div>
+          <div class="ex-body" id="ex8-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkFillMulti(ex8Data)">Vérifier</button>
+            <button class="btn-reset" onclick="resetFillMulti('ex8')">Réinitialiser</button>
+            <span class="score-chip" id="ex8-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 9 — Sophie et Sasha -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">9</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★★</span>
+              <span class="ex-title">Sophie et Sasha</span>
+            </div>
+            <span class="ex-instr">Être ou avoir ?</span>
+          </div>
+          <div class="ex-body" id="ex9-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkFill('ex9', ex9Data)">Vérifier</button>
+            <button class="btn-reset" onclick="resetEx9()">Réinitialiser</button>
+            <span class="score-chip" id="ex9-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 10 — Phonétique -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">10</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★</span>
+              <span class="ex-title">Phonétique · Écoute et répète</span>
+            </div>
+            <span class="ex-instr">Attention à la liaison !</span>
+          </div>
+          <div class="ex-body" id="ex10-body"></div>
+        </div>
+
+      </div><!-- /.wrap -->
+    </section>
+
+    <!-- ── Vocabulaire ─────────────────────── -->
+    <section id="vocabulaire" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Vocabulaire</div>
+        <h2 class="section-title">Mots utiles</h2>
+
+        <div class="vocab-grid">
+          <div class="vocab-sec">
+            <h3>Les animaux de compagnie</h3>
+            <div class="vocab-item">
+              <span class="vocab-flag">🐦</span>
+              <span class="vocab-m">un oiseau</span>
+              <button class="vocab-audio" data-phrase="un oiseau" onclick="speak(this.dataset.phrase,this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🐟</span>
+              <span class="vocab-m">un poisson</span>
+              <button class="vocab-audio" data-phrase="un poisson" onclick="speak(this.dataset.phrase,this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🐱</span>
+              <span class="vocab-m">un chat</span>
+              <button class="vocab-audio" data-phrase="un chat" onclick="speak(this.dataset.phrase,this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🐶</span>
+              <span class="vocab-m">un chien</span>
+              <button class="vocab-audio" data-phrase="un chien" onclick="speak(this.dataset.phrase,this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🐹</span>
+              <span class="vocab-m">un hamster</span>
+              <button class="vocab-audio" data-phrase="un hamster" onclick="speak(this.dataset.phrase,this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🐭</span>
+              <span class="vocab-f">une souris</span>
+              <button class="vocab-audio" data-phrase="une souris" onclick="speak(this.dataset.phrase,this)">▶</button>
+            </div>
+          </div>
+
+          <div class="vocab-sec">
+            <h3>Expressions avec avoir</h3>
+            <div class="vocab-item">
+              <span class="vocab-flag">💧</span>
+              <span>avoir <strong class="vocab-m">soif</strong></span>
+              <button class="vocab-audio" data-phrase="j'ai soif" onclick="speak(this.dataset.phrase,this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🥶</span>
+              <span>avoir <strong class="vocab-m">froid</strong></span>
+              <button class="vocab-audio" data-phrase="j'ai froid" onclick="speak(this.dataset.phrase,this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🥵</span>
+              <span>avoir <strong class="vocab-m">chaud</strong></span>
+              <button class="vocab-audio" data-phrase="j'ai chaud" onclick="speak(this.dataset.phrase,this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🍕</span>
+              <span>avoir <strong class="vocab-m">faim</strong></span>
+              <button class="vocab-audio" data-phrase="j'ai faim" onclick="speak(this.dataset.phrase,this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">😱</span>
+              <span>avoir <strong class="vocab-m">peur</strong></span>
+              <button class="vocab-audio" data-phrase="j'ai peur" onclick="speak(this.dataset.phrase,this)">▶</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="vocab-sec" style="margin-top:1rem;">
+          <h3>Les nombres (0 à 20)</h3>
+          <div class="nombres-grid" id="nombres-grid"></div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════ FOOTER ═══════════════════════════════════════ -->
+  <footer>
+    <p class="colophon">Grammaire A1–A2 · Leçon 2 — <em>Avoir</em>. Audio via Web Speech API / Google TTS.</p>
+  </footer>
+
+  <div class="audio-status" id="audioStatus"></div>
+
+  <script src="../shared.js"></script>
+  <script>
+  /* ══════════════════════════════════════════════════════
+     EXERCISE 1 — Matching (Relie)
+  ══════════════════════════════════════════════════════ */
+  const matchDefs = {
+    ex1: {
+      gridId: 'ex1-grid', scoreId: 'ex1-score',
+      left:  ["J'", 'Tu', 'Il / Elle', 'Nous', 'Vous', 'Ils / Elles'],
+      right: ['ai', 'as', 'a', 'avons', 'avez', 'ont'],
+      correct: {
+        "J'"        : 'ai',
+        'Tu'        : 'as',
+        'Il / Elle' : 'a',
+        'Nous'      : 'avons',
+        'Vous'      : 'avez',
+        'Ils / Elles': 'ont'
+      }
+    }
+  };
+
+  const matchState = {};
+
+  function buildMatch(id) {
+    const def = matchDefs[id];
+    matchState[id] = { sel: null, pairs: {} };
+    const grid = document.getElementById(def.gridId);
+    grid.innerHTML = '';
+    const leftCol  = document.createElement('div');
+    const rightCol = document.createElement('div');
+    leftCol.className = rightCol.className = 'match-col';
+    grid.appendChild(leftCol);
+    grid.appendChild(rightCol);
+    const rightShuffled = [...def.right].sort(() => Math.random() - .5);
+    def.left.forEach(txt => leftCol.appendChild(createMatchItem(txt, 'left', id)));
+    rightShuffled.forEach(txt => rightCol.appendChild(createMatchItem(txt, 'right', id)));
+  }
+
+  function createMatchItem(txt, side, exId) {
+    const el = document.createElement('div');
+    el.className = 'match-item';
+    el.dataset.val  = txt;
+    el.dataset.side = side;
+    el.dataset.ex   = exId;
+    el.textContent  = txt;
+    el.addEventListener('click', () => onMatchClick(el, exId));
+    return el;
+  }
+
+  function onMatchClick(el, exId) {
+    if (el.dataset.locked) return;
+    const state = matchState[exId];
+    if (state.sel === null) {
+      clearMatchSel(exId);
+      el.classList.add('sel');
+      state.sel = el;
+      return;
+    }
+    const prev = state.sel;
+    if (prev === el) { el.classList.remove('sel'); state.sel = null; return; }
+    if (prev.dataset.side === el.dataset.side) {
+      clearMatchSel(exId); el.classList.add('sel'); state.sel = el; return;
+    }
+    const leftEl  = prev.dataset.side === 'left'  ? prev : el;
+    const rightEl = prev.dataset.side === 'right' ? prev : el;
+    clearMatchSel(exId); state.sel = null;
+    const correct = matchDefs[exId].correct[leftEl.dataset.val];
+    if (correct === rightEl.dataset.val) {
+      leftEl.classList.add('ok');  rightEl.classList.add('ok');
+      leftEl.dataset.locked = rightEl.dataset.locked = '1';
+      state.pairs[leftEl.dataset.val] = rightEl.dataset.val;
+    } else {
+      [leftEl, rightEl].forEach(e => {
+        e.classList.add('err');
+        setTimeout(() => e.classList.remove('err'), 700);
+      });
+    }
+  }
+
+  function clearMatchSel(exId) {
+    document.querySelectorAll(`[data-ex="${exId}"].sel`).forEach(el => el.classList.remove('sel'));
+  }
+
+  function checkMatch(exId) {
+    const state = matchState[exId];
+    const def   = matchDefs[exId];
+    const correct = Object.keys(state.pairs).filter(k => state.pairs[k] === def.correct[k]).length;
+    const chip = document.getElementById(def.scoreId);
+    chip.textContent = correct + '/' + def.left.length;
+    chip.className = 'score-chip ' + (correct === def.left.length ? 'good' : 'bad');
+  }
+
+  function resetMatch(exId) {
+    buildMatch(exId);
+    const def  = matchDefs[exId];
+    const chip = document.getElementById(def.scoreId);
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EXERCISES 2 & 7 — Multiple choice (generic)
+  ══════════════════════════════════════════════════════ */
+  function buildMCExercise(bodyId, data, state) {
+    state.sel = {};
+    const body = document.getElementById(bodyId);
+    body.innerHTML = '';
+    data.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'mc-item';
+      const preHtml = item.pre ? `<span class="mc-text">${item.pre}&nbsp;</span>` : '';
+      const sufHtml = item.suf ? `<span class="mc-text">&nbsp;${item.suf}</span>` : '';
+      row.innerHTML = `<span class="mc-prefix">${item.ltr}.</span>
+        ${preHtml}
+        <span class="mc-opts" id="mco-${bodyId}-${item.ltr}"></span>
+        ${sufHtml}`;
+      body.appendChild(row);
+      const optsEl = row.querySelector(`#mco-${bodyId}-${item.ltr}`);
+      item.opts.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'mc-btn' + (item.plain ? ' no-ital' : '');
+        btn.textContent = opt;
+        btn.addEventListener('click', () => {
+          if (btn.disabled) return;
+          optsEl.querySelectorAll('.mc-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          state.sel[item.ltr] = opt;
+        });
+        optsEl.appendChild(btn);
+      });
+    });
+  }
+
+  function checkMCExercise(bodyId, scoreId, data) {
+    let correct = 0;
+    data.forEach(item => {
+      const optsEl = document.getElementById(`mco-${bodyId}-${item.ltr}`);
+      optsEl.querySelectorAll('.mc-btn').forEach(btn => {
+        const isSelected = btn.classList.contains('selected');
+        const isAns = btn.textContent === item.ans;
+        btn.classList.remove('selected'); btn.disabled = true;
+        if (isAns)           { btn.classList.add('ok'); if (isSelected) correct++; }
+        else if (isSelected) { btn.classList.add('err'); }
+      });
+    });
+    const chip = document.getElementById(scoreId);
+    chip.textContent = correct + '/' + data.length;
+    chip.className = 'score-chip ' + (correct === data.length ? 'good' : 'bad');
+  }
+
+  // Ex 2 — choose pronoun
+  const ex2McData = [
+    { ltr:'a', pre:'', opts:['Tu','Il'],     ans:'Il',   suf:'a faim.',      plain:true },
+    { ltr:'b', pre:'', opts:['Nous','Vous'], ans:'Vous', suf:'avez froid.',   plain:true },
+    { ltr:'c', pre:'', opts:["J'","Je"],     ans:"J'",   suf:'ai un chien.', plain:true },
+    { ltr:'d', pre:'', opts:['Nous','Vous'], ans:'Nous', suf:'avons chaud.', plain:true },
+    { ltr:'e', pre:'', opts:['Tu','Elle'],   ans:'Tu',   suf:'as peur.',     plain:true },
+    { ltr:'f', pre:'', opts:['Ils','Il'],    ans:'Ils',  suf:'ont soif.',    plain:true },
+  ];
+  const ex2State = {};
+  function buildEx2() { buildMCExercise('ex2-body', ex2McData, ex2State); }
+  function checkEx2() { checkMCExercise('ex2-body', 'ex2-score', ex2McData); }
+  function resetEx2() {
+    buildEx2();
+    const chip = document.getElementById('ex2-score');
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  // Ex 7 — être ou avoir (MC)
+  const ex7McData = [
+    { ltr:'a', pre:'Je',    opts:['suis','ai'],     ans:'suis',  suf:'fatigué.' },
+    { ltr:'b', pre:'Elle',  opts:['est','a'],        ans:'a',     suf:'trois chats.' },
+    { ltr:'c', pre:'Nous',  opts:['sommes','avons'], ans:'avons', suf:'froid.' },
+    { ltr:'d', pre:'Elles', opts:['sont','ont'],     ans:'sont',  suf:'petites.' },
+    { ltr:'e', pre:'Vous',  opts:['êtes','avez'],    ans:'êtes',  suf:'français.' },
+    { ltr:'f', pre:'Il',    opts:['est','a'],        ans:'est',   suf:'grand.' },
+  ];
+  const ex7State = {};
+  function buildEx7() { buildMCExercise('ex7-body', ex7McData, ex7State); }
+  function checkEx7() { checkMCExercise('ex7-body', 'ex7-score', ex7McData); }
+  function resetEx7() {
+    buildEx7();
+    const chip = document.getElementById('ex7-score');
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EXERCISES 3 & 9 — Fill in the blank (simple)
+  ══════════════════════════════════════════════════════ */
+  const ex3Data = {
+    bodyId: 'ex3-body', scoreId: 'ex3-score',
+    items: [
+      { ltr:'a', pre:"J'",    suf:'un chien.',            ans:'ai'    },
+      { ltr:'b', pre:'Vous',  suf:'une souris.',           ans:'avez'  },
+      { ltr:'c', pre:'Nous',  suf:'deux chats.',           ans:'avons' },
+      { ltr:'d', pre:'Ils',   suf:'trois poissons.',       ans:'ont'   },
+      { ltr:'e', pre:'Elles', suf:'deux poules.',          ans:'ont'   },
+      { ltr:'f', pre:'Tu',    suf:'un chat et une souris.',ans:'as'    },
+      { ltr:'g', pre:'Elle',  suf:'quatre hamsters.',      ans:'a'     },
+    ]
+  };
+
+  const ex9Data = {
+    bodyId: 'ex9-body', scoreId: 'ex9-score',
+    items: [
+      { ltr:'a', pre:'Sophie', suf:'malade.',          ans:'est', group:'Sophie' },
+      { ltr:'b', pre:'Sophie', suf:'fatiguée.',         ans:'est', group:'Sophie' },
+      { ltr:'c', pre:'Sophie', suf:'soif.',             ans:'a',   group:'Sophie' },
+      { ltr:'d', pre:'Sophie', suf:'petite.',           ans:'est', group:'Sophie' },
+      { ltr:'e', pre:'Sophie', suf:'deux chats.',       ans:'a',   group:'Sophie' },
+      { ltr:'f', pre:'Sasha',  suf:'peur des chiens.', ans:'a',   group:'Sasha'  },
+      { ltr:'g', pre:'Sasha',  suf:'faim.',             ans:'a',   group:'Sasha'  },
+      { ltr:'h', pre:'Sasha',  suf:'italien.',          ans:'est', group:'Sasha'  },
+      { ltr:'i', pre:'Sasha',  suf:'grand.',            ans:'est', group:'Sasha'  },
+    ]
+  };
+
+  const fillDataMap = { ex3: ex3Data, ex9: ex9Data };
+
+  function buildFill(data) {
+    const body = document.getElementById(data.bodyId);
+    body.innerHTML = '';
+    data.items.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'fi-item';
+      row.innerHTML = `<span class="fi-letter">${item.ltr}.</span>
+        ${item.pre} <input type="text" class="fi-input" data-ltr="${item.ltr}" autocomplete="off" spellcheck="false"> ${item.suf}`;
+      body.appendChild(row);
+    });
+  }
+
+  function buildFillWithGroups(data) {
+    const body = document.getElementById(data.bodyId);
+    body.innerHTML = '';
+    let lastGroup = null;
+    data.items.forEach(item => {
+      if (item.group && item.group !== lastGroup) {
+        const sep = document.createElement('div');
+        sep.className = 'ex9-group-label';
+        sep.textContent = item.group + ' :';
+        body.appendChild(sep);
+        lastGroup = item.group;
+      }
+      const row = document.createElement('div');
+      row.className = 'fi-item';
+      row.innerHTML = `<span class="fi-letter">${item.ltr}.</span>
+        ${item.pre} <input type="text" class="fi-input" data-ltr="${item.ltr}" autocomplete="off" spellcheck="false"> ${item.suf}`;
+      body.appendChild(row);
+    });
+  }
+
+  function checkFill(exId, data) {
+    let correct = 0;
+    data.items.forEach(item => {
+      const inp = document.querySelector(`#${data.bodyId} [data-ltr="${item.ltr}"]`);
+      if (!inp) return;
+      const val = inp.value.trim().toLowerCase();
+      inp.classList.remove('ok','err');
+      if (val === item.ans) { inp.classList.add('ok'); correct++; }
+      else                  { inp.classList.add('err'); }
+    });
+    const chip = document.getElementById(data.scoreId);
+    chip.textContent = correct + '/' + data.items.length;
+    chip.className = 'score-chip ' + (correct === data.items.length ? 'good' : 'bad');
+  }
+
+  function resetFill(exId) {
+    const data = fillDataMap[exId];
+    if (!data) return;
+    buildFill(data);
+    const chip = document.getElementById(data.scoreId);
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  function resetEx9() {
+    buildFillWithGroups(ex9Data);
+    const chip = document.getElementById('ex9-score');
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EXERCISES 6 & 8 — Multi-blank fill
+  ══════════════════════════════════════════════════════ */
+  const ex6Data = {
+    bodyId: 'ex6-body', scoreId: 'ex6-score',
+    items: [
+      {
+        ltr:'a',
+        parts: ['Vous ', null, ' anglais et vous ', null, ' deux chats.'],
+        ans: ['êtes', 'avez']
+      },
+      {
+        ltr:'b',
+        parts: ['Elle ', null, ' belge et elle ', null, ' 8 ans.'],
+        ans: ['est', 'a']
+      },
+      {
+        ltr:'c',
+        parts: ['Je ', null, ' sympa, je ', null, " fatigué et j'", null, ' un hamster.'],
+        ans: ['suis', 'suis', 'ai']
+      }
+    ]
+  };
+
+  const ex8Data = {
+    bodyId: 'ex8-body', scoreId: 'ex8-score',
+    items: [
+      { ltr:'a', parts:['Nous ', null, ' 9 ans.'],                                    ans:['avons'] },
+      { ltr:'b', parts:['Vous ', null, ' fatigués.'],                                  ans:['êtes']  },
+      { ltr:'c', parts:['Ils ', null, ' italiens et ils ', null, ' une voiture.'],     ans:['sont','ont'] },
+      { ltr:'d', parts:['Tu ', null, ' chaud.'],                                       ans:['as']    },
+      { ltr:'e', parts:['Elle ', null, ' malade ! Elle ', null, ' froid.'],            ans:['est','a'] },
+    ]
+  };
+
+  const fillMultiDataMap = { ex6: ex6Data, ex8: ex8Data };
+
+  function buildFillMulti(data) {
+    const body = document.getElementById(data.bodyId);
+    body.innerHTML = '';
+    data.items.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'fi-item fi-item-multi';
+      let html = `<span class="fi-letter">${item.ltr}.</span> `;
+      let idx = 0;
+      item.parts.forEach(part => {
+        if (part === null) {
+          html += `<input type="text" class="fi-input" data-ltr="${item.ltr}" data-idx="${idx}" autocomplete="off" spellcheck="false"> `;
+          idx++;
+        } else {
+          html += part;
+        }
+      });
+      row.innerHTML = html;
+      body.appendChild(row);
+    });
+  }
+
+  function checkFillMulti(data) {
+    let correct = 0, total = 0;
+    data.items.forEach(item => {
+      item.ans.forEach((ans, idx) => {
+        const inp = document.querySelector(`#${data.bodyId} [data-ltr="${item.ltr}"][data-idx="${idx}"]`);
+        if (!inp) return;
+        const val = inp.value.trim().toLowerCase();
+        inp.classList.remove('ok','err'); total++;
+        if (val === ans) { inp.classList.add('ok'); correct++; }
+        else             { inp.classList.add('err'); }
+      });
+    });
+    const chip = document.getElementById(data.scoreId);
+    chip.textContent = correct + '/' + total;
+    chip.className = 'score-chip ' + (correct === total ? 'good' : 'bad');
+  }
+
+  function resetFillMulti(exId) {
+    const data = fillMultiDataMap[exId];
+    if (!data) return;
+    buildFillMulti(data);
+    const chip = document.getElementById(data.scoreId);
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EXERCISE 4 — Audio expressions
+  ══════════════════════════════════════════════════════ */
+  const ex4Items = [
+    { ltr:'a', html:"Il <strong>a</strong> soif.",       speech:"il a soif"      },
+    { ltr:'b', html:"Ils <strong>ont</strong> froid.",   speech:"ils ont froid"  },
+    { ltr:'c', html:"Il <strong>a</strong> peur.",       speech:"il a peur"      },
+    { ltr:'d', html:"Elles <strong>ont</strong> chaud.", speech:"elles ont chaud"},
+    { ltr:'e', html:"Elle <strong>a</strong> faim.",     speech:"elle a faim"    },
+  ];
+
+  function buildEx4() {
+    const grid = document.getElementById('ex4-grid');
+    grid.innerHTML = '';
+    ex4Items.forEach(item => {
+      const el = document.createElement('div');
+      el.className = 'listen-item';
+      el.innerHTML = `
+        <span class="listen-label">${item.ltr}.</span>
+        <span class="listen-text">${item.html}</span>
+        <button class="listen-btn" data-phrase="${item.speech}" onclick="speak(this.dataset.phrase,this)" title="Écouter">▶</button>`;
+      grid.appendChild(el);
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EXERCISE 5 — Barre l'intrus
+  ══════════════════════════════════════════════════════ */
+  const intrusData = [
+    { ltr:'a', verb:'Tu es',       items:['deux hamsters','fatiguée','grande'],   ans:'deux hamsters' },
+    { ltr:'b', verb:'Nous sommes', items:['italiens','petits','17 ans'],           ans:'17 ans'        },
+    { ltr:'c', verb:'Elle a',      items:['grand','chaud','peur'],                ans:'grand'         },
+  ];
+  const intrusState = {};
+
+  function buildIntrus() {
+    const body = document.getElementById('ex5-body');
+    body.innerHTML = '';
+    intrusData.forEach(item => {
+      intrusState[item.ltr] = null;
+      const div = document.createElement('div');
+      div.className = 'intrus-item';
+      const btnsHtml = item.items.map(w =>
+        `<button class="intrus-btn" data-ltr="${item.ltr}" data-val="${w}">${w}</button>`
+      ).join('');
+      div.innerHTML = `<div class="intrus-row">
+        <span class="fi-letter">${item.ltr}.</span>
+        <strong class="intrus-verb">${item.verb}</strong>
+        <div class="intrus-words">${btnsHtml}</div>
+      </div>`;
+      body.appendChild(div);
+    });
+    document.querySelectorAll('.intrus-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.disabled) return;
+        const ltr = btn.dataset.ltr;
+        document.querySelectorAll(`.intrus-btn[data-ltr="${ltr}"]`).forEach(b => b.classList.remove('intrus-sel'));
+        btn.classList.add('intrus-sel');
+        intrusState[ltr] = btn.dataset.val;
+      });
+    });
+  }
+
+  function checkIntrus() {
+    let correct = 0;
+    intrusData.forEach(item => {
+      const btns = document.querySelectorAll(`.intrus-btn[data-ltr="${item.ltr}"]`);
+      const sel  = intrusState[item.ltr];
+      btns.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove('intrus-sel');
+        if (btn.dataset.val === item.ans) {
+          btn.classList.add('intrus-reveal');
+        } else if (btn.dataset.val === sel) {
+          btn.classList.add('intrus-wrong');
+        } else {
+          btn.classList.add('intrus-ok');
+        }
+      });
+      if (sel === item.ans) correct++;
+    });
+    const chip = document.getElementById('ex5-score');
+    chip.textContent = correct + '/' + intrusData.length;
+    chip.className = 'score-chip ' + (correct === intrusData.length ? 'good' : 'bad');
+  }
+
+  function resetIntrus() {
+    buildIntrus();
+    const chip = document.getElementById('ex5-score');
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EXERCISE 10 — Phonétique
+  ══════════════════════════════════════════════════════ */
+  const ex10Items = [
+    { ltr:'a', p1:'Il <strong>a</strong>',      s1:'il a',      p2:'Il <strong>est</strong>',      s2:'il est'     },
+    { ltr:'b', p1:'Elle <strong>a</strong>',    s1:'elle a',    p2:'Elle <strong>est</strong>',    s2:'elle est'   },
+    { ltr:'c', p1:'Ils <strong>ont</strong>',   s1:'ils ont',   p2:'Ils <strong>sont</strong>',    s2:'ils sont'   },
+    { ltr:'d', p1:'Elles <strong>ont</strong>', s1:'elles ont', p2:'Elles <strong>sont</strong>',  s2:'elles sont' },
+  ];
+
+  function buildEx10() {
+    const body = document.getElementById('ex10-body');
+    body.innerHTML = '';
+    const note = document.createElement('div');
+    note.className = 'phon-note';
+    note.innerHTML = 'Attention&nbsp;! <strong>Ils sont</strong>&nbsp;[s] ≠ <strong>Ils ont</strong>&nbsp;[z] — la liaison change la prononciation.';
+    body.appendChild(note);
+    ex10Items.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'phon-pair-row';
+      row.innerHTML = `
+        <span class="listen-label">${item.ltr}.</span>
+        <div class="phon-cell">
+          <span class="phon-text">${item.p1}</span>
+          <button class="listen-btn" data-phrase="${item.s1}" onclick="speak(this.dataset.phrase,this)">▶</button>
+        </div>
+        <div class="phon-cell">
+          <span class="phon-text">${item.p2}</span>
+          <button class="listen-btn" data-phrase="${item.s2}" onclick="speak(this.dataset.phrase,this)">▶</button>
+        </div>`;
+      body.appendChild(row);
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════
+     VOCABULARY — Les nombres
+  ══════════════════════════════════════════════════════ */
+  const nombres = [
+    [0,'zéro'],[1,'un'],[2,'deux'],[3,'trois'],[4,'quatre'],[5,'cinq'],
+    [6,'six'],[7,'sept'],[8,'huit'],[9,'neuf'],[10,'dix'],[11,'onze'],
+    [12,'douze'],[13,'treize'],[14,'quatorze'],[15,'quinze'],[16,'seize'],
+    [17,'dix-sept'],[18,'dix-huit'],[19,'dix-neuf'],[20,'vingt']
+  ];
+
+  function buildNombres() {
+    const grid = document.getElementById('nombres-grid');
+    grid.innerHTML = '';
+    nombres.forEach(([num, word]) => {
+      const el = document.createElement('div');
+      el.className = 'nombre-item';
+      el.innerHTML = `
+        <span class="nombre-num">${num}</span>
+        <span class="nombre-word">${word}</span>
+        <button class="vocab-audio" data-phrase="${word}" onclick="speak(this.dataset.phrase,this)">▶</button>`;
+      grid.appendChild(el);
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════
+     SCROLL SPY
+  ══════════════════════════════════════════════════════ */
+  function setupScrollSpy() {
+    const links    = document.querySelectorAll('.nav-links a');
+    const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => obs.observe(s));
+  }
+
+  /* ══════════════════════════════════════════════════════
+     INIT
+  ══════════════════════════════════════════════════════ */
+  document.addEventListener('DOMContentLoaded', () => {
+    buildMatch('ex1');
+    buildEx2();
+    buildFill(ex3Data);
+    buildEx4();
+    buildIntrus();
+    buildFillMulti(ex6Data);
+    buildEx7();
+    buildFillMulti(ex8Data);
+    buildFillWithGroups(ex9Data);
+    buildEx10();
+    buildNombres();
+    setupScrollSpy();
+  });
+  </script>
+</body>
+</html>

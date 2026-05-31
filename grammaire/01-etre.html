@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Le verbe être au présent : conjugaison complète, usages (nationalité, profession, description) et 9 exercices interactifs. Niveau A1-A2.">
+  <title>Être · Grammaire A1-A2 | Français</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared.css">
+  <style>
+    :root { --page-accent: var(--gold); }
+
+    body {
+      background-image:
+        radial-gradient(circle at 15% 8%,  rgba(202,138,4,.06) 0%, transparent 45%),
+        radial-gradient(circle at 85% 65%, rgba(234, 88, 12,.05) 0%, transparent 45%),
+        radial-gradient(circle at 50% 100%,rgba(5,150,105,.04)  0%, transparent 45%);
+    }
+
+    /* ── Layout ──────────────────────────────── */
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── Hero ────────────────────────────────── */
+    header.hero {
+      padding: 4.5rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .breadcrumb {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .breadcrumb span { color: var(--page-accent); font-weight: 700; }
+
+    .lesson-num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--page-accent);
+      color: #fff;
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    h1.title {
+      font-family: var(--serif-display);
+      font-weight: 800;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.1rem;
+      font-variation-settings: "opsz" 144;
+    }
+    h1.title em {
+      font-style: normal;
+      color: var(--page-accent);
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1rem;
+    }
+    .pill {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.55rem;
+      border-radius: 2px;
+      border: 1.5px solid;
+    }
+    .pill-level  { border-color: var(--gold); color: var(--gold); }
+    .pill-natl   { border-color: var(--primary); color: var(--primary); }
+    .pill-prof   { border-color: var(--secondary); color: var(--secondary); }
+    .pill-desc   { border-color: var(--tertiary); color: var(--tertiary); }
+
+    /* ── Sticky Nav ──────────────────────────── */
+    nav.sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250,246,236,.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .nav-back {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink-faint);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--page-accent); }
+    .nav-brand {
+      font-family: var(--serif-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      font-variation-settings: "opsz" 36;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      list-style: none;
+      flex: 1;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links li a {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ink-faint);
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: all .15s;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active { color: var(--page-accent); background: rgba(202,138,4,.1); }
+
+    /* ── Section headings ────────────────────── */
+    .section-kicker {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--page-accent);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-kicker::before { content: ""; width: 28px; height: 2px; background: var(--page-accent); }
+
+    h2.section-title {
+      font-family: var(--serif-display);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      font-variation-settings: "opsz" 36;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-sub {
+      font-family: var(--serif-body);
+      font-size: 0.9rem;
+      color: var(--ink-faint);
+      margin-bottom: 1.25rem;
+    }
+
+    .lesson-section {
+      padding: 3rem 0 1rem;
+      border-top: 1px solid var(--rule-soft);
+    }
+    .lesson-section:first-child { border-top: none; }
+
+    /* ── Conjugation table ───────────────────── */
+    .conj-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--rule-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .conj-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin: 0.75rem 0 1.5rem;
+    }
+    @media (max-width: 500px) { .conj-grid { grid-template-columns: 1fr; } }
+
+    .conj-col-header {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      padding: 0.2rem 0.9rem 0.5rem;
+    }
+
+    .conj-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--page-accent);
+      border-radius: 3px;
+      padding: 0.6rem 0.9rem;
+      transition: box-shadow .2s;
+    }
+    .conj-row:hover { box-shadow: 0 4px 14px -8px rgba(0,0,0,.14); }
+
+    .conj-pro {
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      color: var(--ink-faint);
+      min-width: 4rem;
+      font-weight: 500;
+    }
+    .conj-form {
+      font-family: var(--serif-body);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--page-accent);
+      flex: 1;
+    }
+    .conj-audio {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      border: none;
+      background: var(--page-accent);
+      color: #fff;
+      font-size: 0.65rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all .2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .conj-audio:hover { filter: brightness(.88); transform: scale(1.08); }
+    .conj-audio.playing { animation: pulse-conj 1s ease-in-out infinite; }
+    @keyframes pulse-conj {
+      0%,100% { box-shadow: 0 0 0 0 rgba(202,138,4,.5); }
+      50%      { box-shadow: 0 0 0 8px rgba(202,138,4,0); }
+    }
+
+    /* ── Usages ──────────────────────────────── */
+    .uses-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 0.9rem;
+      margin: 0.75rem 0 1.5rem;
+    }
+    @media (max-width: 640px) { .uses-grid { grid-template-columns: 1fr; } }
+
+    .use-card {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-top: 4px solid;
+      border-radius: 3px;
+      padding: 1rem;
+    }
+    .use-card.natl { border-top-color: var(--primary); }
+    .use-card.prof { border-top-color: var(--secondary); }
+    .use-card.desc { border-top-color: var(--tertiary); }
+
+    .use-card h3 {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.65rem;
+    }
+    .use-card.natl h3 { color: var(--primary); }
+    .use-card.prof h3 { color: var(--secondary); }
+    .use-card.desc h3 { color: var(--tertiary); }
+
+    .use-ex {
+      font-family: var(--serif-body);
+      font-size: 0.93rem;
+      color: var(--ink-soft);
+      margin: 0.35rem 0;
+      line-height: 1.45;
+    }
+    .use-ex strong { font-weight: 700; color: var(--ink); }
+
+    /* ── Exercise cards ──────────────────────── */
+    .ex-card {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      margin: 1.25rem 0;
+      overflow: hidden;
+    }
+
+    .ex-head {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.85rem 1.1rem;
+      background: var(--bg-deep);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .ex-num {
+      font-family: var(--serif-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--page-accent);
+      font-variation-settings: "opsz" 9;
+      min-width: 2rem;
+    }
+
+    .ex-meta { display: flex; flex-direction: column; gap: 0.1rem; }
+    .ex-stars { font-size: 0.72rem; color: var(--gold); letter-spacing: .05em; }
+    .ex-title {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .ex-instr {
+      font-family: var(--serif-body);
+      font-size: 0.88rem;
+      color: var(--ink-faint);
+      font-style: italic;
+      margin-left: auto;
+    }
+    @media (max-width: 500px) { .ex-instr { display: none; } }
+
+    .ex-body { padding: 1.1rem 1.25rem; }
+
+    .ex-foot {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 1.25rem;
+      border-top: 1px solid var(--rule-soft);
+      background: var(--bg);
+    }
+
+    /* ── Buttons ─────────────────────────────── */
+    .btn-check {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 0.42rem 0.95rem;
+      border: none;
+      border-radius: 3px;
+      background: var(--page-accent);
+      color: #fff;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .btn-check:hover { filter: brightness(.88); }
+
+    .btn-reset {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 0.42rem 0.8rem;
+      border: 1.5px solid var(--rule);
+      border-radius: 3px;
+      background: transparent;
+      color: var(--ink-faint);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .btn-reset:hover { border-color: var(--ink-soft); color: var(--ink-soft); }
+
+    .score-chip {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.18rem 0.55rem;
+      border-radius: 2px;
+      background: var(--bg-deep);
+      color: var(--ink-faint);
+      margin-left: auto;
+      min-width: 2.5rem;
+      text-align: center;
+      transition: all .3s;
+    }
+    .score-chip.good { background: rgba(5,150,105,.14); color: var(--tertiary); }
+    .score-chip.bad  { background: rgba(234,88,12,.13);  color: var(--secondary); }
+
+    /* ── Fill-in-blank (Ex 3, 5, 8) ─────────── */
+    .fi-item {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.75rem 0;
+      font-family: var(--serif-body);
+      font-size: 0.97rem;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    .fi-letter {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--ink-faint);
+      min-width: 1.1rem;
+    }
+    .fi-input {
+      border: none;
+      border-bottom: 2px solid var(--rule);
+      background: transparent;
+      font-family: var(--serif-body);
+      font-size: 0.97rem;
+      color: var(--ink);
+      padding: 0.05rem 0.25rem;
+      min-width: 7rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .fi-input:focus { border-bottom-color: var(--page-accent); }
+    .fi-input.ok    { border-bottom-color: var(--tertiary); color: var(--tertiary); }
+    .fi-input.err   { border-bottom-color: var(--secondary); color: var(--secondary); }
+
+    /* ── Multiple choice (Ex 2) ──────────────── */
+    .mc-item {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.7rem 0;
+      font-family: var(--serif-body);
+      font-size: 0.97rem;
+    }
+    .mc-prefix { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; color: var(--ink-faint); min-width: 1.1rem; }
+    .mc-text { color: var(--ink-soft); }
+
+    .mc-opts { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .mc-btn {
+      font-family: var(--serif-body);
+      font-size: 0.93rem;
+      font-weight: 600;
+      font-style: italic;
+      padding: 0.25rem 0.7rem;
+      border: 2px solid var(--rule);
+      border-radius: 3px;
+      background: var(--bg-deep);
+      color: var(--ink);
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .mc-btn:hover { border-color: var(--page-accent); background: var(--paper); }
+    .mc-btn.selected { border-color: var(--page-accent); background: rgba(202,138,4,.1); }
+    .mc-btn.ok       { border-color: var(--tertiary); background: rgba(5,150,105,.1); color: var(--tertiary); cursor: default; }
+    .mc-btn.err      { border-color: var(--secondary); background: rgba(234,88,12,.1); color: var(--secondary); text-decoration: line-through; cursor: default; }
+    .mc-btn:disabled { cursor: default; }
+
+    /* ── Matching (Ex 4, 7) ──────────────────── */
+    .match-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+    @media (max-width: 540px) { .match-wrap { grid-template-columns: 1fr; } }
+
+    .match-col { display: flex; flex-direction: column; gap: 0.45rem; }
+
+    .match-item {
+      font-family: var(--serif-body);
+      font-size: 0.93rem;
+      padding: 0.5rem 0.85rem;
+      border: 2px solid var(--rule);
+      border-radius: 3px;
+      background: var(--paper);
+      cursor: pointer;
+      transition: all .15s;
+      color: var(--ink);
+      line-height: 1.4;
+      user-select: none;
+    }
+    .match-item:hover:not([data-locked]) { border-color: var(--page-accent); }
+    .match-item.sel  { border-color: var(--page-accent); background: rgba(202,138,4,.1); }
+    .match-item.ok   { border-color: var(--tertiary); background: rgba(5,150,105,.1); color: var(--tertiary-soft); cursor: default; }
+    .match-item.err  { border-color: var(--secondary); background: rgba(234,88,12,.1); }
+    .match-item .badge {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.1rem 0.35rem;
+      border-radius: 2px;
+      background: rgba(202,138,4,.18);
+      color: var(--gold);
+      margin-right: 0.35rem;
+    }
+
+    /* ── Word order (Ex 6) ───────────────────── */
+    .wo-block { margin: 1.1rem 0; }
+    .wo-letter {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--ink-faint);
+      margin-bottom: 0.35rem;
+    }
+    .wo-stage {
+      min-height: 2.4rem;
+      background: var(--bg);
+      border: 2px dashed var(--rule);
+      border-radius: 4px;
+      padding: 0.35rem 0.55rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      align-items: center;
+      margin-bottom: 0.4rem;
+      transition: border-color .2s, background .2s;
+    }
+    .wo-stage.has-items { border-style: solid; border-color: rgba(202,138,4,.4); }
+    .wo-stage.ok-s { border-color: var(--tertiary); background: rgba(5,150,105,.05); }
+    .wo-stage.err-s { border-color: var(--secondary); background: rgba(234,88,12,.05); }
+    .wo-pool { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+    .wo-token {
+      font-family: var(--serif-body);
+      font-size: 0.9rem;
+      padding: 0.22rem 0.6rem;
+      border: 1.5px solid var(--rule);
+      border-radius: 3px;
+      background: var(--paper);
+      cursor: pointer;
+      transition: all .15s;
+      color: var(--ink);
+      user-select: none;
+    }
+    .wo-pool .wo-token:hover { border-color: var(--page-accent); background: rgba(202,138,4,.08); }
+    .wo-pool .wo-token.used  { opacity: .28; pointer-events: none; }
+    .wo-stage .wo-token { border-color: var(--page-accent); background: rgba(202,138,4,.1); cursor: pointer; }
+    .wo-stage .wo-token:hover { border-color: var(--secondary); background: rgba(234,88,12,.08); }
+
+    /* ── Segmentation (Ex 1) ─────────────────── */
+    .seg-wrap {
+      font-family: var(--mono);
+      font-size: 1rem;
+      line-height: 2.4;
+      letter-spacing: .01em;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 0.85rem 1rem;
+      margin: 0.6rem 0;
+      cursor: default;
+    }
+    .seg-ch { color: var(--ink); }
+    .seg-sep {
+      display: inline-block;
+      width: 8px;
+      height: 1.5em;
+      margin: 0 1px;
+      cursor: pointer;
+      border-radius: 2px;
+      position: relative;
+      vertical-align: middle;
+      transition: background .12s;
+      flex-shrink: 0;
+    }
+    .seg-sep::after {
+      content: '';
+      position: absolute;
+      left: 50%; top: 20%; bottom: 20%;
+      width: 2px;
+      transform: translateX(-50%);
+      background: transparent;
+      border-radius: 2px;
+      transition: background .12s;
+    }
+    .seg-sep:hover::after { background: rgba(202,138,4,.45); }
+    .seg-sep.cut::after   { background: var(--page-accent); }
+    .seg-sep.ok-sep::after   { background: var(--tertiary); }
+    .seg-sep.err-sep::after  { background: var(--secondary); }
+    .seg-sep.miss-sep::after { background: var(--accent); }
+
+    .seg-hint {
+      font-family: var(--serif-body);
+      font-size: 0.82rem;
+      color: var(--ink-faint);
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+
+    /* ── Phonetics listen grid (Ex 9) ────────── */
+    .listen-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+    }
+    @media (max-width: 500px) { .listen-grid { grid-template-columns: 1fr; } }
+
+    .listen-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 0.6rem 0.8rem;
+    }
+    .listen-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--ink-faint);
+      min-width: 0.85rem;
+    }
+    .listen-text {
+      font-family: var(--serif-body);
+      font-size: 0.93rem;
+      color: var(--ink);
+      flex: 1;
+    }
+    .listen-text strong { color: var(--page-accent); font-weight: 700; }
+    .listen-btn {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: none;
+      background: var(--page-accent);
+      color: #fff;
+      font-size: 0.6rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+    }
+    .listen-btn:hover { filter: brightness(.88); transform: scale(1.06); }
+    .listen-btn.playing { animation: pulse-conj 1s ease-in-out infinite; }
+
+    /* ── Vocabulary ───────────────────────────── */
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 0.75rem 0 1.5rem;
+    }
+    @media (max-width: 560px) { .vocab-grid { grid-template-columns: 1fr; } }
+
+    .vocab-sec h3 {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 0.65rem;
+    }
+    .vocab-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.38rem 0;
+      border-bottom: 1px solid var(--rule-soft);
+      font-family: var(--serif-body);
+      font-size: 0.92rem;
+    }
+    .vocab-item:last-child { border-bottom: none; }
+    .vocab-flag { font-size: 1rem; min-width: 1.4rem; text-align: center; }
+    .vocab-m { color: var(--primary); font-weight: 600; }
+    .vocab-f { color: var(--accent); font-weight: 600; }
+    .vocab-sep { color: var(--ink-faint); font-size: 0.8rem; margin: 0 0.1rem; }
+    .vocab-audio {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid var(--rule);
+      background: transparent;
+      color: var(--ink-faint);
+      font-size: 0.55rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      margin-left: auto;
+      transition: all .15s;
+    }
+    .vocab-audio:hover { border-color: var(--page-accent); color: var(--page-accent); }
+    .vocab-audio.playing { animation: pulse-conj 1s ease-in-out infinite; border-color: var(--page-accent); color: var(--page-accent); }
+
+    /* ── Footer ──────────────────────────────── */
+    footer {
+      margin-top: 5rem;
+      border-top: 1px solid var(--rule);
+      padding: 2.5rem 2rem;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    footer .colophon {
+      font-family: var(--serif-body);
+      font-size: 0.88rem;
+      color: var(--ink-faint);
+      line-height: 1.6;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════ HERO ════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="breadcrumb">
+      <span class="lesson-num-badge">1</span>
+      Grammaire A1–A2 · <span>Leçon 1</span>
+    </div>
+    <h1 class="title"><em>Être</em></h1>
+    <p class="lede">Le verbe <strong>être</strong> est l'un des plus fondamentaux du français. Maîtrisez sa conjugaison et ses trois usages essentiels.</p>
+    <div class="hero-pills">
+      <span class="pill pill-level">A1</span>
+      <span class="pill pill-natl">Nationalité</span>
+      <span class="pill pill-prof">Profession</span>
+      <span class="pill pill-desc">Description</span>
+    </div>
+  </header>
+
+  <!-- ════ STICKY NAV ═══════════════════════════════════ -->
+  <nav class="sticky-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-back">← Accueil</a>
+      <span class="nav-brand">Être</span>
+      <ul class="nav-links">
+        <li><a href="#conjugaison">Conjugaison</a></li>
+        <li><a href="#usages">Usages</a></li>
+        <li><a href="#exercices">Exercices</a></li>
+        <li><a href="#vocabulaire">Vocabulaire</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════ MAIN ═════════════════════════════════════════ -->
+  <main>
+
+    <!-- ── Conjugaison ─────────────────────── -->
+    <section id="conjugaison" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Conjugaison</div>
+        <h2 class="section-title">Être au présent</h2>
+        <p class="section-sub">Cliquez sur ▶ pour écouter chaque forme.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 1.5rem;">
+          <div class="conj-col-header">Singulier</div>
+          <div class="conj-col-header">Pluriel</div>
+        </div>
+        <div class="conj-grid">
+          <div class="conj-row">
+            <span class="conj-pro">je</span>
+            <span class="conj-form">suis</span>
+            <button class="conj-audio" onclick="speak('je suis',this)" title="Écouter">▶</button>
+          </div>
+          <div class="conj-row">
+            <span class="conj-pro">nous</span>
+            <span class="conj-form">sommes</span>
+            <button class="conj-audio" onclick="speak('nous sommes',this)" title="Écouter">▶</button>
+          </div>
+          <div class="conj-row">
+            <span class="conj-pro">tu</span>
+            <span class="conj-form">es</span>
+            <button class="conj-audio" onclick="speak('tu es',this)" title="Écouter">▶</button>
+          </div>
+          <div class="conj-row">
+            <span class="conj-pro">vous</span>
+            <span class="conj-form">êtes</span>
+            <button class="conj-audio" onclick="speak('vous êtes',this)" title="Écouter">▶</button>
+          </div>
+          <div class="conj-row">
+            <span class="conj-pro">il / elle</span>
+            <span class="conj-form">est</span>
+            <button class="conj-audio" onclick="speak('il est',this)" title="Écouter">▶</button>
+          </div>
+          <div class="conj-row">
+            <span class="conj-pro">ils / elles</span>
+            <span class="conj-form">sont</span>
+            <button class="conj-audio" onclick="speak('ils sont',this)" title="Écouter">▶</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Usages ──────────────────────────── -->
+    <section id="usages" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Usages</div>
+        <h2 class="section-title">J'utilise <em>être</em> pour…</h2>
+
+        <div class="uses-grid">
+          <div class="use-card natl">
+            <h3>La nationalité</h3>
+            <p class="use-ex">Je <strong>suis</strong> français.</p>
+            <p class="use-ex">Elle <strong>est</strong> italienne.</p>
+            <p class="use-ex">Ils <strong>sont</strong> belges.</p>
+          </div>
+          <div class="use-card prof">
+            <h3>La profession</h3>
+            <p class="use-ex">Il <strong>est</strong> professeur.</p>
+            <p class="use-ex">Tu <strong>es</strong> danseur.</p>
+            <p class="use-ex">Vous <strong>êtes</strong> pilote.</p>
+          </div>
+          <div class="use-card desc">
+            <h3>La description</h3>
+            <p class="use-ex">Tu <strong>es</strong> sympa.</p>
+            <p class="use-ex">Nous <strong>sommes</strong> fatigués.</p>
+            <p class="use-ex">Elle <strong>est</strong> intelligente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Exercices ───────────────────────── -->
+    <section id="exercices" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Exercices</div>
+        <h2 class="section-title">Pratique</h2>
+
+        <!-- Ex 1 — Découpe les mots -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">1</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★</span>
+              <span class="ex-title">Découpe les mots</span>
+            </div>
+            <span class="ex-instr">Retrouve la conjugaison du verbe <em>être</em></span>
+          </div>
+          <div class="ex-body">
+            <p class="seg-hint">Clique entre les lettres pour séparer les mots. (16 mots à trouver)</p>
+            <div class="seg-wrap" id="seg-wrap"></div>
+          </div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkSeg()">Vérifier</button>
+            <button class="btn-reset" onclick="resetSeg()">Réinitialiser</button>
+            <span class="score-chip" id="seg-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 2 — Entoure la bonne réponse -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">2</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★</span>
+              <span class="ex-title">Entoure la bonne réponse</span>
+            </div>
+            <span class="ex-instr">Sélectionne la forme correcte</span>
+          </div>
+          <div class="ex-body" id="ex2-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkMC()">Vérifier</button>
+            <button class="btn-reset" onclick="resetMC()">Réinitialiser</button>
+            <span class="score-chip" id="mc-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 3 — Écris la bonne réponse -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">3</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★★</span>
+              <span class="ex-title">Écris la bonne réponse</span>
+            </div>
+            <span class="ex-instr">Conjugue le verbe <em>être</em></span>
+          </div>
+          <div class="ex-body" id="ex3-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkFill('ex3',ex3Data)">Vérifier</button>
+            <button class="btn-reset" onclick="resetFill('ex3')">Réinitialiser</button>
+            <span class="score-chip" id="ex3-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 4 — Relie -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">4</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★</span>
+              <span class="ex-title">Relie</span>
+            </div>
+            <span class="ex-instr">Associe le pronom à la bonne forme</span>
+          </div>
+          <div class="ex-body">
+            <p class="seg-hint">Clique sur un pronom, puis sur la forme verbale correspondante.</p>
+            <div class="match-wrap" id="ex4-grid"></div>
+          </div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkMatch('ex4')">Vérifier</button>
+            <button class="btn-reset" onclick="resetMatch('ex4')">Réinitialiser</button>
+            <span class="score-chip" id="ex4-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 5 — Complète avec être -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">5</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★★</span>
+              <span class="ex-title">Complète avec le verbe être</span>
+            </div>
+          </div>
+          <div class="ex-body" id="ex5-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkFill('ex5',ex5Data)">Vérifier</button>
+            <button class="btn-reset" onclick="resetFill('ex5')">Réinitialiser</button>
+            <span class="score-chip" id="ex5-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 6 — Remets les phrases dans l'ordre -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">6</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★★</span>
+              <span class="ex-title">Remets les phrases dans l'ordre</span>
+            </div>
+            <span class="ex-instr">Clique les mots dans le bon ordre</span>
+          </div>
+          <div class="ex-body" id="ex6-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkWordOrder()">Vérifier</button>
+            <button class="btn-reset" onclick="resetWordOrder()">Réinitialiser</button>
+            <span class="score-chip" id="ex6-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 7 — Associe questions et réponses -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">7</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★</span>
+              <span class="ex-title">Associe les questions et les réponses</span>
+            </div>
+            <span class="ex-instr">Clique gauche, puis droite</span>
+          </div>
+          <div class="ex-body">
+            <p class="seg-hint">Clique sur une réponse, puis sur la question correspondante.</p>
+            <div class="match-wrap" id="ex7-grid"></div>
+          </div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkMatch('ex7')">Vérifier</button>
+            <button class="btn-reset" onclick="resetMatch('ex7')">Réinitialiser</button>
+            <span class="score-chip" id="ex7-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 8 — Réponds aux questions -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">8</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★★</span>
+              <span class="ex-title">Réponds aux questions</span>
+            </div>
+            <span class="ex-instr">Réponds avec Oui, …</span>
+          </div>
+          <div class="ex-body" id="ex8-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkEx8()">Vérifier</button>
+            <button class="btn-reset" onclick="resetEx8()">Réinitialiser</button>
+            <span class="score-chip" id="ex8-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 9 — Phonétique -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">9</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★</span>
+              <span class="ex-title">Phonétique · Écoute et répète</span>
+            </div>
+            <span class="ex-instr">Prononce après avoir écouté</span>
+          </div>
+          <div class="ex-body">
+            <div class="listen-grid" id="ex9-grid"></div>
+          </div>
+        </div>
+
+      </div><!-- /.wrap -->
+    </section>
+
+    <!-- ── Vocabulaire ─────────────────────── -->
+    <section id="vocabulaire" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Vocabulaire</div>
+        <h2 class="section-title">Mots utiles</h2>
+
+        <div class="vocab-grid">
+          <div class="vocab-sec">
+            <h3>Les nationalités</h3>
+            <div class="vocab-item">
+              <span class="vocab-flag">🇩🇪</span>
+              <span class="vocab-m">allemand</span><span class="vocab-sep">–</span><span class="vocab-f">allemande</span>
+              <button class="vocab-audio" onclick="speak('allemand, allemande',this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🇲🇦</span>
+              <span class="vocab-m">marocain</span><span class="vocab-sep">–</span><span class="vocab-f">marocaine</span>
+              <button class="vocab-audio" onclick="speak('marocain, marocaine',this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🇬🇧</span>
+              <span class="vocab-m">anglais</span><span class="vocab-sep">–</span><span class="vocab-f">anglaise</span>
+              <button class="vocab-audio" onclick="speak('anglais, anglaise',this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🇨🇳</span>
+              <span class="vocab-m">chinois</span><span class="vocab-sep">–</span><span class="vocab-f">chinoise</span>
+              <button class="vocab-audio" onclick="speak('chinois, chinoise',this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🇫🇷</span>
+              <span class="vocab-m">français</span><span class="vocab-sep">–</span><span class="vocab-f">française</span>
+              <button class="vocab-audio" onclick="speak('français, française',this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🇨🇦</span>
+              <span class="vocab-m">canadien</span><span class="vocab-sep">–</span><span class="vocab-f">canadienne</span>
+              <button class="vocab-audio" onclick="speak('canadien, canadienne',this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🇨🇴</span>
+              <span class="vocab-m">colombien</span><span class="vocab-sep">–</span><span class="vocab-f">colombienne</span>
+              <button class="vocab-audio" onclick="speak('colombien, colombienne',this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🇮🇹</span>
+              <span class="vocab-m">italien</span><span class="vocab-sep">–</span><span class="vocab-f">italienne</span>
+              <button class="vocab-audio" onclick="speak('italien, italienne',this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-flag">🇬🇷</span>
+              <span class="vocab-m">grec</span><span class="vocab-sep">–</span><span class="vocab-f">grecque</span>
+              <button class="vocab-audio" onclick="speak('grec, grecque',this)">▶</button>
+            </div>
+          </div>
+
+          <div class="vocab-sec">
+            <h3>Les professions</h3>
+            <div class="vocab-item">
+              <span class="vocab-m">Un chanteur</span><span class="vocab-sep">/</span><span class="vocab-f">une chanteuse</span>
+              <button class="vocab-audio" onclick="speak('un chanteur, une chanteuse',this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-m">Un danseur</span><span class="vocab-sep">/</span><span class="vocab-f">une danseuse</span>
+              <button class="vocab-audio" onclick="speak('un danseur, une danseuse',this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-m">Un docteur</span><span class="vocab-sep">/</span><span class="vocab-f">une docteure</span>
+              <button class="vocab-audio" onclick="speak('un docteur, une docteure',this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-m">Un professeur</span><span class="vocab-sep">/</span><span class="vocab-f">une professeure</span>
+              <button class="vocab-audio" onclick="speak('un professeur, une professeure',this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-m">Un jardinier</span><span class="vocab-sep">/</span><span class="vocab-f">une jardinière</span>
+              <button class="vocab-audio" onclick="speak('un jardinier, une jardinière',this)">▶</button>
+            </div>
+            <div class="vocab-item">
+              <span class="vocab-m">Un pilote</span><span class="vocab-sep">/</span><span class="vocab-f">une pilote</span>
+              <button class="vocab-audio" onclick="speak('un pilote, une pilote',this)">▶</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════ FOOTER ═══════════════════════════════════════ -->
+  <footer>
+    <p class="colophon">Grammaire A1–A2 · Leçon 1 — <em>Être</em>. Audio via Web Speech API / Google TTS.</p>
+  </footer>
+
+  <div class="audio-status" id="audioStatus"></div>
+
+  <script src="../shared.js"></script>
+  <script>
+  /* ══════════════════════════════════════════════════════
+     EXERCISE 1 — Segmentation
+  ══════════════════════════════════════════════════════ */
+  const SEG_STR = 'ellessontjesuistuesnoussommesvousêteselleestilssontilest';
+  // Separator index i = gap between char[i] and char[i+1]
+  const SEG_CORRECT = new Set([4,8,10,14,16,18,22,28,32,36,40,43,46,50,52]);
+
+  function buildSeg() {
+    const wrap = document.getElementById('seg-wrap');
+    wrap.innerHTML = '';
+    const chars = [...SEG_STR];
+    chars.forEach((ch, i) => {
+      const s = document.createElement('span');
+      s.className = 'seg-ch';
+      s.textContent = ch;
+      wrap.appendChild(s);
+      if (i < chars.length - 1) {
+        const sep = document.createElement('span');
+        sep.className = 'seg-sep';
+        sep.dataset.i = i;
+        sep.addEventListener('click', () => {
+          if (!sep.dataset.locked) sep.classList.toggle('cut');
+        });
+        wrap.appendChild(sep);
+      }
+    });
+  }
+
+  function checkSeg() {
+    const seps = document.querySelectorAll('#seg-wrap .seg-sep');
+    let correct = 0;
+    seps.forEach(sep => {
+      const idx = +sep.dataset.i;
+      const isCut = sep.classList.contains('cut');
+      const shouldCut = SEG_CORRECT.has(idx);
+      sep.classList.remove('ok-sep','err-sep','miss-sep');
+      if (isCut && shouldCut)  { sep.classList.add('ok-sep');   correct++; }
+      else if (isCut)          { sep.classList.add('err-sep');  }
+      else if (shouldCut)      { sep.classList.add('miss-sep'); }
+    });
+    const total = SEG_CORRECT.size;
+    const chip = document.getElementById('seg-score');
+    chip.textContent = correct + '/' + total;
+    chip.className = 'score-chip ' + (correct === total ? 'good' : 'bad');
+  }
+
+  function resetSeg() {
+    buildSeg();
+    const chip = document.getElementById('seg-score');
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EXERCISE 2 — Multiple choice
+  ══════════════════════════════════════════════════════ */
+  const mcData = [
+    { ltr:'a', pre:'Je',    opts:['suis','sommes'], ans:'suis',   suf:'chinois.' },
+    { ltr:'b', pre:'Elle',  opts:['es','est'],      ans:'est',    suf:'anglaise.' },
+    { ltr:'c', pre:'Vous',  opts:['sommes','êtes'], ans:'êtes',   suf:'français.' },
+    { ltr:'d', pre:'Tu',    opts:['es','êtes'],     ans:'es',     suf:'grec.' },
+    { ltr:'e', pre:'Ils',   opts:['sommes','sont'], ans:'sont',   suf:'allemands.' },
+    { ltr:'f', pre:'Nous',  opts:['suis','sommes'], ans:'sommes', suf:'colombiens.' },
+  ];
+
+  let mcSel = {};
+
+  function buildMC() {
+    const body = document.getElementById('ex2-body');
+    body.innerHTML = '';
+    mcSel = {};
+    mcData.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'mc-item';
+      row.innerHTML = `<span class="mc-prefix">${item.ltr}.</span>
+        <span class="mc-text">${item.pre} &nbsp;</span>
+        <span class="mc-opts" id="mc-opts-${item.ltr}"></span>
+        <span class="mc-text">&nbsp;${item.suf}</span>`;
+      body.appendChild(row);
+      const optsEl = row.querySelector(`#mc-opts-${item.ltr}`);
+      item.opts.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'mc-btn';
+        btn.textContent = opt;
+        btn.addEventListener('click', () => {
+          if (btn.disabled) return;
+          optsEl.querySelectorAll('.mc-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          mcSel[item.ltr] = opt;
+        });
+        optsEl.appendChild(btn);
+      });
+    });
+  }
+
+  function checkMC() {
+    let correct = 0;
+    mcData.forEach(item => {
+      const optsEl = document.getElementById(`mc-opts-${item.ltr}`);
+      optsEl.querySelectorAll('.mc-btn').forEach(btn => {
+        const isSelected = btn.classList.contains('selected');
+        const isAns = btn.textContent === item.ans;
+        btn.classList.remove('selected');
+        btn.disabled = true;
+        if (isAns)      { btn.classList.add('ok'); if (isSelected) correct++; }
+        else if (isSelected) { btn.classList.add('err'); }
+      });
+    });
+    const chip = document.getElementById('mc-score');
+    chip.textContent = correct + '/' + mcData.length;
+    chip.className = 'score-chip ' + (correct === mcData.length ? 'good' : 'bad');
+  }
+
+  function resetMC() {
+    buildMC();
+    const chip = document.getElementById('mc-score');
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EXERCISES 3 & 5 — Fill in the blank
+  ══════════════════════════════════════════════════════ */
+  const ex3Data = {
+    bodyId: 'ex3-body',
+    scoreId: 'ex3-score',
+    items: [
+      { ltr:'a', pre:'Nous',  suf:'grecques.',   ans:'sommes' },
+      { ltr:'b', pre:'Elles', suf:'fatiguées.',  ans:'sont'   },
+      { ltr:'c', pre:'Vous',  suf:'allemands.',  ans:'êtes'   },
+      { ltr:'d', pre:'Il',    suf:'chinois.',    ans:'est'    },
+      { ltr:'e', pre:'Je',    suf:'française.',  ans:'suis'   },
+      { ltr:'f', pre:'Tu',    suf:'canadien.',   ans:'es'     },
+      { ltr:'g', pre:'Elle',  suf:'suisse.',     ans:'est'    },
+    ]
+  };
+
+  const ex5Data = {
+    bodyId: 'ex5-body',
+    scoreId: 'ex5-score',
+    items: [
+      { ltr:'a', pre:'Je',    suf:'petit.',       ans:'suis'   },
+      { ltr:'b', pre:'Vous',  suf:'grande !',     ans:'êtes'   },
+      { ltr:'c', pre:'Ils',   suf:'sympas !',     ans:'sont'   },
+      { ltr:'d', pre:'Nous',  suf:'malades…',     ans:'sommes' },
+      { ltr:'e', pre:'Elle',  suf:'intelligente.', ans:'est'   },
+    ]
+  };
+
+  function buildFill(data) {
+    const body = document.getElementById(data.bodyId);
+    body.innerHTML = '';
+    data.items.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'fi-item';
+      row.innerHTML = `<span class="fi-letter">${item.ltr}.</span>
+        ${item.pre} <input type="text" class="fi-input" data-ltr="${item.ltr}" autocomplete="off" spellcheck="false"> ${item.suf}`;
+      body.appendChild(row);
+    });
+  }
+
+  function checkFill(exId, data) {
+    let correct = 0;
+    data.items.forEach(item => {
+      const inp = document.querySelector(`#${data.bodyId} [data-ltr="${item.ltr}"]`);
+      if (!inp) return;
+      const val = inp.value.trim().toLowerCase();
+      inp.classList.remove('ok','err');
+      if (val === item.ans) { inp.classList.add('ok'); correct++; }
+      else                  { inp.classList.add('err'); }
+    });
+    const chip = document.getElementById(data.scoreId);
+    chip.textContent = correct + '/' + data.items.length;
+    chip.className = 'score-chip ' + (correct === data.items.length ? 'good' : 'bad');
+  }
+
+  function resetFill(exId) {
+    const data = exId === 'ex3' ? ex3Data : ex5Data;
+    buildFill(data);
+    const chip = document.getElementById(data.scoreId);
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EXERCISES 4 & 7 — Matching
+  ══════════════════════════════════════════════════════ */
+  const matchDefs = {
+    ex4: {
+      gridId: 'ex4-grid', scoreId: 'ex4-score',
+      left:  ['Je','Nous','Elle','Tu','Ils','Vous'],
+      right: ['es professeur','est pilote d\'avion','sommes docteurs','êtes chanteuses','sont jardiniers','suis danseur'],
+      correct: {
+        'Je'  : 'suis danseur',
+        'Nous': 'sommes docteurs',
+        'Elle': 'est pilote d\'avion',
+        'Tu'  : 'es professeur',
+        'Ils' : 'sont jardiniers',
+        'Vous': 'êtes chanteuses'
+      }
+    },
+    ex7: {
+      gridId: 'ex7-grid', scoreId: 'ex7-score',
+      left:  [
+        'Oui, elle est française.',
+        'Oui, je suis malade.',
+        'Oui, ils sont grands.',
+        'Oui, nous sommes malades.'
+      ],
+      right: [
+        'A · Vous êtes malades ?',
+        'B · Elle est française ?',
+        'C · Tu es malade ?',
+        'D · Ils sont grands ?'
+      ],
+      correct: {
+        'Oui, elle est française.': 'B · Elle est française ?',
+        'Oui, je suis malade.'    : 'C · Tu es malade ?',
+        'Oui, ils sont grands.'   : 'D · Ils sont grands ?',
+        'Oui, nous sommes malades.': 'A · Vous êtes malades ?'
+      }
+    }
+  };
+
+  const matchState = {};
+
+  function buildMatch(id) {
+    const def = matchDefs[id];
+    matchState[id] = { sel: null, pairs: {} };
+    const grid = document.getElementById(def.gridId);
+    grid.innerHTML = '';
+
+    const leftCol  = document.createElement('div');
+    const rightCol = document.createElement('div');
+    leftCol.className = rightCol.className = 'match-col';
+    grid.appendChild(leftCol);
+    grid.appendChild(rightCol);
+
+    // shuffle right column display order (consistent within session)
+    const rightShuffled = [...def.right].sort(() => Math.random() - .5);
+
+    def.left.forEach(txt => {
+      const el = createMatchItem(txt, 'left', id);
+      leftCol.appendChild(el);
+    });
+    rightShuffled.forEach(txt => {
+      const el = createMatchItem(txt, 'right', id);
+      rightCol.appendChild(el);
+    });
+  }
+
+  function createMatchItem(txt, side, exId) {
+    const el = document.createElement('div');
+    el.className = 'match-item';
+    el.dataset.val = txt;
+    el.dataset.side = side;
+    el.dataset.ex = exId;
+    el.textContent = txt;
+    el.addEventListener('click', () => onMatchClick(el, exId));
+    return el;
+  }
+
+  function onMatchClick(el, exId) {
+    if (el.dataset.locked) return;
+    const state = matchState[exId];
+
+    if (state.sel === null) {
+      // First click: select this item
+      clearMatchSel(exId);
+      el.classList.add('sel');
+      state.sel = el;
+      return;
+    }
+
+    const prev = state.sel;
+    if (prev === el) { el.classList.remove('sel'); state.sel = null; return; }
+
+    // Must be opposite sides
+    if (prev.dataset.side === el.dataset.side) {
+      clearMatchSel(exId);
+      el.classList.add('sel');
+      state.sel = el;
+      return;
+    }
+
+    // Try to match
+    const leftEl  = prev.dataset.side === 'left' ? prev : el;
+    const rightEl = prev.dataset.side === 'right' ? prev : el;
+    const leftVal  = leftEl.dataset.val;
+    const rightVal = rightEl.dataset.val;
+
+    clearMatchSel(exId);
+    state.sel = null;
+
+    const correct = matchDefs[exId].correct[leftVal];
+    if (correct === rightVal) {
+      leftEl.classList.add('ok');
+      rightEl.classList.add('ok');
+      leftEl.dataset.locked = rightEl.dataset.locked = '1';
+      state.pairs[leftVal] = rightVal;
+    } else {
+      // Brief shake (wrong pair)
+      [leftEl, rightEl].forEach(e => {
+        e.classList.add('err');
+        setTimeout(() => e.classList.remove('err'), 700);
+      });
+    }
+  }
+
+  function clearMatchSel(exId) {
+    document.querySelectorAll(`[data-ex="${exId}"].sel`).forEach(el => el.classList.remove('sel'));
+  }
+
+  function checkMatch(exId) {
+    const state = matchState[exId];
+    const def   = matchDefs[exId];
+    const correct = Object.keys(state.pairs).filter(k => state.pairs[k] === def.correct[k]).length;
+    const total   = def.left.length;
+    const chip = document.getElementById(def.scoreId);
+    chip.textContent = correct + '/' + total;
+    chip.className = 'score-chip ' + (correct === total ? 'good' : 'bad');
+  }
+
+  function resetMatch(exId) {
+    buildMatch(exId);
+    const def = matchDefs[exId];
+    const chip = document.getElementById(def.scoreId);
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EXERCISE 6 — Word ordering
+  ══════════════════════════════════════════════════════ */
+  const wo6Data = [
+    { ltr:'a', tokens:['suis','je','anglais'],       ans:'je suis anglais'    },
+    { ltr:'b', tokens:['professeurs','elles','sont'], ans:'elles sont professeurs' },
+    { ltr:'c', tokens:['nous','fatigués','sommes'],   ans:'nous sommes fatigués'   },
+    { ltr:'d', tokens:['il','malade','est'],          ans:'il est malade'      },
+    { ltr:'e', tokens:['es','sympa','tu'],            ans:'tu es sympa'        },
+    { ltr:'f', tokens:['intelligente','êtes','vous'], ans:'vous êtes intelligente' },
+  ];
+
+  const wo6State = {};
+
+  function buildWordOrder() {
+    const body = document.getElementById('ex6-body');
+    body.innerHTML = '';
+    wo6Data.forEach(item => {
+      wo6State[item.ltr] = { stage: [], pool: [...item.tokens] };
+      const block = document.createElement('div');
+      block.className = 'wo-block';
+      block.innerHTML = `
+        <div class="wo-letter">${item.ltr}.</div>
+        <div class="wo-stage" id="wo-stage-${item.ltr}"></div>
+        <div class="wo-pool"  id="wo-pool-${item.ltr}"></div>`;
+      body.appendChild(block);
+      renderWoItem(item.ltr, item.tokens);
+    });
+  }
+
+  function renderWoItem(ltr, tokens) {
+    const state    = wo6State[ltr];
+    const stageEl  = document.getElementById(`wo-stage-${ltr}`);
+    const poolEl   = document.getElementById(`wo-pool-${ltr}`);
+    stageEl.innerHTML = '';
+    poolEl.innerHTML  = '';
+    stageEl.classList.toggle('has-items', state.stage.length > 0);
+
+    state.stage.forEach((tok, i) => {
+      const el = document.createElement('span');
+      el.className = 'wo-token';
+      el.textContent = tok;
+      el.addEventListener('click', () => {
+        state.stage.splice(i, 1);
+        state.pool.push(tok);
+        renderWoItem(ltr, tokens);
+      });
+      stageEl.appendChild(el);
+    });
+
+    tokens.forEach(tok => {
+      const el = document.createElement('span');
+      el.className = 'wo-token' + (state.pool.includes(tok) && !isUsed(state,tok) ? '' : ' used');
+      el.textContent = tok;
+      el.addEventListener('click', () => {
+        const idx = state.pool.indexOf(tok);
+        if (idx === -1) return;
+        state.pool.splice(idx, 1);
+        state.stage.push(tok);
+        renderWoItem(ltr, tokens);
+      });
+      poolEl.appendChild(el);
+    });
+  }
+
+  function isUsed(state, tok) {
+    const totalInPool = state.pool.filter(t => t === tok).length;
+    return totalInPool === 0;
+  }
+
+  function checkWordOrder() {
+    let correct = 0;
+    wo6Data.forEach(item => {
+      const state   = wo6State[item.ltr];
+      const stageEl = document.getElementById(`wo-stage-${item.ltr}`);
+      const built   = state.stage.join(' ').toLowerCase();
+      stageEl.classList.remove('ok-s','err-s');
+      if (built === item.ans) { stageEl.classList.add('ok-s'); correct++; }
+      else                    { stageEl.classList.add('err-s'); }
+    });
+    const chip = document.getElementById('ex6-score');
+    chip.textContent = correct + '/' + wo6Data.length;
+    chip.className = 'score-chip ' + (correct === wo6Data.length ? 'good' : 'bad');
+  }
+
+  function resetWordOrder() {
+    buildWordOrder();
+    const chip = document.getElementById('ex6-score');
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EXERCISE 8 — Answer questions
+  ══════════════════════════════════════════════════════ */
+  const ex8Items = [
+    { ltr:'a', q:'Elle est petite ?',      ans:'elle est petite',   keys:['elle','est','petite']   },
+    { ltr:'b', q:'Tu es italienne ?',      ans:'je suis italienne', keys:['je','suis','italienne'] },
+    { ltr:'c', q:'Il est professeur ?',    ans:'il est professeur', keys:['il','est','professeur'] },
+    { ltr:'d', q:'Tu es chanteur ?',       ans:'je suis chanteur',  keys:['je','suis','chanteur']  },
+    { ltr:'e', q:'Vous êtes grecs ?',      ans:'nous sommes grecs', keys:['nous','sommes','grecs'] },
+  ];
+
+  function buildEx8() {
+    const body = document.getElementById('ex8-body');
+    body.innerHTML = '';
+    ex8Items.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'fi-item';
+      row.innerHTML = `<span class="fi-letter">${item.ltr}.</span>
+        <em style="color:var(--ink-soft)">${item.q}</em>
+        &nbsp;→&nbsp; Oui, <input type="text" class="fi-input ex8-inp" data-ltr="${item.ltr}" style="min-width:14rem" autocomplete="off" spellcheck="false">`;
+      body.appendChild(row);
+    });
+  }
+
+  function checkEx8() {
+    let correct = 0;
+    ex8Items.forEach(item => {
+      const inp = document.querySelector(`.ex8-inp[data-ltr="${item.ltr}"]`);
+      if (!inp) return;
+      const val = inp.value.trim().toLowerCase().replace(/[.!?]$/,'');
+      inp.classList.remove('ok','err');
+      const allKeys = item.keys.every(k => val.includes(k));
+      if (allKeys) { inp.classList.add('ok'); correct++; }
+      else         { inp.classList.add('err'); }
+    });
+    const chip = document.getElementById('ex8-score');
+    chip.textContent = correct + '/' + ex8Items.length;
+    chip.className = 'score-chip ' + (correct === ex8Items.length ? 'good' : 'bad');
+  }
+
+  function resetEx8() {
+    buildEx8();
+    const chip = document.getElementById('ex8-score');
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EXERCISE 9 — Phonetics (listen)
+  ══════════════════════════════════════════════════════ */
+  const ex9Items = [
+    { ltr:'a', pre:'Je',    verb:'suis',    suf:'allemand.'   },
+    { ltr:'b', pre:'Tu',    verb:'es',      suf:'italienne.'  },
+    { ltr:'c', pre:'Elle',  verb:'est',     suf:'grecque.'    },
+    { ltr:'d', pre:'Il',    verb:'est',     suf:'chinois.'    },
+    { ltr:'e', pre:'Nous',  verb:'sommes',  suf:'belges.'     },
+    { ltr:'f', pre:'Vous',  verb:'êtes',    suf:'canadiennes.'},
+    { ltr:'g', pre:'Elles', verb:'sont',    suf:'japonaises.' },
+    { ltr:'h', pre:'Ils',   verb:'sont',    suf:'marocains.'  },
+  ];
+
+  function buildEx9() {
+    const grid = document.getElementById('ex9-grid');
+    grid.innerHTML = '';
+    ex9Items.forEach(item => {
+      const phrase = `${item.pre} ${item.verb} ${item.suf}`;
+      const el = document.createElement('div');
+      el.className = 'listen-item';
+      el.innerHTML = `
+        <span class="listen-label">${item.ltr}.</span>
+        <span class="listen-text">${item.pre} <strong>${item.verb}</strong> ${item.suf}</span>
+        <button class="listen-btn" onclick="speak('${phrase.replace(/'/g,"\\'")}',this)" title="Écouter">▶</button>`;
+      grid.appendChild(el);
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════
+     SCROLL SPY
+  ══════════════════════════════════════════════════════ */
+  function setupScrollSpy() {
+    const links = document.querySelectorAll('.nav-links a');
+    const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => obs.observe(s));
+  }
+
+  /* ══════════════════════════════════════════════════════
+     INIT
+  ══════════════════════════════════════════════════════ */
+  document.addEventListener('DOMContentLoaded', () => {
+    buildSeg();
+    buildMC();
+    buildFill(ex3Data);
+    buildFill(ex5Data);
+    buildMatch('ex4');
+    buildWordOrder();
+    buildMatch('ex7');
+    buildEx8();
+    buildEx9();
+    setupScrollSpy();
+  });
+  </script>
+</body>
+</html>
