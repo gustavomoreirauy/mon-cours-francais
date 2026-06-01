@@ -383,6 +383,38 @@
     .nombre-num { font-family: var(--mono); font-size: 0.74rem; font-weight: 700; color: var(--page-accent); min-width: 1.5rem; text-align: right; }
     .nombre-word { flex: 1; color: var(--ink); }
 
+    /* ── Spanish intro callout ──────────────── */
+    .intro-es-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 2rem 0;
+    }
+    .intro-es {
+      background: var(--bg-deep);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--ink-faint);
+      border-radius: 3px;
+      padding: 0.9rem 1.1rem;
+    }
+    .intro-es-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.4rem;
+    }
+    .intro-es-body {
+      font-family: var(--serif-body);
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .intro-es-body strong { color: var(--ink); font-weight: 600; }
+    .intro-es-body em { color: var(--page-accent); font-style: italic; }
+
     /* ── Footer ──────────────────────────────── */
     footer {
       margin-top: 5rem; border-top: 1px solid var(--rule);
@@ -426,6 +458,14 @@
 
   <!-- ════ MAIN ═════════════════════════════════════════ -->
   <main>
+
+    <!-- ── Intro en español ──────────────────── -->
+    <div class="intro-es-wrap">
+      <div class="intro-es">
+        <div class="intro-es-label">🇪🇸 Para empezar</div>
+        <p class="intro-es-body">En esta lección vas a trabajar con <em>avoir</em>, el equivalente de <strong>tener</strong>. También es irregular y aparece en todo tipo de frases cotidianas. El truco más importante: en francés la edad se expresa con <em>avoir</em> y no con <em>être</em> — se dice <em>j'ai 25 ans</em> (tengo 25 años), nunca <em>je suis 25 ans</em>. Cubrirás posesión, edad y relaciones familiares, y la lección incluye un ejercicio específico para distinguir cuándo usar <em>être</em> y cuándo <em>avoir</em>.</p>
+      </div>
+    </div>
 
     <!-- ── Conjugaison ─────────────────────── -->
     <section id="conjugaison" class="lesson-section">

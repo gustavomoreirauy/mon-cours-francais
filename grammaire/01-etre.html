@@ -723,6 +723,38 @@
     .vocab-audio:hover { border-color: var(--page-accent); color: var(--page-accent); }
     .vocab-audio.playing { animation: pulse-conj 1s ease-in-out infinite; border-color: var(--page-accent); color: var(--page-accent); }
 
+    /* ── Spanish intro callout ──────────────── */
+    .intro-es-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 2rem 0;
+    }
+    .intro-es {
+      background: var(--bg-deep);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--ink-faint);
+      border-radius: 3px;
+      padding: 0.9rem 1.1rem;
+    }
+    .intro-es-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.4rem;
+    }
+    .intro-es-body {
+      font-family: var(--serif-body);
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .intro-es-body strong { color: var(--ink); font-weight: 600; }
+    .intro-es-body em { color: var(--page-accent); font-style: italic; }
+
     /* ── Footer ──────────────────────────────── */
     footer {
       margin-top: 5rem;
@@ -775,6 +807,14 @@
 
   <!-- ════ MAIN ═════════════════════════════════════════ -->
   <main>
+
+    <!-- ── Intro en español ──────────────────── -->
+    <div class="intro-es-wrap">
+      <div class="intro-es">
+        <div class="intro-es-label">🇪🇸 Para empezar</div>
+        <p class="intro-es-body">En esta lección vas a trabajar con <em>être</em>, el equivalente francés de <strong>ser</strong> y <strong>estar</strong>. A diferencia del español, el francés usa un solo verbo para los dos. Es irregular, así que sus formas hay que memorizarlas, pero es tan frecuente que las vas a internalizar rápido. Verás tres usos principales — hablar de nacionalidad, profesión y descripción física o de carácter — y practicarás con 9 ejercicios interactivos.</p>
+      </div>
+    </div>
 
     <!-- ── Conjugaison ─────────────────────── -->
     <section id="conjugaison" class="lesson-section">
