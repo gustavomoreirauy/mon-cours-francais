@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Lexique français A1-A2 : vocabulaire essentiel de A à Z, les nombres de 1 à 20, recherche instantanée et audio. Optimisé pour hispanophones.">
+  <title>Lexique · Ressources A1-A2 | Français</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../shared.css">
+  <style>
+    :root { --page-accent: var(--tertiary); }
+
+    body {
+      background-image:
+        radial-gradient(circle at 15% 8%,  rgba(5,150,105,.06)  0%, transparent 45%),
+        radial-gradient(circle at 85% 65%, rgba(30,64,175,.045) 0%, transparent 45%),
+        radial-gradient(circle at 50% 100%,rgba(234,88,12,.04)  0%, transparent 45%);
+    }
+
+    /* ── Layout ──────────────────────────────── */
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── Hero ────────────────────────────────── */
+    header.hero {
+      padding: 4.5rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .breadcrumb span { color: var(--page-accent); font-weight: 700; }
+    .lesson-num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--page-accent);
+      color: #fff;
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    h1.title {
+      font-family: var(--serif-display);
+      font-weight: 800;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.1rem;
+      font-variation-settings: "opsz" 144;
+    }
+    h1.title em { font-style: normal; color: var(--page-accent); }
+
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
+    .pill {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.55rem;
+      border-radius: 2px;
+      border: 1.5px solid;
+    }
+    .pill-a1  { border-color: var(--tertiary); color: var(--tertiary); }
+    .pill-a2  { border-color: var(--primary);  color: var(--primary); }
+    .pill-cnt { border-color: var(--secondary); color: var(--secondary); }
+    .pill-abc { border-color: var(--gold);     color: var(--gold); }
+
+    /* ── Sticky Nav ──────────────────────────── */
+    nav.sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250,246,236,.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .nav-back {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink-faint);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--page-accent); }
+    .nav-brand {
+      font-family: var(--serif-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      font-variation-settings: "opsz" 36;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      list-style: none;
+      flex: 1;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links li a {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ink-faint);
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: all .15s;
+    }
+    .nav-links li a:hover { color: var(--page-accent); background: rgba(5,150,105,.1); }
+
+    /* ── Intro ES ────────────────────────────── */
+    .intro-es-wrap { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 0; }
+    .intro-es {
+      background: var(--bg-deep);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--ink-faint);
+      border-radius: 3px;
+      padding: 0.9rem 1.1rem;
+    }
+    .intro-es-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.4rem;
+    }
+    .intro-es-body {
+      font-family: var(--serif-body);
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .intro-es-body strong { color: var(--ink); font-weight: 600; }
+    .intro-es-body em { color: var(--page-accent); font-style: italic; }
+
+    /* ── Section headings ────────────────────── */
+    .section-kicker {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--page-accent);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-kicker::before { content: ""; width: 28px; height: 2px; background: var(--page-accent); }
+    h2.section-title {
+      font-family: var(--serif-display);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      font-variation-settings: "opsz" 36;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      font-family: var(--serif-body);
+      font-size: 0.9rem;
+      color: var(--ink-faint);
+      margin-bottom: 1.25rem;
+    }
+    .lesson-section { padding: 2.5rem 0 1rem; border-top: 1px solid var(--rule-soft); }
+    .lesson-section:first-child { border-top: none; }
+
+    /* ── Controls: search + letter nav ───────── */
+    .lex-controls { margin: 1.5rem 0 0.5rem; }
+    .search-row { display: flex; gap: 0.6rem; align-items: center; }
+    .search-box {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 0.55rem 0.8rem;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .search-box:focus-within {
+      border-color: var(--page-accent);
+      box-shadow: 0 0 0 3px rgba(5,150,105,.12);
+    }
+    .search-box svg { flex-shrink: 0; color: var(--ink-faint); }
+    .search-box input {
+      flex: 1;
+      border: none;
+      background: none;
+      outline: none;
+      font-family: var(--serif-body);
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+    .search-clear {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink-faint);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.2rem 0.3rem;
+      display: none;
+    }
+    .search-clear:hover { color: var(--page-accent); }
+    .lex-count {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      white-space: nowrap;
+    }
+
+    .letter-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin: 1rem 0 0;
+    }
+    .letter-btn {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      min-width: 1.9rem;
+      padding: 0.3rem 0.5rem;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      background: var(--paper);
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: all .12s;
+    }
+    .letter-btn:hover { border-color: var(--page-accent); color: var(--page-accent); }
+    .letter-btn.active {
+      background: var(--page-accent);
+      border-color: var(--page-accent);
+      color: #fff;
+    }
+    .letter-btn.wide { min-width: auto; letter-spacing: 0.08em; }
+
+    /* ── Word grid ───────────────────────────── */
+    .word-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 0.5rem;
+      margin: 0.5rem 0 1rem;
+    }
+    .word-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--page-accent);
+      border-radius: 3px;
+      padding: 0.5rem 0.65rem;
+    }
+    .word-text {
+      flex: 1;
+      font-family: var(--serif-body);
+      font-size: 0.95rem;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .word-tag {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--ink-faint);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 0.05rem 0.25rem;
+      margin-left: 0.35rem;
+      vertical-align: middle;
+    }
+    .word-audio {
+      flex-shrink: 0;
+      width: 1.75rem;
+      height: 1.75rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      background: var(--bg-deep);
+      color: var(--page-accent);
+      font-size: 0.7rem;
+      cursor: pointer;
+      transition: all .12s;
+    }
+    .word-audio:hover { background: var(--page-accent); color: #fff; border-color: var(--page-accent); }
+
+    /* ── Numbers ─────────────────────────────── */
+    .num-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 0.5rem;
+      margin: 0.5rem 0 1rem;
+    }
+    .num-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--page-accent);
+      border-radius: 3px;
+      padding: 0.5rem 0.65rem;
+    }
+    .num-val {
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink-faint);
+      min-width: 1.6rem;
+    }
+    .num-word { flex: 1; font-family: var(--serif-body); font-size: 0.95rem; color: var(--ink); }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--ink-faint);
+      font-family: var(--serif-body);
+      font-style: italic;
+    }
+
+    /* ── Footer ──────────────────────────────── */
+    footer {
+      margin-top: 5rem;
+      border-top: 1px solid var(--rule);
+      padding: 2.5rem 2rem;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    footer .colophon {
+      font-family: var(--serif-body);
+      font-size: 0.88rem;
+      color: var(--ink-faint);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    @media (max-width: 640px) {
+      header.hero { padding: 3rem 1.25rem 2rem; }
+      .word-grid, .num-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════ HERO ════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="breadcrumb">
+      <span class="lesson-num-badge">L</span>
+      Ressources A1–A2 · <span>Lexique</span>
+    </div>
+    <h1 class="title"><em>Lexique</em></h1>
+    <p class="lede">Le vocabulaire essentiel du français, de <strong>A à Z</strong>. Cherchez un mot, écoutez sa prononciation, et construisez vos premières bases.</p>
+    <div class="hero-pills">
+      <span class="pill pill-a1">A1</span>
+      <span class="pill pill-a2">A2</span>
+      <span class="pill pill-cnt" id="pillCount">— mots</span>
+      <span class="pill pill-abc">Alphabétique</span>
+    </div>
+  </header>
+
+  <!-- ════ STICKY NAV ═══════════════════════════════════ -->
+  <nav class="sticky-nav">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-back">← Accueil</a>
+      <span class="nav-brand">Lexique</span>
+      <ul class="nav-links">
+        <li><a href="#recherche">Recherche</a></li>
+        <li><a href="#nombres">Nombres</a></li>
+        <li><a href="#mots">A → Z</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════ MAIN ═════════════════════════════════════════ -->
+  <main>
+
+    <!-- ── Intro en español ──────────────────── -->
+    <div class="intro-es-wrap">
+      <div class="intro-es">
+        <div class="intro-es-label">🇪🇸 Cómo usar este léxico</div>
+        <p class="intro-es-body">Este es tu <strong>diccionario de base</strong> para los niveles A1-A2: unas 500 palabras esenciales ordenadas de la A a la Z, más los números del 1 al 20. Usá el <em>buscador</em> para encontrar cualquier palabra al instante, o tocá una letra para filtrar. Cada palabra trae un botón ▶ para <em>escuchar su pronunciación</em>. Fijate siempre en el artículo (<strong>le</strong>, <strong>la</strong>, <strong>l'</strong>) porque te dice el género — algo que en francés hay que memorizar junto con la palabra.</p>
+      </div>
+    </div>
+
+    <!-- ── Recherche + Nombres + Mots ──────────── -->
+    <section id="recherche" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Recherche</div>
+        <h2 class="section-title">Chercher un mot</h2>
+        <p class="section-sub">Écrivez en français ou filtrez par lettre.</p>
+
+        <div class="lex-controls">
+          <div class="search-row">
+            <div class="search-box">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" id="searchInput" placeholder="p. ej. maison, rouge, manger…" autocomplete="off" spellcheck="false">
+              <button class="search-clear" id="searchClear" title="Effacer">✕ Effacer</button>
+            </div>
+            <span class="lex-count" id="lexCount"></span>
+          </div>
+          <div class="letter-nav" id="letterNav"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mots" class="lesson-section" style="border-top:none;padding-top:0;">
+      <div class="wrap">
+        <div id="resultsArea"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════ FOOTER ═══════════════════════════════════════ -->
+  <footer>
+    <p class="colophon">Ressources A1–A2 · <em>Lexique</em> — vocabulaire essentiel de A à Z. Audio via Web Speech API / Google TTS. Fuente : 0-Lexique.pdf.</p>
+  </footer>
+
+  <div class="audio-status" id="audioStatus"></div>
+
+  <script src="../../shared.js"></script>
+  <script>
+  /* ══════════════════════════════════════════════════════
+     DATOS — inline (sin fetch, funciona con file://)
+     Ortografía francesa con acentos restaurada a mano
+     sobre la extracción OCR de 0-Lexique.pdf.
+  ══════════════════════════════════════════════════════ */
+  const NOMBRES = [
+    ["un",1],["deux",2],["trois",3],["quatre",4],["cinq",5],
+    ["six",6],["sept",7],["huit",8],["neuf",9],["dix",10],
+    ["onze",11],["douze",12],["treize",13],["quatorze",14],["quinze",15],
+    ["seize",16],["dix-sept",17],["dix-huit",18],["dix-neuf",19],["vingt",20]
+  ];
+
+  const LEXIQUE = {
+    "A": ["l'Allemagne (f)","allemand, allemande","l'après-midi (f)","l'arbre (m)","l'arc-en-ciel (m)","l'artiste (m/f)","l'assiette (f)","l'athlétisme (m)","aujourd'hui","l'automne (m)","avant-hier","l'avenue (f)","l'avion (m)","l'ami, l'amie","amoureux, amoureuse","à côté de","l'abricot (m)","acheter","acide","l'acteur, l'actrice"],
+    "B": ["le ballon","le banc","la banque","le basket-ball","les baskets (f)","le bateau","la batterie","beau, belle","le bec","le beurre","la bibliothèque","le billet","le biscuit","blanc, blanche","Blanche-Neige","bleu, bleue","le bœuf","boire","le bois","bon, bonne","le bonbon","le bonnet","le bouton","le bras","brun, brune","le bureau","le bus","la bicyclette","bienvenue","le bijou, les bijoux","le boulanger, la boulangère","la boulangerie","le boulevard","la bouteille"],
+    "C": ["le cadeau","le café","le cahier","le caillou, les cailloux","le canapé","le carnaval","la carotte","le cartable","la carte postale","la carte","la casquette","le cassoulet","le cerf-volant","la chaise","la chambre","le champion, la championne","la chanson","le chanteur, la chanteuse","le chapeau","le chat","le château","chaud, chaude","la chaussette","la chaussure","la chemise","le chèque","le cheval, les chevaux","la cheville","les cheveux (m)","le chien","chinois, chinoise","le chocolat","choisir","le chou, les choux","le ciel","le cinéma","le cœur","le coiffeur, la coiffeuse","le collège","le collégien, la collégienne","colombien, colombienne","combien","commencer","comment","complet, complète","le concours","conduire","la confiture","la console","le conte","continuer","le copain, la copine","le corps","les courses (f)","le cousin, la cousine","la cravate","le crayon de papier","la crème","la crêpe","croire","le croissant","la cuisine","le cuisinier, la cuisinière"],
+    "D": ["dangereux, dangereuse","dans","la danse","le danseur, la danseuse","la date","le déjeuner","demain","après-demain","demander","la dent","le dentiste","dernier, dernière","derrière","le dessert","devant","devoir","dimanche","le dîner","dire","le directeur, la directrice","le disque","le docteur","dormir","le dossier","droit, droite","drôle"],
+    "E": ["effacer","élastique","l'électricien, l'électricienne","l'éléphant (m)","l'enfant (m/f)","envoyer","l'équitation (f)","l'escargot (m)","essayer","l'été (m)","l'étoile (f)","l'évier (m)","les échecs (m)","l'écrivain (m)","écrire","en face de"],
+    "F": ["la faim","falloir (il faut)","la famille","le fantôme","la farine","fatigué, fatiguée","le fauteuil","le facteur, la factrice","finir","la fleur","la flûte","le football","la forêt","le formulaire","fort, forte","fou, folle","le four","frais, fraîche","la fraise","français, française","la fille","le frère","le frigo","la frite","froid, froide","le fromage","le fruit","le fuseau"],
+    "G": ["le garage","le gâteau","gauche","la gaufre","génial, géniale","le genou, les genoux","gentil, gentille","la glace","le glacier","la gomme","le gramme","grand, grande","grandir","la grand-mère","le grand-père","grec, grecque","gros, grosse","grossir","la guitare","la gymnastique"],
+    "H": ["le hibou, les hiboux","habiter","le hamster","le handball","l'heure (f)","heureux, heureuse","hier","l'hiver (m)","l'hôpital (m)","l'horaire (m)","l'horoscope (m)"],
+    "I": ["l'immeuble (m)","l'infirmier, l'infirmière","inscrire","intelligent, intelligente","l'informaticien, l'informaticienne","italien, italienne"],
+    "J": ["jaune","jeter","jeudi","jeune","joli, jolie","jouer","le joujou, les joujoux","le journaliste","la journée","joyeux, joyeuse","le judo","juger","la jupe","jusqu'à","la jambe","le jambon","le Japon","le jardin","le jardinier, la jardinière","le journal"],
+    "K": ["le karaté","le kilogramme","le kilo","le kimono"],
+    "L": ["le lait","lancer","la langue","le lavabo","la leçon","le légume","la lettre","libanais, libanaise","la limonade","le lion, la lionne","le lit","libre","lundi"],
+    "M": ["la main","maintenant","la mairie","la maison","la mamie","le manège","manger","la manière","le maquillage","le marathon","la marche","mardi","la marguerite","marocain, marocaine","les maths (f)","les mathématiques (f)","le matin","le membre","le ménage","mercredi","la mère","le métro","mettre","le meuble","mexicain, mexicaine","mignon, mignonne","le milieu","le modèle","la montagne","le mont","la moto","mou, molle","mourir","le mouton","le musée","le musicien, la musicienne"],
+    "N": ["nager","la naissance","la natation","la nature","neiger (il neige)","nettoyer","le neveu","le nez","la nièce","Noël","noir, noire","nouveau, nouvelle","le nuage","la nuit","le numéro"],
+    "O": ["obéir","l'œil, les yeux","l'œuf (m)","offrir","l'oignon (m)","l'oiseau, les oiseaux","l'olive (f)","l'oncle (m)","l'orage (m)","l'orange (f)","l'ordinateur (m)","l'oreille (f)"],
+    "P": ["la peur","la pharmacie","le pharmacien, la pharmacienne","la photo, la photographie","le, la photographe","le piano","le pied","le pilote","la piscine","la plante","plein, pleine","pleuvoir (il pleut)","le poil","la poire","le poisson","le poivre","la pomme","le pommier","le pompier","la poste","le pot","le pou, les poux","la poubelle","le poulet","la poupée","pourquoi","pouvoir","la prédiction","préférer","prendre","le printemps","le prix","prochain, prochaine","le professeur, la professeure","le pull","le pain","le pantalon","le papier","le paquet","parler","la part","partir","le passeport","la passion","la pâte","payer","le pays","la pêche","penser","le père","le petit-déjeuner","petit, petite"],
+    "Q": ["quand","quoi"],
+    "R": ["raconter","la randonnée","la raquette","réfléchir","regarder","la règle","la reine","remplacer","remplir","le rendez-vous","le repas","répondre","le restaurant","réussir","le réveil","la robe","le robot","le rocher","le roi","les rollers (m)","rouge","la route"],
+    "S": ["se lever","se maquiller","se préparer","se promener","se raser","se réveiller","s'appeler","s'habiller","se brosser les dents","se doucher","se laver","le sac","le sachet","la saison","la salade","salir","la salle à manger","la salle de bain","le salon","samedi","le sanglier","savoir","la semaine","le short","la sieste","la sœur","la soif","le soir","le soleil","solitaire","sortir","la soupe","la souris","le spectacle","le sport","sportif, sportive","le stade","le stage","le stylo","le sucre","le supermarché","la surprise"],
+    "T": ["la table","la table de nuit","le talent","le tango","la tante","le tapis","la tarte","le taxi","le téléphone","téléphoner","la télévision","le tennis","la tente","la tête","le théâtre","le timbre","toc toc","les toilettes (f)","la tortue","tourner","le train","la tranche","travailler","tricoter","la trottinette","le trou","la brousse","le t-shirt","turc, turque"],
+    "V": ["les vacances (f)","la vache","la vaisselle","la valise","la vanille","le vase","le vélo","le vendeur, la vendeuse","vendredi","vert, verte","la veste","les vêtements (m)","la viande","la ville","le violon","vide","vieux, vieille","voir","le voisin, la voisine","la voiture","vouloir","voyager"],
+    "W": ["le week-end"]
+  };
+
+  /* ── Utilidades ───────────────────────────── */
+  // Normaliza para búsqueda (sin acentos, minúsculas)
+  function norm(s) {
+    return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  }
+  // Limpia marcadores de género para el TTS
+  function speakable(word) {
+    return word.replace(/\s*\((?:m|f|m\/f)\)/g, '').trim();
+  }
+  // Extrae marcador de género (m)/(f)/(m/f) para mostrarlo como tag
+  function splitTag(word) {
+    const m = word.match(/\s*\((m|f|m\/f)\)\s*$/);
+    if (m) return { text: word.slice(0, m.index).trim(), tag: m[1] };
+    return { text: word, tag: null };
+  }
+
+  const LETTERS = Object.keys(LEXIQUE);
+  const TOTAL = Object.values(LEXIQUE).reduce((n, a) => n + a.length, 0) + NOMBRES.length;
+
+  document.getElementById('pillCount').textContent = TOTAL + ' mots';
+
+  let activeLetter = 'ALL';
+
+  /* ── Render de una fila de palabra ────────── */
+  function wordRow(word) {
+    const { text, tag } = splitTag(word);
+    const row = document.createElement('div');
+    row.className = 'word-row';
+    const span = document.createElement('span');
+    span.className = 'word-text';
+    span.textContent = text;
+    if (tag) {
+      const t = document.createElement('span');
+      t.className = 'word-tag';
+      t.textContent = tag;
+      span.appendChild(t);
+    }
+    const btn = document.createElement('button');
+    btn.className = 'word-audio';
+    btn.textContent = '▶';
+    btn.title = 'Écouter';
+    btn.addEventListener('click', () => speak(speakable(word), btn));
+    row.appendChild(span);
+    row.appendChild(btn);
+    return row;
+  }
+
+  function letterSection(letter, words) {
+    const frag = document.createDocumentFragment();
+    const h = document.createElement('h2');
+    h.className = 'section-title';
+    h.style.marginTop = '1.5rem';
+    h.textContent = letter;
+    frag.appendChild(h);
+    const grid = document.createElement('div');
+    grid.className = 'word-grid';
+    words.forEach(w => grid.appendChild(wordRow(w)));
+    frag.appendChild(grid);
+    return frag;
+  }
+
+  function renderNumbers(area) {
+    const h = document.createElement('h2');
+    h.className = 'section-title';
+    h.id = 'nombres';
+    h.textContent = 'Nombres · 1–20';
+    area.appendChild(h);
+    const grid = document.createElement('div');
+    grid.className = 'num-grid';
+    NOMBRES.forEach(([fr, n]) => {
+      const row = document.createElement('div');
+      row.className = 'num-row';
+      const v = document.createElement('span');
+      v.className = 'num-val';
+      v.textContent = n;
+      const w = document.createElement('span');
+      w.className = 'num-word';
+      w.textContent = fr;
+      const btn = document.createElement('button');
+      btn.className = 'word-audio';
+      btn.textContent = '▶';
+      btn.title = 'Écouter';
+      btn.addEventListener('click', () => speak(fr, btn));
+      row.appendChild(v);
+      row.appendChild(w);
+      row.appendChild(btn);
+      grid.appendChild(row);
+    });
+    area.appendChild(grid);
+  }
+
+  /* ── Render principal ─────────────────────── */
+  function render() {
+    const area = document.getElementById('resultsArea');
+    const q = norm(document.getElementById('searchInput').value.trim());
+    area.innerHTML = '';
+
+    // Modo búsqueda: ignora el filtro de letra
+    if (q) {
+      const matches = [];
+      NOMBRES.forEach(([fr]) => { if (norm(fr).includes(q)) matches.push(fr); });
+      LETTERS.forEach(L => LEXIQUE[L].forEach(w => { if (norm(w).includes(q)) matches.push(w); }));
+      document.getElementById('lexCount').textContent = matches.length + ' résultat' + (matches.length === 1 ? '' : 's');
+      if (!matches.length) {
+        area.innerHTML = '<div class="empty-state">Aucun mot ne correspond à « ' + document.getElementById('searchInput').value.trim() + ' ».</div>';
+        return;
+      }
+      const grid = document.createElement('div');
+      grid.className = 'word-grid';
+      matches.forEach(w => grid.appendChild(wordRow(w)));
+      area.appendChild(grid);
+      return;
+    }
+
+    // Modo navegación
+    if (activeLetter === 'NUM') {
+      renderNumbers(area);
+    } else if (activeLetter === 'ALL') {
+      renderNumbers(area);
+      LETTERS.forEach(L => area.appendChild(letterSection(L, LEXIQUE[L])));
+    } else {
+      area.appendChild(letterSection(activeLetter, LEXIQUE[activeLetter]));
+    }
+    document.getElementById('lexCount').textContent = TOTAL + ' mots au total';
+  }
+
+  /* ── Navegación por letras ────────────────── */
+  function buildLetterNav() {
+    const nav = document.getElementById('letterNav');
+    const mk = (label, key, wide) => {
+      const b = document.createElement('button');
+      b.className = 'letter-btn' + (wide ? ' wide' : '') + (key === activeLetter ? ' active' : '');
+      b.textContent = label;
+      b.addEventListener('click', () => {
+        activeLetter = key;
+        document.getElementById('searchInput').value = '';
+        document.getElementById('searchClear').style.display = 'none';
+        document.querySelectorAll('.letter-btn').forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        render();
+      });
+      return b;
+    };
+    nav.appendChild(mk('Tout', 'ALL', true));
+    nav.appendChild(mk('123', 'NUM', true));
+    LETTERS.forEach(L => nav.appendChild(mk(L, L, false)));
+  }
+
+  /* ── Búsqueda ─────────────────────────────── */
+  const input = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('searchClear');
+  input.addEventListener('input', () => {
+    clearBtn.style.display = input.value ? 'block' : 'none';
+    if (input.value) {
+      document.querySelectorAll('.letter-btn').forEach(x => x.classList.remove('active'));
+    }
+    render();
+  });
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    clearBtn.style.display = 'none';
+    activeLetter = 'ALL';
+    buildLetterNav();
+    render();
+  });
+
+  /* ── Init ─────────────────────────────────── */
+  buildLetterNav();
+  render();
+  </script>
+</body>
+</html>

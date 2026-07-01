@@ -14,6 +14,7 @@ desktop.ini
 .gstack/
 .claude/
 
-# Sensitive / large assets
+# Source files & large assets (never commit)
 credentials.txt
-lessons/
+sources/
+.claude_session

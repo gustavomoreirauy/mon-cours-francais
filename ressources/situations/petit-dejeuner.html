@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Situation : le petit déjeuner. Vocabulaire des aliments, formules de politesse et façons de demander et proposer — contexte familier et formel. FR-ES, A1-A2.">
+  <title>Petit déjeuner · Situations A1-A2 | Français</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../shared.css">
+  <style>
+    :root { --page-accent: var(--secondary); }
+
+    body {
+      background-image:
+        radial-gradient(circle at 15% 8%,  rgba(234,88,12,.06)  0%, transparent 45%),
+        radial-gradient(circle at 85% 65%, rgba(202,138,4,.05)  0%, transparent 45%),
+        radial-gradient(circle at 50% 100%,rgba(5,150,105,.04)  0%, transparent 45%);
+    }
+
+    /* ── Layout ──────────────────────────────── */
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── Hero ────────────────────────────────── */
+    header.hero {
+      padding: 4.5rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .breadcrumb span { color: var(--page-accent); font-weight: 700; }
+    .lesson-num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--page-accent);
+      color: #fff;
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    h1.title {
+      font-family: var(--serif-display);
+      font-weight: 800;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.1rem;
+      font-variation-settings: "opsz" 144;
+    }
+    h1.title em { font-style: normal; color: var(--page-accent); }
+
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
+    .pill {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.55rem;
+      border-radius: 2px;
+      border: 1.5px solid;
+    }
+    .pill-a1   { border-color: var(--secondary); color: var(--secondary); }
+    .pill-sit  { border-color: var(--primary);   color: var(--primary); }
+    .pill-voc  { border-color: var(--tertiary);  color: var(--tertiary); }
+    .pill-pol  { border-color: var(--gold);      color: var(--gold); }
+
+    /* ── Sticky Nav ──────────────────────────── */
+    nav.sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250,246,236,.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .nav-back {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink-faint);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--page-accent); }
+    .nav-brand {
+      font-family: var(--serif-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      font-variation-settings: "opsz" 36;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      list-style: none;
+      flex: 1;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links li a {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ink-faint);
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: all .15s;
+    }
+    .nav-links li a:hover { color: var(--page-accent); background: rgba(234,88,12,.1); }
+
+    /* ── Intro ES ────────────────────────────── */
+    .intro-es-wrap { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 0; }
+    .intro-es {
+      background: var(--bg-deep);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--ink-faint);
+      border-radius: 3px;
+      padding: 0.9rem 1.1rem;
+    }
+    .intro-es-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.4rem;
+    }
+    .intro-es-body {
+      font-family: var(--serif-body);
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .intro-es-body strong { color: var(--ink); font-weight: 600; }
+    .intro-es-body em { color: var(--page-accent); font-style: italic; }
+
+    /* ── Section headings ────────────────────── */
+    .section-kicker {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--page-accent);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-kicker::before { content: ""; width: 28px; height: 2px; background: var(--page-accent); }
+    h2.section-title {
+      font-family: var(--serif-display);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      font-variation-settings: "opsz" 36;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      font-family: var(--serif-body);
+      font-size: 0.9rem;
+      color: var(--ink-faint);
+      margin-bottom: 1.25rem;
+    }
+    .lesson-section { padding: 3rem 0 1rem; border-top: 1px solid var(--rule-soft); }
+
+    /* ── Food grid ───────────────────────────── */
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.5rem;
+    }
+    .food-card {
+      position: relative;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-top: 3px solid var(--page-accent);
+      border-radius: 3px;
+      padding: 0.7rem 0.8rem;
+    }
+    .food-fr {
+      font-family: var(--serif-display);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--ink);
+      font-variation-settings: "opsz" 36;
+      line-height: 1.2;
+    }
+    .food-es {
+      font-family: var(--serif-body);
+      font-size: 0.82rem;
+      color: var(--ink-faint);
+      font-style: italic;
+      margin-top: 0.15rem;
+    }
+    .food-audio {
+      position: absolute;
+      top: 0.55rem;
+      right: 0.55rem;
+      width: 1.6rem;
+      height: 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      background: var(--bg-deep);
+      color: var(--page-accent);
+      font-size: 0.62rem;
+      cursor: pointer;
+      transition: all .12s;
+    }
+    .food-audio:hover { background: var(--page-accent); color: #fff; border-color: var(--page-accent); }
+
+    /* ── Context panels (familier / formel) ──── */
+    .ctx-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 680px) { .ctx-grid { grid-template-columns: 1fr; } }
+    .ctx-panel {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .ctx-head {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 0.5rem 0.85rem;
+    }
+    .ctx-head small { display:block; font-size:0.58rem; letter-spacing:0.06em; opacity:.9; text-transform:none; margin-top:1px; }
+    .ctx-familier .ctx-head { background: var(--tertiary); }
+    .ctx-formel   .ctx-head { background: var(--primary); }
+    .phrase-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.85rem;
+      border-top: 1px solid var(--rule-soft);
+    }
+    .phrase-row:first-of-type { border-top: none; }
+    .phrase-text { flex: 1; min-width: 0; }
+    .phrase-fr { font-family: var(--serif-body); font-size: 0.92rem; color: var(--ink); line-height: 1.3; }
+    .phrase-es { font-family: var(--serif-body); font-size: 0.8rem; color: var(--ink-faint); font-style: italic; }
+    .phrase-audio {
+      flex-shrink: 0;
+      width: 1.6rem;
+      height: 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      background: var(--bg-deep);
+      color: var(--page-accent);
+      font-size: 0.62rem;
+      cursor: pointer;
+      transition: all .12s;
+    }
+    .phrase-audio:hover { background: var(--page-accent); color: #fff; border-color: var(--page-accent); }
+
+    /* ── Footer ──────────────────────────────── */
+    footer {
+      margin-top: 5rem;
+      border-top: 1px solid var(--rule);
+      padding: 2.5rem 2rem;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    footer .colophon {
+      font-family: var(--serif-body);
+      font-size: 0.88rem;
+      color: var(--ink-faint);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    @media (max-width: 640px) {
+      header.hero { padding: 3rem 1.25rem 2rem; }
+      .food-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════ HERO ════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="breadcrumb">
+      <span class="lesson-num-badge">🥐</span>
+      Situations A1–A2 · <span>Le petit déjeuner</span>
+    </div>
+    <h1 class="title">Le <em>petit déjeuner</em></h1>
+    <p class="lede">Une situation du quotidien : partager le petit déjeuner. Le <strong>vocabulaire</strong> des aliments, les <strong>formules de politesse</strong>, et comment demander et proposer — en registre familier et formel.</p>
+    <div class="hero-pills">
+      <span class="pill pill-a1">A1</span>
+      <span class="pill pill-sit">Situation</span>
+      <span class="pill pill-voc">Vocabulaire</span>
+      <span class="pill pill-pol">Politesse</span>
+    </div>
+  </header>
+
+  <!-- ════ STICKY NAV ═══════════════════════════════════ -->
+  <nav class="sticky-nav">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-back">← Accueil</a>
+      <span class="nav-brand">P'tit déj</span>
+      <ul class="nav-links">
+        <li><a href="#aliments">Aliments</a></li>
+        <li><a href="#politesse">Politesse</a></li>
+        <li><a href="#demander">Demander</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════ MAIN ═════════════════════════════════════════ -->
+  <main>
+
+    <!-- ── Intro en español ──────────────────── -->
+    <div class="intro-es-wrap">
+      <div class="intro-es">
+        <div class="intro-es-label">🇪🇸 De qué trata esta situación</div>
+        <p class="intro-es-body">El desayuno compartido es una de las primeras <strong>situaciones reales</strong> donde vas a usar el francés. Acá tenés tres bloques: el <em>vocabulario</em> de los alimentos (con su traducción), las <em>fórmulas de cortesía</em>, y cómo <em>pedir y ofrecer</em>. Fijate en la diferencia entre el registro <strong>familier</strong> (en casa, con confianza — se usa <em>tu</em>) y el <strong>formel</strong> (con un adulto o un invitado — se usa <em>vous</em>). Tocá ▶ en cualquier frase para escucharla.</p>
+      </div>
+    </div>
+
+    <!-- ── Aliments ────────────────────────────── -->
+    <section id="aliments" class="lesson-section" style="border-top:none;">
+      <div class="wrap">
+        <div class="section-kicker">Vocabulaire</div>
+        <h2 class="section-title">Les aliments du petit déjeuner</h2>
+        <p class="section-sub">24 mots essentiels. Français et espagnol, avec audio.</p>
+        <div class="food-grid" id="foodGrid"></div>
+      </div>
+    </section>
+
+    <!-- ── Politesse ───────────────────────────── -->
+    <section id="politesse" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Politesse</div>
+        <h2 class="section-title">Les formules de politesse</h2>
+        <p class="section-sub">Les mêmes intentions, deux registres selon à qui vous parlez.</p>
+        <div class="ctx-grid" id="politesseGrid"></div>
+      </div>
+    </section>
+
+    <!-- ── Demander et proposer ────────────────── -->
+    <section id="demander" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Interaction</div>
+        <h2 class="section-title">Demander et proposer</h2>
+        <p class="section-sub">Offrir, accepter, refuser et demander à table.</p>
+        <div class="ctx-grid" id="demanderGrid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════ FOOTER ═══════════════════════════════════════ -->
+  <footer>
+    <p class="colophon">Situations A1–A2 · <em>Le petit déjeuner</em>. Audio via Web Speech API / Google TTS. Fuente : petit déjeuner.pptx.</p>
+  </footer>
+
+  <div class="audio-status" id="audioStatus"></div>
+
+  <script src="../../shared.js"></script>
+  <script>
+  /* ══════════════════════════════════════════════════════
+     DATOS — inline (sin fetch, funciona con file://)
+     Fuente: petit déjeuner.pptx (3 diapositivas).
+  ══════════════════════════════════════════════════════ */
+  const ALIMENTS = [
+    ["le café", "el café"],
+    ["le café au lait", "el café con leche"],
+    ["le thé", "el té"],
+    ["le chocolat chaud", "el chocolate caliente"],
+    ["le lait", "la leche"],
+    ["le jus d'orange", "el jugo de naranja"],
+    ["le pain", "el pan"],
+    ["le croissant", "la medialuna"],
+    ["le beurre", "la manteca"],
+    ["la confiture", "la mermelada"],
+    ["le miel", "la miel"],
+    ["les céréales", "los cereales"],
+    ["le yaourt", "el yogur"],
+    ["la pomme", "la manzana"],
+    ["la banane", "la banana"],
+    ["l'œuf", "el huevo"],
+    ["le jambon", "el jamón"],
+    ["le fromage", "el queso"],
+    ["la tartine", "la tostada"],
+    ["les biscuits", "las galletitas"],
+    ["l'eau", "el agua"],
+    ["le jus de pomme", "el jugo de manzana"],
+    ["le fruit", "la fruta"],
+    ["la baguette", "la baguette / el pan francés"]
+  ];
+
+  const POLITESSE = {
+    familier: [
+      ["Bonjour !", "¡Hola!"],
+      ["Salut !", "¡Hola!"],
+      ["Bon appétit !", "¡Buen provecho!"],
+      ["S'il te plaît", "Por favor"],
+      ["Merci", "Gracias"],
+      ["De rien", "De nada"],
+      ["Excuse-moi", "Perdón"],
+      ["Bonne journée !", "¡Que tengas un lindo día!"]
+    ],
+    formel: [
+      ["Bonjour Madame", "Buenos días, señora"],
+      ["Bonjour Monsieur", "Buenos días, señor"],
+      ["Comment allez-vous ?", "¿Cómo está usted?"],
+      ["S'il vous plaît", "Por favor"],
+      ["Merci beaucoup", "Muchas gracias"],
+      ["Je vous en prie", "De nada / Con gusto"],
+      ["Excusez-moi", "Disculpe"],
+      ["Bonne journée", "Que tenga un buen día"],
+      ["Au revoir", "Hasta luego"]
+    ]
+  };
+
+  const DEMANDER = {
+    familier: [
+      ["Tu veux du café ?", "¿Querés café?"],
+      ["Oui, s'il te plaît.", "Sí, por favor."],
+      ["Non, merci.", "No, gracias."],
+      ["Passe-moi le pain, s'il te plaît.", "Pasame el pan, por favor."],
+      ["Tu veux une tartine ?", "¿Querés una tostada?"],
+      ["J'ai faim.", "Tengo hambre."],
+      ["J'ai soif.", "Tengo sed."]
+    ],
+    formel: [
+      ["Voulez-vous du café ?", "¿Quiere café?"],
+      ["Oui, volontiers.", "Sí, con gusto."],
+      ["Non, merci beaucoup.", "No, muchas gracias."],
+      ["Pourriez-vous me passer le pain, s'il vous plaît ?", "¿Podría pasarme el pan, por favor?"],
+      ["Désirez-vous une tartine ?", "¿Desea una tostada?"],
+      ["Avez-vous faim ?", "¿Tiene hambre?"],
+      ["Avez-vous soif ?", "¿Tiene sed?"]
+    ]
+  };
+
+  /* ── Render aliments ──────────────────────── */
+  function renderFoods() {
+    const grid = document.getElementById('foodGrid');
+    ALIMENTS.forEach(([fr, es]) => {
+      const card = document.createElement('div');
+      card.className = 'food-card';
+      const f = document.createElement('div');
+      f.className = 'food-fr';
+      f.textContent = fr;
+      const e = document.createElement('div');
+      e.className = 'food-es';
+      e.textContent = es;
+      const btn = document.createElement('button');
+      btn.className = 'food-audio';
+      btn.textContent = '▶';
+      btn.title = 'Écouter';
+      btn.addEventListener('click', () => speak(fr, btn));
+      card.appendChild(btn);
+      card.appendChild(f);
+      card.appendChild(e);
+      grid.appendChild(card);
+    });
+  }
+
+  /* ── Render context panels ────────────────── */
+  function phraseRow(fr, es) {
+    const row = document.createElement('div');
+    row.className = 'phrase-row';
+    const txt = document.createElement('div');
+    txt.className = 'phrase-text';
+    const f = document.createElement('div');
+    f.className = 'phrase-fr';
+    f.textContent = fr;
+    const e = document.createElement('div');
+    e.className = 'phrase-es';
+    e.textContent = es;
+    txt.appendChild(f);
+    txt.appendChild(e);
+    const btn = document.createElement('button');
+    btn.className = 'phrase-audio';
+    btn.textContent = '▶';
+    btn.title = 'Écouter';
+    btn.addEventListener('click', () => speak(fr, btn));
+    row.appendChild(txt);
+    row.appendChild(btn);
+    return row;
+  }
+
+  function renderContext(targetId, data, familierSub, formelSub) {
+    const grid = document.getElementById(targetId);
+    const panels = [
+      { key: 'familier', cls: 'ctx-familier', label: 'Familier', sub: familierSub },
+      { key: 'formel',   cls: 'ctx-formel',   label: 'Formel',   sub: formelSub }
+    ];
+    panels.forEach(p => {
+      const panel = document.createElement('div');
+      panel.className = 'ctx-panel ' + p.cls;
+      const head = document.createElement('div');
+      head.className = 'ctx-head';
+      head.innerHTML = p.label + '<small>' + p.sub + '</small>';
+      panel.appendChild(head);
+      data[p.key].forEach(([fr, es]) => panel.appendChild(phraseRow(fr, es)));
+      grid.appendChild(panel);
+    });
+  }
+
+  /* ── Init ─────────────────────────────────── */
+  renderFoods();
+  renderContext('politesseGrid', POLITESSE, 'à la maison (tu)', 'avec un adulte, un invité (vous)');
+  renderContext('demanderGrid', DEMANDER, 'à la maison (tu)', 'avec un adulte, un invité (vous)');
+  </script>
+</body>
+</html>
