@@ -688,14 +688,14 @@
     ex1: {
       gridId: 'ex1-grid', scoreId: 'ex1-score',
       left:  ['Je', 'Tu', 'Il / Elle', 'Nous', 'Vous', 'Ils / Elles'],
-      right: ['Me (objet)', 'Nous (sujet)', 'Lui (objet)', 'Vous (sujet)', 'Te (objet)', 'Leurs (objet)'],
+      right: ['Me (objet)', 'Nous (objet)', 'Lui (objet)', 'Vous (objet)', 'Te (objet)', 'Leur (objet)'],
       correct: {
         'Je'         : 'Me (objet)',
         'Tu'         : 'Te (objet)',
         'Il / Elle'  : 'Lui (objet)',
-        'Nous'       : 'Nous (sujet)',
-        'Vous'       : 'Vous (sujet)',
-        'Ils / Elles': 'Leurs (objet)'
+        'Nous'       : 'Nous (objet)',
+        'Vous'       : 'Vous (objet)',
+        'Ils / Elles': 'Leur (objet)'
       }
     }
   };
@@ -786,32 +786,32 @@
     items: [
       { ltr:'a', pre:'', suf:'suis français.',       ans:'je' },
       { ltr:'b', pre:'', suf:'es anglaise.',         ans:'tu' },
-      { ltr:'c', pre:'', suf:'est professeur.',      ans:'il' },
+      { ltr:'c', pre:'', suf:'est professeur.',      ans:['il','elle'] },
       { ltr:'d', pre:'', suf:'sommes malades.',      ans:'nous' },
       { ltr:'e', pre:'', suf:'êtes à l\'école.',     ans:'vous' },
-      { ltr:'f', pre:'', suf:'ont peur.',            ans:'elles' },
+      { ltr:'f', pre:'', suf:'ont peur.',            ans:['ils','elles'] },
     ]
   };
 
   const ex4Data = {
     bodyId: 'ex4-body', scoreId: 'ex4-score',
     items: [
-      { ltr:'a', pre:'Je', suf:'vois au cinéma.',           ans:'la' },
-      { ltr:'b', pre:'Il', suf:'aime beaucoup.',            ans:'les' },
-      { ltr:'c', pre:'Nous', suf:'connaissons bien.',       ans:'le' },
-      { ltr:'d', pre:'Elle', suf:'regarde.',                ans:'me' },
-      { ltr:'e', pre:'Vous', suf:'cherchez?',               ans:'nous' },
+      { ltr:'a', pre:'Je', suf:'vois au cinéma. <em>(Marie)</em>',        ans:'la' },
+      { ltr:'b', pre:'Il', suf:'aime beaucoup. <em>(ses amis)</em>',      ans:'les' },
+      { ltr:'c', pre:'Nous', suf:'connaissons bien. <em>(Paul)</em>',     ans:'le' },
+      { ltr:'d', pre:'Elle', suf:'regarde. <em>(moi)</em>',               ans:'me' },
+      { ltr:'e', pre:'Vous', suf:'cherchez? <em>(nous)</em>',             ans:'nous' },
     ]
   };
 
   const ex5Data = {
     bodyId: 'ex5-body', scoreId: 'ex5-score',
     items: [
-      { ltr:'a', pre:'Je', suf:'écris une lettre.',         ans:'lui' },
-      { ltr:'b', pre:'Tu', suf:'parles?',                   ans:'leur' },
-      { ltr:'c', pre:'Nous', suf:'téléphonons chaque jour.',ans:'lui' },
-      { ltr:'d', pre:'Elles', suf:'disent la vérité.',      ans:'me' },
-      { ltr:'e', pre:'Vous', suf:'donnez des cadeaux?',     ans:'leur' },
+      { ltr:'a', pre:'Je', suf:'écris une lettre. <em>(à Paul)</em>',             ans:'lui' },
+      { ltr:'b', pre:'Tu', suf:'parles? <em>(à tes parents)</em>',                ans:'leur' },
+      { ltr:'c', pre:'Nous', suf:'téléphonons chaque jour. <em>(à notre mère)</em>', ans:'lui' },
+      { ltr:'d', pre:'Elles', suf:'disent la vérité. <em>(à moi)</em>',           ans:'me' },
+      { ltr:'e', pre:'Vous', suf:'donnez des cadeaux? <em>(à vos amis)</em>',     ans:'leur' },
     ]
   };
 
@@ -822,18 +822,18 @@
       { ltr:'b', pre:'Tu', suf:'appelles Marie.',       ans:'t\'' },
       { ltr:'c', pre:'Elle', suf:'lève tous les jours.', ans:'se' },
       { ltr:'d', pre:'Nous', suf:'parlons souvent.',   ans:'nous' },
-      { ltr:'e', pre:'Elles', suf:'amusent!',          ans:'se' },
+      { ltr:'e', pre:'Elles', suf:'amusent!',          ans:'s\'' },
     ]
   };
 
   const ex7Data = {
     bodyId: 'ex7-body', scoreId: 'ex7-score',
     items: [
-      { ltr:'a', pre:'C\'est', suf:'!',                ans:'moi' },
-      { ltr:'b', pre:'Avec', suf:', c\'est sympa.',     ans:'toi' },
-      { ltr:'c', pre:'', suf:'et moi, on sort.',        ans:'lui' },
-      { ltr:'d', pre:'Pour', suf:', c\'est important.', ans:'nous' },
-      { ltr:'e', pre:'', suf:'et elles vont au cinéma.', ans:'eux' },
+      { ltr:'a', pre:'C\'est', suf:'! <em>(je)</em>',                 ans:'moi' },
+      { ltr:'b', pre:'Avec', suf:', c\'est sympa. <em>(tu)</em>',     ans:'toi' },
+      { ltr:'c', pre:'', suf:'et moi, on sort. <em>(il)</em>',        ans:'lui' },
+      { ltr:'d', pre:'Pour', suf:', c\'est important. <em>(nous)</em>', ans:'nous' },
+      { ltr:'e', pre:'', suf:'et elles vont au cinéma. <em>(ils)</em>', ans:'eux' },
     ]
   };
 
@@ -841,10 +841,10 @@
     bodyId: 'ex10-body', scoreId: 'ex10-score',
     items: [
       { ltr:'a', pre:'—Vous', suf:'connaissez?', ans:'me' },
-      { ltr:'b', pre:'—Oui, je', suf:'connais depuis longtemps.', ans:'te' },
+      { ltr:'b', pre:'—Oui, je', suf:'connais depuis longtemps.', ans:['te','vous'] },
       { ltr:'c', pre:'—Vous', suf:'appelez comment?', ans:'vous' },
       { ltr:'d', pre:'—Nous', suf:'appelons Sophie et Marc.', ans:'nous' },
-      { ltr:'e', pre:'—Il', suf:'parle souvent de vous!', ans:'vous' },
+      { ltr:'e', pre:'—Il', suf:'parle souvent de vous!', ans:'nous' },
     ]
   };
 
@@ -869,7 +869,8 @@
       if (!inp) return;
       const val = inp.value.trim().toLowerCase();
       inp.classList.remove('ok','err');
-      if (val === item.ans || val === item.ans.replace(/'/g, '')) {
+      const answers = Array.isArray(item.ans) ? item.ans : [item.ans];
+      if (answers.some(a => val === a || val === a.replace(/'/g, ''))) {
         inp.classList.add('ok');
         correct++;
       } else {
