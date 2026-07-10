@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Les articles indéfinis un, une, des : masculin/féminin, singulier/pluriel, « il y a » et la négation (de/d'). Vocabulaire du matériel scolaire et 5 exercices interactifs. A1-A2.">
+  <title>Un, une, des · Grammaire A1-A2 | Français</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared.css">
+  <style>
+    :root { --page-accent: var(--gold); }
+
+    body {
+      background-image:
+        radial-gradient(circle at 15% 8%,  rgba(202,138,4,.06) 0%, transparent 45%),
+        radial-gradient(circle at 85% 65%, rgba(5,150,105,.05) 0%, transparent 45%),
+        radial-gradient(circle at 50% 100%,rgba(234,88,12,.04) 0%, transparent 45%);
+    }
+
+    /* ── Layout ──────────────────────────────── */
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── Hero ────────────────────────────────── */
+    header.hero {
+      padding: 4.5rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .breadcrumb span { color: var(--page-accent); font-weight: 700; }
+    .lesson-num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--page-accent);
+      color: #fff;
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    h1.title {
+      font-family: var(--serif-display);
+      font-weight: 800;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.1rem;
+      font-variation-settings: "opsz" 144;
+    }
+    h1.title em { font-style: normal; color: var(--page-accent); }
+
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
+    .pill {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.55rem;
+      border-radius: 2px;
+      border: 1.5px solid;
+    }
+    .pill-level { border-color: var(--gold); color: var(--gold); }
+    .pill-mf    { border-color: var(--primary); color: var(--primary); }
+    .pill-nb    { border-color: var(--tertiary); color: var(--tertiary); }
+    .pill-neg   { border-color: var(--secondary); color: var(--secondary); }
+
+    /* ── Sticky Nav ──────────────────────────── */
+    nav.sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250,246,236,.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .nav-back {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink-faint);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--page-accent); }
+    .nav-brand {
+      font-family: var(--serif-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      font-variation-settings: "opsz" 36;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      list-style: none;
+      flex: 1;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links li a {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ink-faint);
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: all .15s;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active { color: var(--page-accent); background: rgba(202,138,4,.1); }
+
+    /* ── Intro ES ────────────────────────────── */
+    .intro-es-wrap { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 0; }
+    .intro-es {
+      background: var(--bg-deep);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--ink-faint);
+      border-radius: 3px;
+      padding: 0.9rem 1.1rem;
+    }
+    .intro-es-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.4rem;
+    }
+    .intro-es-body {
+      font-family: var(--serif-body);
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .intro-es-body strong { color: var(--ink); font-weight: 600; }
+    .intro-es-body em { color: var(--page-accent); font-style: italic; }
+
+    /* ── Section headings ────────────────────── */
+    .section-kicker {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--page-accent);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-kicker::before { content: ""; width: 28px; height: 2px; background: var(--page-accent); }
+    h2.section-title {
+      font-family: var(--serif-display);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      font-variation-settings: "opsz" 36;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      font-family: var(--serif-body);
+      font-size: 0.9rem;
+      color: var(--ink-faint);
+      margin-bottom: 1.25rem;
+    }
+    .lesson-section { padding: 3rem 0 1rem; border-top: 1px solid var(--rule-soft); }
+    .lesson-section:first-child { border-top: none; }
+
+    /* ── Article table ───────────────────────── */
+    .art-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.5rem 0 1.25rem;
+      font-family: var(--serif-body);
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .art-table th, .art-table td {
+      padding: 0.7rem 0.9rem;
+      text-align: left;
+      border: 1px solid var(--rule-soft);
+      font-size: 0.98rem;
+    }
+    .art-table thead th {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      background: var(--bg-deep);
+    }
+    .art-table tbody th {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      background: var(--bg-deep);
+    }
+    .art-table td b { color: var(--page-accent); }
+
+    /* ── Rule box ────────────────────────────── */
+    .rule-box {
+      background: rgba(202,138,4,.06);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--page-accent);
+      border-radius: 3px;
+      padding: 0.9rem 1.1rem;
+      margin: 1rem 0;
+      font-family: var(--serif-body);
+      font-size: 0.96rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+    .rule-box b { color: var(--ink); }
+    .rule-box em { color: var(--page-accent); font-style: italic; font-weight: 600; }
+    .rule-box .rb-ex { display: block; margin-top: 0.3rem; }
+    .rule-box del { color: var(--ink-faint); }
+
+    .attn-box {
+      background: rgba(234,88,12,.06);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--secondary);
+      border-radius: 3px;
+      padding: 0.85rem 1.1rem;
+      margin: 1rem 0;
+      font-family: var(--serif-body);
+      font-size: 0.94rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+    .attn-box .attn-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 0.35rem;
+    }
+    .attn-box b { color: var(--ink); }
+
+    /* ── Example phrases (with audio) ────────── */
+    .ex-phrase {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--page-accent);
+      border-radius: 3px;
+      padding: 0.5rem 0.7rem;
+      margin: 0.4rem 0;
+    }
+    .ex-phrase .exp-text { flex: 1; font-family: var(--serif-body); font-size: 0.96rem; color: var(--ink); }
+    .ex-phrase .exp-text b { color: var(--page-accent); }
+    .mini-audio {
+      flex-shrink: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      background: var(--bg-deep);
+      color: var(--page-accent);
+      font-size: 0.66rem;
+      cursor: pointer;
+      transition: all .12s;
+    }
+    .mini-audio:hover { background: var(--page-accent); color: #fff; border-color: var(--page-accent); }
+
+    /* ── Vocabulary grid ─────────────────────── */
+    .voc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.5rem;
+    }
+    .voc-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--page-accent);
+      border-radius: 3px;
+      padding: 0.5rem 0.65rem;
+    }
+    .voc-text { flex: 1; font-family: var(--serif-body); font-size: 0.96rem; color: var(--ink); }
+
+    /* ── Exercises ───────────────────────────── */
+    .ex-card { background: var(--paper); border: 1px solid var(--rule); border-radius: 5px; margin: 1.25rem 0; overflow: hidden; }
+    .ex-head { display: flex; align-items: center; gap: 0.9rem; padding: 0.85rem 1.1rem; background: var(--bg-deep); border-bottom: 1px solid var(--rule); }
+    .ex-num { font-family: var(--serif-display); font-size: 1.8rem; font-weight: 800; line-height: 1; color: var(--page-accent); font-variation-settings: "opsz" 9; min-width: 2rem; }
+    .ex-meta { display: flex; flex-direction: column; gap: 0.1rem; }
+    .ex-stars { font-size: 0.72rem; color: var(--gold); letter-spacing: .05em; }
+    .ex-title { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--ink); }
+    .ex-instr { font-family: var(--serif-body); font-size: 0.88rem; color: var(--ink-faint); font-style: italic; margin-left: auto; }
+    @media (max-width: 500px) { .ex-instr { display: none; } }
+    .ex-body { padding: 1.1rem 1.25rem; }
+    .ex-foot { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 1.25rem; border-top: 1px solid var(--rule-soft); background: var(--bg); }
+
+    .btn-check { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 0.42rem 0.95rem; border: none; border-radius: 3px; background: var(--page-accent); color: #fff; cursor: pointer; transition: all .2s; }
+    .btn-check:hover { filter: brightness(.88); }
+    .btn-reset { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 0.42rem 0.8rem; border: 1.5px solid var(--rule); border-radius: 3px; background: transparent; color: var(--ink-faint); cursor: pointer; transition: all .2s; }
+    .btn-reset:hover { border-color: var(--ink-soft); color: var(--ink-soft); }
+    .score-chip { font-family: var(--mono); font-size: 0.74rem; font-weight: 700; padding: 0.18rem 0.55rem; border-radius: 2px; background: var(--bg-deep); color: var(--ink-faint); margin-left: auto; min-width: 2.5rem; text-align: center; transition: all .3s; }
+    .score-chip.good { background: rgba(5,150,105,.14); color: var(--tertiary); }
+    .score-chip.bad  { background: rgba(234,88,12,.13);  color: var(--secondary); }
+
+    .fi-item { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0; font-family: var(--serif-body); font-size: 0.97rem; color: var(--ink); line-height: 1.6; }
+    .fi-letter { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; color: var(--ink-faint); min-width: 1.1rem; }
+    .fi-input { border: none; border-bottom: 2px solid var(--rule); background: transparent; font-family: var(--serif-body); font-size: 0.97rem; color: var(--ink); padding: 0.05rem 0.25rem; min-width: 4.5rem; outline: none; transition: border-color .2s; text-align: center; }
+    .fi-input:focus { border-bottom-color: var(--page-accent); }
+    .fi-input.ok    { border-bottom-color: var(--tertiary); color: var(--tertiary); }
+    .fi-input.err   { border-bottom-color: var(--secondary); color: var(--secondary); }
+
+    .mc-item { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin: 0.7rem 0; font-family: var(--serif-body); font-size: 0.97rem; }
+    .mc-prefix { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; color: var(--ink-faint); min-width: 1.1rem; }
+    .mc-text { color: var(--ink-soft); }
+    .mc-opts { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .mc-btn { font-family: var(--serif-body); font-size: 0.93rem; font-weight: 600; font-style: italic; padding: 0.25rem 0.7rem; border: 2px solid var(--rule); border-radius: 3px; background: var(--bg-deep); color: var(--ink); cursor: pointer; transition: all .15s; }
+    .mc-btn:hover { border-color: var(--page-accent); background: var(--paper); }
+    .mc-btn.selected { border-color: var(--page-accent); background: rgba(202,138,4,.1); }
+    .mc-btn.ok       { border-color: var(--tertiary); background: rgba(5,150,105,.1); color: var(--tertiary); cursor: default; }
+    .mc-btn.err      { border-color: var(--secondary); background: rgba(234,88,12,.1); color: var(--secondary); text-decoration: line-through; cursor: default; }
+    .mc-btn:disabled { cursor: default; }
+
+    /* ── Phonétique ──────────────────────────── */
+    .pho-box {
+      background: var(--bg-deep);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1rem 1.15rem;
+    }
+    .pho-tip { font-family: var(--serif-body); font-size: 0.94rem; color: var(--ink-soft); line-height: 1.65; margin-bottom: 0.85rem; }
+    .pho-syls { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .pho-syl {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      transition: all .12s;
+    }
+    .pho-syl:hover { border-color: var(--page-accent); color: var(--page-accent); background: rgba(202,138,4,.06); }
+
+    /* ── Footer ──────────────────────────────── */
+    footer { margin-top: 5rem; border-top: 1px solid var(--rule); padding: 2.5rem 2rem; max-width: 860px; margin-left: auto; margin-right: auto; }
+    footer .colophon { font-family: var(--serif-body); font-size: 0.88rem; color: var(--ink-faint); line-height: 1.6; font-style: italic; }
+
+    @media (max-width: 640px) {
+      header.hero { padding: 3rem 1.25rem 2rem; }
+      .voc-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════ HERO ════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="breadcrumb">
+      <span class="lesson-num-badge">4</span>
+      Grammaire A1–A2 · <span>Leçon 4</span>
+    </div>
+    <h1 class="title">Un, une, <em>des</em></h1>
+    <p class="lede">Les <strong>articles indéfinis</strong>. Comment nommer une chose que l'on ne connaît pas encore — au masculin, au féminin, au singulier, au pluriel — et ce qui se passe à la forme négative.</p>
+    <div class="hero-pills">
+      <span class="pill pill-level">A1</span>
+      <span class="pill pill-mf">Masculin / Féminin</span>
+      <span class="pill pill-nb">Singulier / Pluriel</span>
+      <span class="pill pill-neg">Négation</span>
+    </div>
+  </header>
+
+  <!-- ════ STICKY NAV ═══════════════════════════════════ -->
+  <nav class="sticky-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-back">← Accueil</a>
+      <span class="nav-brand">Un, une, des</span>
+      <ul class="nav-links">
+        <li><a href="#regle">La règle</a></li>
+        <li><a href="#genre">Genre</a></li>
+        <li><a href="#ilya">Il y a</a></li>
+        <li><a href="#negation">Négation</a></li>
+        <li><a href="#vocabulaire">Vocabulaire</a></li>
+        <li><a href="#exercices">Exercices</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════ MAIN ═════════════════════════════════════════ -->
+  <main>
+
+    <!-- ── Intro en español ──────────────────── -->
+    <div class="intro-es-wrap">
+      <div class="intro-es">
+        <div class="intro-es-label">🇪🇸 Para empezar</div>
+        <p class="intro-es-body">Los artículos indefinidos <em>un</em>, <em>une</em> y <em>des</em> son el equivalente de <strong>un</strong>, <strong>una</strong> y <strong>unos/unas</strong>. En francés hay que elegirlos según el <strong>género</strong> (masculino/femenino) y el <strong>número</strong> (singular/plural) del sustantivo: <em>un</em> garçon, <em>une</em> fille, <em>des</em> garçons. Ojo con dos cosas: el francés casi siempre pone un artículo delante del sustantivo (no se dice «J'ai stylo» sino «J'ai <em>un</em> stylo»), y en la <strong>negación</strong> el artículo cambia a <em>de</em> / <em>d'</em>. Tocá ▶ para escuchar los ejemplos.</p>
+      </div>
+    </div>
+
+    <!-- ── La règle ────────────────────────────── -->
+    <section id="regle" class="lesson-section" style="border-top:none;">
+      <div class="wrap">
+        <div class="section-kicker">La règle</div>
+        <h2 class="section-title">Un, une, des</h2>
+        <p class="section-sub">L'article change selon le genre et le nombre du nom.</p>
+
+        <table class="art-table">
+          <thead>
+            <tr><th></th><th>Masculin</th><th>Féminin</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Singulier</th><td><b>un</b> garçon</td><td><b>une</b> fille</td></tr>
+            <tr><th>Pluriel</th><td><b>des</b> garçons</td><td><b>des</b> filles</td></tr>
+          </tbody>
+        </table>
+
+        <div class="rule-box">
+          Il y a <b>toujours</b> un article devant le nom.
+          <span class="rb-ex"><del>J'ai stylo</del> → J'ai <em>un</em> stylo.</span>
+          <span class="rb-ex"><del>J'ai stylos</del> → J'ai <em>des</em> stylos.</span>
+        </div>
+
+        <div class="ex-phrase">
+          <span class="exp-text">Nicolas a <b>des</b> cahiers, <b>un</b> stylo, <b>un</b> crayon à papier, <b>une</b> gomme, <b>un</b> classeur, <b>une</b> règle et <b>une</b> trousse. Mais Nicolas <b>n'a pas de</b> cartable !</span>
+          <button class="mini-audio" title="Écouter" onclick="speak('Nicolas a des cahiers, un stylo, un crayon à papier, une gomme, un classeur, une règle et une trousse. Mais Nicolas n\'a pas de cartable', this)">▶</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Genre ───────────────────────────────── -->
+    <section id="genre" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Masculin ou féminin</div>
+        <h2 class="section-title">Le genre des noms</h2>
+        <p class="section-sub">En français, chaque nom est masculin ou féminin.</p>
+
+        <div class="rule-box">
+          <span class="rb-ex"><em>Un</em> garçon, <em>un</em> homme sont <b>masculins</b>.</span>
+          <span class="rb-ex"><em>Une</em> fille, <em>une</em> femme sont <b>féminins</b>.</span>
+          <span class="rb-ex" style="margin-top:.6rem;">Et les noms sont soit au <b>singulier</b> (un garçon, une fille), soit au <b>pluriel</b> (des stylos).</span>
+        </div>
+
+        <div class="attn-box">
+          <div class="attn-label">⚠ Attention</div>
+          Pour beaucoup de noms, il n'est <b>pas possible</b> de deviner s'ils sont masculins ou féminins. Il faut apprendre le nom <b>avec son article</b> :
+          <b>un</b> crayon, <b>un</b> cartable, <b>un</b> livre… mais <b>une</b> table, <b>une</b> chaise, <b>une</b> règle.
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Il y a ───────────────────────────────── -->
+    <section id="ilya" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Expression</div>
+        <h2 class="section-title">« Il y a »</h2>
+        <p class="section-sub">Une expression impersonnelle pour dire ce qui existe.</p>
+
+        <div class="rule-box">
+          L'expression <em>il y a</em> est suivie d'un ou plusieurs noms, au singulier ou au pluriel.
+        </div>
+
+        <div id="ilyaList"></div>
+      </div>
+    </section>
+
+    <!-- ── Négation ─────────────────────────────── -->
+    <section id="negation" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Point clé</div>
+        <h2 class="section-title">La négation : un / une / des → de</h2>
+        <p class="section-sub">À la forme négative, l'article indéfini disparaît.</p>
+
+        <div class="rule-box">
+          Quand le verbe est à la forme <b>négative</b>, les articles indéfinis deviennent <em>de</em> / <em>d'</em>.
+          <span class="rb-ex">Tu as <em>un</em> cahier ? → Non, je n'ai pas <em>de</em> cahier.</span>
+          <span class="rb-ex">Devant <b>a, e, i, o, u</b> et le <b>h muet</b> : <em>de</em> → <em>d'</em> (je n'ai pas <em>d'</em>oiseau).</span>
+        </div>
+
+        <div class="ex-phrase">
+          <span class="exp-text">Tu as <b>un</b> cahier ? — Non, je n'ai pas <b>de</b> cahier.</span>
+          <button class="mini-audio" title="Écouter" onclick="speak('Tu as un cahier ? Non, je n\'ai pas de cahier.', this)">▶</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Vocabulaire ─────────────────────────── -->
+    <section id="vocabulaire" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Vocabulaire</div>
+        <h2 class="section-title">Le matériel scolaire</h2>
+        <p class="section-sub">Apprenez chaque mot avec son article. Audio inclus.</p>
+        <div class="voc-grid" id="vocGrid"></div>
+      </div>
+    </section>
+
+    <!-- ── Exercices ───────────────────────────── -->
+    <section id="exercices" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">À vous</div>
+        <h2 class="section-title">Exercices</h2>
+        <p class="section-sub">Cinq exercices interactifs. Vérifiez vos réponses.</p>
+
+        <!-- Ex 1 — Entoure (mc) -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">1</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★</span>
+              <span class="ex-title">Entoure la bonne réponse</span>
+            </div>
+            <span class="ex-instr">Sur mon bureau, il y a…</span>
+          </div>
+          <div class="ex-body" id="ex1-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkMC()">Vérifier</button>
+            <button class="btn-reset" onclick="resetMC()">Réinitialiser</button>
+            <span class="score-chip" id="ex1-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 2 — Complète (un/des) -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">2</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★★</span>
+              <span class="ex-title">Complète les phrases</span>
+            </div>
+            <span class="ex-instr">un / une / des</span>
+          </div>
+          <div class="ex-body" id="ex2-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkFill(ex2Data)">Vérifier</button>
+            <button class="btn-reset" onclick="resetFill('ex2')">Réinitialiser</button>
+            <span class="score-chip" id="ex2-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 3 — Dans la classe (un/une/des) -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">3</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★★</span>
+              <span class="ex-title">Complète avec un, une ou des</span>
+            </div>
+            <span class="ex-instr">Dans la classe il y a…</span>
+          </div>
+          <div class="ex-body" id="ex3-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkFill(ex3Data)">Vérifier</button>
+            <button class="btn-reset" onclick="resetFill('ex3')">Réinitialiser</button>
+            <span class="score-chip" id="ex3-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 4 — Transforme au négatif (de/d') -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">4</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★★</span>
+              <span class="ex-title">Transforme au négatif</span>
+            </div>
+            <span class="ex-instr">Complète avec de ou d'</span>
+          </div>
+          <div class="ex-body" id="ex4-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkFill(ex4Data)">Vérifier</button>
+            <button class="btn-reset" onclick="resetFill('ex4')">Réinitialiser</button>
+            <span class="score-chip" id="ex4-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 5 — La famille de Lucy (un/une/des/de/d') -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">5</span>
+            <div class="ex-meta">
+              <span class="ex-stars">★★★</span>
+              <span class="ex-title">Complète avec un, une, des, de ou d'</span>
+            </div>
+            <span class="ex-instr">Dans la famille de Lucy…</span>
+          </div>
+          <div class="ex-body" id="ex5-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkFill(ex5Data)">Vérifier</button>
+            <button class="btn-reset" onclick="resetFill('ex5')">Réinitialiser</button>
+            <span class="score-chip" id="ex5-score"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Phonétique ──────────────────────────── -->
+    <section class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Phonétique</div>
+        <h2 class="section-title">Le son « u »</h2>
+        <p class="section-sub">Le [y] français n'existe pas en espagnol.</p>
+        <div class="pho-box">
+          <p class="pho-tip">Devant le miroir, avancez les lèvres comme pour souffler les bougies d'un gâteau d'anniversaire, et posez la langue derrière les dents du bas. Entraînez-vous&nbsp;: <em>un tutu, des bulles, une plume</em>. Touchez une syllabe pour l'écouter.</p>
+          <div class="pho-syls" id="phoSyls"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════ FOOTER ═══════════════════════════════════════ -->
+  <footer>
+    <p class="colophon">Grammaire A1–A2 · Leçon 4 — <em>Un, une, des</em>. Audio via Web Speech API / Google TTS. Fuente : 4.Un_une_des.pdf.</p>
+  </footer>
+
+  <div class="audio-status" id="audioStatus"></div>
+
+  <script src="../shared.js"></script>
+  <script>
+  /* ══════════════════════════════════════════════════════
+     DATOS — inline (sin fetch, funciona con file://)
+     Fuente: 4.Un_une_des.pdf (Leçon 4).
+  ══════════════════════════════════════════════════════ */
+
+  // « Il y a » — ejemplos con audio
+  const ILYA = [
+    "Il y a <b>un</b> stylo.",
+    "Il y a <b>des</b> stylos.",
+    "Il y a <b>un</b> stylo et <b>une</b> gomme.",
+    "Il y a <b>des</b> stylos et <b>des</b> gommes."
+  ];
+
+  // Vocabulario — le matériel scolaire
+  const VOC = [
+    "un bureau", "un cahier", "un cartable", "une chaise", "un crayon à papier",
+    "une gomme", "une règle", "un stylo", "une trousse", "un classeur"
+  ];
+
+  // Fonética — syllabes du son [y]
+  const SYLS = ["u", "lu", "bu", "du", "bubu", "dudu", "tutu", "pru", "plu"];
+
+  /* ── Ejercicio 1 · opción múltiple (un/une/des) ── */
+  const mcData = [
+    { ltr:'a', pre:'', opts:['un','une','des'], ans:'des', suf:'cahiers.' },
+    { ltr:'b', pre:'', opts:['un','une','des'], ans:'un',  suf:'stylo.' },
+    { ltr:'c', pre:'', opts:['un','une','des'], ans:'un',  suf:'crayon à papier.' },
+    { ltr:'d', pre:'', opts:['un','une','des'], ans:'une', suf:'gomme.' },
+    { ltr:'e', pre:'', opts:['un','une','des'], ans:'un',  suf:'classeur.' },
+    { ltr:'f', pre:'', opts:['un','une','des'], ans:'une', suf:'règle.' },
+    { ltr:'g', pre:'', opts:['un','une','des'], ans:'une', suf:'trousse.' }
+  ];
+
+  /* ── Ejercicios de rellenar ── */
+  const ex2Data = { bodyId:'ex2-body', scoreId:'ex2-score', items:[
+    { ltr:'a', pre:"J'ai", mid:'gomme, tu as', suf:'gommes.', ans:['une','des'] },
+    { ltr:'b', pre:"J'ai", mid:'cahier, tu as', suf:'cahiers.', ans:['un','des'] },
+    { ltr:'c', pre:"J'ai", mid:'règle, tu as', suf:'règles.', ans:['une','des'] },
+    { ltr:'d', pre:"J'ai", mid:'chien, tu as', suf:'chiens.', ans:['un','des'] },
+    { ltr:'e', pre:"J'ai", mid:'stylo, tu as', suf:'stylos.', ans:['un','des'] }
+  ]};
+
+  const ex3Data = { bodyId:'ex3-body', scoreId:'ex3-score', items:[
+    { ltr:'a', pre:'', suf:'tables', ans:['des'] },
+    { ltr:'b', pre:'', suf:'chaises', ans:['des'] },
+    { ltr:'c', pre:'', suf:'bureau', ans:['un'] },
+    { ltr:'d', pre:'', suf:'tableau', ans:['un'] },
+    { ltr:'e', pre:'', suf:'cartable', ans:['un'] },
+    { ltr:'f', pre:'', suf:'plantes', ans:['des'] },
+    { ltr:'g', pre:'', suf:'carte du monde.', ans:['une'] }
+  ]};
+
+  const ex4Data = { bodyId:'ex4-body', scoreId:'ex4-score', items:[
+    { ltr:'a', pre:"Je n'ai pas", suf:"oiseaux.", ans:["d'"] },
+    { ltr:'b', pre:"Tu n'as pas", suf:'chats.', ans:['de'] },
+    { ltr:'c', pre:"Elle n'a pas", suf:'chiens.', ans:['de'] },
+    { ltr:'d', pre:"Vous n'avez pas", suf:'crayons.', ans:['de'] },
+    { ltr:'e', pre:"Ils n'ont pas", suf:'cartables.', ans:['de'] }
+  ]};
+
+  const ex5Data = { bodyId:'ex5-body', scoreId:'ex5-score', items:[
+    { ltr:'a', pre:'Il y a', suf:'chien,', ans:['un'] },
+    { ltr:'b', pre:'', suf:'poisson', ans:['un'] },
+    { ltr:'c', pre:'et', suf:'tortues,', ans:['des'] },
+    { ltr:'d', pre:"mais il n'y a pas", suf:'chat', ans:['de'] },
+    { ltr:'e', pre:'et pas', suf:'oiseau.', ans:["d'"] }
+  ]};
+
+  const ALL_FILL = { ex2:ex2Data, ex3:ex3Data, ex4:ex4Data, ex5:ex5Data };
+
+  /* ── Render bloques informativos ── */
+  function renderIlya() {
+    const box = document.getElementById('ilyaList');
+    ILYA.forEach(html => {
+      const row = document.createElement('div');
+      row.className = 'ex-phrase';
+      const t = document.createElement('span');
+      t.className = 'exp-text';
+      t.innerHTML = html;
+      const btn = document.createElement('button');
+      btn.className = 'mini-audio';
+      btn.textContent = '▶';
+      btn.title = 'Écouter';
+      btn.addEventListener('click', () => speak(t.textContent, btn));
+      row.appendChild(t);
+      row.appendChild(btn);
+      box.appendChild(row);
+    });
+  }
+
+  function renderVoc() {
+    const grid = document.getElementById('vocGrid');
+    VOC.forEach(word => {
+      const row = document.createElement('div');
+      row.className = 'voc-row';
+      const t = document.createElement('span');
+      t.className = 'voc-text';
+      t.textContent = word;
+      const btn = document.createElement('button');
+      btn.className = 'mini-audio';
+      btn.textContent = '▶';
+      btn.title = 'Écouter';
+      btn.addEventListener('click', () => speak(word, btn));
+      row.appendChild(t);
+      row.appendChild(btn);
+      grid.appendChild(row);
+    });
+  }
+
+  function renderSyls() {
+    const box = document.getElementById('phoSyls');
+    SYLS.forEach(s => {
+      const b = document.createElement('button');
+      b.className = 'pho-syl';
+      b.textContent = s;
+      b.addEventListener('click', () => speak(s, b));
+      box.appendChild(b);
+    });
+  }
+
+  /* ── Ejercicio 1 · opción múltiple ── */
+  let mcSel = {};
+  function buildMC() {
+    const body = document.getElementById('ex1-body');
+    body.innerHTML = '';
+    mcSel = {};
+    mcData.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'mc-item';
+      row.innerHTML = `<span class="mc-prefix">${item.ltr}.</span>
+        <span class="mc-opts" id="mc-opts-${item.ltr}"></span>
+        <span class="mc-text">&nbsp;${item.suf}</span>`;
+      body.appendChild(row);
+      const optsEl = row.querySelector(`#mc-opts-${item.ltr}`);
+      item.opts.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'mc-btn';
+        btn.textContent = opt;
+        btn.addEventListener('click', () => {
+          if (btn.disabled) return;
+          optsEl.querySelectorAll('.mc-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          mcSel[item.ltr] = opt;
+        });
+        optsEl.appendChild(btn);
+      });
+    });
+  }
+  function checkMC() {
+    let correct = 0;
+    mcData.forEach(item => {
+      const optsEl = document.getElementById(`mc-opts-${item.ltr}`);
+      optsEl.querySelectorAll('.mc-btn').forEach(btn => {
+        const isSelected = btn.classList.contains('selected');
+        const isAns = btn.textContent === item.ans;
+        btn.classList.remove('selected');
+        btn.disabled = true;
+        if (isAns)           { btn.classList.add('ok'); if (isSelected) correct++; }
+        else if (isSelected) { btn.classList.add('err'); }
+      });
+    });
+    const chip = document.getElementById('ex1-score');
+    chip.textContent = correct + '/' + mcData.length;
+    chip.className = 'score-chip ' + (correct === mcData.length ? 'good' : 'bad');
+  }
+  function resetMC() {
+    buildMC();
+    const chip = document.getElementById('ex1-score');
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ── Ejercicios de rellenar (genérico) ── */
+  function buildFill(data) {
+    const body = document.getElementById(data.bodyId);
+    body.innerHTML = '';
+    data.items.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'fi-item';
+      const mid = item.mid ? ` ${item.mid} <input type="text" class="fi-input" data-ltr="${item.ltr}b" autocomplete="off" spellcheck="false" size="4">` : '';
+      row.innerHTML = `<span class="fi-letter">${item.ltr}.</span>
+        ${item.pre ? item.pre + ' ' : ''}<input type="text" class="fi-input" data-ltr="${item.ltr}" autocomplete="off" spellcheck="false" size="4">${mid} ${item.suf}`;
+      body.appendChild(row);
+    });
+  }
+  // Normaliza: minúsculas, sin espacios extra; acepta apóstrofo recto o tipográfico
+  function normAns(s) { return s.trim().toLowerCase().replace(/[’´]/g, "'"); }
+  // Acepta la respuesta con o sin apóstrofo (d' / d)
+  function matchAns(val, ans) { return val === ans || val === ans.replace(/'/g, ''); }
+
+  function checkFill(data) {
+    let correct = 0, total = 0;
+    data.items.forEach(item => {
+      // primer hueco (o único)
+      const inp = document.querySelector(`#${data.bodyId} [data-ltr="${item.ltr}"]`);
+      total++;
+      const val = normAns(inp.value);
+      inp.classList.remove('ok','err');
+      if (matchAns(val, item.ans[0])) { inp.classList.add('ok'); correct++; }
+      else { inp.classList.add('err'); }
+      // segundo hueco (ejercicio con "tu as ...")
+      if (item.ans.length > 1) {
+        const inp2 = document.querySelector(`#${data.bodyId} [data-ltr="${item.ltr}b"]`);
+        total++;
+        const val2 = normAns(inp2.value);
+        inp2.classList.remove('ok','err');
+        if (matchAns(val2, item.ans[1])) { inp2.classList.add('ok'); correct++; }
+        else { inp2.classList.add('err'); }
+      }
+    });
+    const chip = document.getElementById(data.scoreId);
+    chip.textContent = correct + '/' + total;
+    chip.className = 'score-chip ' + (correct === total ? 'good' : 'bad');
+  }
+  function resetFill(id) {
+    const data = ALL_FILL[id];
+    buildFill(data);
+    const chip = document.getElementById(data.scoreId);
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ── Scroll spy ── */
+  function setupScrollSpy() {
+    const links = document.querySelectorAll('.nav-links a');
+    const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => obs.observe(s));
+  }
+
+  /* ── Init ── */
+  renderIlya();
+  renderVoc();
+  renderSyls();
+  buildMC();
+  buildFill(ex2Data);
+  buildFill(ex3Data);
+  buildFill(ex4Data);
+  buildFill(ex5Data);
+  setupScrollSpy();
+  </script>
+</body>
+</html>
