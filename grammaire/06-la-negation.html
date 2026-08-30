@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="description" content="La négation en français : ne + verbe + pas, l'élision n', les articles un/une/des qui deviennent de/d' après avoir, et → ni. Vocabulaire des vêtements et 7 exercices interactifs. A1-A2.">
+  <title>La négation · Grammaire A1-A2 | Français</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared.css">
+  <style>
+    :root { --page-accent: var(--gold); }
+
+    body {
+      background-image:
+        radial-gradient(circle at 15% 8%,  rgba(202,138,4,.06) 0%, transparent 45%),
+        radial-gradient(circle at 85% 65%, rgba(5,150,105,.05) 0%, transparent 45%),
+        radial-gradient(circle at 50% 100%,rgba(234,88,12,.04) 0%, transparent 45%);
+    }
+
+    /* ── Layout ──────────────────────────────── */
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── Hero ────────────────────────────────── */
+    header.hero {
+      padding: 4.5rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .breadcrumb span { color: var(--page-accent); font-weight: 700; }
+    .lesson-num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--page-accent);
+      color: #fff;
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    h1.title {
+      font-family: var(--serif-display);
+      font-weight: 800;
+      font-size: clamp(2.6rem, 7.5vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.1rem;
+      font-variation-settings: "opsz" 144;
+    }
+    h1.title em { font-style: normal; color: var(--page-accent); }
+
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
+    .pill {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.55rem;
+      border-radius: 2px;
+      border: 1.5px solid;
+    }
+    .pill-level { border-color: var(--gold); color: var(--gold); }
+    .pill-ne    { border-color: var(--primary); color: var(--primary); }
+    .pill-eli   { border-color: var(--secondary); color: var(--secondary); }
+    .pill-de    { border-color: var(--tertiary); color: var(--tertiary); }
+
+    /* ── Sticky Nav ──────────────────────────── */
+    nav.sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250,246,236,.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .nav-back {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink-faint);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--page-accent); }
+    .nav-brand {
+      font-family: var(--serif-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      font-variation-settings: "opsz" 36;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      list-style: none;
+      flex: 1;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links li a {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ink-faint);
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: all .15s;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active { color: var(--page-accent); background: rgba(202,138,4,.1); }
+
+    /* ── Intro ES ────────────────────────────── */
+    .intro-es-wrap { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 0; }
+    .intro-es {
+      background: var(--bg-deep);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--ink-faint);
+      border-radius: 3px;
+      padding: 0.9rem 1.1rem;
+    }
+    .intro-es-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.4rem;
+    }
+    .intro-es-body {
+      font-family: var(--serif-body);
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .intro-es-body strong { color: var(--ink); font-weight: 600; }
+    .intro-es-body em { color: var(--page-accent); font-style: italic; }
+
+    /* ── Section headings ────────────────────── */
+    .section-kicker {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--page-accent);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-kicker::before { content: ""; width: 28px; height: 2px; background: var(--page-accent); }
+    h2.section-title {
+      font-family: var(--serif-display);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      font-variation-settings: "opsz" 36;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      font-family: var(--serif-body);
+      font-size: 0.9rem;
+      color: var(--ink-faint);
+      margin-bottom: 1.25rem;
+    }
+    .lesson-section { padding: 3rem 0 1rem; border-top: 1px solid var(--rule-soft); }
+    .lesson-section:first-child { border-top: none; }
+
+    /* ── Formula strip ───────────────────────── */
+    .formula {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      padding: 1.15rem 1rem;
+      margin: 0.5rem 0 1.25rem;
+    }
+    .f-tok {
+      font-family: var(--serif-display);
+      font-variation-settings: "opsz" 36;
+      font-size: clamp(1.15rem, 3.6vw, 1.65rem);
+      font-weight: 700;
+      padding: 0.28rem 0.85rem;
+      border-radius: 4px;
+      letter-spacing: -0.01em;
+    }
+    .f-neg  { background: rgba(202,138,4,.14); color: var(--gold); border: 1.5px solid rgba(202,138,4,.45); }
+    .f-verb { background: var(--bg-deep); color: var(--ink); border: 1.5px solid var(--rule); }
+    .f-plus { font-family: var(--mono); font-size: 1rem; color: var(--ink-faint); font-weight: 700; }
+
+    /* ── Article table ───────────────────────── */
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .art-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.5rem 0 1.25rem;
+      font-family: var(--serif-body);
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .art-table th, .art-table td {
+      padding: 0.7rem 0.9rem;
+      text-align: left;
+      border: 1px solid var(--rule-soft);
+      font-size: 0.98rem;
+      white-space: nowrap;
+    }
+    .art-table td.wrap-cell { white-space: normal; }
+    .art-table thead th, .art-table tbody th {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      background: var(--bg-deep);
+    }
+    .art-table td b { color: var(--page-accent); }
+    .art-table td.spk { cursor: pointer; transition: background .15s; }
+    .art-table td.spk:hover { background: rgba(202,138,4,.08); }
+    .art-table td.aff { color: var(--ink-faint); }
+
+    /* ── Rule box ────────────────────────────── */
+    .rule-box {
+      background: rgba(202,138,4,.06);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--page-accent);
+      border-radius: 3px;
+      padding: 0.9rem 1.1rem;
+      margin: 1rem 0;
+      font-family: var(--serif-body);
+      font-size: 0.96rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+    .rule-box b { color: var(--ink); }
+    .rule-box em { color: var(--page-accent); font-style: italic; font-weight: 600; }
+    .rule-box .rb-ex { display: block; margin-top: 0.3rem; }
+    .rule-box del { color: var(--ink-faint); }
+
+    .attn-box {
+      background: rgba(234,88,12,.06);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--secondary);
+      border-radius: 3px;
+      padding: 0.85rem 1.1rem;
+      margin: 1rem 0;
+      font-family: var(--serif-body);
+      font-size: 0.94rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+    .attn-box .attn-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 0.35rem;
+    }
+    .attn-box b { color: var(--ink); }
+    .attn-box em { color: var(--secondary); font-style: italic; font-weight: 600; }
+    .attn-box .rb-ex { display: block; margin-top: 0.3rem; }
+
+    /* ── Speech card (Nina) ──────────────────── */
+    .speech {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 0.95rem 1.15rem;
+      margin: 1rem 0 1.25rem;
+    }
+    .speech-head {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.55rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .speech-name {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      flex: 1;
+    }
+    .speech-body {
+      font-family: var(--serif-body);
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--ink);
+    }
+    .speech-body b { color: var(--page-accent); }
+
+    /* ── Transform pairs ─────────────────────── */
+    .tr-pair {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--page-accent);
+      border-radius: 3px;
+      padding: 0.55rem 0.7rem;
+      margin: 0.4rem 0;
+      flex-wrap: wrap;
+    }
+    .tr-a { font-family: var(--serif-body); font-size: 0.95rem; color: var(--ink-faint); }
+    .tr-arrow { font-family: var(--mono); font-weight: 700; color: var(--page-accent); }
+    .tr-b { font-family: var(--serif-body); font-size: 0.96rem; color: var(--ink); flex: 1; min-width: 12rem; }
+    .tr-b b { color: var(--page-accent); }
+    .tr-b u { text-decoration-color: var(--page-accent); text-underline-offset: 2px; }
+
+    /* ── Example phrases (with audio) ────────── */
+    .ex-phrase {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--page-accent);
+      border-radius: 3px;
+      padding: 0.5rem 0.7rem;
+      margin: 0.4rem 0;
+    }
+    .ex-phrase .exp-text { flex: 1; font-family: var(--serif-body); font-size: 0.96rem; color: var(--ink); }
+    .ex-phrase .exp-text b { color: var(--page-accent); }
+    .mini-audio {
+      flex-shrink: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      background: var(--bg-deep);
+      color: var(--page-accent);
+      font-size: 0.66rem;
+      cursor: pointer;
+      transition: all .12s;
+    }
+    .mini-audio:hover { background: var(--page-accent); color: #fff; border-color: var(--page-accent); }
+
+    /* ── Vocabulary grid ─────────────────────── */
+    .voc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.5rem;
+    }
+    .voc-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--page-accent);
+      border-radius: 3px;
+      padding: 0.5rem 0.65rem;
+    }
+    .voc-text { flex: 1; font-family: var(--serif-body); font-size: 0.96rem; color: var(--ink); }
+    .voc-text .art-m { color: var(--primary); font-weight: 600; }
+    .voc-text .art-f { color: var(--accent); font-weight: 600; }
+    .voc-text .art-p { color: var(--tertiary); font-weight: 600; }
+
+    .legend { display: flex; flex-wrap: wrap; gap: 1rem; font-family: var(--mono); font-size: 0.62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.8rem; }
+    .legend b { font-weight: 700; }
+    .legend .l-m b { color: var(--primary); }
+    .legend .l-f b { color: var(--accent); }
+    .legend .l-p b { color: var(--tertiary); }
+
+    /* ── Exercises ───────────────────────────── */
+    .ex-card { background: var(--paper); border: 1px solid var(--rule); border-radius: 5px; margin: 1.25rem 0; overflow: hidden; }
+    .ex-head { display: flex; align-items: center; gap: 0.9rem; padding: 0.85rem 1.1rem; background: var(--bg-deep); border-bottom: 1px solid var(--rule); }
+    .ex-num { font-family: var(--serif-display); font-size: 1.8rem; font-weight: 800; line-height: 1; color: var(--page-accent); font-variation-settings: "opsz" 9; min-width: 2rem; }
+    .ex-meta { display: flex; flex-direction: column; gap: 0.1rem; }
+    .ex-stars { font-size: 0.72rem; color: var(--gold); letter-spacing: .05em; }
+    .ex-title { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--ink); }
+    .ex-instr { font-family: var(--serif-body); font-size: 0.88rem; color: var(--ink-faint); font-style: italic; margin-left: auto; }
+    @media (max-width: 560px) { .ex-instr { display: none; } }
+    .ex-body { padding: 1.1rem 1.25rem; }
+    .ex-foot { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 1.25rem; border-top: 1px solid var(--rule-soft); background: var(--bg); }
+    .ex-example {
+      font-family: var(--serif-body);
+      font-size: 0.88rem;
+      color: var(--ink-faint);
+      background: var(--bg);
+      border: 1px dashed var(--rule);
+      border-radius: 3px;
+      padding: 0.45rem 0.7rem;
+      margin-bottom: 0.9rem;
+    }
+    .ex-example b { color: var(--page-accent); font-weight: 600; }
+
+    .btn-check { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 0.42rem 0.95rem; border: none; border-radius: 3px; background: var(--page-accent); color: #fff; cursor: pointer; transition: all .2s; }
+    .btn-check:hover { filter: brightness(.88); }
+    .btn-reset { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 0.42rem 0.8rem; border: 1.5px solid var(--rule); border-radius: 3px; background: transparent; color: var(--ink-faint); cursor: pointer; transition: all .2s; }
+    .btn-reset:hover { border-color: var(--ink-soft); color: var(--ink-soft); }
+    .score-chip { font-family: var(--mono); font-size: 0.74rem; font-weight: 700; padding: 0.18rem 0.55rem; border-radius: 2px; background: var(--bg-deep); color: var(--ink-faint); margin-left: auto; min-width: 2.5rem; text-align: center; transition: all .3s; }
+    .score-chip.good { background: rgba(5,150,105,.14); color: var(--tertiary); }
+    .score-chip.bad  { background: rgba(234,88,12,.13);  color: var(--secondary); }
+
+    /* ── Ayuda en español (glosas a demanda) ── */
+    .es-btn {
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      padding: 0.24rem 0.42rem;
+      border: 1.5px solid var(--rule);
+      border-radius: 2px;
+      background: var(--paper);
+      color: var(--ink-faint);
+      cursor: pointer;
+      transition: all .15s;
+      flex-shrink: 0;
+    }
+    .es-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .es-btn.on { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .es-row { display: flex; justify-content: flex-end; margin: -0.55rem 0 0.55rem; }
+    .ex-head .es-btn { margin-left: 0.6rem; }
+    .nav-es { margin-left: auto; }
+
+    .es-gloss {
+      display: none;
+      background: var(--bg-deep);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--primary);
+      border-radius: 3px;
+      padding: 0.7rem 0.95rem;
+      margin: 0 0 1rem;
+      font-family: var(--serif-body);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+    .es-gloss.show { display: block; animation: fadeUp .18s ease-out; }
+    .es-gloss b  { color: var(--ink); font-weight: 600; }
+    .es-gloss em { color: var(--primary); font-weight: 600; }
+    .es-gloss .es-tag {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+    /* dentro de una tarjeta de ejercicio: a ras, sin margen exterior */
+    .es-gloss.in-card { margin: 0; border-radius: 0; border-top: none; border-right: none; }
+
+    /* Fill-in (short blanks) */
+    .fi-item { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0; font-family: var(--serif-body); font-size: 0.97rem; color: var(--ink); line-height: 1.6; }
+    .fi-letter { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; color: var(--ink-faint); min-width: 1.1rem; }
+    .fi-input { border: none; border-bottom: 2px solid var(--rule); background: transparent; font-family: var(--serif-body); font-size: 0.97rem; color: var(--ink); padding: 0.05rem 0.25rem; min-width: 4rem; outline: none; transition: border-color .2s; text-align: center; }
+    .fi-input:focus { border-bottom-color: var(--page-accent); }
+    .fi-input.ok    { border-bottom-color: var(--tertiary); color: var(--tertiary); }
+    .fi-input.err   { border-bottom-color: var(--secondary); color: var(--secondary); }
+
+    /* Word order */
+    .wo-block { margin: 1.1rem 0; }
+    .wo-letter { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; color: var(--ink-faint); margin-bottom: 0.35rem; }
+    .wo-stage {
+      min-height: 2.4rem;
+      background: var(--bg);
+      border: 2px dashed var(--rule);
+      border-radius: 4px;
+      padding: 0.35rem 0.55rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      align-items: center;
+      margin-bottom: 0.4rem;
+      transition: border-color .2s, background .2s;
+    }
+    .wo-stage.has-items { border-style: solid; border-color: rgba(202,138,4,.4); }
+    .wo-stage.ok-s  { border-color: var(--tertiary); background: rgba(5,150,105,.05); }
+    .wo-stage.err-s { border-color: var(--secondary); background: rgba(234,88,12,.05); }
+    .wo-pool { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .wo-token {
+      font-family: var(--serif-body);
+      font-size: 0.9rem;
+      padding: 0.22rem 0.6rem;
+      border: 1.5px solid var(--rule);
+      border-radius: 3px;
+      background: var(--paper);
+      cursor: pointer;
+      transition: all .15s;
+      color: var(--ink);
+      user-select: none;
+    }
+    .wo-pool .wo-token:hover { border-color: var(--page-accent); background: rgba(202,138,4,.08); }
+    .wo-pool .wo-token.used  { opacity: .28; pointer-events: none; }
+    .wo-stage .wo-token { border-color: var(--page-accent); background: rgba(202,138,4,.1); cursor: pointer; }
+    .wo-stage .wo-token:hover { border-color: var(--secondary); background: rgba(234,88,12,.08); }
+
+    /* Sentence writing */
+    .sent-item { margin: 0.85rem 0; padding-bottom: 0.8rem; border-bottom: 1px dashed var(--rule-soft); }
+    .sent-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .sent-q { font-family: var(--serif-body); font-size: 0.97rem; color: var(--ink); line-height: 1.55; }
+    .sent-q .fi-letter { margin-right: 0.35rem; }
+    .sent-q del { color: var(--ink-faint); text-decoration-color: var(--secondary); }
+    .sent-q .hearts { color: var(--accent); letter-spacing: 0.08em; }
+    .sent-q .hearts.no { color: var(--ink-faint); text-decoration: line-through; text-decoration-color: var(--secondary); }
+    .sent-row { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.4rem; padding-left: 1.45rem; }
+    .sent-arrow { font-family: var(--mono); font-weight: 700; color: var(--page-accent); flex-shrink: 0; }
+    .sent-fixed { font-family: var(--serif-body); font-size: 0.97rem; color: var(--ink-soft); flex-shrink: 0; }
+    .sent-inp {
+      flex: 1;
+      min-width: 6rem;
+      border: none;
+      border-bottom: 2px solid var(--rule);
+      background: transparent;
+      font-family: var(--serif-body);
+      font-size: 0.97rem;
+      color: var(--ink);
+      padding: 0.12rem 0.3rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .sent-inp:focus { border-bottom-color: var(--page-accent); }
+    .sent-inp.ok  { border-bottom-color: var(--tertiary); color: var(--tertiary); }
+    .sent-inp.err { border-bottom-color: var(--secondary); color: var(--secondary); }
+    .sent-sol {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+      padding-left: 1.45rem;
+      font-family: var(--serif-body);
+      font-size: 0.89rem;
+      color: var(--tertiary);
+    }
+    .sent-sol.show { display: flex; }
+    .sent-sol .sol-label { font-family: var(--mono); font-size: 0.58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); flex-shrink: 0; align-self: flex-start; padding-top: 0.22rem; }
+    .sent-sol .sol-text { flex: 1; }
+    .sent-sol .mini-audio { color: var(--tertiary); align-self: flex-start; }
+    .sent-sol .mini-audio:hover { background: var(--tertiary); border-color: var(--tertiary); color: #fff; }
+
+    .ex-tip { font-family: var(--serif-body); font-size: 0.85rem; color: var(--ink-faint); font-style: italic; margin-bottom: 0.9rem; }
+
+    /* ── Footer ──────────────────────────────── */
+    footer { margin-top: 5rem; border-top: 1px solid var(--rule); padding: 2.5rem 2rem; max-width: 860px; margin-left: auto; margin-right: auto; }
+    footer .colophon { font-family: var(--serif-body); font-size: 0.88rem; color: var(--ink-faint); line-height: 1.6; font-style: italic; }
+
+    @media (max-width: 640px) {
+      header.hero { padding: 3rem 1.25rem 2rem; }
+      .wrap { padding: 0 1.25rem; }
+      .nav-inner { padding: 0.8rem 1.25rem; }
+      .intro-es-wrap { padding: 2rem 1.25rem 0; }
+      .voc-grid { grid-template-columns: 1fr 1fr; }
+      .ex-body { padding: 1rem 0.9rem; }
+      .ex-foot { padding: 0.65rem 0.9rem; }
+      .sent-row, .sent-sol { padding-left: 0; }
+    }
+    @media (max-width: 560px) {
+      /* .ex-instr se oculta: el botón ES toma su lugar a la derecha */
+      .ex-head .es-btn { margin-left: auto; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════ HERO ════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="breadcrumb">
+      <span class="lesson-num-badge">6</span>
+      Grammaire A1–A2 · <span>Leçon 6</span>
+    </div>
+    <h1 class="title">La <em>négation</em></h1>
+    <p class="lede">En français, la négation a <strong>deux morceaux</strong> : <strong>ne</strong> devant le verbe et <strong>pas</strong> après. Devant une voyelle, <strong>ne</strong> devient <strong>n'</strong> — et après <em>avoir</em>, les articles <em>un, une, des</em> deviennent <em>de</em>.</p>
+    <div class="hero-pills">
+      <span class="pill pill-level">A1</span>
+      <span class="pill pill-ne">Ne … pas</span>
+      <span class="pill pill-eli">Élision n'</span>
+      <span class="pill pill-de">de / d'</span>
+    </div>
+  </header>
+
+  <!-- ════ STICKY NAV ═══════════════════════════════════ -->
+  <nav class="sticky-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-back">← Accueil</a>
+      <span class="nav-brand">La négation</span>
+      <ul class="nav-links">
+        <li><a href="#regle">La règle</a></li>
+        <li><a href="#elision">Élision</a></li>
+        <li><a href="#avoir">Avec avoir</a></li>
+        <li><a href="#ni">Et → ni</a></li>
+        <li><a href="#vocabulaire">Vocabulaire</a></li>
+        <li><a href="#exercices">Exercices</a></li>
+      </ul>
+      <button type="button" class="es-btn nav-es" id="esToggle" title="Mostrar u ocultar todas las ayudas en español">ES</button>
+    </div>
+  </nav>
+
+  <!-- ════ MAIN ═════════════════════════════════════════ -->
+  <main>
+
+    <!-- ── Intro en español ──────────────────── -->
+    <div class="intro-es-wrap">
+      <div class="intro-es">
+        <div class="intro-es-label">🇪🇸 Para empezar</div>
+        <p class="intro-es-body">En español la negación es una sola palabra (<strong>no</strong> como el chocolate). En francés son <strong>dos</strong> y el verbo queda <strong>en el medio</strong>: <em>je <b>ne</b> mange <b>pas</b></em>. Tres cosas para no olvidar: <strong>(1)</strong> delante de vocal o <em>h</em> muda, <em>ne</em> se contrae en <em>n'</em> (je <em>n'</em>aime pas) ; <strong>(2)</strong> con el verbo <em>avoir</em>, los artículos <em>un, une, des</em> se transforman en <em>de / d'</em> (j'ai un chien → je n'ai pas <em>de</em> chien) ; <strong>(3)</strong> en negativo, <em>et</em> se vuelve <em>ni</em>, igual que en español. Tocá ▶ para escuchar.</p>
+        <p class="intro-es-body" style="margin-top:.55rem;">💡 Leé primero en francés. Si algo no se entiende, tocá el botón <strong>ES</strong> que hay en cada explicación y en cada ejercicio — te lo cuenta en español. El botón <strong>ES</strong> de la barra de arriba los abre o cierra todos de una vez. <em>Las frases de ejemplo y los ejercicios no se traducen a propósito</em>: ahí está el aprendizaje.</p>
+      </div>
+    </div>
+
+    <!-- ── La règle ────────────────────────────── -->
+    <section id="regle" class="lesson-section" style="border-top:none;">
+      <div class="wrap">
+        <div class="section-kicker">Observe</div>
+        <h2 class="section-title">Ne + verbe + pas</h2>
+        <p class="section-sub">Le verbe est toujours <em>entre</em> les deux mots de la négation.</p>
+
+        <div class="formula">
+          <span class="f-tok f-neg">ne</span>
+          <span class="f-plus">+</span>
+          <span class="f-tok f-verb">verbe</span>
+          <span class="f-plus">+</span>
+          <span class="f-tok f-neg">pas</span>
+        </div>
+
+        <div class="speech">
+          <div class="speech-head">
+            <span class="speech-name">Nina · Belgique 🇧🇪</span>
+            <button class="mini-audio" title="Écouter" id="ninaBtn">▶</button>
+          </div>
+          <p class="speech-body" id="ninaText">Je m'appelle Nina. Je suis belge, je <b>ne</b> suis <b>pas</b> française. J'aime les vélos et les arcs-en-ciel ! Je <b>n'</b>aime <b>pas</b> le chocolat. Et toi ?</p>
+        </div>
+
+        <div class="rule-box" data-es="Para decir lo contrario de una frase, el verbo <b>se queda</b> y se lo <b>encierra</b> entre las dos palabras de la negación: <em>ne</em> antes del verbo, <em>pas</em> después. Fijate en los ejemplos de arriba: el verbo nunca se saca ni se cambia.">
+          Pour dire le contraire d'une phrase, on garde le verbe et on l'<b>encadre</b>.
+          <span class="rb-ex">Je suis française. → Je <em>ne</em> suis <em>pas</em> française.</span>
+          <span class="rb-ex">Elles ont froid. → Elles <em>n'</em>ont <em>pas</em> froid.</span>
+        </div>
+
+        <h2 class="section-title" style="margin-top:2.2rem;">Les trois verbes de base</h2>
+        <p class="section-sub">Touchez une case pour l'écouter.</p>
+        <div class="table-scroll">
+          <table class="art-table" id="conjTable">
+            <thead>
+              <tr><th></th><th>être</th><th>avoir</th><th>aimer</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Élision ─────────────────────────────── -->
+    <section id="elision" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Prononciation</div>
+        <h2 class="section-title">L'élision : ne → n'</h2>
+        <p class="section-sub">Quand le verbe commence par une voyelle, le « e » de <em>ne</em> disparaît.</p>
+
+        <div class="rule-box" data-es="Cuando <em>ne</em> va seguido de una <b>vocal</b> (a, e, i, o, u) o de una <b>h muda</b>, se borra la « e » y se pone un <b>apóstrofo</b>: <em>ne</em> pasa a <em>n'</em>. Por eso nunca se escribe « je ne aime pas » sino « je n'aime pas ».">
+          Quand <em>ne</em> est suivi d'une <b>voyelle</b> (a, e, i, o, u) ou d'un <b>h muet</b>, on supprime le « e » et on ajoute une <b>apostrophe</b>.
+          <span class="rb-ex"><del>je ne aime pas</del> → je <em>n'</em>aime pas</span>
+          <span class="rb-ex"><del>il ne habite pas</del> → il <em>n'</em>habite pas</span>
+        </div>
+
+        <div id="elisionList"></div>
+
+        <div class="attn-box" data-es="La elisión depende del <b>verbo</b>, no del sujeto. Mirá el verbo que viene justo después de <em>ne</em>: si empieza con consonante, se escribe <em>ne</em> completo (<b>nous ne sommes pas</b>); si empieza con vocal, se contrae (<b>nous n'avons pas</b>). El sujeto no influye.">
+          <div class="attn-label">⚠ Attention</div>
+          L'élision dépend du <b>verbe</b>, pas du sujet.
+          <span class="rb-ex">Nous <b>ne sommes</b> pas fatigués <span style="color:var(--ink-faint)">(s → pas d'élision)</span>, mais nous <b>n'avons</b> pas faim <span style="color:var(--ink-faint)">(a → élision)</span>.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Avec avoir ──────────────────────────── -->
+    <section id="avoir" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Point clé</div>
+        <h2 class="section-title">Avec <em>avoir</em> : un, une, des → de / d'</h2>
+        <p class="section-sub">C'est le piège classique de la leçon.</p>
+
+        <div class="rule-box" data-es="Con el verbo <em>avoir</em> (tener), los artículos indefinidos <b>un, une, des</b> se transforman en <em>de</em> — o <em>d'</em> delante de vocal — cuando la frase es negativa. En español esto no existe: nosotros decimos « no tengo <b>un</b> perro », el francés dice « je n'ai pas <b>de</b> chien ».">
+          Avec le verbe <em>avoir</em>, les articles indéfinis <b>un, une, des</b> deviennent <em>de</em> (ou <em>d'</em> devant une voyelle) à la forme négative.
+        </div>
+
+        <div id="deList"></div>
+
+        <div class="attn-box" data-es="Ojo: la regla anterior es solo con <em>avoir</em>. Después de <b>c'est</b> / <b>ce sont</b> (que son del verbo <em>être</em>), el artículo <b>no cambia</b>: sigue siendo <em>un</em> / <em>une</em>. Comparalo: « je n'ai pas <b>de</b> manteau » (avoir) pero « ce n'est pas <b>un</b> manteau » (être).">
+          <div class="attn-label">⚠ Mais avec « c'est », rien ne change</div>
+          Après <b>c'est</b> / <b>ce sont</b> (verbe <em>être</em>), l'article <b>ne change pas</b> :
+          <span class="rb-ex">C'est un manteau. → Ce n'est <b>pas un</b> manteau.</span>
+          <span class="rb-ex">C'est une écharpe. → Ce n'est <b>pas une</b> écharpe.</span>
+        </div>
+
+        <div class="attn-box" style="border-left-color:var(--primary); background:rgba(30,64,175,.05);" data-es="¿Y los artículos definidos? Los que viste en la lección 5 (<b>le, la, les, l'</b>) <b>nunca</b> cambian en negativo. Solo cambian los indefinidos <em>un/une/des</em>, y solo con <em>avoir</em>. Regla corta: si en la frase afirmativa dice <em>le/la/les</em>, en la negativa queda igual.">
+          <div class="attn-label" style="color:var(--primary);">⚠ Et les articles définis ?</div>
+          <b>le, la, les, l'</b> ne changent <b>jamais</b> à la forme négative (rappel de la leçon 5) :
+          <span class="rb-ex">J'aime <b>le</b> chocolat. → Je n'aime pas <b>le</b> chocolat.</span>
+          <span class="rb-ex">Tu as <b>le</b> t-shirt de Paul ? → Non, je n'ai pas <b>le</b> t-shirt de Paul.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Et → ni ─────────────────────────────── -->
+    <section id="ni" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">À retenir</div>
+        <h2 class="section-title">À la forme négative : <em>et</em> → <em>ni</em></h2>
+        <p class="section-sub">Pour nier deux choses à la fois.</p>
+
+        <div class="rule-box" data-es="La palabra <em>et</em> (« y ») se transforma en <em>ni</em> cuando la frase es negativa. Funciona igual que en español: « me gustan los perros <b>y</b> los gatos » → « no me gustan los perros <b>ni</b> los gatos ».">
+          Le mot <em>et</em> devient <em>ni</em> quand la phrase est négative.
+        </div>
+
+        <div id="niList"></div>
+
+        <div class="attn-box" data-es="La regla del <em>de</em> se aplica a <b>los dos</b> elementos, no solo al primero. Si la frase afirmativa tiene <em>un chat et un chien</em>, la negativa lleva <em>de</em> las dos veces: « pas <b>de</b> chat ni <b>de</b> chien ».">
+          <div class="attn-label">⚠ Attention</div>
+          La règle du <em>de</em> s'applique <b>aux deux</b> éléments :
+          <span class="rb-ex">J'ai <b>un</b> chat et <b>un</b> chien. → Je n'ai pas <b>de</b> chat ni <b>de</b> chien.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Vocabulaire ─────────────────────────── -->
+    <section id="vocabulaire" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Vocabulaire</div>
+        <h2 class="section-title">Les vêtements</h2>
+        <p class="section-sub">Apprenez chaque mot avec son article. Audio inclus.</p>
+        <div class="legend">
+          <span class="l-m"><b>un</b> — masculin</span>
+          <span class="l-f"><b>une</b> — féminin</span>
+          <span class="l-p"><b>des</b> — pluriel</span>
+        </div>
+        <div class="voc-grid" id="vocGrid"></div>
+
+        <div class="rule-box" style="margin-top:1.25rem;" data-es="Practicá negando cada prenda. Acordate: después de <em>avoir</em>, <em>un / une / des</em> pasan todos a <em>de</em> (o <em>d'</em> si la palabra empieza con vocal, como en <b>d'écharpe</b>).">
+          Entraînez-vous à les nier :
+          <span class="rb-ex">J'ai <em>un</em> pantalon. → Je n'ai pas <em>de</em> pantalon.</span>
+          <span class="rb-ex">J'ai <em>une</em> écharpe. → Je n'ai pas <em>d'</em>écharpe.</span>
+          <span class="rb-ex">J'ai <em>des</em> chaussettes. → Je n'ai pas <em>de</em> chaussettes.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Exercices ───────────────────────────── -->
+    <section id="exercices" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">À vous</div>
+        <h2 class="section-title">Exercices</h2>
+        <p class="section-sub">Sept exercices interactifs. Vérifiez vos réponses — la correction s'affiche si vous vous trompez.</p>
+
+        <!-- Ex 1 -->
+        <div class="ex-card" data-es="Ordená las palabras para armar la frase negativa. Hacé clic en cada palabra del montón de abajo para colocarla en la línea; si te equivocaste, hacé clic en la palabra <b>ya colocada</b> para devolverla. Ojo con el orden: el verbo va <b>entre</b> <em>ne</em> y <em>pas</em>.">
+          <div class="ex-head">
+            <span class="ex-num">1</span>
+            <div class="ex-meta"><span class="ex-stars">★</span><span class="ex-title">Remets les phrases dans l'ordre</span></div>
+            <span class="ex-instr">Clique les mots dans le bon ordre</span>
+          </div>
+          <div class="ex-body">
+            <p class="ex-tip">Clique un mot pour le placer ; clique-le dans la ligne pour le retirer.</p>
+            <div id="ex1-body"></div>
+          </div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkWordOrder()">Vérifier</button>
+            <button class="btn-reset" onclick="resetWordOrder()">Réinitialiser</button>
+            <span class="score-chip" id="ex1-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 2 -->
+        <div class="ex-card" data-es="Pasá cada frase a la <b>forma negativa</b> y escribila completa. Solo agregás <em>ne … pas</em> alrededor del verbo, el resto de la frase no se toca. Acordate de la elisión: si el verbo empieza con vocal, va <em>n'</em>.">
+          <div class="ex-head">
+            <span class="ex-num">2</span>
+            <div class="ex-meta"><span class="ex-stars">★</span><span class="ex-title">Transforme à la forme négative</span></div>
+            <span class="ex-instr">Écris la phrase complète</span>
+          </div>
+          <div class="ex-body">
+            <p class="ex-example"><b>Exemple :</b> Je suis italien. → <b>Je ne suis pas italien.</b></p>
+            <div id="ex2-body"></div>
+          </div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkSent('ex2')">Vérifier</button>
+            <button class="btn-reset" onclick="resetSent('ex2')">Réinitialiser</button>
+            <span class="score-chip" id="ex2-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 3 -->
+        <div class="ex-card" data-es="Contestá que <b>no</b> a cada pregunta. Atención al sujeto: la pregunta te habla de <em>tu</em> (vos), así que la respuesta va en <em>je</em> (yo) y con el verbo conjugado en primera persona. El « Non, » ya está puesto: escribí solo lo que sigue.">
+          <div class="ex-head">
+            <span class="ex-num">3</span>
+            <div class="ex-meta"><span class="ex-stars">★★</span><span class="ex-title">Réponds aux questions avec « non »</span></div>
+            <span class="ex-instr">Attention au sujet : tu → je</span>
+          </div>
+          <div class="ex-body">
+            <p class="ex-example"><b>Exemple :</b> Tu es Nina ? → <b>Non, je ne suis pas Nina.</b></p>
+            <div id="ex3-body"></div>
+          </div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkSent('ex3')">Vérifier</button>
+            <button class="btn-reset" onclick="resetSent('ex3')">Réinitialiser</button>
+            <span class="score-chip" id="ex3-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 4 -->
+        <div class="ex-card" data-es="Completá el hueco con una sola palabra. Preguntate dos cosas: ¿el verbo es <em>avoir</em> o <em>aimer</em>?, ¿el artículo original era indefinido (<em>un/une/des</em>) o definido (<em>le/la/les</em>)? Solo el indefinido con <em>avoir</em> se convierte en <em>de</em>; el resto queda igual.">
+          <div class="ex-head">
+            <span class="ex-num">4</span>
+            <div class="ex-meta"><span class="ex-stars">★★</span><span class="ex-title">Complète</span></div>
+            <span class="ex-instr">de / d' … ou l'article défini</span>
+          </div>
+          <div class="ex-body">
+            <p class="ex-tip">Attention : après <em>avoir</em>, <em>un/une/des</em> deviennent <em>de</em> — mais <em>le/la/les</em> ne changent pas.</p>
+            <div id="ex4-body"></div>
+          </div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkFill(ex4Data)">Vérifier</button>
+            <button class="btn-reset" onclick="resetFill('ex4')">Réinitialiser</button>
+            <span class="score-chip" id="ex4-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 5 -->
+        <div class="ex-card" data-es="Pasá la frase a negativo. Cada frase tiene <b>dos cosas unidas por <em>et</em></b>, así que acordate de cambiar ese <em>et</em> por <em>ni</em> — y si el verbo es <em>avoir</em>, poné <em>de</em> delante de las dos.">
+          <div class="ex-head">
+            <span class="ex-num">5</span>
+            <div class="ex-meta"><span class="ex-stars">★★</span><span class="ex-title">Transforme à la forme négative</span></div>
+            <span class="ex-instr">N'oublie pas : et → ni</span>
+          </div>
+          <div class="ex-body">
+            <p class="ex-example"><b>Exemple :</b> J'ai un chat et un chien. → <b>Je n'ai pas de chat ni de chien.</b></p>
+            <div id="ex5-body"></div>
+          </div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkSent('ex5')">Vérifier</button>
+            <button class="btn-reset" onclick="resetSent('ex5')">Réinitialiser</button>
+            <span class="score-chip" id="ex5-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 6 -->
+        <div class="ex-card" data-es="Acá es al revés: cada frase está en negativo y tenés que pasarla a la <b>forma afirmativa</b>. Sacá <em>ne … pas</em>, y donde diga <em>de</em> devolvé el artículo que corresponda (<em>un</em>, <em>une</em>, <em>des</em>). El <em>ni</em> vuelve a ser <em>et</em>.">
+          <div class="ex-head">
+            <span class="ex-num">6</span>
+            <div class="ex-meta"><span class="ex-stars">★</span><span class="ex-title">Transforme à la forme affirmative</span></div>
+            <span class="ex-instr">Le chemin inverse</span>
+          </div>
+          <div class="ex-body">
+            <p class="ex-example"><b>Exemple :</b> Je n'ai pas de chien. → <b>J'ai un chien.</b></p>
+            <div id="ex6-body"></div>
+          </div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkSent('ex6')">Vérifier</button>
+            <button class="btn-reset" onclick="resetSent('ex6')">Réinitialiser</button>
+            <span class="score-chip" id="ex6-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 7 -->
+        <div class="ex-card" data-es="Escribí la presentación de David en primera persona (<em>j'ai…</em>, <em>je n'ai pas…</em>, <em>j'aime…</em>, <em>je n'aime pas…</em>). Cómo leer las pistas: palabra <b>tachada</b> = no lo tiene; <b>número entre paréntesis</b> = cuántos tiene; <b>corazones</b> = le gusta; <b>corazones tachados</b> = no le gusta.">
+          <div class="ex-head">
+            <span class="ex-num">7</span>
+            <div class="ex-meta"><span class="ex-stars">★★</span><span class="ex-title">Écris la présentation de David</span></div>
+            <span class="ex-instr">Barré = non · ♥ = il aime</span>
+          </div>
+          <div class="ex-body">
+            <p class="ex-tip">David parle de lui : écris chaque phrase à la première personne (<em>j'ai…</em> / <em>je n'ai pas…</em> / <em>j'aime…</em> / <em>je n'aime pas…</em>).</p>
+            <div id="ex7-body"></div>
+          </div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkSent('ex7')">Vérifier</button>
+            <button class="btn-reset" onclick="resetSent('ex7')">Réinitialiser</button>
+            <span class="score-chip" id="ex7-score"></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════ FOOTER ═══════════════════════════════════════ -->
+  <footer>
+    <p class="colophon">Grammaire A1–A2 · Leçon 6 — <em>La négation</em>. Audio via Web Speech API / Google TTS. Fuente : 6.La_negation.pdf.</p>
+  </footer>
+
+  <div class="audio-status" id="audioStatus"></div>
+
+  <script src="../shared.js"></script>
+  <script>
+  /* ══════════════════════════════════════════════════════
+     DATOS — inline (sin fetch, funciona con file://)
+     Fuente: 6.La_negation.pdf (Leçon 6, pp. 36-39).
+  ══════════════════════════════════════════════════════ */
+
+  // Conjugaison à la forme négative — être / avoir / aimer
+  const CONJ = [
+    ['je',          'ne suis pas',   "n'ai pas",    "n'aime pas"   ],
+    ['tu',          "n'es pas",      "n'as pas",    "n'aimes pas"  ],
+    ['il / elle',   "n'est pas",     "n'a pas",     "n'aime pas"   ],
+    ['nous',        'ne sommes pas', "n'avons pas", "n'aimons pas" ],
+    ['vous',        "n'êtes pas",    "n'avez pas",  "n'aimez pas"  ],
+    ['ils / elles', 'ne sont pas',   "n'ont pas",   "n'aiment pas" ]
+  ];
+
+  // Élision — exemples avec audio
+  const ELISION = [
+    "Je <b>n'</b>aime pas le chocolat.",
+    "Il <b>n'</b>est pas belge.",
+    "Elles <b>n'</b>ont pas froid.",
+    "Nous <b>n'</b>avons pas faim.",
+    "Tu <b>n'</b>as pas six ans.",
+    "Vous <b>n'</b>êtes pas fatiguées."
+  ];
+
+  // un / une / des → de / d'
+  const DE_PAIRS = [
+    ["J'ai un manteau.",    "Je n'ai pas <b>de</b> manteau."],
+    ["J'ai une écharpe.",   "Je n'ai pas <b>d'</b>écharpe."],
+    ["J'ai des chaussettes.","Je n'ai pas <b>de</b> chaussettes."],
+    ["J'ai un ami.",        "Je n'ai pas <b>d'</b>ami."]
+  ];
+
+  // et → ni
+  const NI_PAIRS = [
+    ["J'aime les chiens et les chats.", "Je n'aime pas les chiens <b>ni</b> les chats."],
+    ["J'ai un chat et un chien.",       "Je n'ai pas de chat <b>ni</b> de chien."]
+  ];
+
+  // Vocabulaire — les vêtements (article + mot + genre)
+  const VOC = [
+    ['un',  'manteau',    'm'], ['une', 'casquette', 'f'],
+    ['une', 'écharpe',    'f'], ['un',  't-shirt',   'm'],
+    ['un',  'pantalon',   'm'], ['une', 'jupe',      'f'],
+    ['une', 'robe',       'f'], ['un',  'short',     'm'],
+    ['un',  'jogging',    'm'], ['des', 'chaussettes','p']
+  ];
+
+  /* ══════════════════════════════════════════════════════
+     EJERCICIO 1 — Remets dans l'ordre
+  ══════════════════════════════════════════════════════ */
+  const wo1Data = [
+    { ltr:'a', tokens:['ne','pas','suis','je','grec'],            ans:'je ne suis pas grec'       },
+    { ltr:'b', tokens:["n'ai",'je','pas','ans','six'],            ans:"je n'ai pas six ans"       },
+    { ltr:'c', tokens:["n'aime",'je','poisson','pas','le'],       ans:"je n'aime pas le poisson"  },
+    { ltr:'d', tokens:['nous','pas','ne','sommes','fatigués'],    ans:'nous ne sommes pas fatigués' },
+    { ltr:'e', tokens:["n'ont",'pas','elles','froid'],            ans:"elles n'ont pas froid"     }
+  ];
+
+  /* ══════════════════════════════════════════════════════
+     EJERCICIOS DE FRASE LIBRE (2, 3, 5, 6, 7)
+     sol = respuesta modelo (se muestra si hay error)
+     alt = otras respuestas también aceptadas
+  ══════════════════════════════════════════════════════ */
+  const sentSets = {
+    ex2: {
+      bodyId:'ex2-body', scoreId:'ex2-score',
+      items:[
+        { ltr:'a', q:'Il aime les chiens.',    sol:"Il n'aime pas les chiens." },
+        { ltr:'b', q:'Elle a 8 ans.',          sol:"Elle n'a pas 8 ans.", alt:["Elle n'a pas huit ans."] },
+        { ltr:'c', q:'Nous sommes chinois.',   sol:'Nous ne sommes pas chinois.' },
+        { ltr:'d', q:'Vous êtes fatiguées.',   sol:"Vous n'êtes pas fatiguées.", alt:["Vous n'êtes pas fatigués."] },
+        { ltr:'e', q:'Elles ont faim.',        sol:"Elles n'ont pas faim." },
+        { ltr:'f', q:'Tu as froid.',           sol:"Tu n'as pas froid." },
+        { ltr:'g', q:'Ils sont sympas.',       sol:'Ils ne sont pas sympas.', alt:['Ils ne sont pas sympa.'] }
+      ]
+    },
+    ex3: {
+      bodyId:'ex3-body', scoreId:'ex3-score', fixed:'Non,',
+      items:[
+        { ltr:'a', q:'Tu es française ?',        sol:'Non, je ne suis pas française.' },
+        { ltr:'b', q:'Tu aimes le chocolat ?',   sol:"Non, je n'aime pas le chocolat." },
+        { ltr:'c', q:'Tu aimes les chiens ?',    sol:"Non, je n'aime pas les chiens." },
+        { ltr:'d', q:'Tu as 15 ans ?',           sol:"Non, je n'ai pas 15 ans.", alt:["Non, je n'ai pas quinze ans."] },
+        { ltr:'e', q:'Tu as peur ?',             sol:"Non, je n'ai pas peur." }
+      ]
+    },
+    ex5: {
+      bodyId:'ex5-body', scoreId:'ex5-score',
+      items:[
+        { ltr:'a', q:'Elsa a une sœur et un frère.',
+          sol:"Elsa n'a pas de sœur ni de frère." },
+        { ltr:'b', q:'Kimmi aime le football et le tennis.',
+          sol:"Kimmi n'aime pas le football ni le tennis." },
+        { ltr:'c', q:"Ils aiment la Chine et l'Angleterre.",
+          sol:"Ils n'aiment pas la Chine ni l'Angleterre." },
+        { ltr:'d', q:'Clara et Jeanne ont des sandwichs et des pommes.',
+          sol:"Clara et Jeanne n'ont pas de sandwichs ni de pommes.",
+          alt:["Clara et Jeanne n'ont pas de sandwich ni de pomme."] },
+        { ltr:'e', q:'Nous avons un chat et un chien.',
+          sol:"Nous n'avons pas de chat ni de chien." }
+      ]
+    },
+    ex6: {
+      bodyId:'ex6-body', scoreId:'ex6-score',
+      items:[
+        { ltr:'a', q:"Il n'y a pas de poisson.",
+          sol:'Il y a un poisson.', alt:['Il y a des poissons.', 'Il y a du poisson.'] },
+        { ltr:'b', q:"Je n'ai pas de sœur.",
+          sol:"J'ai une sœur.", alt:["J'ai des sœurs."] },
+        { ltr:'c', q:"Je n'aime pas les maths ni la géographie.",
+          sol:"J'aime les maths et la géographie." },
+        { ltr:'d', q:"Nous n'aimons pas les chevaux.",
+          sol:'Nous aimons les chevaux.' },
+        { ltr:'e', q:"Elle n'a pas dix ans.",
+          sol:'Elle a dix ans.', alt:['Elle a 10 ans.'] }
+      ]
+    },
+    ex7: {
+      bodyId:'ex7-body', scoreId:'ex7-score',
+      items:[
+        { ltr:'a', q:'<del>frère</del>',
+          sol:"Je n'ai pas de frère.", alt:["Je n'ai pas de frères."] },
+        { ltr:'b', q:'sœur (2)',
+          sol:"J'ai deux sœurs.", alt:["J'ai 2 sœurs."] },
+        { ltr:'c', q:'chat (3)',
+          sol:"J'ai trois chats.", alt:["J'ai 3 chats."] },
+        { ltr:'d', q:'<del>chien</del>',
+          sol:"Je n'ai pas de chien.", alt:["Je n'ai pas de chiens."] },
+        { ltr:'e', q:'chien <span class="hearts no">♥♥♥</span>',
+          sol:"Je n'aime pas les chiens." },
+        { ltr:'f', q:'chat <span class="hearts">♥♥♥</span>',
+          sol:"J'aime les chats." }
+      ]
+    }
+  };
+
+  /* ══════════════════════════════════════════════════════
+     EJERCICIO 4 — Rellenar (ans = alternativas aceptadas)
+  ══════════════════════════════════════════════════════ */
+  const ex4Data = { bodyId:'ex4-body', scoreId:'ex4-score', items:[
+    { ltr:'a', pre:"Tu as le t-shirt de Paul ? — Non, je n'ai pas", suf:'t-shirt de Paul.', ans:['le'] },
+    { ltr:'b', pre:"Tu aimes les casquettes ? — Non, je n'aime pas", suf:'casquettes.',     ans:['les'] },
+    { ltr:'c', pre:"Tu as une robe ? — Non, je n'ai pas",            suf:'robe.',           ans:['de'] },
+    { ltr:'d', pre:"Vous avez un jogging ? — Non, je n'ai pas",      suf:'jogging.',        ans:['de'] },
+    { ltr:'e', pre:"Vous aimez les jupes ? — Non, nous n'aimons pas",suf:'jupes.',          ans:['les'] }
+  ]};
+  const ALL_FILL = { ex4: ex4Data };
+
+  /* ══════════════════════════════════════════════════════
+     RENDER — bloques informativos
+  ══════════════════════════════════════════════════════ */
+  // "ne suis pas" → "<b>ne </b>suis<b> pas</b>" (marca ne/n' y pas en color)
+  function fmtNeg(form) {
+    const m = form.match(/^(ne |n')(.+?)( pas)$/);
+    if (!m) return form;
+    return '<b>' + m[1] + '</b>' + m[2] + '<b>' + m[3] + '</b>';
+  }
+
+  function renderConj() {
+    const tb = document.querySelector('#conjTable tbody');
+    CONJ.forEach(row => {
+      const tr = document.createElement('tr');
+      const th = document.createElement('th');
+      th.textContent = row[0];
+      tr.appendChild(th);
+      const subject = row[0].split(' / ')[0];   // "il / elle" → "il"
+      row.slice(1).forEach(form => {
+        const td = document.createElement('td');
+        td.className = 'spk';
+        td.title = 'Écouter';
+        td.innerHTML = fmtNeg(form);
+        const phrase = subject + ' ' + form;    // "je" + "n'ai pas" → "je n'ai pas"
+        td.addEventListener('click', () => speak(phrase, td));
+        tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+  }
+
+  function renderPhrases(targetId, arr) {
+    const box = document.getElementById(targetId);
+    arr.forEach(html => {
+      const row = document.createElement('div');
+      row.className = 'ex-phrase';
+      const t = document.createElement('span');
+      t.className = 'exp-text';
+      t.innerHTML = html;
+      const btn = document.createElement('button');
+      btn.className = 'mini-audio';
+      btn.textContent = '▶';
+      btn.title = 'Écouter';
+      btn.addEventListener('click', () => speak(t.textContent, btn));
+      row.appendChild(t);
+      row.appendChild(btn);
+      box.appendChild(row);
+    });
+  }
+
+  function renderPairs(targetId, pairs) {
+    const box = document.getElementById(targetId);
+    pairs.forEach(([a, b]) => {
+      const row = document.createElement('div');
+      row.className = 'tr-pair';
+      const ea = document.createElement('span');
+      ea.className = 'tr-a';
+      ea.textContent = a;
+      const ar = document.createElement('span');
+      ar.className = 'tr-arrow';
+      ar.textContent = '→';
+      const eb = document.createElement('span');
+      eb.className = 'tr-b';
+      eb.innerHTML = b;
+      const btn = document.createElement('button');
+      btn.className = 'mini-audio';
+      btn.textContent = '▶';
+      btn.title = 'Écouter';
+      btn.addEventListener('click', () => speak(eb.textContent, btn));
+      row.appendChild(ea); row.appendChild(ar); row.appendChild(eb); row.appendChild(btn);
+      box.appendChild(row);
+    });
+  }
+
+  function renderVoc() {
+    const grid = document.getElementById('vocGrid');
+    VOC.forEach(([art, word, genre]) => {
+      const row = document.createElement('div');
+      row.className = 'voc-row';
+      const t = document.createElement('span');
+      t.className = 'voc-text';
+      t.innerHTML = '<span class="art-' + genre + '">' + art + '</span> ' + word;
+      const btn = document.createElement('button');
+      btn.className = 'mini-audio';
+      btn.textContent = '▶';
+      btn.title = 'Écouter';
+      btn.addEventListener('click', () => speak(art + ' ' + word, btn));
+      row.appendChild(t); row.appendChild(btn);
+      grid.appendChild(row);
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EJERCICIO 1 — Word ordering
+  ══════════════════════════════════════════════════════ */
+  const wo1State = {};
+
+  function buildWordOrder() {
+    const body = document.getElementById('ex1-body');
+    body.innerHTML = '';
+    wo1Data.forEach(item => {
+      wo1State[item.ltr] = { stage: [], pool: [...item.tokens] };
+      const block = document.createElement('div');
+      block.className = 'wo-block';
+      block.innerHTML =
+        '<div class="wo-letter">' + item.ltr + '.</div>' +
+        '<div class="wo-stage" id="wo-stage-' + item.ltr + '"></div>' +
+        '<div class="wo-pool"  id="wo-pool-' + item.ltr + '"></div>';
+      body.appendChild(block);
+      renderWoItem(item.ltr, item.tokens);
+    });
+  }
+
+  function renderWoItem(ltr, tokens) {
+    const state   = wo1State[ltr];
+    const stageEl = document.getElementById('wo-stage-' + ltr);
+    const poolEl  = document.getElementById('wo-pool-' + ltr);
+    stageEl.innerHTML = '';
+    poolEl.innerHTML  = '';
+    stageEl.classList.toggle('has-items', state.stage.length > 0);
+
+    state.stage.forEach((tok, i) => {
+      const el = document.createElement('span');
+      el.className = 'wo-token';
+      el.textContent = tok;
+      el.addEventListener('click', () => {
+        state.stage.splice(i, 1);
+        state.pool.push(tok);
+        renderWoItem(ltr, tokens);
+      });
+      stageEl.appendChild(el);
+    });
+
+    tokens.forEach(tok => {
+      const el = document.createElement('span');
+      el.className = 'wo-token' + (state.pool.includes(tok) ? '' : ' used');
+      el.textContent = tok;
+      el.addEventListener('click', () => {
+        const idx = state.pool.indexOf(tok);
+        if (idx === -1) return;
+        state.pool.splice(idx, 1);
+        state.stage.push(tok);
+        renderWoItem(ltr, tokens);
+      });
+      poolEl.appendChild(el);
+    });
+  }
+
+  function checkWordOrder() {
+    let correct = 0;
+    wo1Data.forEach(item => {
+      const state   = wo1State[item.ltr];
+      const stageEl = document.getElementById('wo-stage-' + item.ltr);
+      const built   = normSent(state.stage.join(' '));
+      stageEl.classList.remove('ok-s','err-s');
+      if (built === normSent(item.ans)) { stageEl.classList.add('ok-s'); correct++; }
+      else                              { stageEl.classList.add('err-s'); }
+    });
+    const chip = document.getElementById('ex1-score');
+    chip.textContent = correct + '/' + wo1Data.length;
+    chip.className = 'score-chip ' + (correct === wo1Data.length ? 'good' : 'bad');
+  }
+
+  function resetWordOrder() {
+    buildWordOrder();
+    const chip = document.getElementById('ex1-score');
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     NORMALIZACIÓN DE RESPUESTAS
+     Tolerante con: mayúsculas, acentos, œ, apóstrofos
+     tipográficos, espacios y puntuación final.
+     NO tolerante con la falta de apóstrofo (n' es el punto
+     de la lección).
+  ══════════════════════════════════════════════════════ */
+  // Marcas diacríticas combinantes (U+0300–U+036F), tras normalize('NFD')
+  const RX_DIACRITICS = new RegExp('[̀-ͯ]', 'g');
+
+  function normSent(s) {
+    return (s || '')
+      .toLowerCase()
+      .replace(/[’ʼ´`]/g, "'")   // ’ ʼ ´ ` → '
+      .replace(/œ/g, 'oe').replace(/æ/g, 'ae')
+      .normalize('NFD').replace(RX_DIACRITICS, '')
+      .replace(/[.,;:!?"«»]/g, ' ')
+      .replace(/\s*'\s*/g, "'")                  // "n' ai" → "n'ai"
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/^non\s+/, '');                   // "Non, je…" → "je…"
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EJERCICIOS DE FRASE LIBRE — genérico
+  ══════════════════════════════════════════════════════ */
+  function buildSent(id) {
+    const set  = sentSets[id];
+    const body = document.getElementById(set.bodyId);
+    body.innerHTML = '';
+    set.items.forEach(item => {
+      const block = document.createElement('div');
+      block.className = 'sent-item';
+      block.innerHTML =
+        '<div class="sent-q"><span class="fi-letter">' + item.ltr + '.</span>' + item.q + '</div>' +
+        '<div class="sent-row">' +
+          '<span class="sent-arrow">→</span>' +
+          (set.fixed ? '<span class="sent-fixed">' + set.fixed + '</span>' : '') +
+          '<input type="text" class="sent-inp" data-ltr="' + item.ltr + '" autocomplete="off" spellcheck="false">' +
+        '</div>' +
+        '<div class="sent-sol" id="' + id + '-sol-' + item.ltr + '">' +
+          '<span class="sol-label">Réponse</span>' +
+          '<span class="sol-text"></span>' +
+          '<button class="mini-audio" title="Écouter">▶</button>' +
+        '</div>';
+      body.appendChild(block);
+
+      const solBox  = block.querySelector('.sent-sol');
+      solBox.querySelector('.sol-text').textContent = item.sol;
+      solBox.querySelector('.mini-audio').addEventListener('click', function () {
+        speak(item.sol, this);
+      });
+    });
+  }
+
+  function checkSent(id) {
+    const set = sentSets[id];
+    let correct = 0;
+    set.items.forEach(item => {
+      const inp = document.querySelector('#' + set.bodyId + ' .sent-inp[data-ltr="' + item.ltr + '"]');
+      const sol = document.getElementById(id + '-sol-' + item.ltr);
+      const val = normSent(inp.value);
+      const accepted = [item.sol].concat(item.alt || []).map(normSent);
+      inp.classList.remove('ok','err');
+      sol.classList.remove('show');
+      if (val && accepted.indexOf(val) !== -1) {
+        inp.classList.add('ok');
+        correct++;
+      } else {
+        inp.classList.add('err');
+        sol.classList.add('show');
+      }
+    });
+    const chip = document.getElementById(set.scoreId);
+    chip.textContent = correct + '/' + set.items.length;
+    chip.className = 'score-chip ' + (correct === set.items.length ? 'good' : 'bad');
+  }
+
+  function resetSent(id) {
+    buildSent(id);
+    const chip = document.getElementById(sentSets[id].scoreId);
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EJERCICIO 4 — Rellenar (genérico)
+  ══════════════════════════════════════════════════════ */
+  function buildFill(data) {
+    const body = document.getElementById(data.bodyId);
+    body.innerHTML = '';
+    data.items.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'fi-item';
+      row.innerHTML = '<span class="fi-letter">' + item.ltr + '.</span>' +
+        (item.pre ? item.pre + ' ' : '') +
+        '<input type="text" class="fi-input" data-ltr="' + item.ltr + '" autocomplete="off" spellcheck="false" size="4"> ' +
+        item.suf;
+      body.appendChild(row);
+    });
+  }
+
+  function normAns(s) { return s.trim().toLowerCase().replace(/[’ʼ´]/g, "'"); }
+  // Acepta la respuesta con o sin apóstrofo (d' / d)
+  function matchAns(val, ans) { return val === ans || val === ans.replace(/'/g, ''); }
+
+  function checkFill(data) {
+    let correct = 0;
+    data.items.forEach(item => {
+      const inp = document.querySelector('#' + data.bodyId + ' [data-ltr="' + item.ltr + '"]');
+      const val = normAns(inp.value);
+      inp.classList.remove('ok','err');
+      if (val && item.ans.some(a => matchAns(val, a))) { inp.classList.add('ok'); correct++; }
+      else { inp.classList.add('err'); }
+    });
+    const chip = document.getElementById(data.scoreId);
+    chip.textContent = correct + '/' + data.items.length;
+    chip.className = 'score-chip ' + (correct === data.items.length ? 'good' : 'bad');
+  }
+
+  function resetFill(id) {
+    const data = ALL_FILL[id];
+    buildFill(data);
+    const chip = document.getElementById(data.scoreId);
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     AYUDA EN ESPAÑOL — glosas a demanda
+     Cada elemento con data-es recibe un botón "ES" que
+     despliega la explicación en español DEBAJO del texto
+     francés (nunca encima: primero se intenta en francés).
+     Se usa clic, no hover, para que funcione en celular.
+  ══════════════════════════════════════════════════════ */
+  const GLOSSES = [];
+
+  function setupGlosses() {
+    document.querySelectorAll('[data-es]').forEach(el => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'es-btn';
+      btn.textContent = 'ES';
+      btn.title = 'Ver la explicación en español';
+      btn.setAttribute('aria-expanded', 'false');
+
+      const gloss = document.createElement('div');
+      gloss.className = 'es-gloss';
+      gloss.innerHTML = '<span class="es-tag">🇪🇸 En español</span>' + el.getAttribute('data-es');
+
+      if (el.classList.contains('ex-card')) {
+        // dentro de la tarjeta: botón en la cabecera, glosa justo debajo
+        const head = el.querySelector('.ex-head');
+        head.appendChild(btn);
+        gloss.classList.add('in-card');
+        head.insertAdjacentElement('afterend', gloss);
+      } else {
+        // recuadro de teoría: fila con el botón alineado a la derecha
+        const row = document.createElement('div');
+        row.className = 'es-row';
+        row.appendChild(btn);
+        el.insertAdjacentElement('afterend', row);
+        row.insertAdjacentElement('afterend', gloss);
+      }
+
+      btn.addEventListener('click', () => toggleGloss(btn, gloss));
+      GLOSSES.push({ btn, gloss });
+    });
+
+    const master = document.getElementById('esToggle');
+    master.addEventListener('click', () => {
+      const turnOn = GLOSSES.some(g => !g.gloss.classList.contains('show'));
+      GLOSSES.forEach(g => setGloss(g.btn, g.gloss, turnOn));
+      syncMaster();
+    });
+  }
+
+  function setGloss(btn, gloss, show) {
+    gloss.classList.toggle('show', show);
+    btn.classList.toggle('on', show);
+    btn.setAttribute('aria-expanded', String(show));
+  }
+
+  function toggleGloss(btn, gloss) {
+    setGloss(btn, gloss, !gloss.classList.contains('show'));
+    syncMaster();
+  }
+
+  function syncMaster() {
+    const shown = GLOSSES.filter(g => g.gloss.classList.contains('show')).length;
+    document.getElementById('esToggle').classList.toggle('on', shown === GLOSSES.length && shown > 0);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     SCROLL SPY
+  ══════════════════════════════════════════════════════ */
+  function setupScrollSpy() {
+    const links = document.querySelectorAll('.nav-links a');
+    const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => obs.observe(s));
+  }
+
+  /* ══════════════════════════════════════════════════════
+     INIT
+  ══════════════════════════════════════════════════════ */
+  renderConj();
+  renderPhrases('elisionList', ELISION);
+  renderPairs('deList', DE_PAIRS);
+  renderPairs('niList', NI_PAIRS);
+  renderVoc();
+  buildWordOrder();
+  buildSent('ex2');
+  buildSent('ex3');
+  buildSent('ex5');
+  buildSent('ex6');
+  buildSent('ex7');
+  buildFill(ex4Data);
+  setupGlosses();
+  setupScrollSpy();
+
+  document.getElementById('ninaBtn').addEventListener('click', function () {
+    speak(document.getElementById('ninaText').textContent, this);
+  });
+  </script>
+</body>
+</html>
