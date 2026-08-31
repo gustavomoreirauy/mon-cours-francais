@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Raconter son week-end en français : je suis allé(e) / j'ai fait, la différence entre visiter et rendre visite à, banque d'activités, marqueurs de temps, dialogues et réactions. A1-A2 avec audio.">
+  <title>Raconter son week-end · Situations A1-A2 | Français</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../shared.css">
+  <style>
+    :root { --page-accent: var(--plum); }
+
+    body {
+      background-image:
+        radial-gradient(circle at 15% 8%,  rgba(124,58,237,.07) 0%, transparent 45%),
+        radial-gradient(circle at 85% 65%, rgba(30,64,175,.05) 0%, transparent 45%),
+        radial-gradient(circle at 50% 100%,rgba(5,150,105,.04) 0%, transparent 45%);
+    }
+
+    /* ── Layout ──────────────────────────────── */
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── Hero ────────────────────────────────── */
+    header.hero {
+      padding: 4.5rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breadcrumb {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .breadcrumb span { color: var(--page-accent); font-weight: 700; }
+    .lesson-num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--page-accent);
+      color: #fff;
+      font-size: 0.95rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    h1.title {
+      font-family: var(--serif-display);
+      font-weight: 800;
+      font-size: clamp(2.4rem, 7vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.1rem;
+      font-variation-settings: "opsz" 144;
+    }
+    h1.title em { font-style: normal; color: var(--page-accent); }
+
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
+    .pill {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.55rem;
+      border-radius: 2px;
+      border: 1.5px solid;
+    }
+    .pill-a1   { border-color: var(--plum);      color: var(--plum); }
+    .pill-sit  { border-color: var(--primary);   color: var(--primary); }
+    .pill-pc   { border-color: var(--secondary); color: var(--secondary); }
+    .pill-conv { border-color: var(--tertiary);  color: var(--tertiary); }
+
+    /* ── Sticky Nav ──────────────────────────── */
+    nav.sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250,246,236,.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .nav-back {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink-faint);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--page-accent); }
+    .nav-brand {
+      font-family: var(--serif-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      font-variation-settings: "opsz" 36;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      list-style: none;
+      flex: 1;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links li a {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ink-faint);
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: all .15s;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active { color: var(--page-accent); background: rgba(124,58,237,.1); }
+
+    /* ── Intro ES ────────────────────────────── */
+    .intro-es-wrap { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 0; }
+    .intro-es {
+      background: var(--bg-deep);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--ink-faint);
+      border-radius: 3px;
+      padding: 0.9rem 1.1rem;
+    }
+    .intro-es-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.4rem;
+    }
+    .intro-es-body {
+      font-family: var(--serif-body);
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .intro-es-body strong { color: var(--ink); font-weight: 600; }
+    .intro-es-body em { color: var(--page-accent); font-style: italic; }
+
+    /* ── Section headings ────────────────────── */
+    .section-kicker {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--page-accent);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-kicker::before { content: ""; width: 28px; height: 2px; background: var(--page-accent); }
+    h2.section-title {
+      font-family: var(--serif-display);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      font-variation-settings: "opsz" 36;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      font-family: var(--serif-body);
+      font-size: 0.9rem;
+      color: var(--ink-faint);
+      margin-bottom: 1.25rem;
+    }
+    .lesson-section { padding: 3rem 0 1rem; border-top: 1px solid var(--rule-soft); }
+
+    /* ── Les deux auxiliaires ────────────────── */
+    .aux-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 680px) { .aux-grid { grid-template-columns: 1fr; } }
+    .aux-panel {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .aux-head {
+      padding: 0.7rem 0.95rem;
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .aux-head small {
+      display: block;
+      font-size: 0.58rem;
+      letter-spacing: 0.06em;
+      text-transform: none;
+      opacity: .92;
+      margin-top: 2px;
+      font-family: var(--serif-body);
+      font-style: italic;
+    }
+    .aux-etre  .aux-head { background: var(--plum); }
+    .aux-avoir .aux-head { background: var(--primary); }
+    .aux-opener {
+      font-family: var(--serif-display);
+      font-variation-settings: "opsz" 36;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink);
+      padding: 0.8rem 0.95rem 0.5rem;
+      border-bottom: 1px dashed var(--rule-soft);
+    }
+    .aux-etre  .aux-opener b { color: var(--plum); }
+    .aux-avoir .aux-opener b { color: var(--primary); }
+
+    /* ── Rows FR / ES with audio ─────────────── */
+    .phrase-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 0.95rem;
+      border-top: 1px solid var(--rule-soft);
+    }
+    .phrase-row:first-of-type { border-top: none; }
+    .phrase-text { flex: 1; min-width: 0; }
+    .phrase-fr { font-family: var(--serif-body); font-size: 0.93rem; color: var(--ink); line-height: 1.35; }
+    .phrase-fr b { color: var(--page-accent); }
+    .phrase-es { font-family: var(--serif-body); font-size: 0.79rem; color: var(--ink-faint); font-style: italic; }
+    .phrase-audio {
+      flex-shrink: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      background: var(--bg-deep);
+      color: var(--page-accent);
+      font-size: 0.66rem;
+      cursor: pointer;
+      transition: all .12s;
+    }
+    .phrase-audio:hover { background: var(--page-accent); color: #fff; border-color: var(--page-accent); }
+    .phrase-audio.playing { background: var(--tertiary); border-color: var(--tertiary); color: #fff; }
+
+    /* ── Cards grid (activités, temps) ───────── */
+    .theme-block { margin-bottom: 1.5rem; }
+    .theme-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .theme-label::after { content: ""; flex: 1; height: 1px; background: var(--rule-soft); }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+      gap: 0.5rem;
+    }
+    .mini-card {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--page-accent);
+      border-radius: 3px;
+      padding: 0.5rem 0.65rem;
+    }
+
+    /* ── Piège box ───────────────────────────── */
+    .trap-box {
+      background: rgba(234,88,12,.06);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--secondary);
+      border-radius: 3px;
+      padding: 0.85rem 1.1rem;
+      margin: 1rem 0;
+      font-family: var(--serif-body);
+      font-size: 0.94rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+    .trap-box .trap-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 0.35rem;
+    }
+    .trap-box b { color: var(--ink); }
+    .trap-box del { color: var(--ink-faint); }
+    .trap-box .tb-ex { display: block; margin-top: 0.3rem; }
+
+    .tip-box {
+      background: rgba(124,58,237,.06);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--page-accent);
+      border-radius: 3px;
+      padding: 0.85rem 1.1rem;
+      margin: 1rem 0;
+      font-family: var(--serif-body);
+      font-size: 0.94rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+    .tip-box .tip-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--page-accent);
+      margin-bottom: 0.35rem;
+    }
+    .tip-box b { color: var(--ink); }
+    .tip-box .tb-ex { display: block; margin-top: 0.3rem; }
+
+    /* ── Dialogues ───────────────────────────── */
+    .dlg {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      margin: 1rem 0;
+      overflow: hidden;
+    }
+    .dlg-head {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.7rem 1rem;
+      background: var(--bg-deep);
+      border-bottom: 1px solid var(--rule);
+    }
+    .dlg-title {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--ink);
+      flex: 1;
+    }
+    .dlg-play {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.65rem;
+      border: 1.5px solid var(--page-accent);
+      border-radius: 3px;
+      background: transparent;
+      color: var(--page-accent);
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .dlg-play:hover { background: var(--page-accent); color: #fff; }
+    .dlg-body { padding: 0.5rem 0; }
+    .dlg-line { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.45rem 1rem; }
+    .dlg-line.speaking { background: rgba(124,58,237,.07); }
+    .dlg-who {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      width: 1.5rem;
+      flex-shrink: 0;
+      padding-top: 0.18rem;
+    }
+    .dlg-a .dlg-who { color: var(--primary); }
+    .dlg-b .dlg-who { color: var(--plum); }
+    .dlg-text { flex: 1; min-width: 0; }
+    .dlg-fr { font-family: var(--serif-body); font-size: 0.95rem; color: var(--ink); line-height: 1.45; }
+    .dlg-fr b { color: var(--page-accent); }
+    .dlg-es { font-family: var(--serif-body); font-size: 0.79rem; color: var(--ink-faint); font-style: italic; }
+
+    /* ── Constructeur de phrase ──────────────── */
+    .builder {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      padding: 1rem 1.15rem;
+    }
+    .b-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin: 0.7rem 0 0.4rem;
+    }
+    .b-label:first-child { margin-top: 0; }
+    .b-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .b-chip {
+      font-family: var(--serif-body);
+      font-size: 0.87rem;
+      padding: 0.22rem 0.6rem;
+      border: 1.5px solid var(--rule);
+      border-radius: 3px;
+      background: var(--bg-deep);
+      color: var(--ink);
+      cursor: pointer;
+      transition: all .12s;
+      text-align: left;
+    }
+    .b-chip:hover { border-color: var(--page-accent); background: var(--paper); }
+    .b-chip.sel { border-color: var(--page-accent); background: rgba(124,58,237,.12); color: var(--page-accent); font-weight: 600; }
+    .b-out {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      padding: 0.75rem 0.9rem;
+      background: var(--bg);
+      border: 2px dashed var(--rule);
+      border-radius: 4px;
+      min-height: 3.4rem;
+    }
+    .b-out.ready { border-style: solid; border-color: var(--page-accent); background: rgba(124,58,237,.05); }
+    .b-sentence { flex: 1; font-family: var(--serif-body); font-size: 1.02rem; color: var(--ink); line-height: 1.4; }
+    .b-sentence .b-placeholder { color: var(--ink-faint); font-style: italic; font-size: 0.9rem; }
+    .b-es { font-family: var(--serif-body); font-size: 0.8rem; color: var(--ink-faint); font-style: italic; display: block; margin-top: 2px; }
+    .b-actions { display: flex; gap: 0.5rem; margin-top: 0.7rem; }
+    .btn-soft {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+      border: 1.5px solid var(--rule);
+      border-radius: 3px;
+      background: transparent;
+      color: var(--ink-faint);
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .btn-soft:hover { border-color: var(--page-accent); color: var(--page-accent); }
+
+    /* ── Exercices ───────────────────────────── */
+    .ex-card { background: var(--paper); border: 1px solid var(--rule); border-radius: 5px; margin: 1.25rem 0; overflow: hidden; }
+    .ex-head { display: flex; align-items: center; gap: 0.9rem; padding: 0.85rem 1.1rem; background: var(--bg-deep); border-bottom: 1px solid var(--rule); }
+    .ex-num { font-family: var(--serif-display); font-size: 1.7rem; font-weight: 800; line-height: 1; color: var(--page-accent); font-variation-settings: "opsz" 9; min-width: 1.6rem; }
+    .ex-title { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--ink); }
+    .ex-instr { font-family: var(--serif-body); font-size: 0.86rem; color: var(--ink-faint); font-style: italic; margin-left: auto; }
+    @media (max-width: 560px) { .ex-instr { display: none; } }
+    .ex-body { padding: 1rem 1.2rem; }
+    .ex-foot { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 1.2rem; border-top: 1px solid var(--rule-soft); background: var(--bg); }
+    .btn-check { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 0.42rem 0.95rem; border: none; border-radius: 3px; background: var(--page-accent); color: #fff; cursor: pointer; transition: all .2s; }
+    .btn-check:hover { filter: brightness(.88); }
+    .score-chip { font-family: var(--mono); font-size: 0.74rem; font-weight: 700; padding: 0.18rem 0.55rem; border-radius: 2px; background: var(--bg-deep); color: var(--ink-faint); margin-left: auto; min-width: 2.5rem; text-align: center; transition: all .3s; }
+    .score-chip.good { background: rgba(5,150,105,.14); color: var(--tertiary); }
+    .score-chip.bad  { background: rgba(234,88,12,.13);  color: var(--secondary); }
+
+    .mc-item { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin: 0.7rem 0; font-family: var(--serif-body); font-size: 0.96rem; }
+    .mc-prefix { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; color: var(--ink-faint); min-width: 1.1rem; }
+    .mc-text { color: var(--ink-soft); }
+    .mc-opts { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .mc-btn { font-family: var(--serif-body); font-size: 0.9rem; font-weight: 600; padding: 0.25rem 0.7rem; border: 2px solid var(--rule); border-radius: 3px; background: var(--bg-deep); color: var(--ink); cursor: pointer; transition: all .15s; }
+    .mc-btn:hover { border-color: var(--page-accent); background: var(--paper); }
+    .mc-btn.selected { border-color: var(--page-accent); background: rgba(124,58,237,.1); }
+    .mc-btn.ok  { border-color: var(--tertiary); background: rgba(5,150,105,.1); color: var(--tertiary); cursor: default; }
+    .mc-btn.err { border-color: var(--secondary); background: rgba(234,88,12,.1); color: var(--secondary); text-decoration: line-through; cursor: default; }
+    .mc-btn:disabled { cursor: default; }
+
+    /* ── Footer ──────────────────────────────── */
+    footer { margin-top: 5rem; border-top: 1px solid var(--rule); padding: 2.5rem 2rem; max-width: 860px; margin-left: auto; margin-right: auto; }
+    footer .colophon { font-family: var(--serif-body); font-size: 0.88rem; color: var(--ink-faint); line-height: 1.6; font-style: italic; }
+
+    @media (max-width: 640px) {
+      header.hero { padding: 3rem 1.25rem 2rem; }
+      .wrap { padding: 0 1.25rem; }
+      .nav-inner { padding: 0.8rem 1.25rem; }
+      .intro-es-wrap { padding: 2rem 1.25rem 0; }
+      .card-grid { grid-template-columns: 1fr; }
+      .ex-body { padding: 1rem 0.9rem; }
+      .ex-foot { padding: 0.65rem 0.9rem; }
+      .dlg-line { padding: 0.45rem 0.75rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════ HERO ════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="breadcrumb">
+      <span class="lesson-num-badge">🗓️</span>
+      Situations A1–A2 · <span>Raconter son week-end</span>
+    </div>
+    <h1 class="title">Raconter son <em>week-end</em></h1>
+    <p class="lede">« <strong>Qu'est-ce que tu as fait ce week-end ?</strong> » — la question la plus fréquente du lundi matin. Ici, les phrases toutes faites pour y répondre : <strong>je suis allé(e)…</strong>, <strong>j'ai fait…</strong>, et de quoi tenir la conversation.</p>
+    <div class="hero-pills">
+      <span class="pill pill-a1">A1–A2</span>
+      <span class="pill pill-sit">Situation</span>
+      <span class="pill pill-pc">Passé composé</span>
+      <span class="pill pill-conv">Conversation</span>
+    </div>
+  </header>
+
+  <!-- ════ STICKY NAV ═══════════════════════════════════ -->
+  <nav class="sticky-nav">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-back">← Accueil</a>
+      <span class="nav-brand">Week-end</span>
+      <ul class="nav-links">
+        <li><a href="#formule">La formule</a></li>
+        <li><a href="#visiter">Visiter ?</a></li>
+        <li><a href="#activites">Activités</a></li>
+        <li><a href="#quand">Quand ?</a></li>
+        <li><a href="#dialogues">Dialogues</a></li>
+        <li><a href="#reagir">Réagir</a></li>
+        <li><a href="#atoi">À toi</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════ MAIN ═════════════════════════════════════════ -->
+  <main>
+
+    <!-- ── Intro en español ──────────────────── -->
+    <div class="intro-es-wrap">
+      <div class="intro-es">
+        <div class="intro-es-label">🇪🇸 De qué trata esta situación</div>
+        <p class="intro-es-body">Contar qué hiciste el fin de semana es la conversación más común que vas a tener. En francés el pasado se arma con <strong>dos piezas</strong>: un auxiliar (<em>je suis</em> o <em>j'ai</em>) + el participio. Acá no vamos a estudiar la regla en detalle — vamos a aprender las frases <strong>ya armadas</strong>, listas para usar. Lo único que sí conviene tener claro es <strong>cuándo va <em>je suis</em> y cuándo <em>j'ai</em></strong>, y la diferencia entre <em>visiter</em> y <em>rendre visite à</em>, que en español son la misma palabra y en francés no. Tocá ▶ en cualquier frase para escucharla.</p>
+      </div>
+    </div>
+
+    <!-- ── La formule ──────────────────────────── -->
+    <section id="formule" class="lesson-section" style="border-top:none;">
+      <div class="wrap">
+        <div class="section-kicker">Le point de départ</div>
+        <h2 class="section-title">Deux façons de commencer</h2>
+        <p class="section-sub">Presque tout ce que vous direz commence par l'une de ces deux formules.</p>
+
+        <div class="aux-grid">
+          <div class="aux-panel aux-etre">
+            <div class="aux-head">Je suis…<small>les déplacements et les changements d'état</small></div>
+            <div class="aux-opener">Je <b>suis</b> allé(e)…</div>
+            <div id="etreList"></div>
+          </div>
+          <div class="aux-panel aux-avoir">
+            <div class="aux-head">J'ai…<small>tout le reste — la grande majorité</small></div>
+            <div class="aux-opener"><b>J'ai</b> fait…</div>
+            <div id="avoirList"></div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <div class="tip-label">💡 Truco para elegir</div>
+          Si el verbo es de <b>movimiento</b> (ir, salir, volver, quedarse, llegar) o va con <b>me / te / se</b>, usá <b>je suis</b>. Para todo lo demás — comer, hacer, ver, tomar, trabajar, dormir — usá <b>j'ai</b>. En la duda, <b>j'ai</b> acierta más veces.
+          <span class="tb-ex">La <b>(e)</b> de <i>allé(e)</i> es para mujeres: un hombre escribe <i>je suis allé</i>, una mujer <i>je suis allée</i>. Se pronuncia igual.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Visiter ou rendre visite ─────────────── -->
+    <section id="visiter" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Le piège</div>
+        <h2 class="section-title">Visiter ou rendre visite ?</h2>
+        <p class="section-sub">Un seul verbe en espagnol, deux en français.</p>
+
+        <div class="card-grid" id="visiterList"></div>
+
+        <div class="trap-box">
+          <div class="trap-label">⚠ Atención</div>
+          <b>visiter</b> = un <b>lugar</b> (un museo, una ciudad, una casa). <b>rendre visite à</b> = una <b>persona</b>.
+          <span class="tb-ex"><del>J'ai visité ma mère</del> → J'ai <b>rendu visite à</b> ma mère.</span>
+          <span class="tb-ex"><del>J'ai rendu visite au Louvre</del> → J'ai <b>visité</b> le Louvre.</span>
+          <span class="tb-ex" style="margin-top:.5rem;">Si te trabás, siempre podés esquivarlo: <b>je suis allé(e) chez ma mère</b> — « fui a lo de mi mamá ». Es lo que más se dice en el día a día.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Activités ───────────────────────────── -->
+    <section id="activites" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">La banque de phrases</div>
+        <h2 class="section-title">Qu'est-ce que tu as fait ?</h2>
+        <p class="section-sub">Les activités les plus courantes, prêtes à l'emploi.</p>
+        <div id="activitesBlocks"></div>
+      </div>
+    </section>
+
+    <!-- ── Quand ? ─────────────────────────────── -->
+    <section id="quand" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Situer dans le temps</div>
+        <h2 class="section-title">Quand ?</h2>
+        <p class="section-sub">Commencez la phrase par un repère de temps : ça sonne tout de suite plus naturel.</p>
+        <div class="card-grid" id="tempsList"></div>
+
+        <h2 class="section-title" style="margin-top:2rem;">Enchaîner</h2>
+        <p class="section-sub">Ces petits mots transforment une liste en histoire.</p>
+        <div class="card-grid" id="connecteursList"></div>
+
+        <div class="tip-box">
+          <div class="tip-label">💡 Para que suene natural</div>
+          Encadená dos o tres acciones en vez de decir una sola:
+          <span class="tb-ex"><b>Samedi</b>, je suis allé au marché. <b>Après</b>, j'ai cuisiné. <b>Et le soir</b>, j'ai regardé un film.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Dialogues ───────────────────────────── -->
+    <section id="dialogues" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">En situation</div>
+        <h2 class="section-title">Trois conversations</h2>
+        <p class="section-sub">Écoutez le dialogue complet, ou ligne par ligne.</p>
+        <div id="dialoguesBox"></div>
+
+        <div class="tip-box">
+          <div class="tip-label">💡 El « on » que vas a escuchar todo el tiempo</div>
+          En francés hablado, <b>on</b> reemplaza a <i>nous</i> para decir « nosotros », y se conjuga como <i>il/elle</i>:
+          <span class="tb-ex"><b>On a</b> pris le thé = <i>tomamos el té</i>. &nbsp;·&nbsp; <b>On est</b> allés au cinéma = <i>fuimos al cine</i>.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Réagir ──────────────────────────────── -->
+    <section id="reagir" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">Tenir la conversation</div>
+        <h2 class="section-title">Demander et réagir</h2>
+        <p class="section-sub">La moitié de la conversation, c'est écouter et relancer.</p>
+        <div id="reagirBlocks"></div>
+      </div>
+    </section>
+
+    <!-- ── À toi ───────────────────────────────── -->
+    <section id="atoi" class="lesson-section">
+      <div class="wrap">
+        <div class="section-kicker">À vous</div>
+        <h2 class="section-title">Construis ta phrase</h2>
+        <p class="section-sub">Choisissez un moment et une activité : la phrase se construit toute seule.</p>
+
+        <div class="builder">
+          <div class="b-label">1 · Quand ?</div>
+          <div class="b-chips" id="bQuand"></div>
+          <div class="b-label">2 · Quoi ?</div>
+          <div class="b-chips" id="bQuoi"></div>
+          <div class="b-out" id="bOut">
+            <span class="b-sentence"><span class="b-placeholder">Choisissez un moment et une activité…</span></span>
+          </div>
+          <div class="b-actions">
+            <button class="btn-soft" id="bRandom">🎲 Au hasard</button>
+            <button class="btn-soft" id="bClear">Effacer</button>
+          </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top:2.5rem;">Deux petits contrôles</h2>
+        <p class="section-sub">Les deux seules choses qu'il faut vraiment retenir.</p>
+
+        <!-- Ex 1 -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">1</span>
+            <span class="ex-title">Je suis ou j'ai ?</span>
+            <span class="ex-instr">Choisis l'auxiliaire</span>
+          </div>
+          <div class="ex-body" id="ex1-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkMC('ex1')">Vérifier</button>
+            <button class="btn-soft" onclick="resetMC('ex1')">Réinitialiser</button>
+            <span class="score-chip" id="ex1-score"></span>
+          </div>
+        </div>
+
+        <!-- Ex 2 -->
+        <div class="ex-card">
+          <div class="ex-head">
+            <span class="ex-num">2</span>
+            <span class="ex-title">Visiter ou rendre visite ?</span>
+            <span class="ex-instr">Lieu ou personne ?</span>
+          </div>
+          <div class="ex-body" id="ex2-body"></div>
+          <div class="ex-foot">
+            <button class="btn-check" onclick="checkMC('ex2')">Vérifier</button>
+            <button class="btn-soft" onclick="resetMC('ex2')">Réinitialiser</button>
+            <span class="score-chip" id="ex2-score"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════ FOOTER ═══════════════════════════════════════ -->
+  <footer>
+    <p class="colophon">Situations A1–A2 · <em>Raconter son week-end</em>. Audio via Web Speech API / Google TTS. Fuente : notas de clase del 31/8.</p>
+  </footer>
+
+  <div class="audio-status" id="audioStatus"></div>
+
+  <script src="../../shared.js"></script>
+  <script>
+  /* ══════════════════════════════════════════════════════
+     DATOS — inline (sin fetch, funciona con file://)
+     Fuente: notas de clase del 31/8 + ampliación.
+  ══════════════════════════════════════════════════════ */
+
+  // Auxiliaire ÊTRE — déplacements, changements d'état, verbes en me/te/se
+  const ETRE = [
+    ["Je suis allé(e) au cinéma.",        "Fui al cine."],
+    ["Je suis allé(e) chez ma mère.",     "Fui a lo de mi mamá."],
+    ["Je suis resté(e) à la maison.",     "Me quedé en casa."],
+    ["Je suis sorti(e) avec des amis.",   "Salí con amigos."],
+    ["Je suis parti(e) à la campagne.",   "Me fui al campo."],
+    ["Je suis rentré(e) tard.",           "Volví tarde."],
+    ["Je suis passé(e) chez mon frère.",  "Pasé por lo de mi hermano."],
+    ["Je me suis reposé(e).",             "Descansé."],
+    ["Je me suis promené(e) dans le parc.","Paseé por el parque."],
+    ["Je me suis levé(e) tard.",          "Me levanté tarde."]
+  ];
+
+  // Auxiliaire AVOIR — tout le reste
+  const AVOIR = [
+    ["J'ai fait un barbecue.",            "Hice un asado."],
+    ["J'ai rendu visite à ma mère.",      "Visité a mi mamá."],
+    ["J'ai mangé au restaurant.",         "Comí en un restaurante."],
+    ["J'ai pris le thé avec elle.",       "Tomé el té con ella."],
+    ["J'ai vu un film.",                  "Vi una película."],
+    ["J'ai travaillé un peu.",            "Trabajé un poco."],
+    ["J'ai dormi toute la matinée.",      "Dormí toda la mañana."],
+    ["J'ai cuisiné pour mes amis.",       "Cociné para mis amigos."],
+    ["J'ai lu un livre.",                 "Leí un libro."],
+    ["J'ai passé un bon moment.",         "La pasé muy bien."]
+  ];
+
+  // Le piège visiter / rendre visite
+  const VISITER = [
+    ["J'ai <b>visité</b> un musée.",              "Visité un museo. → lugar"],
+    ["J'ai <b>visité</b> la ville.",              "Visité la ciudad. → lugar"],
+    ["J'ai <b>rendu visite à</b> ma mère.",       "Visité a mi mamá. → persona"],
+    ["J'ai <b>rendu visite à</b> mes grands-parents.", "Visité a mis abuelos. → persona"]
+  ];
+
+  // Banque d'activités par thème
+  const ACTIVITES = [
+    ["À la maison", [
+      ["J'ai regardé une série.",        "Miré una serie."],
+      ["J'ai écouté de la musique.",     "Escuché música."],
+      ["J'ai fait le ménage.",           "Limpié la casa."],
+      ["J'ai cuisiné.",                  "Cociné."],
+      ["J'ai jardiné.",                  "Trabajé en el jardín."],
+      ["Je n'ai rien fait !",            "¡No hice nada!"]
+    ]],
+    ["Manger et boire", [
+      ["J'ai fait un barbecue.",         "Hice un asado."],
+      ["J'ai pris le thé.",              "Tomé el té."],
+      ["J'ai pris un café avec un ami.", "Tomé un café con un amigo."],
+      ["J'ai dîné au restaurant.",       "Cené en un restaurante."],
+      ["J'ai déjeuné en famille.",       "Almorcé en familia."],
+      ["On a mangé une pizza.",          "Comimos una pizza."]
+    ]],
+    ["Avec des gens", [
+      ["J'ai rendu visite à ma famille.","Visité a mi familia."],
+      ["J'ai vu des amis.",              "Vi a unos amigos."],
+      ["J'ai appelé mes parents.",       "Llamé a mis padres."],
+      ["On a fêté un anniversaire.",     "Festejamos un cumpleaños."],
+      ["J'ai rencontré des gens sympas.","Conocí gente copada."]
+    ]],
+    ["Dehors et en ville", [
+      ["Je suis allé(e) au marché.",     "Fui a la feria."],
+      ["J'ai fait les courses.",         "Hice las compras."],
+      ["Je me suis promené(e).",         "Salí a caminar."],
+      ["J'ai fait du sport.",            "Hice deporte."],
+      ["J'ai joué au foot.",             "Jugué al fútbol."],
+      ["Je suis allé(e) à la plage.",    "Fui a la playa."],
+      ["J'ai visité une exposition.",    "Visité una muestra."]
+    ]]
+  ];
+
+  // Marqueurs de temps
+  const TEMPS = [
+    ["ce week-end",          "este fin de semana"],
+    ["le week-end dernier",  "el finde pasado"],
+    ["samedi",               "el sábado"],
+    ["dimanche",             "el domingo"],
+    ["samedi matin",         "el sábado a la mañana"],
+    ["samedi après-midi",    "el sábado a la tarde"],
+    ["samedi soir",          "el sábado a la noche"],
+    ["hier",                 "ayer"],
+    ["avant-hier",           "anteayer"],
+    ["la semaine dernière",  "la semana pasada"],
+    ["il y a deux jours",    "hace dos días"],
+    ["toute la journée",     "todo el día"]
+  ];
+
+  const CONNECTEURS = [
+    ["D'abord…",     "Primero…"],
+    ["Après…",       "Después…"],
+    ["Ensuite…",     "Luego…"],
+    ["Et puis…",     "Y después…"],
+    ["Enfin…",       "Al final…"],
+    ["Le soir…",     "A la noche…"]
+  ];
+
+  // Dialogues
+  const DIALOGUES = [
+    { titre: "Chez ma mère", lignes: [
+      ["A", "Salut ! Tu as passé un bon week-end ?",            "¡Hola! ¿Pasaste un buen fin de semana?"],
+      ["B", "Oui, très bon. Samedi, j'ai rendu visite à ma mère.", "Sí, muy bueno. El sábado visité a mi mamá."],
+      ["A", "Ah, c'est gentil ! Vous avez fait quoi ?",         "¡Ah, qué lindo! ¿Qué hicieron?"],
+      ["B", "On a pris le thé et on a parlé pendant des heures.","Tomamos el té y hablamos durante horas."],
+      ["A", "Super ! Et dimanche ?",                            "¡Genial! ¿Y el domingo?"],
+      ["B", "Dimanche, je me suis reposé. Pas grand-chose !",   "El domingo descansé. ¡Nada del otro mundo!"]
+    ]},
+    { titre: "Le barbecue", lignes: [
+      ["A", "Qu'est-ce que tu as fait samedi ?",                "¿Qué hiciste el sábado?"],
+      ["B", "J'ai fait un barbecue chez des amis.",             "Hice un asado en lo de unos amigos."],
+      ["A", "Quelle chance ! C'était bien ?",                   "¡Qué suerte! ¿Estuvo bueno?"],
+      ["B", "Excellent. On a mangé, on a bu, on a beaucoup ri.","Excelente. Comimos, tomamos, nos reímos mucho."],
+      ["A", "Tu es rentré à quelle heure ?",                    "¿A qué hora volviste?"],
+      ["B", "Très tard ! Je me suis couché à trois heures.",    "¡Muy tarde! Me acosté a las tres."]
+    ]},
+    { titre: "Un week-end tranquille", lignes: [
+      ["A", "Et toi, tu as fait quoi dimanche ?",               "Y vos, ¿qué hiciste el domingo?"],
+      ["B", "Pas grand-chose. Je suis resté à la maison.",      "Nada del otro mundo. Me quedé en casa."],
+      ["A", "Ah bon ?",                                         "¿Ah sí?"],
+      ["B", "Oui. J'ai regardé une série, j'ai lu un peu, et j'ai dormi !", "Sí. Miré una serie, leí un poco, ¡y dormí!"],
+      ["A", "C'était tranquille, alors.",                       "Estuvo tranquilo, entonces."],
+      ["B", "Exactement. Comme d'habitude !",                   "Exactamente. ¡Como siempre!"]
+    ]}
+  ];
+
+  // Demander et réagir
+  const REAGIR = [
+    ["Poser la question", [
+      ["Qu'est-ce que tu as fait ce week-end ?", "¿Qué hiciste este fin de semana?"],
+      ["Tu as passé un bon week-end ?",          "¿Pasaste un buen finde?"],
+      ["Tu as fait quoi samedi ?",               "¿Qué hiciste el sábado?"],
+      ["Tu es allé(e) où ?",                     "¿Adónde fuiste?"],
+      ["Avec qui ?",                             "¿Con quién?"],
+      ["C'était comment ?",                      "¿Cómo estuvo?"],
+      ["Et toi ?",                               "¿Y vos?"]
+    ]],
+    ["Réagir", [
+      ["C'était super !",      "¡Estuvo genial!"],
+      ["C'était sympa.",       "Estuvo lindo."],
+      ["C'était tranquille.",  "Estuvo tranquilo."],
+      ["Quelle chance !",      "¡Qué suerte!"],
+      ["Ah bon ?",             "¿Ah sí?"],
+      ["C'est gentil !",       "¡Qué lindo!"],
+      ["Pas grand-chose.",     "Nada del otro mundo."],
+      ["Comme d'habitude !",   "¡Como siempre!"]
+    ]]
+  ];
+
+  /* ── Constructeur de phrase ── */
+  const B_QUAND = [
+    ["Samedi", "El sábado"], ["Dimanche", "El domingo"],
+    ["Samedi soir", "El sábado a la noche"], ["Hier", "Ayer"],
+    ["Ce week-end", "Este finde"], ["La semaine dernière", "La semana pasada"]
+  ];
+  const B_QUOI = [
+    ["je suis allé(e) au cinéma",        "fui al cine"],
+    ["je suis resté(e) à la maison",     "me quedé en casa"],
+    ["je me suis reposé(e)",             "descansé"],
+    ["j'ai fait un barbecue",            "hice un asado"],
+    ["j'ai rendu visite à ma mère",      "visité a mi mamá"],
+    ["j'ai visité un musée",             "visité un museo"],
+    ["j'ai pris le thé avec des amis",   "tomé el té con amigos"],
+    ["j'ai regardé une série",           "miré una serie"],
+    ["j'ai fait les courses",            "hice las compras"],
+    ["j'ai dormi toute la journée",      "dormí todo el día"]
+  ];
+
+  /* ══════════════════════════════════════════════════════
+     RENDER — helpers
+  ══════════════════════════════════════════════════════ */
+  // Quita el marcado y el "(e)" opcional para que el TTS no lea "paréntesis e"
+  function speakable(html) {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return tmp.textContent.replace(/\(e\)s?/g, '').replace(/\s+/g, ' ').trim();
+  }
+
+  function phraseRow(fr, es) {
+    const row = document.createElement('div');
+    row.className = 'phrase-row';
+    const txt = document.createElement('div');
+    txt.className = 'phrase-text';
+    txt.innerHTML = '<div class="phrase-fr">' + fr + '</div><div class="phrase-es">' + es + '</div>';
+    const btn = document.createElement('button');
+    btn.className = 'phrase-audio';
+    btn.textContent = '▶';
+    btn.title = 'Écouter';
+    btn.addEventListener('click', () => speak(speakable(fr), btn));
+    row.appendChild(txt); row.appendChild(btn);
+    return row;
+  }
+
+  function miniCard(fr, es) {
+    const card = document.createElement('div');
+    card.className = 'mini-card';
+    const txt = document.createElement('div');
+    txt.className = 'phrase-text';
+    txt.innerHTML = '<div class="phrase-fr">' + fr + '</div><div class="phrase-es">' + es + '</div>';
+    const btn = document.createElement('button');
+    btn.className = 'phrase-audio';
+    btn.textContent = '▶';
+    btn.title = 'Écouter';
+    btn.addEventListener('click', () => speak(speakable(fr), btn));
+    card.appendChild(txt); card.appendChild(btn);
+    return card;
+  }
+
+  function fillRows(targetId, arr) {
+    const box = document.getElementById(targetId);
+    arr.forEach(([fr, es]) => box.appendChild(phraseRow(fr, es)));
+  }
+
+  function fillCards(targetId, arr) {
+    const box = document.getElementById(targetId);
+    arr.forEach(([fr, es]) => box.appendChild(miniCard(fr, es)));
+  }
+
+  function renderThemes(targetId, blocks) {
+    const box = document.getElementById(targetId);
+    blocks.forEach(([label, items]) => {
+      const block = document.createElement('div');
+      block.className = 'theme-block';
+      const lab = document.createElement('div');
+      lab.className = 'theme-label';
+      lab.textContent = label;
+      const grid = document.createElement('div');
+      grid.className = 'card-grid';
+      items.forEach(([fr, es]) => grid.appendChild(miniCard(fr, es)));
+      block.appendChild(lab); block.appendChild(grid);
+      box.appendChild(block);
+    });
+  }
+
+  /* ── Dialogues ── */
+  function renderDialogues() {
+    const box = document.getElementById('dialoguesBox');
+    DIALOGUES.forEach((d, di) => {
+      const card = document.createElement('div');
+      card.className = 'dlg';
+
+      const head = document.createElement('div');
+      head.className = 'dlg-head';
+      head.innerHTML = '<span class="dlg-title">' + d.titre + '</span>';
+      const play = document.createElement('button');
+      play.className = 'dlg-play';
+      play.textContent = '▶ Tout écouter';
+      head.appendChild(play);
+
+      const body = document.createElement('div');
+      body.className = 'dlg-body';
+      d.lignes.forEach(([who, fr, es], li) => {
+        const line = document.createElement('div');
+        line.className = 'dlg-line dlg-' + who.toLowerCase();
+        line.id = 'dlg-' + di + '-' + li;
+        const txt = document.createElement('div');
+        txt.className = 'dlg-text';
+        txt.innerHTML = '<div class="dlg-fr">' + fr + '</div><div class="dlg-es">' + es + '</div>';
+        const btn = document.createElement('button');
+        btn.className = 'phrase-audio';
+        btn.textContent = '▶';
+        btn.title = 'Écouter';
+        btn.addEventListener('click', () => speak(speakable(fr), btn));
+        line.innerHTML = '<span class="dlg-who">' + who + '</span>';
+        line.appendChild(txt); line.appendChild(btn);
+        body.appendChild(line);
+      });
+
+      play.addEventListener('click', () => playDialogue(di, play));
+      card.appendChild(head); card.appendChild(body);
+      box.appendChild(card);
+    });
+  }
+
+  // Reproduce el diálogo línea por línea, resaltando la actual.
+  // Sin API de "fin de audio" fiable en ambos motores: se estima por longitud.
+  let dlgTimer = null;
+  function playDialogue(di, btn) {
+    if (dlgTimer) { clearTimeout(dlgTimer); dlgTimer = null; }
+    document.querySelectorAll('.dlg-line.speaking').forEach(l => l.classList.remove('speaking'));
+    const lignes = DIALOGUES[di].lignes;
+    let i = 0;
+    btn.textContent = '■ Stop';
+    const stop = () => {
+      if (dlgTimer) { clearTimeout(dlgTimer); dlgTimer = null; }
+      document.querySelectorAll('.dlg-line.speaking').forEach(l => l.classList.remove('speaking'));
+      btn.textContent = '▶ Tout écouter';
+      btn.onclick = () => playDialogue(di, btn);
+    };
+    btn.onclick = stop;
+
+    const step = () => {
+      document.querySelectorAll('.dlg-line.speaking').forEach(l => l.classList.remove('speaking'));
+      if (i >= lignes.length) { stop(); return; }
+      const el = document.getElementById('dlg-' + di + '-' + i);
+      if (el) el.classList.add('speaking');
+      const texte = speakable(lignes[i][1]);
+      speak(texte);
+      // ~75 ms por carácter + margen; suficiente para no pisar la línea siguiente
+      const wait = Math.max(1800, texte.length * 75 + 700);
+      i++;
+      dlgTimer = setTimeout(step, wait);
+    };
+    step();
+  }
+
+  /* ── Constructeur ── */
+  const bState = { quand: null, quoi: null };
+
+  function renderBuilder() {
+    const mk = (arr, target, key) => {
+      const box = document.getElementById(target);
+      arr.forEach((pair, i) => {
+        const chip = document.createElement('button');
+        chip.className = 'b-chip';
+        chip.textContent = pair[0];
+        chip.addEventListener('click', () => {
+          box.querySelectorAll('.b-chip').forEach(c => c.classList.remove('sel'));
+          chip.classList.add('sel');
+          bState[key] = i;
+          updateBuilder();
+        });
+        box.appendChild(chip);
+      });
+    };
+    mk(B_QUAND, 'bQuand', 'quand');
+    mk(B_QUOI,  'bQuoi',  'quoi');
+
+    document.getElementById('bRandom').addEventListener('click', () => {
+      const rq = Math.floor(Math.random() * B_QUAND.length);
+      const rw = Math.floor(Math.random() * B_QUOI.length);
+      pickChip('bQuand', rq, 'quand');
+      pickChip('bQuoi',  rw, 'quoi');
+      updateBuilder(true);
+    });
+    document.getElementById('bClear').addEventListener('click', () => {
+      bState.quand = null; bState.quoi = null;
+      document.querySelectorAll('.b-chip.sel').forEach(c => c.classList.remove('sel'));
+      updateBuilder();
+    });
+  }
+
+  function pickChip(boxId, idx, key) {
+    const box = document.getElementById(boxId);
+    const chips = box.querySelectorAll('.b-chip');
+    chips.forEach(c => c.classList.remove('sel'));
+    if (chips[idx]) chips[idx].classList.add('sel');
+    bState[key] = idx;
+  }
+
+  function updateBuilder(autoSpeak) {
+    const out = document.getElementById('bOut');
+    if (bState.quand === null || bState.quoi === null) {
+      out.className = 'b-out';
+      out.innerHTML = '<span class="b-sentence"><span class="b-placeholder">Choisissez un moment et une activité…</span></span>';
+      return;
+    }
+    const [qFr, qEs] = B_QUAND[bState.quand];
+    const [aFr, aEs] = B_QUOI[bState.quoi];
+    const phrase = qFr + ', ' + aFr + '.';
+    const es = qEs + ', ' + aEs + '.';
+    out.className = 'b-out ready';
+    out.innerHTML = '<span class="b-sentence">' + phrase + '<span class="b-es">' + es + '</span></span>';
+    const btn = document.createElement('button');
+    btn.className = 'phrase-audio';
+    btn.textContent = '▶';
+    btn.title = 'Écouter';
+    btn.addEventListener('click', () => speak(speakable(phrase), btn));
+    out.appendChild(btn);
+    if (autoSpeak) speak(speakable(phrase), btn);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EXERCICES — opción múltiple
+  ══════════════════════════════════════════════════════ */
+  const mcSets = {
+    ex1: {
+      scoreId: 'ex1-score',
+      data: [
+        { ltr:'a', opts:['je suis',"j'ai"], ans:'je suis', suf:'allé(e) au cinéma.' },
+        { ltr:'b', opts:['je suis',"j'ai"], ans:"j'ai",    suf:'mangé une pizza.' },
+        { ltr:'c', opts:['je suis',"j'ai"], ans:'je suis', suf:'resté(e) à la maison.' },
+        { ltr:'d', opts:['je suis',"j'ai"], ans:"j'ai",    suf:'fait un barbecue.' },
+        { ltr:'e', opts:['je suis',"j'ai"], ans:'je suis', suf:'sorti(e) avec des amis.' },
+        { ltr:'f', opts:['je suis',"j'ai"], ans:"j'ai",    suf:'rendu visite à ma tante.' },
+        { ltr:'g', opts:['je suis',"j'ai"], ans:'je suis', suf:'rentré(e) très tard.' },
+        { ltr:'h', opts:['je suis',"j'ai"], ans:"j'ai",    suf:'dormi toute la journée.' }
+      ]
+    },
+    ex2: {
+      scoreId: 'ex2-score',
+      data: [
+        { ltr:'a', pre:"J'ai",        opts:['visité','rendu visite'], ans:'visité',        suf:'le musée du Louvre.' },
+        { ltr:'b', pre:"J'ai",        opts:['visité','rendu visite'], ans:'rendu visite',  suf:'à mes grands-parents.' },
+        { ltr:'c', pre:'Nous avons',  opts:['visité','rendu visite'], ans:'visité',        suf:'Paris.' },
+        { ltr:'d', pre:'Elle a',      opts:['visité','rendu visite'], ans:'rendu visite',  suf:'à son amie Sophie.' },
+        { ltr:'e', pre:'Ils ont',     opts:['visité','rendu visite'], ans:'visité',        suf:'une exposition.' }
+      ]
+    }
+  };
+  const mcSel = { ex1:{}, ex2:{} };
+
+  function buildMC(id) {
+    const set = mcSets[id];
+    const body = document.getElementById(id + '-body');
+    body.innerHTML = '';
+    mcSel[id] = {};
+    set.data.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'mc-item';
+      row.innerHTML = '<span class="mc-prefix">' + item.ltr + '.</span>' +
+        (item.pre ? '<span class="mc-text">' + item.pre + '&nbsp;</span>' : '') +
+        '<span class="mc-opts" id="' + id + '-opts-' + item.ltr + '"></span>' +
+        '<span class="mc-text">&nbsp;' + item.suf + '</span>';
+      body.appendChild(row);
+      const optsEl = row.querySelector('#' + id + '-opts-' + item.ltr);
+      item.opts.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'mc-btn';
+        btn.textContent = opt;
+        btn.addEventListener('click', () => {
+          if (btn.disabled) return;
+          optsEl.querySelectorAll('.mc-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          mcSel[id][item.ltr] = opt;
+        });
+        optsEl.appendChild(btn);
+      });
+    });
+  }
+
+  function checkMC(id) {
+    const set = mcSets[id];
+    let correct = 0;
+    set.data.forEach(item => {
+      const optsEl = document.getElementById(id + '-opts-' + item.ltr);
+      optsEl.querySelectorAll('.mc-btn').forEach(btn => {
+        const isSelected = btn.classList.contains('selected');
+        const isAns = btn.textContent === item.ans;
+        btn.classList.remove('selected');
+        btn.disabled = true;
+        if (isAns)           { btn.classList.add('ok'); if (isSelected) correct++; }
+        else if (isSelected) { btn.classList.add('err'); }
+      });
+    });
+    const chip = document.getElementById(set.scoreId);
+    chip.textContent = correct + '/' + set.data.length;
+    chip.className = 'score-chip ' + (correct === set.data.length ? 'good' : 'bad');
+  }
+
+  function resetMC(id) {
+    buildMC(id);
+    const chip = document.getElementById(mcSets[id].scoreId);
+    chip.textContent = ''; chip.className = 'score-chip';
+  }
+
+  /* ══════════════════════════════════════════════════════
+     SCROLL SPY
+  ══════════════════════════════════════════════════════ */
+  function setupScrollSpy() {
+    const links = document.querySelectorAll('.nav-links a');
+    const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => obs.observe(s));
+  }
+
+  /* ══════════════════════════════════════════════════════
+     INIT
+  ══════════════════════════════════════════════════════ */
+  fillRows('etreList', ETRE);
+  fillRows('avoirList', AVOIR);
+  fillCards('visiterList', VISITER);
+  renderThemes('activitesBlocks', ACTIVITES);
+  fillCards('tempsList', TEMPS);
+  fillCards('connecteursList', CONNECTEURS);
+  renderDialogues();
+  renderThemes('reagirBlocks', REAGIR);
+  renderBuilder();
+  buildMC('ex1');
+  buildMC('ex2');
+  setupScrollSpy();
+  </script>
+</body>
+</html>
