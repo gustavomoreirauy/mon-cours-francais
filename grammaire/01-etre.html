@@ -774,6 +774,57 @@
 
     /* ── Volver a la portada (abajo) ────────── */
     footer .back-link { margin-top: 1.1rem; }
+  
+    /* ── Ayuda en español (glosas a demanda) ── */
+    .es-btn {
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      padding: 0.24rem 0.42rem;
+      border: 1.5px solid var(--rule);
+      border-radius: 2px;
+      background: var(--paper);
+      color: var(--ink-faint);
+      cursor: pointer;
+      transition: all .15s;
+      flex-shrink: 0;
+    }
+    .es-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .es-btn.on { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .es-row { display: flex; justify-content: flex-end; margin: -0.55rem 0 0.55rem; }
+    .ex-head .es-btn { margin-left: 0.6rem; }
+    .nav-es { margin-left: auto; }
+
+    .es-gloss {
+      display: none;
+      background: var(--bg-deep);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--primary);
+      border-radius: 3px;
+      padding: 0.7rem 0.95rem;
+      margin: 0 0 1rem;
+      font-family: var(--serif-body);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+    .es-gloss.show { display: block; }
+    .es-gloss b  { color: var(--ink); font-weight: 600; }
+    .es-gloss em { color: var(--primary); font-weight: 600; }
+    .es-gloss .es-tag {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+    .es-gloss.in-card { margin: 0; border-radius: 0; border-top: none; border-right: none; }
+    @media (max-width: 560px) { .ex-head .es-btn { margin-left: auto; } }
   </style>
 </head>
 <body>
@@ -805,6 +856,7 @@
         <li><a href="#exercices">Exercices</a></li>
         <li><a href="#vocabulaire">Vocabulaire</a></li>
       </ul>
+      <button type="button" class="es-btn nav-es" id="esToggle" title="Mostrar u ocultar todas las ayudas en español">ES</button>
     </div>
   </nav>
 
@@ -816,6 +868,7 @@
       <div class="intro-es">
         <div class="intro-es-label">🇪🇸 Para empezar</div>
         <p class="intro-es-body">En esta lección vas a trabajar con <em>être</em>, el equivalente francés de <strong>ser</strong> y <strong>estar</strong>. A diferencia del español, el francés usa un solo verbo para los dos. Es irregular, así que sus formas hay que memorizarlas, pero es tan frecuente que las vas a internalizar rápido. Verás tres usos principales — hablar de nacionalidad, profesión y descripción física o de carácter — y practicarás con 9 ejercicios interactivos.</p>
+        <p class="intro-es-body" style="margin-top:.55rem;">💡 Leé primero en francés. Si algo no se entiende, tocá el botón <strong>ES</strong> que hay en cada explicación y en cada ejercicio — te lo cuenta en español. El botón <strong>ES</strong> de la barra de arriba los abre o cierra todos de una vez. <em>Las frases de ejemplo y los ejercicios no se traducen a propósito</em>: ahí está el aprendizaje.</p>
       </div>
     </div>
 
@@ -901,7 +954,7 @@
         <h2 class="section-title">Pratique</h2>
 
         <!-- Ex 1 — Découpe les mots -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="«Découper» es <b>cortar</b>. La frase está escrita sin espacios: tocá entre las letras para marcar dónde termina cada palabra.">
           <div class="ex-head">
             <span class="ex-num">1</span>
             <div class="ex-meta">
@@ -922,7 +975,7 @@
         </div>
 
         <!-- Ex 2 — Entoure la bonne réponse -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="«Entourer» es <b>rodear con un círculo</b>. Acá simplemente tocá, de cada par, la opción correcta.">
           <div class="ex-head">
             <span class="ex-num">2</span>
             <div class="ex-meta">
@@ -940,7 +993,7 @@
         </div>
 
         <!-- Ex 3 — Écris la bonne réponse -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="Escribí en el espacio la forma correcta del verbo. Fijate en el sujeto para elegirla.">
           <div class="ex-head">
             <span class="ex-num">3</span>
             <div class="ex-meta">
@@ -958,7 +1011,7 @@
         </div>
 
         <!-- Ex 4 — Relie -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="«Relier» es <b>unir</b>. Tocá un pronombre y después la forma verbal que le corresponde.">
           <div class="ex-head">
             <span class="ex-num">4</span>
             <div class="ex-meta">
@@ -979,7 +1032,7 @@
         </div>
 
         <!-- Ex 5 — Complète avec être -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="Completá cada frase con la forma de <em>être</em> que corresponda al sujeto.">
           <div class="ex-head">
             <span class="ex-num">5</span>
             <div class="ex-meta">
@@ -996,7 +1049,7 @@
         </div>
 
         <!-- Ex 6 — Remets les phrases dans l'ordre -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="«Remettre dans l'ordre» es <b>ordenar</b>. Tocá las palabras en el orden correcto; si te equivocás, tocá una ya colocada para devolverla.">
           <div class="ex-head">
             <span class="ex-num">6</span>
             <div class="ex-meta">
@@ -1014,7 +1067,7 @@
         </div>
 
         <!-- Ex 7 — Associe questions et réponses -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="Asociá cada pregunta con su respuesta: tocá primero una respuesta y después la pregunta que le corresponde.">
           <div class="ex-head">
             <span class="ex-num">7</span>
             <div class="ex-meta">
@@ -1035,7 +1088,7 @@
         </div>
 
         <!-- Ex 8 — Réponds aux questions -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="Contestá que <b>sí</b>. Ojo con el sujeto: si la pregunta usa <em>tu</em>, la respuesta va en <em>je</em>; si usa <em>vous</em>, va en <em>nous</em>.">
           <div class="ex-head">
             <span class="ex-num">8</span>
             <div class="ex-meta">
@@ -1053,7 +1106,7 @@
         </div>
 
         <!-- Ex 9 — Phonétique -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="Acá no hay nada que escribir: tocá ▶ para escuchar cada frase y repetila en voz alta.">
           <div class="ex-head">
             <span class="ex-num">9</span>
             <div class="ex-meta">
@@ -1693,7 +1746,71 @@
     buildEx9();
     setupScrollSpy();
   });
-  </script>
+  
+  /* ══════════════════════════════════════════════════
+     AYUDA EN ESPAÑOL — glosas a demanda
+     Cada elemento con data-es recibe un botón "ES" que despliega
+     la explicación en español DEBAJO del texto francés (nunca
+     encima: primero se intenta en francés). Se usa clic, no hover,
+     para que funcione en celular.
+  ══════════════════════════════════════════════════ */
+  (function () {
+    var GLOSSES = [];
+
+    function setGloss(btn, gloss, show) {
+      gloss.classList.toggle('show', show);
+      btn.classList.toggle('on', show);
+      btn.setAttribute('aria-expanded', String(show));
+    }
+    function syncMaster() {
+      var shown = GLOSSES.filter(function (g) { return g.gloss.classList.contains('show'); }).length;
+      var m = document.getElementById('esToggle');
+      if (m) m.classList.toggle('on', shown === GLOSSES.length && shown > 0);
+    }
+    function toggleGloss(btn, gloss) {
+      setGloss(btn, gloss, !gloss.classList.contains('show'));
+      syncMaster();
+    }
+
+    document.querySelectorAll('[data-es]').forEach(function (el) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'es-btn';
+      btn.textContent = 'ES';
+      btn.title = 'Ver la explicación en español';
+      btn.setAttribute('aria-expanded', 'false');
+
+      var gloss = document.createElement('div');
+      gloss.className = 'es-gloss';
+      gloss.innerHTML = '<span class="es-tag">\uD83C\uDDEA\uD83C\uDDF8 En espa\u00f1ol</span>' + el.getAttribute('data-es');
+
+      if (el.classList.contains('ex-card')) {
+        var head = el.querySelector('.ex-head');
+        head.appendChild(btn);
+        gloss.classList.add('in-card');
+        head.insertAdjacentElement('afterend', gloss);
+      } else {
+        var row = document.createElement('div');
+        row.className = 'es-row';
+        row.appendChild(btn);
+        el.insertAdjacentElement('afterend', row);
+        row.insertAdjacentElement('afterend', gloss);
+      }
+
+      btn.addEventListener('click', function () { toggleGloss(btn, gloss); });
+      GLOSSES.push({ btn: btn, gloss: gloss });
+    });
+
+    var master = document.getElementById('esToggle');
+    if (master) {
+      master.addEventListener('click', function () {
+        var turnOn = GLOSSES.some(function (g) { return !g.gloss.classList.contains('show'); });
+        GLOSSES.forEach(function (g) { setGloss(g.btn, g.gloss, turnOn); });
+        syncMaster();
+      });
+    }
+  })();
+</script>
   <!-- Analytics: reemplazá gustavomoreirauy con el código de tu cuenta en goatcounter.com -->
   <script data-goatcounter="https://gustavomoreirauy.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 

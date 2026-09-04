@@ -406,6 +406,57 @@
 
     /* ── Volver a la portada (abajo) ────────── */
     footer .back-link { margin-top: 1.1rem; }
+  
+    /* ── Ayuda en español (glosas a demanda) ── */
+    .es-btn {
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      padding: 0.24rem 0.42rem;
+      border: 1.5px solid var(--rule);
+      border-radius: 2px;
+      background: var(--paper);
+      color: var(--ink-faint);
+      cursor: pointer;
+      transition: all .15s;
+      flex-shrink: 0;
+    }
+    .es-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .es-btn.on { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .es-row { display: flex; justify-content: flex-end; margin: -0.55rem 0 0.55rem; }
+    .ex-head .es-btn { margin-left: 0.6rem; }
+    .nav-es { margin-left: auto; }
+
+    .es-gloss {
+      display: none;
+      background: var(--bg-deep);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--primary);
+      border-radius: 3px;
+      padding: 0.7rem 0.95rem;
+      margin: 0 0 1rem;
+      font-family: var(--serif-body);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+    .es-gloss.show { display: block; }
+    .es-gloss b  { color: var(--ink); font-weight: 600; }
+    .es-gloss em { color: var(--primary); font-weight: 600; }
+    .es-gloss .es-tag {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+    .es-gloss.in-card { margin: 0; border-radius: 0; border-top: none; border-right: none; }
+    @media (max-width: 560px) { .ex-head .es-btn { margin-left: auto; } }
   </style>
 </head>
 
@@ -440,6 +491,7 @@
         <li><a href="#vocabulaire">Vocabulaire</a></li>
         <li><a href="#exercices">Exercices</a></li>
       </ul>
+      <button type="button" class="es-btn nav-es" id="esToggle" title="Mostrar u ocultar todas las ayudas en español">ES</button>
     </div>
   </nav>
 
@@ -451,6 +503,7 @@
       <div class="intro-es">
         <div class="intro-es-label">🇪🇸 Para empezar</div>
         <p class="intro-es-body">Los artículos indefinidos <em>un</em>, <em>une</em> y <em>des</em> son el equivalente de <strong>un</strong>, <strong>una</strong> y <strong>unos/unas</strong>. En francés hay que elegirlos según el <strong>género</strong> (masculino/femenino) y el <strong>número</strong> (singular/plural) del sustantivo: <em>un</em> garçon, <em>une</em> fille, <em>des</em> garçons. Ojo con dos cosas: el francés casi siempre pone un artículo delante del sustantivo (no se dice «J'ai stylo» sino «J'ai <em>un</em> stylo»), y en la <strong>negación</strong> el artículo cambia a <em>de</em> / <em>d'</em>. Tocá ▶ para escuchar los ejemplos.</p>
+        <p class="intro-es-body" style="margin-top:.55rem;">💡 Leé primero en francés. Si algo no se entiende, tocá el botón <strong>ES</strong> que hay en cada explicación y en cada ejercicio — te lo cuenta en español. El botón <strong>ES</strong> de la barra de arriba los abre o cierra todos de una vez. <em>Las frases de ejemplo y los ejercicios no se traducen a propósito</em>: ahí está el aprendizaje.</p>
       </div>
     </div>
 
@@ -471,7 +524,7 @@
           </tbody>
         </table>
 
-        <div class="rule-box">
+        <div class="rule-box" data-es="En francés <b>siempre</b> va un artículo delante del sustantivo. En español podés decir «tengo lápiz», en francés no: hay que decir <em>j'ai un stylo</em>.">
           Il y a <b>toujours</b> un article devant le nom.
           <span class="rb-ex"><del>J'ai stylo</del> → J'ai <em>un</em> stylo.</span>
           <span class="rb-ex"><del>J'ai stylos</del> → J'ai <em>des</em> stylos.</span>
@@ -491,13 +544,13 @@
         <h2 class="section-title">Le genre des noms</h2>
         <p class="section-sub">En français, chaque nom est masculin ou féminin.</p>
 
-        <div class="rule-box">
+        <div class="rule-box" data-es="Cada sustantivo es <b>masculino o femenino</b>, y va en <b>singular o plural</b>. El artículo cambia según esas dos cosas.">
           <span class="rb-ex"><em>Un</em> garçon, <em>un</em> homme sont <b>masculins</b>.</span>
           <span class="rb-ex"><em>Une</em> fille, <em>une</em> femme sont <b>féminins</b>.</span>
           <span class="rb-ex" style="margin-top:.6rem;">Et les noms sont soit au <b>singulier</b> (un garçon, une fille), soit au <b>pluriel</b> (des stylos).</span>
         </div>
 
-        <div class="attn-box">
+        <div class="attn-box" data-es="El género <b>no se puede adivinar</b> en la mayoría de los casos. Aprendé cada sustantivo <b>junto con su artículo</b>: no «crayon» sino «<em>un</em> crayon».">
           <div class="attn-label">⚠ Attention</div>
           Pour beaucoup de noms, il n'est <b>pas possible</b> de deviner s'ils sont masculins ou féminins. Il faut apprendre le nom <b>avec son article</b> :
           <b>un</b> crayon, <b>un</b> cartable, <b>un</b> livre… mais <b>une</b> table, <b>une</b> chaise, <b>une</b> règle.
@@ -512,7 +565,7 @@
         <h2 class="section-title">« Il y a »</h2>
         <p class="section-sub">Une expression impersonnelle pour dire ce qui existe.</p>
 
-        <div class="rule-box">
+        <div class="rule-box" data-es="<em>Il y a</em> significa <b>«hay»</b>. Sirve igual para singular y para plural, sin cambiar: <em>il y a un stylo</em> / <em>il y a des stylos</em>.">
           L'expression <em>il y a</em> est suivie d'un ou plusieurs noms, au singulier ou au pluriel.
         </div>
 
@@ -527,7 +580,7 @@
         <h2 class="section-title">La négation : un / une / des → de</h2>
         <p class="section-sub">À la forme négative, l'article indéfini disparaît.</p>
 
-        <div class="rule-box">
+        <div class="rule-box" data-es="Con el verbo en <b>negativo</b>, los indefinidos <em>un/une/des</em> se transforman en <em>de</em> — o <em>d'</em> delante de vocal o <em>h</em> muda. Esto no existe en español y es el error más común.">
           Quand le verbe est à la forme <b>négative</b>, les articles indéfinis deviennent <em>de</em> / <em>d'</em>.
           <span class="rb-ex">Tu as <em>un</em> cahier ? → Non, je n'ai pas <em>de</em> cahier.</span>
           <span class="rb-ex">Devant <b>a, e, i, o, u</b> et le <b>h muet</b> : <em>de</em> → <em>d'</em> (je n'ai pas <em>d'</em>oiseau).</span>
@@ -558,7 +611,7 @@
         <p class="section-sub">Cinq exercices interactifs. Vérifiez vos réponses.</p>
 
         <!-- Ex 1 — Entoure (mc) -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="«Entourer» es <b>rodear</b>. Elegí el artículo correcto para cada sustantivo.">
           <div class="ex-head">
             <span class="ex-num">1</span>
             <div class="ex-meta">
@@ -576,7 +629,7 @@
         </div>
 
         <!-- Ex 2 — Complète (un/des) -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="Completá cada frase con el artículo indefinido que corresponda al género y al número.">
           <div class="ex-head">
             <span class="ex-num">2</span>
             <div class="ex-meta">
@@ -594,7 +647,7 @@
         </div>
 
         <!-- Ex 3 — Dans la classe (un/une/des) -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="Elegí entre <em>un</em> (masculino singular), <em>une</em> (femenino singular) y <em>des</em> (plural).">
           <div class="ex-head">
             <span class="ex-num">3</span>
             <div class="ex-meta">
@@ -612,7 +665,7 @@
         </div>
 
         <!-- Ex 4 — Transforme au négatif (de/d') -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="Pasá la frase a la forma negativa. Acordate de la regla: <em>un/une/des</em> se transforman en <em>de</em>.">
           <div class="ex-head">
             <span class="ex-num">4</span>
             <div class="ex-meta">
@@ -630,7 +683,7 @@
         </div>
 
         <!-- Ex 5 — La famille de Lucy (un/une/des/de/d') -->
-        <div class="ex-card">
+        <div class="ex-card" data-es="El más difícil porque mezcla todo: si la frase es <b>negativa</b> va <em>de</em> (o <em>d'</em> delante de vocal); si es afirmativa, <em>un/une/des</em>.">
           <div class="ex-head">
             <span class="ex-num">5</span>
             <div class="ex-meta">
@@ -918,7 +971,71 @@
   buildFill(ex4Data);
   buildFill(ex5Data);
   setupScrollSpy();
-  </script>
+  
+  /* ══════════════════════════════════════════════════
+     AYUDA EN ESPAÑOL — glosas a demanda
+     Cada elemento con data-es recibe un botón "ES" que despliega
+     la explicación en español DEBAJO del texto francés (nunca
+     encima: primero se intenta en francés). Se usa clic, no hover,
+     para que funcione en celular.
+  ══════════════════════════════════════════════════ */
+  (function () {
+    var GLOSSES = [];
+
+    function setGloss(btn, gloss, show) {
+      gloss.classList.toggle('show', show);
+      btn.classList.toggle('on', show);
+      btn.setAttribute('aria-expanded', String(show));
+    }
+    function syncMaster() {
+      var shown = GLOSSES.filter(function (g) { return g.gloss.classList.contains('show'); }).length;
+      var m = document.getElementById('esToggle');
+      if (m) m.classList.toggle('on', shown === GLOSSES.length && shown > 0);
+    }
+    function toggleGloss(btn, gloss) {
+      setGloss(btn, gloss, !gloss.classList.contains('show'));
+      syncMaster();
+    }
+
+    document.querySelectorAll('[data-es]').forEach(function (el) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'es-btn';
+      btn.textContent = 'ES';
+      btn.title = 'Ver la explicación en español';
+      btn.setAttribute('aria-expanded', 'false');
+
+      var gloss = document.createElement('div');
+      gloss.className = 'es-gloss';
+      gloss.innerHTML = '<span class="es-tag">\uD83C\uDDEA\uD83C\uDDF8 En espa\u00f1ol</span>' + el.getAttribute('data-es');
+
+      if (el.classList.contains('ex-card')) {
+        var head = el.querySelector('.ex-head');
+        head.appendChild(btn);
+        gloss.classList.add('in-card');
+        head.insertAdjacentElement('afterend', gloss);
+      } else {
+        var row = document.createElement('div');
+        row.className = 'es-row';
+        row.appendChild(btn);
+        el.insertAdjacentElement('afterend', row);
+        row.insertAdjacentElement('afterend', gloss);
+      }
+
+      btn.addEventListener('click', function () { toggleGloss(btn, gloss); });
+      GLOSSES.push({ btn: btn, gloss: gloss });
+    });
+
+    var master = document.getElementById('esToggle');
+    if (master) {
+      master.addEventListener('click', function () {
+        var turnOn = GLOSSES.some(function (g) { return !g.gloss.classList.contains('show'); });
+        GLOSSES.forEach(function (g) { setGloss(g.btn, g.gloss, turnOn); });
+        syncMaster();
+      });
+    }
+  })();
+</script>
   <!-- Analytics: reemplazá gustavomoreirauy con el código de tu cuenta en goatcounter.com -->
   <script data-goatcounter="https://gustavomoreirauy.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 
