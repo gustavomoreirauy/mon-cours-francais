@@ -799,11 +799,29 @@
     .phrase-list { grid-template-columns: 1fr; }
   }
 
-</style>
+    /* ── Volver a la portada (arriba) ───────── */
+    header.hero .nav-back {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink-faint);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 1.1rem;
+      transition: color .2s, gap .2s;
+    }
+    header.hero .nav-back::before { content: "←"; }
+    header.hero .nav-back:hover { color: var(--page-accent); gap: 0.7rem; }
+  </style>
 </head>
 <body>
 
 <header class="hero">
+  <a href="../index.html" class="nav-back">Portada del curso</a>
   <div class="kicker">Reconocedor · Speech to Text</div>
   <h1 class="title">Hablá<br><em>en francés</em></h1>
   <p class="lede">
